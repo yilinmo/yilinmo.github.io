@@ -4,7 +4,6 @@
 #+LANGUAGE:  en
 #+OPTIONS:   H:4 num:nil toc:1 author:nil timestamp:nil tex:t 
 
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/readtheorg.css"/>
 #+HTML_HEAD:  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 #+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -16,6 +15,7 @@
 #+BEGIN_row
 
 #+BEGIN_col-md-4
+#+ATTR_HTML: :alt me-at-zion :class img-rounded :width 200 :height 300
 [[./image/zion.jpg]]
 #+END_col-md-4
 
@@ -44,7 +44,7 @@ Yilin Mo is an Assistant Professor in the School of Electrical and Electronic En
 ** Secure Control
 
 * Publications
-My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] Page and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
+My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
 
 #+INCLUDE: "./journal.org" :minlevel 2
 

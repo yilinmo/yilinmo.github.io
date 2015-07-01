@@ -383,11 +383,14 @@ table tr:nth-child(2n) td{
     background-color:white;
 }
 
+.figure {padding:0;}
+
 .figure p{
     color:#000;
     font:italic 85%/1 arial,sans-serif;
     padding:1em 0;
 }
+
 
 .rotate-90{
     -webkit-transform:rotate(90deg);

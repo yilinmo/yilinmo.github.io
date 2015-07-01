@@ -1,19 +1,19 @@
 * Journal Paper
-+ Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Conditionally Accepted
-+ Yilin Mo and Bruno Sinopoli, /On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks/, *IEEE Transactions on Automatic Control*, Accepted
-+ Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Schedule for Remote State Estimation/, *IEEE Transactions on Automatic Control*, Accepted
-+ Yilin Mo and Bruno Sinopoli, /Secure Estimation in the Presence of Integrity Attacks/, *IEEE Transactions on Automatic Control*, Apr 2015, Volume 60, Issue 4, Pages 1145-1151
-+ Yilin Mo, Sean Weerakkody and Bruno Sinopoli, /Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs/, *IEEE Control Systems Magazine*, Feb 2015, Volume 35, Issue 1, Pages 93-100
-+ Yilin Mo, Rohan Chabukswar and Bruno Sinopoli, /Detecting Integrity Attacks on SCADA Systems/, *IEEE Transactions on Control System Technology*, Feb 2015, Volume 35, Issue 1, Pages 93-100
-+ Kyriakos Vamvoudakis, Jo\atilde{}o Hespanha, Yilin Mo and Bruno Sinopoli, /Detection in Adversarial Environment/, *IEEE Transactions on Automatic Control, Special Issue on Control of Cyber-Physical Systems*, Dec 2014, Volume 59, Issue 12, Special Issue S1, Pages 3209-3223
-+ Yilin Mo, Emanuele Garone and Bruno Sinopoli, /On Infinite-Horizon Sensor Scheduling/, *System & Control Letters*, May 2014, Volume 67, Pages 65-70,
-+ Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli, /Robust Detection in the Presence of Integrity Attacks/, *IEEE Transactions on Signal Processing*, Jan 2014, Volume 62, Issue 1, Pages 31-43
-+ Qing-Shan Jia, Ling Shi, Yilin Mo and Bruno Sinopoli, /On Optimal Partial Broadcasting of Wireless Sensor Networks for Kalman Filtering/, *IEEE Transactions on Automatic Control*, March 2012, Volum 57, Issue 3, Pages 715-721
-+ Yilin Mo and Bruno Sinopoli, /Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value/, *IEEE Transactions on Automatic Control*, March 2012, Volume 57, Issue 3, Pages 677-689
-+ Yilin Mo, Tiffany Hyun-Jin Kim, Kenneth Brancik, Dona Dickinson, Heejo Lee, Adrian Perrig and Bruno Sinopoli, /Cyber-Physical Security of a Smart Grid Infrastructure/, *Proceedings of the IEEE, Special Issue on Cyber-Physical Systems*, Jan 2012, Volume 100, Pages 195-209
-+ Le Xie, Yilin Mo and Bruno Sinopoli, /Integrity Data Attacks in Power Market Operations/, *IEEE Transactions on Smart Grid*, Dec 2011, Volume 2, Issue 4, Pages 659-666
-+ Wei Wang, Yilin Mo, John A. Ozolek, Gustavo K. Rohde, /Penalized Fisher Discriminant Analysis and Its Application to Image-based Morphometry/, *Pattern Recognition Letters*, Nov 2011, Volume 32, Issue 15, Pages 2128-2135
-+ Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli, /Stochastic Sensor Scheduling for Energy Constrained Estimation in Multi-Hop Wireless Sensor Networks/, *IEEE Transactions on Automatic Control*, Oct 2011, Volume 56, Issue 10, Pages 2489-2495
-+ Yilin Mo, Roberto Ambrosino and Bruno Sinopoli, /Sensor selection strategies for state estimation in energy constrained wireless sensor networks/, *Automatica*, July 2011, Volume 47, Issue 7, Pages 1330-1338 
-+ Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli, /Sensor Scheduling over a Packet-Delaying Network/, *Automatica*, March 2011, Volume 47, Issue 5, Pages 1089-1092 
+1. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Conditionally Accepted
+2. Yilin Mo and Bruno Sinopoli, /On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks/, *IEEE Transactions on Automatic Control*, Accepted
+3. Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Schedule for Remote State Estimation/, *IEEE Transactions on Automatic Control*, Accepted
+4. Yilin Mo and Bruno Sinopoli, /Secure Estimation in the Presence of Integrity Attacks/, *IEEE Transactions on Automatic Control*, Apr 2015, Volume 60, Issue 4, Pages 1145-1151
+5. Yilin Mo, Sean Weerakkody and Bruno Sinopoli, /Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs/, *IEEE Control Systems Magazine*, Feb 2015, Volume 35, Issue 1, Pages 93-100
+6. Yilin Mo, Rohan Chabukswar and Bruno Sinopoli, /Detecting Integrity Attacks on SCADA Systems/, *IEEE Transactions on Control System Technology*, Feb 2015, Volume 35, Issue 1, Pages 93-100
+7. Kyriakos Vamvoudakis, Jo\atilde{}o Hespanha, Yilin Mo and Bruno Sinopoli, /Detection in Adversarial Environment/, *IEEE Transactions on Automatic Control, Special Issue on Control of Cyber-Physical Systems*, Dec 2014, Volume 59, Issue 12, Special Issue S1, Pages 3209-3223
+8. Yilin Mo, Emanuele Garone and Bruno Sinopoli, /On Infinite-Horizon Sensor Scheduling/, *System & Control Letters*, May 2014, Volume 67, Pages 65-70,
+9. Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli, /Robust Detection in the Presence of Integrity Attacks/, *IEEE Transactions on Signal Processing*, Jan 2014, Volume 62, Issue 1, Pages 31-43
+10. Qing-Shan Jia, Ling Shi, Yilin Mo and Bruno Sinopoli, /On Optimal Partial Broadcasting of Wireless Sensor Networks for Kalman Filtering/, *IEEE Transactions on Automatic Control*, March 2012, Volum 57, Issue 3, Pages 715-721
+11. Yilin Mo and Bruno Sinopoli, /Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value/, *IEEE Transactions on Automatic Control*, March 2012, Volume 57, Issue 3, Pages 677-689
+12. Yilin Mo, Tiffany Hyun-Jin Kim, Kenneth Brancik, Dona Dickinson, Heejo Lee, Adrian Perrig and Bruno Sinopoli, /Cyber-Physical Security of a Smart Grid Infrastructure/, *Proceedings of the IEEE, Special Issue on Cyber-Physical Systems*, Jan 2012, Volume 100, Pages 195-209
+13. Le Xie, Yilin Mo and Bruno Sinopoli, /Integrity Data Attacks in Power Market Operations/, *IEEE Transactions on Smart Grid*, Dec 2011, Volume 2, Issue 4, Pages 659-666
+14. Wei Wang, Yilin Mo, John A. Ozolek, Gustavo K. Rohde, /Penalized Fisher Discriminant Analysis and Its Application to Image-based Morphometry/, *Pattern Recognition Letters*, Nov 2011, Volume 32, Issue 15, Pages 2128-2135
+15. Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli, /Stochastic Sensor Scheduling for Energy Constrained Estimation in Multi-Hop Wireless Sensor Networks/, *IEEE Transactions on Automatic Control*, Oct 2011, Volume 56, Issue 10, Pages 2489-2495
+16. Yilin Mo, Roberto Ambrosino and Bruno Sinopoli, /Sensor selection strategies for state estimation in energy constrained wireless sensor networks/, *Automatica*, July 2011, Volume 47, Issue 7, Pages 1330-1338 
+17. Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli, /Sensor Scheduling over a Packet-Delaying Network/, *Automatica*, March 2011, Volume 47, Issue 5, Pages 1089-1092 
 
