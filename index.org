@@ -31,7 +31,6 @@ Assistant Professor
 [[http://www.ntu.edu.sg/][Nanyang Technological University]]
 
 Singapore
-
 #+END_col-md-8
 #+END_row
 
@@ -46,7 +45,7 @@ Yilin Mo is an Assistant Professor in the School of Electrical and Electronic En
 * Publications
 My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
 
-#+INCLUDE: "./journal.org" :minlevel 2
+#+INCLUDE: "./publication.org" :minlevel 2
 
 * Contact Me
 
