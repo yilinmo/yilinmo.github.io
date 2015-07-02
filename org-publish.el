@@ -3,7 +3,7 @@
 (setq org-publish-project-alist
       '(
 	("org-pages"
-	 :base-directory "~/homepage/"
+	 :base-directory "~/homepage/org/page/"
 	 :base-extension "org"
 	 :publishing-directory "~/homepage/"
 	 :recursive t

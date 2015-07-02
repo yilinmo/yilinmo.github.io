@@ -1,5 +1,0 @@
-* Research Interests
-
-** Networked Control System
-** Secure Control
-

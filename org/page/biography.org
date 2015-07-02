@@ -6,6 +6,4 @@ title: Biography
 ---
 #+END_HTML
 
-* Biography
-
 Yilin Mo is an Assistant Professor in the School of Electrical and Electronic Engineering at Nanyang Technological University. He received his Ph.D. In Electrical and Computer Engineering from Carnegie Mellon University in 2012 and his Bachelor of Engineering degree from Department of Automation, Tsinghua University in 2007. Prior to his current position, he was a postdoctoral scholar at Carnegie Mellon University in 2013 and California Institute of Technology from 2013 to 2015. His research interests include secure control systems and networked control systems, with applications in sensor networks and power grids.

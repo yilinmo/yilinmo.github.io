@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'I am an Assitant Professor at Nanyang Technologicial University, Singapore.'
+url:              http://yilinmo.github.io
+baseurl:          /
+
+author:
+  name:           'Yilin Mo'
+email:            ylmo@ntu.edu.sg
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/poole/hyde

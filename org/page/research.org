@@ -1,0 +1,12 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Research
+---
+#+END_HTML
+
+
+* Networked Control System
+* Secure Control
+

@@ -1,4 +1,10 @@
-* Contact Me
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Contact Me
+---
+#+END_HTML
 
 *Yilin Mo*
 
