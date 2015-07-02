@@ -1,15 +1,20 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
 #+BEGIN_HTML
 ---
-layout: page
-title: Contact Me
+layout: default
+title: Home
 ---
 #+END_HTML
 
 *Yilin Mo*
 
-School of Electrical and Electronic Engineering\\
-Nanyang Technological University\\
+Assistant Professor
+
+[[http://www.eee.ntu.edu.sg/Pages/Home.aspx][School of Electrical and Electronic Engineering]]\\
+[[http://www.ntu.edu.sg/Pages/home.aspx][Nanyang Technological University]]\\
+
+* Contact
+
 Building S1, Room B1c-104\\
 50 Nanyang Avenue, Singapore 639798\\
 Tel: (+65) 6790 4551\\
