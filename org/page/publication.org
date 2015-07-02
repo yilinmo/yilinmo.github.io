@@ -10,7 +10,7 @@ title: Publication
 My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
 
 * Journal Paper
-1. Yilin Mo and Richard M. Murray, /Privacy Preserving Average Consensus/, *IEEE Transactions on Automatic Control*, Submitted
+1. Yilin Mo and Richard M. Murray, [[file:./papers/tac-15-privacy.org][/Privacy Preserving Average Consensus/]], *IEEE Transactions on Automatic Control*, Submitted
 2. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Conditionally Accepted
 3. Yilin Mo and Bruno Sinopoli, /On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks/, *IEEE Transactions on Automatic Control*, Accepted
 4. Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Schedule for Remote State Estimation/, *IEEE Transactions on Automatic Control*, Accepted

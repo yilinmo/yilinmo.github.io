@@ -3,8 +3,6 @@ markdown:         redcarpet
 highlighter:      pygments
 
 # Permalinks
-permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Yilin Mo

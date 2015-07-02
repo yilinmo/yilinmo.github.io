@@ -1,0 +1,39 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Teaching
+---
+#+END_HTML
+* Fall 2014: CDS 270 --- Networked Control Systems
+------
+* Course Description
+
+Networked control systems are spatially distributed systems for which the communication between sensors, actuators and controllers is supported by communication networks. Recent advances in sensing, communication technologies and computer architecture have led to the rapid growth of cost effective and low power devices, which dramatically increases the adaptability, efficiency and functionality of the control systems. However, networked control systems also introduce new challenges, as the information becomes local to each node and the information sharing between nodes may subject to network effects such as packet drop or delay.
+
+In this course, we will review several recent advancements in networked control theory.  We first consider a centralized control scheme, where the communication between the sensor, the controller and the actuator is unreliable. We then move to distributed control schemes and analyze the consensus algorithm, as it is key for many distributed control applications. Next, we study the performance of a consensus-based distributed inference algorithm. Finally, we discuss the consensus algorithm in adversarial environment.
+
+* Pre-requisites
+  Undergraduate linear algebra, probability and signal processing, understanding of modern (state space) control theory
+
+* Handouts and Reference Materials
+
+| Course | Topic                                                      | Reading                                                                                                                |
+|--------+------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------|
+|      1 | Course Overview                                            | [[http://www.cds.caltech.edu/~murray/cdspanel/report/cdspanel-15aug02.pdf][Control in an Information Rich World]], [[file:../../public/cds270/lecture01.pdf][Notes]]                                                                             |
+|      2 | State Estimation, Kalman Filtering                         | [[http://www.cs.unc.edu/~welch/kalman/][Kalman Filtering]], [[file:../../public/cds270/lecture02.pdf][Notes]]                                                                                                 |
+|      3 | Functions of Symmetric Matrices                            | [[file:../../public/cds270/lecture03.pdf][Notes]]                                                                                                                  |
+|      4 | Estimation over Lossy Networks                             | [[file:../../public/cds270/lecture04.pdf][Notes]]                                                                                                                  |
+|      5 | Control Over Lossy Networks, Witsenhausen's counterexample | [[http://www.isr.umd.edu/~mcrotk/courses/references/counterexample.pdf ][Witsenhausen's paper]], [[http://users.ece.cmu.edu/~brunos/Publications/IEEE_proceedings_2006.pdf][Control over Lossy Networks]], [[file:../../public/cds270/lecture05.pdf][Notes]]                                                                 |
+|      6 | Sensor Selection                                           | [[http://web.stanford.edu/~boyd/papers/sensor_selection.html][Convex opt]], [[http://las.ethz.ch/files/krause12survey.pdf][Submodularity]], [[file:../../public/cds270/lecture06.pdf][Notes]]                                                                                         |
+|      7 | Event-based Estimation                                     | [[http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6760850][Event-triggered Estimation]], [[http://www.seas.ucla.edu/~tabuada/Papers/EventTriggered.pdf][Event-based Control]], [[file:../../public/cds270/lecture07.pdf][Notes]]                                                                   |
+|      8 | Average Consensus                                          | [[http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=4524051][Good Topology]], [[file:../../public/cds270/lecture08.pdf][Notes]]                                                                                                    |
+|      9 | Variants of Average Consensus                              | [[http://users.ece.cmu.edu/~soummyak/Asilomar_07_sub.pdf ][Consensus with Switching Topology and Channel Noise]], [[https://ece.uwaterloo.ca/~ssundara/papers/acc07_distcon.pdf][Finite Time Consensus]], [[http://arxiv.org/pdf/math/0701724.pdf][Finite Time Consensus(continuous time)]], [[file:../../public/cds270/lecture09.pdf][Notes]] |
+|     10 | Gossip Algorithm                                           | [[http://web.stanford.edu/~boyd/papers/gossip.html][Gossip paper]], [[http://www.jstor.org/discover/10.2307/2237962?uid=2&uid=4&sid=21104430055591][Products of Random Matrices]], [[file:../../public/cds270/lecture10.pdf][Notes]]                                                                         |
+|     11 | Large Deviation                                            | [[http://www.ifp.illinois.edu/~srikant/ECE567/Fall09/cramer-many-sources.pdf][Cramer's Theorem]]                                                                                                       |
+|     12 | Distributed Hypothesis Testing                             | [[http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5771607][Reference]], [[file:../../public/cds270/lecture12.pdf][Notes]]                                                                                                        |
+|     13 | Distributed Estimation                                     | [[http://www.cds.caltech.edu/~murray/wiki/index.php/CDS_270-4:_Distributed_Kalman_Filtering][References]], [[http://paduaresearch.cab.unipd.it/90/1/DistributedKalmanFiltering.pdf][Constant Gain Strategy]], [[file:../../public/cds270/lecture13.pdf][Notes]]                                                                                |
+|     14 | Nonnegative Matrices and Distributed Control               | [[http://www.math.harvard.edu/library/sternberg/slides/1180912pf.pdf][Perron-Frobenius theorem]], [[http://arxiv.org/pdf/1203.0047v3.pdf][Control of Positive System]], [[file:../../public/cds270/lecture14.pdf][Notes]]                                                              |
+|     15 | Generic Properties of Linear Structured Systems            | [[http://www.sciencedirect.com/science/article/pii/S0005109803001043][A Survey Paper]], [[file:../../public/cds270/lecture15.pdf][Notes]]                                                                                                   |
+|     16 | Secure Control: Intrusion Detection and Identification     | [[http://www.fabiopas.it/papers/FP-AB-FB-10a.pdf][Secure Consensus]], [[http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=16422][Fault Detection and Identification]], [[file:../../public/cds270/lecture16.pdf][Notes]]                                                              |
+
