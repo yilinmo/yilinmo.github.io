@@ -1,0 +1,51 @@
+---
+layout: post
+title: Interesting Properties of Discrete-time Algebraic Riccati Equation (DARE)
+---
+<hr  />
+<p>
+<i>This post serves as a test of emacs org-mode and jekyll static site generator.</i>
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Preliminary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+We will denote \(\mathbb S_n,\,\mathbb S_n^+,\mathbb S_n^{++}\) to be the set of all real symmetric matrices, the set of all positive semi-definite matrices and the set of all positive definite matrices respectively. For any two matrices \(A,\,B\in \mathbb S_n\), we call \(A \geq B\) (\(A > B\)) if \(A - B\) is positive semi-definite (positive definite). 
+</p>
+
+<p>
+Let \(A\in \mathbb R^{n\times n}\) and \(C \in \mathbb R^{m\times n}\) be two matrices. Further define \(Q \in \mathbb S_n\) and \(R\in\mathbb S_n\) to be two positive definite matrices. The DARE function \(g: \mathbb S_n^+\rightarrow\mathbb S_n^+\) is defined as
+</p>
+\begin{equation}
+\label{eq:riccati1}
+g(X) \triangleq \left[\left(A X A' + Q\right)^{-1} + C'R^{-1}C\right]^{-1}.
+\end{equation}
+
+<p>
+Using the matrix inversion lemma, we can write \(g\) as
+</p>
+\begin{equation}
+\label{eq:riccati2}
+g(X) = h(X) - h(X) C' \left(C h(X) C'+R\right)^{-1}Ch(X),
+\end{equation}
+<p>
+where \(h(X) = AXA' + Q\).
+</p>
+
+<p>
+From Equation \eqref{eq:riccati1}, we can see that \(g\) is monotonically increasing with respect to \(X\). 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Concavity of \(g\) with respect to \(X\)</h2>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Contraction Properties of \(g\)</h2>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">The fixed point \(X = g(X)\)</h2>
+</div>

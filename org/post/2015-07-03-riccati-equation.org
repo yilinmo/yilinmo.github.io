@@ -1,0 +1,32 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: post
+title: Interesting Properties of Discrete-time Algebraic Riccati Equation (DARE)
+---
+#+END_HTML
+-----
+/This post serves as a test of emacs org-mode and jekyll static site generator./
+
+* Preliminary
+We will denote $\mathbb S_n,\,\mathbb S_n^+,\mathbb S_n^{++}$ to be the set of all real symmetric matrices, the set of all positive semi-definite matrices and the set of all positive definite matrices respectively. For any two matrices $A,\,B\in \mathbb S_n$, we call $A \geq B$ ($A > B$) if $A - B$ is positive semi-definite (positive definite). 
+
+Let $A\in \mathbb R^{n\times n}$ and $C \in \mathbb R^{m\times n}$ be two matrices. Further define $Q \in \mathbb S_n$ and $R\in\mathbb S_n$ to be two positive definite matrices. The DARE function $g: \mathbb S_n^+\rightarrow\mathbb S_n^+$ is defined as
+\begin{equation}
+\label{eq:riccati1}
+g(X) \triangleq \left[\left(A X A' + Q\right)^{-1} + C'R^{-1}C\right]^{-1}.
+\end{equation}
+
+Using the matrix inversion lemma, we can write $g$ as
+\begin{equation}
+\label{eq:riccati2}
+g(X) = h(X) - h(X) C' \left(C h(X) C'+R\right)^{-1}Ch(X),
+\end{equation}
+where $h(X) = AXA' + Q$.
+
+From Equation \eqref{eq:riccati1}, we can see that $g$ is monotonically increasing with respect to $X$. 
+
+* Concavity of $g$ with respect to $X$
+* Contraction Properties of $g$
+
+* The fixed point $X = g(X)$

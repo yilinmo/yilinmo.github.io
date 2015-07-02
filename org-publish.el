@@ -27,5 +27,5 @@
 	 :recursive t
 	 :publishing-function org-publish-attachment
 	 )
-	("org" :components ("org-pages" "org-static"))
+	("org" :components ("org-pages" "org-posts" "org-static"))
 	))
