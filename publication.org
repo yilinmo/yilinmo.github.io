@@ -1,4 +1,7 @@
-* Journal Paper
+* Publications
+My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
+
+** Journal Paper
 1. Yilin Mo and Richard M. Murray, /Privacy Preserving Average Consensus/, *IEEE Transactions on Automatic Control*, Submitted
 2. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Conditionally Accepted
 3. Yilin Mo and Bruno Sinopoli, /On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks/, *IEEE Transactions on Automatic Control*, Accepted
@@ -18,7 +21,7 @@
 17. Yilin Mo, Roberto Ambrosino and Bruno Sinopoli, /Sensor selection strategies for state estimation in energy constrained wireless sensor networks/, *Automatica*, July 2011, Volume 47, Issue 7, Pages 1330-1338 
 18. Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli, /Sensor Scheduling over a Packet-Delaying Network/, *Automatica*, March 2011, Volume 47, Issue 5, Pages 1089-1092 
 
-* Conference Paper
+** Conference Paper
 1. Yilin Mo and Richard M. Murray, /Privacy Preserving Average Consensus/, *IEEE Conference on Decision and Control*, 2014
 2. Sean Weerakkody, Yilin Mo and Bruno Sinopoli, /Detecting Integrity Attacks on Control Systems Using Robust Physical Watermarking/, *IEEE Conference on Decision and Control*, 2014
 3. Xiaoqiang Ren, Yilin Mo and Ling Shi, /Optimal DoS Attack on Bayesian Quickest Change Detection/, *IEEE Conference on Decision and Control*, 2014

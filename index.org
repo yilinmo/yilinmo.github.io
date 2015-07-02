@@ -1,6 +1,5 @@
-#+TITLE:     Yilin Mo's Homepage
+#+TITLE:     Yilin Mo's Personal Website
 #+AUTHOR:    Yilin Mo
-#+EMAIL:     (concat "ylmo" at-sign "ntu.edu.sg")
 #+LANGUAGE:  en
 #+OPTIONS:   H:4 num:nil toc:1 author:nil timestamp:nil tex:t 
 
@@ -34,26 +33,3 @@ Singapore
 #+END_col-md-8
 #+END_row
 
-* Biography
-
-Yilin Mo is an Assistant Professor in the School of Electrical and Electronic Engineering at Nanyang Technological University. He received his Ph.D. In Electrical and Computer Engineering from Carnegie Mellon University in 2012 and his Bachelor of Engineering degree from Department of Automation, Tsinghua University in 2007. Prior to his current position, he was a postdoctoral scholar at Carnegie Mellon University in 2013 and California Institute of Technology from 2013 to 2015. His research interests include secure control systems and networked control systems, with applications in sensor networks and power grids.
-* Research Interests
-
-** Networked Control System
-** Secure Control
-
-* Publications
-My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
-
-#+INCLUDE: "./publication.org" :minlevel 2
-
-* Contact Me
-
-*Yilin Mo*
-
-School of Electrical and Electronic Engineering\\
-Nanyang Technological University\\
-Building S1, Room B1c-104\\
-50 Nanyang Avenue, Singapore 639798\\
-Tel: (+65) 6790 4551\\
-E-mail: [[mailto:ylmo@ntu.edu.sg][ylmo@ntu.edu.sg]]
