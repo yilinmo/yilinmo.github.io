@@ -1,3 +1,7 @@
 *~
 /_site/*
 *.swp
+/org/page/*.pdf
+/org/page/*.tex
+/org/post/*.pdf
+/org/post/*.tex
