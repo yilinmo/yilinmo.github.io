@@ -1,24 +1,14 @@
-#+TITLE:     Yilin Mo's Personal Website
-#+AUTHOR:    Yilin Mo
-#+LANGUAGE:  en
-#+OPTIONS:   H:4 num:nil toc:1 author:nil timestamp:nil tex:t 
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Home Page
+---
+#+END_HTML
 
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/readtheorg.css"/>
-#+HTML_HEAD:  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-#+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-#+HTML_HEAD:  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-#+HTML_MATHJAX: align:"left" mathml:t path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
------
-
-* Home
-#+BEGIN_row
-
-#+BEGIN_col-md-4
 #+ATTR_HTML: :alt me-at-zion :class img-rounded :width 200 :height 300
 [[./image/zion.jpg]]
-#+END_col-md-4
 
-#+BEGIN_col-md-8
 Yilin Mo, Ph.D.
 
 [[mailto:ylmo@ntu.edu.sg][ylmo@ntu.edu.sg]]
@@ -30,6 +20,4 @@ Assistant Professor
 [[http://www.ntu.edu.sg/][Nanyang Technological University]]
 
 Singapore
-#+END_col-md-8
-#+END_row
 
