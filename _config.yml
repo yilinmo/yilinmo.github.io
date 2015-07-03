@@ -15,5 +15,5 @@ author:
 email:            ylmo@ntu.edu.sg
 
 paginate:         5
-paginate_path:    "/blog/page:num"
+paginate_path:    "/notes/page:num"
 # Custom vars
