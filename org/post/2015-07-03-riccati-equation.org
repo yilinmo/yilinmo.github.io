@@ -10,27 +10,197 @@ comments: true
 /This post serves as a test of emacs org-mode and jekyll static site generator./
 
 * Preliminary
-We will denote $\mathbb S_n,\,\mathbb S_n^+,\mathbb S_n^{++}$ to be the set of all real symmetric matrices, the set of all positive semi-definite matrices and the set of all positive definite matrices respectively. For any two matrices $A,\,B\in \mathbb S_n$, we call $A \geq B$ ($A > B$) if $A - B$ is positive semi-definite (positive definite). 
-
-Let $A\in \mathbb R^{n\times n}$ and $C \in \mathbb R^{m\times n}$ be two matrices. Further define $Q \in \mathbb S_n$ and $R\in\mathbb S_n$ to be two positive definite matrices. The DARE function $g: \mathbb S_n^+\rightarrow\mathbb S_n^+$ is defined as
-\begin{equation}
-\label{eq:riccati1}
-g(X) \triangleq \left[\left(A X A' + Q\right)^{-1} + C'R^{-1}C\right]^{-1}.
-\end{equation}
-
-Using the matrix inversion lemma, we can write $g$ as
-\begin{equation}
-\label{eq:riccati2}
-g(X) = h(X) - h(X) C' \left(C h(X) C'+R\right)^{-1}Ch(X),
-\end{equation}
-where $h(X) = AXA' + Q$.
-
-From Equation \eqref{eq:riccati1}, we can see that $g$ is monotonically increasing with respect to $X$. 
-
+  We will denote $\mathbb S_n,\,\mathbb S_n^+,\mathbb S_n^{++}$ to be the set of all real symmetric matrices, the set of all positive semi-definite matrices and the set of all positive definite matrices respectively. For any two matrices $A,\,B\in \mathbb S_n$, we call $A \geq B$ ($A > B$) if $A - B$ is positive semi-definite (positive definite). 
+  
+  Let $A\in \mathbb R^{n\times n}$ and $C \in \mathbb R^{m\times n}$ be two matrices. Further define $Q \in \mathbb S_n$ and $R\in\mathbb S_n$ to be two positive definite matrices. The DARE function $g: \mathbb S_n^+\rightarrow\mathbb S_n^+$ is defined as
+  \begin{equation}
+  \label{eq:riccati1}
+  g(X) \triangleq \left[\left(A X A' + Q\right)^{-1} + C'R^{-1}C\right]^{-1}.
+  \end{equation}
+  
+  From Equation \eqref{eq:riccati1}, we can see that $g$ is monotonically increasing with respect to $X$. 
+  
+  Using the matrix inversion lemma, we can write $g$ as
+  \begin{equation}
+  \label{eq:riccati2}
+  g(X) = h(X) - h(X) C' \left(C h(X) C'+R\right)^{-1}Ch(X),
+  \end{equation}
+  where $h(X) = AXA' + Q$. For simplicity, we will define
+  \begin{equation}
+  \tilde g(X) = X - X C' \left(C X C'+R\right)^{-1}CX.
+  \end{equation}
+  Hence, $g = \tilde g \circ h$.
+  
 * Concavity of $g$ with respect to $X$
-
-
+  
+  We only need to show that $\tilde g$ is concave since $h$ is linear with respect to $X$. Consider the following function
+  \begin{align}
+  \label{eq:linear}
+  \phi (K,X) &\triangleq (I-KC) X (I-KC)' + KRK'\\
+  & = X - KCX - XC'K' + K(CXC'+R)K'.
+  \end{align}
+  
+  By completing the square, $\phi(K,X)$ can be rewritten as
+  \begin{equation}
+  \label{eq:linear2}
+  \phi(K,X) = \tilde g(X) + (K-K_*) (CXC'+R)^{-1}(K-K_*)',
+  \end{equation}
+  where $K_* = XC'(CXC'+R)^{-1}$. Therefore,
+  \begin{align}
+  \label{eq:riccatilinear}
+  \tilde g(X) = \min_{K} \phi(K,X).
+  \end{align}
+  Since $\phi(K,X)$ is linear with respect to $X$ for a fixed $K$, $\tilde g(X)$ is concave with respect to $X$.
+  
 * The fixed point $X = g(X)$
+  
+  It is well known that if the matrix pair $(A,C)$ is detectable, then the equation $X = g(X)$ has a unique positive definite solution, which we will denote as $X_*$.
+  
+  Let $X_0 = 0$ and denote $X_{k+1} = g(X_k)$. Clearly $X_0 \leq X_*$ and $X_0 \leq X_1$. Now apply $g$ on both sides of the inequalities, we have
+  \[
+  g(X_0) \leq g(X_*),\,g(X_0)\leq g(X_1).
+  \]
+  Notice that $g(X_0) = X_1,\,g(X_1) = X_2$ and $g(X_*) = X_*$. Therefore, we have the following chain of inequalities
+  \[
+  X_0 \leq X_1 \leq X_2 \leq \dots \leq X_*.
+  \]
+  
+  Since $\{X_k\}$ is an increasing sequence with an upper bound, $\{X_k\}$ has a limit, which we can denote as $X_\infty$. Now by the fact that $g$ is continuous, $X_\infty = g(X_\infty)$. Finally, be the fact that $X_*$ is the unique fixed point, we have that $X_\infty  = X_*$.
+  
+  Similar trick can be applied to the case where we can find an $X_1 = g(X) \leq X_0$. In that case, we know that $X_*$ must be no greater than $X_0$.
+  
+  Therefore, we can establish the equivalency of the following statements:
+  
+1) $X_* \leq P$
+2) There exists an $X_0 \leq P$, such that $X_1 = g(X_0) \leq X_0$.
+   
+We already proved that Statement 2 implies 1. On the other hand, if Statement 1 holds, then $X_* = g(X_*)\leq X_*$.
 
+Now if we define $S = X_0^{-1}$, then $X_0 \leq P$ is equivalent to $S \geq P^{-1}$. Moreover, $g(X_0)\leq X_0$ is equivalent to
+\begin{align}
+\label{eq:fixpointequivalence}
+(A X A' + Q)^{-1} + C'R^{-1}C \geq S
+\end{align}
+Using [[https://en.wikipedia.org/wiki/Woodbury_matrix_identity][matrix inversion lemma]] on the LFS of \eqref{eq:fixpointequivalence}, we have
+\[
+Q^{-1} - Q^{-1}A(S + A'Q^{-1}A)^{-1}A'Q^{-1} + C'R^{-1}C\geq S,
+\]
+which is equivalent to
+\begin{align}
+\label{eq:fixpointequivalence2}
+Q^{-1} - S + C'R^{-1}C \geq Q^{-1}A(S + A'Q^{-1}A)^{-1}A'Q^{-1}.
+\end{align}
+Now using [[https://en.wikipedia.org/wiki/Schur_complement][Schur's complement]], \eqref{eq:fixpointequivalence2} is equivalent to the following linear matrix inequality:
+\begin{align}
+\label{eq:lmi}
+\begin{bmatrix}
+Q^{-1} - S + C'R^{-1}C&Q^{-1}A\\
+A'Q^{-1}& S+A'Q^{-1}A
+\end{bmatrix} \geq 0.
+\end{align}
+As a result, the condition that $X_* \leq P$ is equivalent to \eqref{eq:lmi} and $S\geq P^{-1}$. Notice that the LFS of \eqref{eq:lmi} is linear with respect to $C'R^{-1}C$. This fact can leveraged for sensor placement problems.
+* [[https://en.wikipedia.org/wiki/Homography#Homographies_of_a_projective_line][Linear Fractional Transformations]] and Riccati Equation
+  
+  Consider the following functions: 
+  \begin{align}
+  \label{eq:linearfractional}
+  f_1(x) = \frac{a_1x+b_1}{c_1x+d_1}, f_2(x) = \frac{a_2x+b_2}{c_2x+d_2}.
+  \end{align}
+  Then 
+  \begin{align}
+  \label{eq:linearfractionalcomposition}
+  f_1(f_2(x)) &= \frac{a_1 \frac{a_2x+b_2}{c_2x+d_2} + b_1}{c_1 \frac{a_2x+b_2}{c_2x+d_2} + d_1}\\
+  &=\frac{(a_1a_2+b_1c_2)x + a_1b_2 + b_1d_2}{(c_1a_2+d_1c_2)x + c_1b_2 + d_1d_2}.
+  \end{align}
+  One important observation is that the coefficients on the numerator and the denominator can be computed via matrix multiplication:
+  \begin{align}
+  \begin{bmatrix}
+  a_1&b_1\\
+  c_1&d_1
+  \end{bmatrix}\times\begin{bmatrix}
+  a_2&b_2\\
+  c_2&d_2
+  \end{bmatrix} = \begin{bmatrix}
+  a_1a_2+b_1c_2&a_1b_2+b_1d_2\\
+  c_1a_2+d_1c_2&c_1b_2+d_1d_2
+  \end{bmatrix}.
+  \end{align}
 
-* Contraction Properties of $g$
+  We will now move to the case where $X$ is a matrix instead of just a scalar. Let us consider the following matrix:
+  \[
+  \Phi =  \begin{bmatrix}
+  \Phi_{11}&\Phi_{12} \\
+  \Phi_{21}&\Phi_{22} 
+  \end{bmatrix} \in \mathbb R^{2n\times 2n},
+  \]
+  where each $\Phi_{ij}\in \mathbb R^{n\times n}$. Define the following operator
+  \begin{align}
+  \label{eq:homographic}
+  F(\Phi,X) \triangleq (\Phi_{11}X+\Phi_{12})(\Phi_{21}X+\Phi_{22})^{-1}.
+  \end{align}
+  Similarly for any $\Phi_1,\,\Phi_2 \in \mathbb R^{2n\times 2n}$, we have
+  \begin{align}
+  \label{eq:homographiccomposition}
+  F(\Phi_1,F(\Phi_2,X)) = F(\Phi_1\Phi_2,X).
+  \end{align}
+
+  We now establish the link between linear fractional transformations and Riccati equations. We will assume that $A$ is invertible. As a result,
+  \begin{align}
+  \label{eq:riccatihomo}
+  g(X) = F(\Phi_g,X),
+  \end{align}
+  where
+  \begin{align}
+  \label{eq:Phimatrixg}
+  \Phi_g \triangleq \begin{bmatrix}
+  A&Q(A')^{-1} \\
+  C^TR^{-1}CA&(I+C^TR^{-1}CQ)(A')^{-1} \end{bmatrix}.
+  \end{align}
+  Hence, $g^{(n)}(X) = F(\Phi_g^n,X)$. 
+
+  An additional note: The $h$ function can also be written as
+  \begin{align}
+  \label{eq:lyapunovhomo}
+  h(X) = F(\Phi_h,X),
+  \end{align}
+  with
+  \begin{align}
+  \label{eq:Phimatrixh}
+  \Phi_h \triangleq \begin{bmatrix}
+  A & Q(A')^{-1}\\
+  &(A')^{-1}
+  \end{bmatrix}.
+  \end{align}
+
+* Contraction Property of Riccati Equation
+  We will simply state several key theorems in this [[http://epubs.siam.org/doi/abs/10.1137/0331041][paper]].
+
+  Consider the following function $\delta: \mathbb S_n^{++}\times \mathbb S_n^{++}\rightarrow \mathbb R$ defined as
+  \begin{align}
+  \label{eq:metric}
+  \delta(X,Y) = \sqrt{\sum_{i=1}^n \left(\log \lambda_i\right)^2},
+  \end{align}
+  where $\lambda_1,\dots,\lambda_n$ are the eigenvalues of $XY^{-1}$. One can prove that it is a metric on the space of $\mathbb S_n^{++}$. The main property of this metric is that it is invariant under conjugacy and inversion, i.e.,
+  \begin{align}
+  \label{eq:invariance}
+  \delta(X^{-1},Y^{-1}) =\delta(X,Y) = \delta (AXA',AYA').
+  \end{align}
+
+  Moreover, if a positive semi-definite matrix $P \geq 0$ and the smallest eigenvalue of $P$ is $\beta$, then
+  \begin{align}
+  \label{eq:contraction}
+  \delta(X+P,Y+P)\leq \frac{\alpha}{\alpha+\beta}\delta(X,Y) \leq \delta(X,Y).
+  \end{align}
+  where $\alpha$ is the largest eigenvalue of $X$ and $Y$.
+
+  Therefore, from \eqref{eq:riccati1}, we know that
+  \begin{align}
+  \label{eq:riccaticontraction}
+  \delta(g(X),g(Y))\leq \delta(X,Y). 
+  \end{align} 
+
+It can be further proved that if $(A,C)$ is observable, then there exists a $k$ and $0 < \rho < 1$, such that
+  \begin{align}
+  \label{eq:riccaticontraction2}
+  \delta(g^{(k)}(X),g^{(k)}(Y))\leq\rho \delta(X,Y). 
+  \end{align} 
