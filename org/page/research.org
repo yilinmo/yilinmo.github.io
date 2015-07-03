@@ -6,8 +6,7 @@ title: Research
 ---
 #+END_HTML
 
-
 * Networked Control System
- \[ x(k+1) = A x(k) + B u(k) + w(k)\]
+
 * Secure Control
 

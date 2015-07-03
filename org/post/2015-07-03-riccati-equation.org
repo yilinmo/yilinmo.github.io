@@ -2,7 +2,7 @@
 #+BEGIN_HTML
 ---
 layout: post
-title: Interesting Properties of Discrete-time Algebraic Riccati Equation (DARE)
+title: Properties of Discrete-time Algebraic Riccati Equation (DARE)
 comments: true
 ---
 #+END_HTML
@@ -28,6 +28,9 @@ where $h(X) = AXA' + Q$.
 From Equation \eqref{eq:riccati1}, we can see that $g$ is monotonically increasing with respect to $X$. 
 
 * Concavity of $g$ with respect to $X$
-* Contraction Properties of $g$
+
 
 * The fixed point $X = g(X)$
+
+
+* Contraction Properties of $g$
