@@ -61,8 +61,8 @@ html {
 }
 
 .sidebar img {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -76,8 +76,8 @@ html {
     text-align: left;
   }
   .sidebar img {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     margin-left: 0;
   }
 }
@@ -92,7 +92,11 @@ html {
   color: #fff;
   margin-top: 0;
   font-family: "Roboto Slab", serif;
-  font-size: 2.25rem;
+  font-size: 2rem;
+}
+
+.lead {
+  font-size: 1rem;
 }
 
 /* Sidebar nav */
