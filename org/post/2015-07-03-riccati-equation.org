@@ -144,7 +144,27 @@ As a result, the condition that $X_* \leq P$ is equivalent to \eqref{eq:lmi} and
   F(\Phi_1,F(\Phi_2,X)) = F(\Phi_1\Phi_2,X).
   \end{align}
 
-  We now establish the link between linear fractional transformations and Riccati equations. We will assume that $A$ is invertible. As a result,
+  We now establish the link between linear fractional transformations and Riccati equations. We will assume that $A$ is invertible. We know that
+
+  \begin{align}
+  \label{eq:riccatidecompose1}
+   AXA' &= F\left(\begin{bmatrix}
+A & 0\\
+0 & (A')^{-1}
+\end{bmatrix}, X\right),\\
+  \label{eq:riccatidecompose2}
+(X + Q)^{-1} &= F\left(\begin{bmatrix}
+0 & I\\
+I & Q 
+\end{bmatrix}, X\right),\\
+  \label{eq:riccatidecompose3}
+(X + C'R^{-1}C)^{-1} &= F\left(\begin{bmatrix}
+0 & I\\
+I & C'R^{-1}C 
+\end{bmatrix}, X\right).
+  \end{align}
+
+As a result, using \eqref{eq:homographiccomposition}, we have
   \begin{align}
   \label{eq:riccatihomo}
   g(X) = F(\Phi_g,X),
@@ -157,20 +177,6 @@ As a result, the condition that $X_* \leq P$ is equivalent to \eqref{eq:lmi} and
   C^TR^{-1}CA&(I+C^TR^{-1}CQ)(A')^{-1} \end{bmatrix}.
   \end{align}
   Hence, $g^{(n)}(X) = F(\Phi_g^n,X)$. 
-
-  An additional note: The $h$ function can also be written as
-  \begin{align}
-  \label{eq:lyapunovhomo}
-  h(X) = F(\Phi_h,X),
-  \end{align}
-  with
-  \begin{align}
-  \label{eq:Phimatrixh}
-  \Phi_h \triangleq \begin{bmatrix}
-  A & Q(A')^{-1}\\
-  &(A')^{-1}
-  \end{bmatrix}.
-  \end{align}
 
 * Contraction Property of Riccati Equation
   We will simply state several key theorems in this [[http://epubs.siam.org/doi/abs/10.1137/0331041][paper]].
@@ -193,13 +199,13 @@ As a result, the condition that $X_* \leq P$ is equivalent to \eqref{eq:lmi} and
   \end{align}
   where $\alpha$ is the largest eigenvalue of $X$ and $Y$.
 
-  Therefore, from \eqref{eq:riccati1}, we know that
+  Therefore, from \eqref{eq:riccatidecompose1}, \eqref{eq:riccatidecompose2} and \eqref{eq:riccatidecompose3} we know that
   \begin{align}
   \label{eq:riccaticontraction}
   \delta(g(X),g(Y))\leq \delta(X,Y). 
   \end{align} 
 
-It can be further proved that if $(A,C)$ is observable, then there exists a $k$ and $0 < \rho < 1$, such that
+  It can be further proved that if $(A,C)$ is observable, then there exists a $k$ and $0 < \rho < 1$, such that
   \begin{align}
   \label{eq:riccaticontraction2}
   \delta(g^{(k)}(X),g^{(k)}(Y))\leq\rho \delta(X,Y). 

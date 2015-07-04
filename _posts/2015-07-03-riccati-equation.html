@@ -209,7 +209,29 @@ F(\Phi_1,F(\Phi_2,X)) = F(\Phi_1\Phi_2,X).
 \end{align}
 
 <p>
-We now establish the link between linear fractional transformations and Riccati equations. We will assume that \(A\) is invertible. As a result,
+We now establish the link between linear fractional transformations and Riccati equations. We will assume that \(A\) is invertible. We know that
+</p>
+
+  \begin{align}
+  \label{eq:riccatidecompose1}
+   AXA' &= F\left(\begin{bmatrix}
+A & 0\\
+0 & (A')^{-1}
+\end{bmatrix}, X\right),\\
+  \label{eq:riccatidecompose2}
+(X + Q)^{-1} &= F\left(\begin{bmatrix}
+0 & I\\
+I & Q 
+\end{bmatrix}, X\right),\\
+  \label{eq:riccatidecompose3}
+(X + C'R^{-1}C)^{-1} &= F\left(\begin{bmatrix}
+0 & I\\
+I & C'R^{-1}C 
+\end{bmatrix}, X\right).
+  \end{align}
+
+<p>
+As a result, using \eqref{eq:homographiccomposition}, we have
 </p>
 \begin{align}
 \label{eq:riccatihomo}
@@ -227,24 +249,6 @@ C^TR^{-1}CA&(I+C^TR^{-1}CQ)(A')^{-1} \end{bmatrix}.
 <p>
 Hence, \(g^{(n)}(X) = F(\Phi_g^n,X)\). 
 </p>
-
-<p>
-An additional note: The \(h\) function can also be written as
-</p>
-\begin{align}
-\label{eq:lyapunovhomo}
-h(X) = F(\Phi_h,X),
-\end{align}
-<p>
-with
-</p>
-\begin{align}
-\label{eq:Phimatrixh}
-\Phi_h \triangleq \begin{bmatrix}
-A & Q(A')^{-1}\\
-&(A')^{-1}
-\end{bmatrix}.
-\end{align}
 </div>
 </div>
 
@@ -282,7 +286,7 @@ where \(\alpha\) is the largest eigenvalue of \(X\) and \(Y\).
 </p>
 
 <p>
-Therefore, from \eqref{eq:riccati1}, we know that
+Therefore, from \eqref{eq:riccatidecompose1}, \eqref{eq:riccatidecompose2} and \eqref{eq:riccatidecompose3} we know that
 </p>
 \begin{align}
 \label{eq:riccaticontraction}
