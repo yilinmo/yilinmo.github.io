@@ -1,0 +1,262 @@
+---
+layout: post
+title: How to Get Fair Results from a Biased Coin
+comments: true
+---
+<hr  />
+<p>
+<i>This is a test of org-babel.</i>
+</p>
+
+<p>
+Consider we have a biased coin, such that the probability of getting a head is \(P(H) = p\in(0,1)\) and the probability of getting a tail is \(P(T) = q = 1-p\), where \(p\) is unknown by us. However, different coin tosses are independent from each other. 
+</p>
+
+<p>
+Our goal is to generate a "fair" binary random variable \(X\), with distribution \(P(X = 0) = P(X=1) = 0.5\). One way to generate such a random variable is to:
+</p>
+<ol class="org-ol">
+<li>Toss the coin twice.
+</li>
+<li>If the result is <b>HT</b>, assign \(X = 0\). If the result is <b>TH</b>, assign \(X = 1\).
+</li>
+<li>If the result is either <b>HH</b> or <b>TT</b>, then discard the two coin tosses and go to step 1.
+</li>
+</ol>
+
+<p>
+The probability of making an <b>HH</b> or <b>TT</b> for two tosses is
+</p>
+\begin{align}
+\label{eq:failprobability}
+P(HH) + P(TT) = p^2 + q^2.
+\end{align} 
+
+<p>
+Therefore, the probability of finally getting <b>HT</b> (and thus setting \(X = 0\)) is<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</p>
+\begin{align}
+&P(HT) + \left(P(HH) + P(TT) \right)P(HT)\nonumber \\
+&+  \left(P(HH) + P(TT) \right)^2P(HT) +\dots\nonumber\\
+& = \frac{pq}{1-p^2-q^2} = \frac{1}{2}.
+\label{eq:zeroprobability}
+\end{align}
+<p>
+Similar, the probability of \(X = 1\) is \(0.5\) and hence we get a fail result from a biased coin.
+</p>
+
+<p>
+The expected number of coin tosses needed to generate \(X\) is
+</p>
+
+\begin{align}
+\label{eq:expectnum}
+\sum_{n=1}^\infty 2n(1-p^2-q^2)(p^2+q^2)^{n-1} = \frac{1}{pq}.
+\end{align}
+
+<p>
+Below is a python script for the coin toss algorithm:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #859900; font-weight: bold;">import</span> random
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">flipcoin</span>(p):
+<span class="linenr"> 4: </span>    <span style="color: #859900; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
+<span class="linenr"> 5: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'H'</span>
+<span class="linenr"> 6: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
+<span class="linenr"> 7: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'T'</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">check</span>(toss): <span style="color: #586e75;">#</span><span style="color: #586e75;">return s, where n = 2^s*(2t+1)</span>
+<span class="linenr">10: </span>    <span style="color: #859900; font-weight: bold;">if</span> toss == <span style="color: #2aa198;">'HT'</span>:
+<span class="linenr">11: </span>        <span style="color: #859900; font-weight: bold;">return</span> 0
+<span class="linenr">12: </span>    <span style="color: #859900; font-weight: bold;">elif</span> toss == <span style="color: #2aa198;">'TH'</span>:
+<span class="linenr">13: </span>        <span style="color: #859900; font-weight: bold;">return</span> 1
+<span class="linenr">14: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
+<span class="linenr">15: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #268bd2; font-weight: bold;">None</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>X = <span style="color: #268bd2; font-weight: bold;">None</span>
+<span class="linenr">18: </span>p = 0.5
+<span class="linenr">19: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Coin Toss Sequence: "</span>, end = <span style="color: #2aa198;">""</span>)
+<span class="linenr">20: </span><span style="color: #859900; font-weight: bold;">while</span> X <span style="color: #859900; font-weight: bold;">is</span> <span style="color: #268bd2; font-weight: bold;">None</span>:
+<span class="linenr">21: </span>    toss = flipcoin(p) + flipcoin(p)
+<span class="linenr">22: </span>    <span style="color: #859900; font-weight: bold;">print</span>(toss, end = <span style="color: #2aa198;">""</span>)
+<span class="linenr">23: </span>    X = check(toss)
+<span class="linenr">24: </span>
+<span class="linenr">25: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"\nX = "</span> + <span style="color: #839496; font-weight: bold;">str</span>(X))
+</pre>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">A More Efficient Algorithm</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The above algorithm is not every efficient in the sense that it wastes some coin tosses. To see this, consider the sequence <b>HHTT</b> and <b>TTHH</b>. Notice that they both occur with probability \(p^2q^2\) and thus we can map <b>HHTT</b> to \(X = 0\) and <b>TTHH</b> to \(X = 1\). However, in the above algorithm, both of the sequences will be discarded.
+</p>
+
+<p>
+To generalize this idea, we will define an \((n,m)\) sequence to be a coin toss sequence with \(n\) tosses and \(m\) heads. We know that all \((n,m)\) sequences will have the same probability \(p^m q^{n-m}\). Thus, if \(n\choose{m}\) is even, then we can map half of such sequences to \(0\) and the other half to \(1\). This will lead to a more efficient use of coin tosses.
+</p>
+
+<p>
+However, some sequences may terminate early. For example, there are \(6\) possible \((4,2)\) sequences. However, the sequences <b>HTHT</b> is not possible since we will stop coin tossing when we see the first two coin tosses: <b>HT</b>. In fact, <b>HHTT</b> and <b>TTHH</b> are the only \(4\) toss sequences with \(2\) heads.
+</p>
+
+<p>
+In order to take this early termination into account, let us define \(m(k)\) as the number of heads after \(k\)-th coin toss. Then the coin toss sequence of length \(n\) can be uniquely determined by \(m(1),\,m(2),\,\dots,\,m(n)\). Indeed, the \(k\)-th coin toss is <b>H</b> if \(m(k) - m(k-1) = 1\). It is <b>T</b> if \(m(k) -m(k-1) = 0\). <sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+</p>
+
+<p>
+We will call a \((n,m)\) sequence of to be valid if it does not terminate before the \(n\)-th toss<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>. In other words, for all \(k < n\), \(k\choose{m(k)}\) is odd. Let us define \(f(n,m)\) to be the number of valid \((n,m)\) sequences. 
+</p>
+
+<div class="theorem">
+<p>
+<b>Theorem 1</b>: \(f(n,m)\) is either \(0\), \(1\) or \(2\). Moreover, \(f(n,m)\) satisfies<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>:
+</p>
+<ol class="org-ol">
+<li>If \(f(n-1,m-1) = 1\) and \(f(n-1,m) = 1\), then \(f(n,m) = 2\).
+</li>
+<li>If \(f(n-1,m-1) + f(n-1,m)\) is odd, then \(f(n,m) = 1\).
+</li>
+<li>Otherwise \(f(n,m) = 0\).
+</li>
+</ol>
+
+</div>
+
+<p>
+The proof follows from the following facts:
+</p>
+<ul class="org-ul">
+<li>If a \((n,m)\) sequence is valid, then the first \(n-1\) tosses must be either a valid \((n-1,m-1)\) or a valid \((n-1,m)\) sequence.
+</li>
+<li>We will terminate our toss whenever \(f(n,m)\) is even.
+</li>
+</ul>
+
+<p>
+We can us the following code to generate a table of \(f(n,m)\). 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">table</span>(N):
+<span class="linenr"> 2: </span>  <span style="color: #268bd2;">fold</span> = [1,] <span style="color: #586e75;">#</span><span style="color: #586e75;">f(0,0) = 1</span>
+<span class="linenr"> 3: </span>  <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>)
+<span class="linenr"> 4: </span>  <span style="color: #859900; font-weight: bold;">for</span> n <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, N+1):
+<span class="linenr"> 5: </span>    <span style="color: #268bd2;">fnew</span> = [1,] <span style="color: #586e75;">#</span><span style="color: #586e75;">f(n,0) is always 1</span>
+<span class="linenr"> 6: </span>    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>, end=<span style="color: #2aa198;">' '</span>)
+<span class="linenr"> 7: </span>    <span style="color: #859900; font-weight: bold;">for</span> m <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, n):
+<span class="linenr"> 8: </span>      <span style="color: #859900; font-weight: bold;">if</span> fold[m-1] == 1 <span style="color: #859900; font-weight: bold;">and</span> fold[m] == 1:
+<span class="linenr"> 9: </span>        f = 2
+<span class="linenr">10: </span>      <span style="color: #859900; font-weight: bold;">elif</span> (fold[m-1]+fold[m])%2 == 1:
+<span class="linenr">11: </span>        f = 1
+<span class="linenr">12: </span>      <span style="color: #859900; font-weight: bold;">else</span>:
+<span class="linenr">13: </span>        f = 0
+<span class="linenr">14: </span>      fnew.append(f)
+<span class="linenr">15: </span>      <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #839496; font-weight: bold;">str</span>(f), end=<span style="color: #2aa198;">' '</span>)
+<span class="linenr">16: </span>    fnew.append(1) <span style="color: #586e75;">#</span><span style="color: #586e75;">f(n,n) is always 1</span>
+<span class="linenr">17: </span>    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>)
+<span class="linenr">18: </span>    fold = fnew
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>table(10)
+</pre>
+</div>
+
+<pre class="example">
+1
+1 1
+1 2 1
+1 1 1 1
+1 2 2 2 1
+1 1 0 0 1 1
+1 2 1 0 1 2 1
+1 1 1 1 1 1 1 1
+1 2 2 2 2 2 2 2 1
+1 1 0 0 0 0 0 0 1 1
+1 2 1 0 0 0 0 0 1 2 1
+</pre>
+
+<p>
+By Theorem 1, we know that if \(f(n,m) = 2\), then the last toss of the one valid \((n,m)\) sequence is <b>H</b> and the last toss of the other is <b>T</b>. Hence, our more efficient algorithm can be described as follows:
+</p>
+<ol class="org-ol">
+<li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the last toss is <b>T</b>. Assign \(X = 1\) if the last toss is <b>H</b>.
+</li>
+<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\).
+</li>
+</ol>
+
+<p>
+The algorithm can be implemented in the following code:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #859900; font-weight: bold;">import</span> random
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">flipcoin</span>(p):
+<span class="linenr"> 4: </span>    <span style="color: #859900; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
+<span class="linenr"> 5: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'H'</span>
+<span class="linenr"> 6: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
+<span class="linenr"> 7: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'T'</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">factor2</span>(n): <span style="color: #586e75;">#</span><span style="color: #586e75;">return s, where n = 2^s*(2t+1)</span>
+<span class="linenr">10: </span>    <span style="color: #859900; font-weight: bold;">if</span> n == 0: <span style="color: #859900; font-weight: bold;">return</span> 0
+<span class="linenr">11: </span>    s = 0;
+<span class="linenr">12: </span>    <span style="color: #859900; font-weight: bold;">while</span> n % 2 == 0:
+<span class="linenr">13: </span>        s = s + 1
+<span class="linenr">14: </span>        n = n / 2
+<span class="linenr">15: </span>    <span style="color: #859900; font-weight: bold;">return</span> s
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>p = 0.5
+<span class="linenr">18: </span>k = 0
+<span class="linenr">19: </span>m = 0
+<span class="linenr">20: </span>even = <span style="color: #268bd2; font-weight: bold;">False</span>
+<span class="linenr">21: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Coin Toss Sequence: "</span>, end = <span style="color: #2aa198;">""</span>)
+<span class="linenr">22: </span><span style="color: #859900; font-weight: bold;">while</span> even <span style="color: #859900; font-weight: bold;">is</span> <span style="color: #268bd2; font-weight: bold;">False</span>:
+<span class="linenr">23: </span>    toss = flipcoin(p)
+<span class="linenr">24: </span>    <span style="color: #859900; font-weight: bold;">print</span>(toss, end = <span style="color: #2aa198;">""</span>)
+<span class="linenr">25: </span>    k = k + 1
+<span class="linenr">26: </span>    <span style="color: #859900; font-weight: bold;">if</span> toss == <span style="color: #2aa198;">'H'</span>:
+<span class="linenr">27: </span>        m = m + 1
+<span class="linenr">28: </span>        X = 1
+<span class="linenr">29: </span>        <span style="color: #859900; font-weight: bold;">if</span> factor2(k) - factor2(m) &gt; 0: even = <span style="color: #268bd2; font-weight: bold;">True</span>
+<span class="linenr">30: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
+<span class="linenr">31: </span>        X = 0
+<span class="linenr">32: </span>        <span style="color: #859900; font-weight: bold;">if</span> factor2(k) - factor2(k-m) &gt; 0: even = <span style="color: #268bd2; font-weight: bold;">True</span>
+<span class="linenr">33: </span>
+<span class="linenr">34: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"\nX = "</span> + <span style="color: #839496; font-weight: bold;">str</span>(X))
+</pre>
+</div>
+
+<p>
+In the above code, we use the fact that
+</p>
+\begin{align}
+{ k\choose{m} }=  \frac{k}{k-m}{ {k-1}\choose{m} } =  \frac{k}{m}{ {k-1}\choose{m-1} }.
+\end{align}
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+Notice that \(p^2+q^2 = 1-2pq\).
+</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+We will define \(m(0) = 0\).
+</p></div>
+
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+However, it can terminate at the \(n\)-th toss.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
+We assume \(f(n,-1) = 0\) and \(f(n,n+1) = 0\).
+</p></div>
+
+
+</div>
+</div>

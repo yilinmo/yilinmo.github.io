@@ -1,0 +1,190 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t
+#+BEGIN_HTML
+---
+layout: post
+title: How to Get Fair Results from a Biased Coin
+comments: true
+---
+#+END_HTML
+-----
+/This is a test of org-babel./
+
+Consider we have a biased coin, such that the probability of getting a head is $P(H) = p\in(0,1)$ and the probability of getting a tail is $P(T) = q = 1-p$, where $p$ is unknown by us. However, different coin tosses are independent from each other. 
+
+Our goal is to generate a "fair" binary random variable $X$, with distribution $P(X = 0) = P(X=1) = 0.5$. One way to generate such a random variable is to:
+1. Toss the coin twice.
+2. If the result is *HT*, assign $X = 0$. If the result is *TH*, assign $X = 1$.
+3. If the result is either *HH* or *TT*, then discard the two coin tosses and go to step 1.
+
+The probability of making an *HH* or *TT* for two tosses is
+\begin{align}
+\label{eq:failprobability}
+P(HH) + P(TT) = p^2 + q^2.
+\end{align} 
+
+Therefore, the probability of finally getting *HT* (and thus setting $X = 0$) is[fn:1]
+\begin{align}
+&P(HT) + \left(P(HH) + P(TT) \right)P(HT)\nonumber \\
+&+  \left(P(HH) + P(TT) \right)^2P(HT) +\dots\nonumber\\
+& = \frac{pq}{1-p^2-q^2} = \frac{1}{2}.
+\label{eq:zeroprobability}
+\end{align}
+Similar, the probability of $X = 1$ is $0.5$ and hence we get a fail result from a biased coin.
+
+The expected number of coin tosses needed to generate $X$ is
+
+\begin{align}
+\label{eq:expectnum}
+\sum_{n=1}^\infty 2n(1-p^2-q^2)(p^2+q^2)^{n-1} = \frac{1}{pq}.
+\end{align}
+
+Below is a python script for the coin toss algorithm:
+#+begin_src python -n :results output 
+import random
+
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+        return 'H'
+    else:
+        return 'T'
+
+def check(toss): #return s, where n = 2^s*(2t+1)
+    if toss == 'HT':
+        return 0
+    elif toss == 'TH':
+        return 1
+    else:
+        return None
+
+X = None
+p = 0.5
+print("Coin Toss Sequence: ", end = "")
+while X is None:
+    toss = flipcoin(p) + flipcoin(p)
+    print(toss, end = "")
+    X = check(toss)
+ 
+print("\nX = " + str(X))
+#+end_src
+
+#+RESULTS:
+: Coin Toss Sequence: HHTTHHHHHHHT
+: X = 0
+
+* A More Efficient Algorithm
+
+The above algorithm is not every efficient in the sense that it wastes some coin tosses. To see this, consider the sequence *HHTT* and *TTHH*. Notice that they both occur with probability $p^2q^2$ and thus we can map *HHTT* to $X = 0$ and *TTHH* to $X = 1$. However, in the above algorithm, both of the sequences will be discarded.
+
+To generalize this idea, we will define an $(n,m)$ sequence to be a coin toss sequence with $n$ tosses and $m$ heads. We know that all $(n,m)$ sequences will have the same probability $p^m q^{n-m}$. Thus, if $n\choose{m}$ is even, then we can map half of such sequences to $0$ and the other half to $1$. This will lead to a more efficient use of coin tosses.
+
+However, some sequences may terminate early. For example, there are $6$ possible $(4,2)$ sequences. However, the sequences *HTHT* is not possible since we will stop coin tossing when we see the first two coin tosses: *HT*. In fact, *HHTT* and *TTHH* are the only $4$ toss sequences with $2$ heads.
+
+In order to take this early termination into account, let us define $m(k)$ as the number of heads after $k$-th coin toss. Then the coin toss sequence of length $n$ can be uniquely determined by $m(1),\,m(2),\,\dots,\,m(n)$. Indeed, the $k$-th coin toss is *H* if $m(k) - m(k-1) = 1$. It is *T* if $m(k) -m(k-1) = 0$. [fn:2]
+
+We will call a $(n,m)$ sequence of to be valid if it does not terminate before the $n$-th toss[fn:3]. In other words, for all $k < n$, $k\choose{m(k)}$ is odd. Let us define $f(n,m)$ to be the number of valid $(n,m)$ sequences. 
+
+#+BEGIN_THEOREM
+*Theorem 1*: $f(n,m)$ is either $0$, $1$ or $2$. Moreover, $f(n,m)$ satisfies[fn:4]:
+1. If $f(n-1,m-1) = 1$ and $f(n-1,m) = 1$, then $f(n,m) = 2$.
+2. If $f(n-1,m-1) + f(n-1,m)$ is odd, then $f(n,m) = 1$.
+3. Otherwise $f(n,m) = 0$.
+#+END_THEOREM
+
+The proof follows from the following facts:
+- If a $(n,m)$ sequence is valid, then the first $n-1$ tosses must be either a valid $(n-1,m-1)$ or a valid $(n-1,m)$ sequence.
+- We will terminate our toss whenever $f(n,m)$ is even.
+
+We can us the following code to generate a table of $f(n,m)$. 
+#+begin_src python -n :results output :exports both
+def table(N):
+  fold = [1,] #f(0,0) = 1
+  print('1')
+  for n in range(1, N+1):
+    fnew = [1,] #f(n,0) is always 1
+    print('1', end=' ')
+    for m in range(1, n):
+      if fold[m-1] == 1 and fold[m] == 1:
+        f = 2
+      elif (fold[m-1]+fold[m])%2 == 1:
+        f = 1
+      else:
+        f = 0
+      fnew.append(f)
+      print(str(f), end=' ')
+    fnew.append(1) #f(n,n) is always 1
+    print('1')
+    fold = fnew
+
+table(10)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+1
+1 1
+1 2 1
+1 1 1 1
+1 2 2 2 1
+1 1 0 0 1 1
+1 2 1 0 1 2 1
+1 1 1 1 1 1 1 1
+1 2 2 2 2 2 2 2 1
+1 1 0 0 0 0 0 0 1 1
+1 2 1 0 0 0 0 0 1 2 1
+#+end_example
+
+By Theorem 1, we know that if $f(n,m) = 2$, then the last toss of the one valid $(n,m)$ sequence is *H* and the last toss of the other is *T*. Hence, our more efficient algorithm can be described as follows:
+1. If $k\choose{m(k)}$ is even, then assign $X = 0$ if the last toss is *T*. Assign $X = 1$ if the last toss is *H*.
+2. If $k\choose{m(k)}$ is odd, then toss another coin and update $k$ and $m(k)$.
+
+The algorithm can be implemented in the following code:
+#+begin_src python -n :results output 
+import random
+
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+        return 'H'
+    else:
+        return 'T'
+
+def factor2(n): #return s, where n = 2^s*(2t+1)
+    if n == 0: return 0
+    s = 0;
+    while n % 2 == 0:
+        s = s + 1
+        n = n / 2
+    return s
+
+p = 0.5
+k = 0
+m = 0
+even = False
+print("Coin Toss Sequence: ", end = "")
+while even is False:
+    toss = flipcoin(p)
+    print(toss, end = "")
+    k = k + 1
+    if toss == 'H':
+        m = m + 1
+        X = 1
+        if factor2(k) - factor2(m) > 0: even = True
+    else:
+        X = 0
+        if factor2(k) - factor2(k-m) > 0: even = True
+
+print("\nX = " + str(X))
+#+end_src
+
+#+RESULTS:
+: Coin Toss Sequence: TTHH
+: X = 1
+
+In the above code, we use the fact that
+\begin{align}
+{ k\choose{m} }=  \frac{k}{k-m}{ {k-1}\choose{m} } =  \frac{k}{m}{ {k-1}\choose{m-1} }.
+\end{align}
+
+[fn:1] Notice that $p^2+q^2 = 1-2pq$.
+[fn:2] We will define $m(0) = 0$.
+[fn:3] However, it can terminate at the $n$-th toss.
+[fn:4] We assume $f(n,-1) = 0$ and $f(n,n+1) = 0$.
