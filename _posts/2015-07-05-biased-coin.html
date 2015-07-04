@@ -4,6 +4,7 @@ title: How to Get Fair Results from a Biased Coin
 comments: true
 ---
 <hr  />
+
 <p>
 <i>This is a test of org-babel.</i>
 </p>
@@ -16,7 +17,7 @@ Consider we have a biased coin, such that the probability of getting a head is \
 Our goal is to generate a "fair" binary random variable \(X\), with distribution \(P(X = 0) = P(X=1) = 0.5\). One way to generate such a random variable is to:
 </p>
 <ol class="org-ol">
-<li>Toss the coin twice.
+<li>Toss the coin twice. 
 </li>
 <li>If the result is <b>HT</b>, assign \(X = 0\). If the result is <b>TH</b>, assign \(X = 1\).
 </li>
@@ -57,35 +58,35 @@ The expected number of coin tosses needed to generate \(X\) is
 <p>
 Below is a python script for the coin toss algorithm:
 </p>
-<div class="org-src-container">
 
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #859900; font-weight: bold;">import</span> random
-<span class="linenr"> 2: </span>
-<span class="linenr"> 3: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">flipcoin</span>(p):
-<span class="linenr"> 4: </span>    <span style="color: #859900; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
-<span class="linenr"> 5: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'H'</span>
-<span class="linenr"> 6: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
-<span class="linenr"> 7: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'T'</span>
-<span class="linenr"> 8: </span>
-<span class="linenr"> 9: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">check</span>(toss): <span style="color: #586e75;">#</span><span style="color: #586e75;">return s, where n = 2^s*(2t+1)</span>
-<span class="linenr">10: </span>    <span style="color: #859900; font-weight: bold;">if</span> toss == <span style="color: #2aa198;">'HT'</span>:
-<span class="linenr">11: </span>        <span style="color: #859900; font-weight: bold;">return</span> 0
-<span class="linenr">12: </span>    <span style="color: #859900; font-weight: bold;">elif</span> toss == <span style="color: #2aa198;">'TH'</span>:
-<span class="linenr">13: </span>        <span style="color: #859900; font-weight: bold;">return</span> 1
-<span class="linenr">14: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
-<span class="linenr">15: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #268bd2; font-weight: bold;">None</span>
-<span class="linenr">16: </span>
-<span class="linenr">17: </span>X = <span style="color: #268bd2; font-weight: bold;">None</span>
-<span class="linenr">18: </span>p = 0.5
-<span class="linenr">19: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Coin Toss Sequence: "</span>, end = <span style="color: #2aa198;">""</span>)
-<span class="linenr">20: </span><span style="color: #859900; font-weight: bold;">while</span> X <span style="color: #859900; font-weight: bold;">is</span> <span style="color: #268bd2; font-weight: bold;">None</span>:
-<span class="linenr">21: </span>    toss = flipcoin(p) + flipcoin(p)
-<span class="linenr">22: </span>    <span style="color: #859900; font-weight: bold;">print</span>(toss, end = <span style="color: #2aa198;">""</span>)
-<span class="linenr">23: </span>    X = check(toss)
-<span class="linenr">24: </span>
-<span class="linenr">25: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"\nX = "</span> + <span style="color: #839496; font-weight: bold;">str</span>(X))
-</pre>
-</div>
+{% highlight python %}
+import random
+
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+	return 'H'
+    else:
+	return 'T'
+
+def check(toss): #return s, where n = 2^s*(2t+1)
+    if toss == 'HT':
+	return 0
+    elif toss == 'TH':
+	return 1
+    else:
+	return None
+
+X = None
+p = 0.5
+print("Coin Toss Sequence: ", end = "")
+while X is None:
+    toss = flipcoin(p) + flipcoin(p)
+    print(toss, end = "")
+    X = check(toss)
+
+print("\nX = " + str(X))
+
+{% endhighlight %}
 
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">A More Efficient Algorithm</h2>
@@ -138,30 +139,29 @@ The proof follows from the following facts:
 <p>
 We can us the following code to generate a table of \(f(n,m)\). 
 </p>
-<div class="org-src-container">
+{% highlight python %}
+def table(N):
+  fold = [1,] #f(0,0) = 1
+  print('1')
+  for n in range(1, N+1):
+    fnew = [1,] #f(n,0) is always 1
+    print('1', end=' ')
+    for m in range(1, n):
+      if fold[m-1] == 1 and fold[m] == 1:
+	f = 2
+      elif (fold[m-1]+fold[m])%2 == 1:
+	f = 1
+      else:
+	f = 0
+      fnew.append(f)
+      print(str(f), end=' ')
+    fnew.append(1) #f(n,n) is always 1
+    print('1')
+    fold = fnew
 
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">table</span>(N):
-<span class="linenr"> 2: </span>  <span style="color: #268bd2;">fold</span> = [1,] <span style="color: #586e75;">#</span><span style="color: #586e75;">f(0,0) = 1</span>
-<span class="linenr"> 3: </span>  <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>)
-<span class="linenr"> 4: </span>  <span style="color: #859900; font-weight: bold;">for</span> n <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, N+1):
-<span class="linenr"> 5: </span>    <span style="color: #268bd2;">fnew</span> = [1,] <span style="color: #586e75;">#</span><span style="color: #586e75;">f(n,0) is always 1</span>
-<span class="linenr"> 6: </span>    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>, end=<span style="color: #2aa198;">' '</span>)
-<span class="linenr"> 7: </span>    <span style="color: #859900; font-weight: bold;">for</span> m <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, n):
-<span class="linenr"> 8: </span>      <span style="color: #859900; font-weight: bold;">if</span> fold[m-1] == 1 <span style="color: #859900; font-weight: bold;">and</span> fold[m] == 1:
-<span class="linenr"> 9: </span>        f = 2
-<span class="linenr">10: </span>      <span style="color: #859900; font-weight: bold;">elif</span> (fold[m-1]+fold[m])%2 == 1:
-<span class="linenr">11: </span>        f = 1
-<span class="linenr">12: </span>      <span style="color: #859900; font-weight: bold;">else</span>:
-<span class="linenr">13: </span>        f = 0
-<span class="linenr">14: </span>      fnew.append(f)
-<span class="linenr">15: </span>      <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #839496; font-weight: bold;">str</span>(f), end=<span style="color: #2aa198;">' '</span>)
-<span class="linenr">16: </span>    fnew.append(1) <span style="color: #586e75;">#</span><span style="color: #586e75;">f(n,n) is always 1</span>
-<span class="linenr">17: </span>    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>)
-<span class="linenr">18: </span>    fold = fnew
-<span class="linenr">19: </span>
-<span class="linenr">20: </span>table(10)
-</pre>
-</div>
+table(10)
+
+{% endhighlight %}
 
 <pre class="example">
 1
@@ -190,44 +190,43 @@ By Theorem 1, we know that if \(f(n,m) = 2\), then the last toss of the one vali
 <p>
 The algorithm can be implemented in the following code:
 </p>
-<div class="org-src-container">
+{% highlight python %}
+import random
 
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #859900; font-weight: bold;">import</span> random
-<span class="linenr"> 2: </span>
-<span class="linenr"> 3: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">flipcoin</span>(p):
-<span class="linenr"> 4: </span>    <span style="color: #859900; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
-<span class="linenr"> 5: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'H'</span>
-<span class="linenr"> 6: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
-<span class="linenr"> 7: </span>        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'T'</span>
-<span class="linenr"> 8: </span>
-<span class="linenr"> 9: </span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">factor2</span>(n): <span style="color: #586e75;">#</span><span style="color: #586e75;">return s, where n = 2^s*(2t+1)</span>
-<span class="linenr">10: </span>    <span style="color: #859900; font-weight: bold;">if</span> n == 0: <span style="color: #859900; font-weight: bold;">return</span> 0
-<span class="linenr">11: </span>    s = 0;
-<span class="linenr">12: </span>    <span style="color: #859900; font-weight: bold;">while</span> n % 2 == 0:
-<span class="linenr">13: </span>        s = s + 1
-<span class="linenr">14: </span>        n = n / 2
-<span class="linenr">15: </span>    <span style="color: #859900; font-weight: bold;">return</span> s
-<span class="linenr">16: </span>
-<span class="linenr">17: </span>p = 0.5
-<span class="linenr">18: </span>k = 0
-<span class="linenr">19: </span>m = 0
-<span class="linenr">20: </span>even = <span style="color: #268bd2; font-weight: bold;">False</span>
-<span class="linenr">21: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Coin Toss Sequence: "</span>, end = <span style="color: #2aa198;">""</span>)
-<span class="linenr">22: </span><span style="color: #859900; font-weight: bold;">while</span> even <span style="color: #859900; font-weight: bold;">is</span> <span style="color: #268bd2; font-weight: bold;">False</span>:
-<span class="linenr">23: </span>    toss = flipcoin(p)
-<span class="linenr">24: </span>    <span style="color: #859900; font-weight: bold;">print</span>(toss, end = <span style="color: #2aa198;">""</span>)
-<span class="linenr">25: </span>    k = k + 1
-<span class="linenr">26: </span>    <span style="color: #859900; font-weight: bold;">if</span> toss == <span style="color: #2aa198;">'H'</span>:
-<span class="linenr">27: </span>        m = m + 1
-<span class="linenr">28: </span>        X = 1
-<span class="linenr">29: </span>        <span style="color: #859900; font-weight: bold;">if</span> factor2(k) - factor2(m) &gt; 0: even = <span style="color: #268bd2; font-weight: bold;">True</span>
-<span class="linenr">30: </span>    <span style="color: #859900; font-weight: bold;">else</span>:
-<span class="linenr">31: </span>        X = 0
-<span class="linenr">32: </span>        <span style="color: #859900; font-weight: bold;">if</span> factor2(k) - factor2(k-m) &gt; 0: even = <span style="color: #268bd2; font-weight: bold;">True</span>
-<span class="linenr">33: </span>
-<span class="linenr">34: </span><span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"\nX = "</span> + <span style="color: #839496; font-weight: bold;">str</span>(X))
-</pre>
-</div>
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+	return 'H'
+    else:
+	return 'T'
+
+def factor2(n): #return s, where n = 2^s*(2t+1)
+    if n == 0: return 0
+    s = 0;
+    while n % 2 == 0:
+	s = s + 1
+	n = n / 2
+    return s
+
+p = 0.5
+k = 0
+m = 0
+even = False
+print("Coin Toss Sequence: ", end = "")
+while even is False:
+    toss = flipcoin(p)
+    print(toss, end = "")
+    k = k + 1
+    if toss == 'H':
+	m = m + 1
+	X = 1
+	if factor2(k) - factor2(m) > 0: even = True
+    else:
+	X = 0
+	if factor2(k) - factor2(k-m) > 0: even = True
+
+print("\nX = " + str(X))
+
+{% endhighlight %}
 
 <p>
 In the above code, we use the fact that

@@ -170,7 +170,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: transparent;
 }
 pre code {
   padding: 0;
@@ -179,6 +179,12 @@ pre code {
   background-color: transparent;
 }
 
+pre.example {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: #f9f9f9;
+}
 /* Pygments via Jekyll */
 .highlight {
   margin-bottom: 1rem;
