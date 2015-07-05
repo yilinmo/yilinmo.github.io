@@ -1,26 +1,27 @@
 <div class="sidebar">
   <div class="container">
     <div class="sidebar-about">
-      <img src="/public/zion.png"/>
+      <img src="{{ site.cover_image }}"/>
       <h1>
         <a href="{{ site.baseurl }}">
           {{ site.title }}
         </a>
       </h1>
-      <h1 style="font-family:minijianxixingkai351678">
+      {% if site.title_cn != null %}
+      <h1 style="font-family:{{ site.cn_font_family }}">
         <a href="{{ site.baseurl }}">
-	      (莫一林)
+	  {{ site.title_cn }}
         </a>
       </h1>
+      {% endif %}
       <p class="lead">{{ site.description }}</p>
     </div>
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
-      <a class="sidebar-nav-item" href="/research.html">Research</a>
-      <a class="sidebar-nav-item" href="/teaching.html">Teaching</a>
-      <a class="sidebar-nav-item" href="/publication.html">Publication</a>
-      <a class="sidebar-nav-item" href="/notes/">Notes</a>
+      {% for page in site.pages_list %}
+      <a class="sidebar-nav-item" href="{{ page.loc }}">{{ page.name }}</a>
+      {% endfor %}
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>

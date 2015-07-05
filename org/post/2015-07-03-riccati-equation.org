@@ -4,6 +4,7 @@
 layout: post
 title: Properties of Discrete-time Algebraic Riccati Equation (DARE)
 comments: true
+permalink: properties-of-dare
 ---
 #+END_HTML
 -----

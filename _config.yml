@@ -1,8 +1,5 @@
 # Dependencies
-markdown:         redcarpet
 highlighter:      pygments
-
-# Permalinks
 
 # Setup
 title:            Yilin Mo
@@ -10,11 +7,39 @@ tagline:          'Research and Stuff'
 description:      'I am an Assistant Professor at Nanyang Technologicial University, Singapore.'
 url:              http://yilinmo.github.io
 baseurl:          /
+cover_image: /public/zion.png
 
 author:
-  name:           'Yilin Mo'
+name:           'Yilin Mo'
 email:            ylmo@ntu.edu.sg
 
 paginate:         5
 paginate_path:    "/notes/page:num"
-# Custom vars
+
+# List of Pages
+
+pages_list:
+  - name: Research
+    loc: /research.html
+  - name: Teaching
+    loc: /teaching.html
+  - name: Publication
+    loc: /publication.html
+  - name: Notes
+    loc: /notes
+
+# Chinese Support
+# Must change the cn_font_family and cn_css
+# Right now it only contains the chinese characters of my name!!!
+# To select font, go to: http://www.youziku.com/Home/FontSelect
+# or you can remove the title_cn attribute
+
+title_cn: (莫一林)
+cn_font_family: minijianxixingkai351678
+cn_css: http://www.youziku.com/webfont/CSS/15f8f8252e25142e32cc295517e8a5f0
+
+# Google font server
+google_font_server: fonts.useso.com # 360 server for mainland China readers.
+
+# In case you do not care about Chinese readers, use the default google server
+# google_font_server: fonts.googleapis.com
