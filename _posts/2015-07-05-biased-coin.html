@@ -2,20 +2,33 @@
 layout: post
 title: How to Get Fair Results from a Biased Coin
 comments: true
+categories: math
 permalink: fair-results-from-a-biased-coin
 ---
 <hr  />
 
 <p>
-<i>This is a test of org-babel.</i>
+<i>This is a test of <a href="http://orgmode.org/worg/org-contrib/babel/">org-babel</a>.</i>
 </p>
 
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Problem Formulation</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 Consider we have a biased coin, such that the probability of getting a head is \(P(H) = p\in(0,1)\) and the probability of getting a tail is \(P(T) = q = 1-p\), where \(p\) is unknown by us. However, different coin tosses are independent from each other. 
 </p>
 
 <p>
-Our goal is to generate a "fair" binary random variable \(X\), with distribution \(P(X = 0) = P(X=1) = 0.5\). One way to generate such a random variable is to:
+Our goal is to generate a "fair" binary random variable \(X\), with distribution \(P(X = 0) = P(X=1) = 0.5\). 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+One way to generate such a random variable is to:
 </p>
 <ol class="org-ol">
 <li>Toss the coin twice. 
@@ -88,10 +101,12 @@ while X is None:
 print("\nX = " + str(X))
 
 {% endhighlight %}
+</div>
+</div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">A More Efficient Algorithm</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">A More Efficient Algorithm</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 The above algorithm is not every efficient in the sense that it wastes some coin tosses. To see this, consider the sequence <b>HHTT</b> and <b>TTHH</b>. Notice that they both occur with probability \(p^2q^2\) and thus we can map <b>HHTT</b> to \(X = 0\) and <b>TTHH</b> to \(X = 1\). However, in the above algorithm, both of the sequences will be discarded.
 </p>
@@ -230,6 +245,194 @@ In the above code, we use the fact that
 \begin{align}
 { k\choose{m} }=  \frac{k}{k-m}{ {k-1}\choose{m} } =  \frac{k}{m}{ {k-1}\choose{m-1} }.
 \end{align}
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">How Efficient is Our Approach</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We now compute the expected number of tosses needed for the algorithm to terminate. To this end, let us define a random variable \(L\) to be number of coin tosses when the algorithm terminates.
+</p>
+
+<p>
+Notice that if \(n = 2^k\), then \(f(n,m)\) is all even except for \(f(n,0)\) and \(f(n,n)\). Therefore, our algorithm will not terminate only if the all \(n\) tosses are <b>H</b> or <b>T</b>. For a general \(n\), suppose we can decompose it as 
+\[
+n = 2^k + n_2 = n_1 + n_2,
+\]
+ where \(0 \leq n_2 < n_1\). If \(n_1 > m > n_2\), then we know that the first \(n_1\) tosses contains at least \(m-n_2\) heads and \(n_1-m\) tails. Therefore, all such sequences will terminate at \(n_1\) and hence \(f(n,m) = 0\).
+</p>
+
+<p>
+Following this observation, we can verify the following equality:
+</p>
+\begin{align}
+\label{eq:fdecompose}
+f(n,m) = \begin{cases}
+f(n-n_1,m)&\text{if }m \leq  n_2\\
+0&\text{if }n_2 < m < n_1\\
+f(n-n_1,m-n_1)&\text{if }n_1 \leq m\\
+\end{cases}.
+\end{align}
+
+<p>
+Now let us write \(n\) and \(m\) in binary form. We will say \(n \triangleright m\) if every binary bit of \(n\) is greater than the corresponding binary bit of \(m\). Notice that \(\triangleright\) is a partial order on \(\mathbb N\). For example, \(9\) is \(1010\) and \(4\) is \(100\) in binary. Therefore, \(9\ntriangleright 4\) since the third bit of \(9\) is \(0\) while the third bit of \(4\) is \(1\). If we apply our formulate \eqref{eq:fdecompose} iteratively, we know that \(f(n,m) = 1\) if and only if \(n\triangleright m\). For our example, one can check that \({9\choose 4} = 126\) and thus \(f(n,m)\) is either \(0\) or \(2\).
+</p>
+
+<p>
+Now if \(n\triangleright m\), there is only one valid \((n,m)\) sequence and the probability of this sequence is \(p^mq^{n-m}\). If we list all \(m \triangleleft n\) and add the probability together, we know that
+</p>
+\begin{align}
+\label{eq:lformula}
+P(L > n) = \prod_{k_i} \left(p^{2^{k_i}} + q^{2^{k_i}}\right),
+\end{align}
+<p>
+where we assume \(n = 2^{k_1} + 2^{k_2} + \dots + 2^{k_l}\) and \(0\leq k_1 < k_2 < \dots < k_l\). For example, the valid sequences of length \(9\) can only have \(0\), \(1\), \(8\), \(9\) heads. Thus, the probability of having these sequences are
+\[
+P(L > 9) = p^9 + q^9 + p^1q^8 + p^8 q^1 = (p+q)(p^8+q^8).
+\]
+</p>
+
+<p>
+Since \(L\) is a positive integer, we have the following equality:
+</p>
+\begin{align}
+\label{eq:expectationtosum}
+\mathbb E L = \sum_{n=0}^\infty n P (L = n) = \sum_{n=0}^\infty P(L > n).
+\end{align}
+
+<p>
+Now if we consider a partial sum from \(0\) to \(3\), we have
+</p>
+\begin{align*}
+\sum_{n=0}^3 P(L > n) &= 1 + (p+q) + (p^2+q^2) + (p+q)(p^2+q^2)  \\
+& = (1+p+q)(1+p^2+q^2).
+\end{align*}
+<p>
+We can easily generalize this result to the partial sum from \(0\) to \(2^k-1\)
+</p>
+\begin{align}
+\sum_{n=0}^{2^k-1} P(L > n) =\prod_{i=0}^{k-1} (1+p^{2^i}+q^{2^i}).
+\end{align}
+<p>
+Now take the limit on both sides, we get the expected number of coin tosses:
+</p>
+\begin{align}
+\label{eq:expectedcointosses}
+\mathbb E L = \prod_{i=0}^\infty (1+p^{2^i}+q^{2^i}).
+\end{align}
+
+<p>
+The following python code compute the expect number of coin tosses for the Von Neumann's method (red line) and our more efficient method (blue line)
+</p>
+{% highlight python %}
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import numpy as np
+p = np.linspace(0.1, 0.9)
+q = 1 - p
+# expected number of tosses for Von Neumann's algorithm
+l1 = 1/(p*q) 
+i = 0
+p2i = p #p^{2^i}
+q2i = q #q^{2^i}
+l2 = 1 + p2i + q2i
+for i in range(1, 10):
+    p2i = p2i ** 2
+    q2i = q2i ** 2
+    l2 = l2 * (1 + p2i + q2i)
+fig=plt.figure(figsize=(6,4))
+plt.axis([0, 1, 0, 12])
+plt.plot(p, l1, 'r', p, l2, 'b')
+plt.xlabel('p')
+plt.ylabel('Expected Number of Tosses')
+fig.tight_layout()
+plt.savefig('../../public/expected-toss.png')
+return '../../public/expected-toss.png' # return the filename to org-mode
+
+{% endhighlight %}
+
+
+<div class="figure">
+<p><img src="../../public/expected-toss.png" alt="expected-toss.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Can we be more efficient?</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The answer is yes. Let us slightly change our algorithm to:
+</p>
+<ol class="org-ol">
+<li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the \(m(k-1)\) is odd. Assign \(X = 1\) if \(m(k-1)\) is even.
+</li>
+<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\).
+</li>
+</ol>
+
+<p>
+The assignment table for the slightly modified algorithm is
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Toss</td>
+<td class="right"><b>HT</b></td>
+<td class="right"><b>TH</b></td>
+<td class="right"><b>HHHT</b></td>
+<td class="right"><b>HHTH</b></td>
+<td class="right"><b>HHTT</b></td>
+<td class="right"><b>TTHH</b></td>
+<td class="right"><b>TTHT</b></td>
+<td class="right"><b>TTTH</b></td>
+</tr>
+
+<tr>
+<td class="left">X</td>
+<td class="right">0</td>
+<td class="right">1</td>
+<td class="right">0</td>
+<td class="right">1</td>
+<td class="right">1</td>
+<td class="right">0</td>
+<td class="right">0</td>
+<td class="right">1</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notice that <b>HHTH</b> and <b>HHTT</b> are both assigned to \(1\). Hence, we can terminate when we get <b>HHT</b> since we know that no matter what we get for the fourth toss, we will terminate the process and \(X\) will be \(1\).
+</p>
+
+<p>
+This <a href="https://projecteuclid.org/euclid.aop/1176993384">paper</a> is for anyone who is interested in more details on this topic.
+</p>
 </div>
 </div>
 <div id="footnotes">

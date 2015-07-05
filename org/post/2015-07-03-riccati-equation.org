@@ -8,7 +8,7 @@ permalink: properties-of-dare
 ---
 #+END_HTML
 -----
-/This post serves as a test of emacs org-mode and jekyll static site generator./
+/This post serves as a test of emacs [[http://orgmode.org/][org-mode]] and [[http://jekyllrb.com/][jekyll]] static site generator./
 
 * Preliminary
   We will denote $\mathbb S_n,\,\mathbb S_n^+,\mathbb S_n^{++}$ to be the set of all real symmetric matrices, the set of all positive semi-definite matrices and the set of all positive definite matrices respectively. For any two matrices $A,\,B\in \mathbb S_n$, we call $A \geq B$ ($A > B$) if $A - B$ is positive semi-definite (positive definite). 
