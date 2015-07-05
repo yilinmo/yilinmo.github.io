@@ -183,28 +183,76 @@ By Theorem 1, we know that if \(f(n,m) = 2\), then the last toss of the one vali
 <ol class="org-ol">
 <li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the last toss is <b>T</b>. Assign \(X = 1\) if the last toss is <b>H</b>.
 </li>
-<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and $m
+<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\). 
 </li>
 </ol>
+
+<p>
+The algorithm can be implemented in the following code:
+</p>
+{% highlight python %}
+import random
+
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+	return 'H'
+    else:
+	return 'T'
+
+def factor2(n): #return s, where n = 2^s*(2t+1)
+    if n == 0: return 0
+    s = 0;
+    while n % 2 == 0:
+	s = s + 1
+	n = n / 2
+    return s
+
+p = 0.5
+k = 0
+m = 0
+even = False
+print("Coin Toss Sequence: ", end = "")
+while even is False:
+    toss = flipcoin(p)
+    print(toss, end = "")
+    k = k + 1
+    if toss == 'H':
+	m = m + 1
+	X = 1
+	if factor2(k) - factor2(m) > 0: even = True
+    else:
+	X = 0
+	if factor2(k) - factor2(k-m) > 0: even = True
+
+print("\nX = " + str(X))
+
+{% endhighlight %}
+
+<p>
+In the above code, we use the fact that
+</p>
+\begin{align}
+{ k\choose{m} }=  \frac{k}{k-m}{ {k-1}\choose{m} } =  \frac{k}{m}{ {k-1}\choose{m-1} }.
+\end{align}
 </div>
 </div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
 Notice that \(p^2+q^2 = 1-2pq\).
 </p></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
 We will define \(m(0) = 0\).
 </p></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p>
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
 However, it can terminate at the \(n\)-th toss.
 </p></div>
 
-<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p>
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
 We assume \(f(n,-1) = 0\) and \(f(n,n+1) = 0\).
 </p></div>
 

@@ -137,7 +137,7 @@ table(10)
 
 By Theorem 1, we know that if $f(n,m) = 2$, then the last toss of the one valid $(n,m)$ sequence is *H* and the last toss of the other is *T*. Hence, our more efficient algorithm can be described as follows:
 1. If $k\choose{m(k)}$ is even, then assign $X = 0$ if the last toss is *T*. Assign $X = 1$ if the last toss is *H*.
-2. If $k\choose{m(k)}$ is odd, then toss another coin and update $k$ and $m(k)$.
+2. If $k\choose{m(k)}$ is odd, then toss another coin and update $k$ and $m(k)$. 
 
 The algorithm can be implemented in the following code:
 #+begin_src python :results output 
