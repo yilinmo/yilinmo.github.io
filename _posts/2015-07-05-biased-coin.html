@@ -323,12 +323,12 @@ Now take the limit on both sides, we get the expected number of coin tosses:
 \end{align}
 
 <p>
-The following python code compute the expect number of coin tosses for the Von Neumann's method (red line) and our more efficient method (blue line)
+The following python code compute the expect number of coin tosses for the Von Neumann's method (blue line) and our more efficient method (green line)
 </p>
 {% highlight python %}
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import seaborn as sns # for the sake of appreances
 import numpy as np
 p = np.linspace(0.1, 0.9)
 q = 1 - p
@@ -344,7 +344,8 @@ for i in range(1, 10):
     l2 = l2 * (1 + p2i + q2i)
 fig=plt.figure(figsize=(6,4))
 plt.axis([0, 1, 0, 12])
-plt.plot(p, l1, 'r', p, l2, 'b')
+plt.plot(p, l1)
+plt.plot(p, l2)
 plt.xlabel('p')
 plt.ylabel('Expected Number of Tosses')
 fig.tight_layout()
