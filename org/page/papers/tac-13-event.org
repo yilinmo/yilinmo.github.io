@@ -1,0 +1,17 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Stochastic Event-triggered Sensor Schedule for Remote State Estimation
+---
+#+END_HTML
+--------------------------------
+*Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi*
+
+/IEEE Transactions on Automatic Control/, To be appeared
+
+Link to the [[../../../public/papers/tac-13-event.pdf][paper]]
+
+** Abstract
+  We propose an open-loop and a closed-loop stochastic event-triggered sensor schedule for remote state estimation. Both schedules overcome the essential difficulties of existing schedules in recent literature works where, through introducing a deterministic event-triggering mechanism, the Gaussian property of the innovation process is destroyed which produces a challenging nonlinear filtering problem that cannot be solved unless approximation techniques are adopted. The proposed stochastic event-triggered sensor schedules eliminate such approximations. Under these two schedules, the minimum mean squared error (MMSE) estimator and its estimation error covariance matrix at the remote estimator are given in a closed-form. The stability in terms of the expected error covariance and the sample path of the error covariance for both schedules is studied. We also formulate and solve an optimization problem to obtain the minimum communication rate under some estimation quality constraint using the open-loop sensor schedule. A numerical comparison between the closed-loop MMSE estimator and a typical approximate MMSE estimator with deterministic event-triggered sensor schedule, in a problem setting of target tracking, shows the superiority of the proposed sensor schedule.
+

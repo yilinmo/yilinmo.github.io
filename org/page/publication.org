@@ -10,10 +10,10 @@ title: Publication
 My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
 
 * Journal Paper
-1. Yilin Mo and Richard M. Murray, [[file:./papers/tac-15-privacy.org][/Privacy Preserving Average Consensus/]], *IEEE Transactions on Automatic Control*, Submitted
+1. Yilin Mo and Richard M. Murray, [[file:papers/tac-15-privacy.org][/Privacy Preserving Average Consensus/]], *IEEE Transactions on Automatic Control*, Submitted
 2. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Conditionally Accepted
 3. Yilin Mo and Bruno Sinopoli, /On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks/, *IEEE Transactions on Automatic Control*, Accepted
-4. Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Schedule for Remote State Estimation/, *IEEE Transactions on Automatic Control*, Accepted
+4. Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi, [[./papers/tac-13-event.org][/Stochastic Event-triggered Sensor Schedule for Remote State Estimation/]], *IEEE Transactions on Automatic Control*, Accepted
 5. Yilin Mo and Bruno Sinopoli, /Secure Estimation in the Presence of Integrity Attacks/, *IEEE Transactions on Automatic Control*, Apr 2015, Volume 60, Issue 4, Pages 1145-1151
 6. Yilin Mo, Sean Weerakkody and Bruno Sinopoli, /Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs/, *IEEE Control Systems Magazine*, Feb 2015, Volume 35, Issue 1, Pages 93-100
 7. Yilin Mo, Rohan Chabukswar and Bruno Sinopoli, /Detecting Integrity Attacks on SCADA Systems/, *IEEE Transactions on Control System Technology*, Feb 2015, Volume 35, Issue 1, Pages 93-100
