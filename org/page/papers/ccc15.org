@@ -20,7 +20,7 @@ We consider the estimation of a vector state based on $m$ measurements that can 
 - The $\varphi$ in (20) should be $-\varphi$.
 
 ** Simulation Code
-The code is written in Python 3 with the following dependencies:
+The code is written in Python 3.4 with the following dependencies:
 - numpy 1.8.2
 - scipy 0.13.3
 - cvxopt 1.1.7
