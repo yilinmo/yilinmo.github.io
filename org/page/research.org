@@ -8,8 +8,15 @@ title: Research
 
 * Networked Control System
 
-Networked control system.
+** Imperfect Communication and its Effect on the Control
 
+** Design the Information Structure
 
-* Secure Control
+* Security in Control System
+
+** Intrusion Detection and Isolation
+
+** Resilient Control in Adversarial Environment
+   
+** Privacy in Distributed Multi-Agent Systems
 
