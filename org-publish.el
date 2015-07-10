@@ -22,7 +22,7 @@
 	 )
 	("org-static"
 	 :base-directory "~/homepage/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|pdf\\|m"
 	 :publishing-directory "~/homepage/"
 	 :recursive t
 	 :publishing-function org-publish-attachment
