@@ -18,4 +18,7 @@ This paper analyzes the effect of stealthy integrity attacks on Cyber-Physical S
 
 ** Simulation Code
 
-The [[../../../public/code/tac-12-integrity/][code]] is written in Matlab R2009b (7.9.0.529).
+The code is written in Matlab R2009b (7.9.0.529).
+- [[../../../public/code/tac-12-integrity/plotellipsoid.m][plotellipsoid.m]]
+- [[../../../public/code/tac-12-integrity/position.m][position.m]]
+- [[../../../public/code/tac-12-integrity/velocity.m][velocity.m]]
