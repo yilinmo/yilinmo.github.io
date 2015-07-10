@@ -17,3 +17,5 @@ Link to the [[../../../public/papers/tac-12-integrity.pdf][paper]]
 This paper analyzes the effect of stealthy integrity attacks on Cyber-Physical Systems, which is modeled as a Stochastic Linear Time-Invariant (LTI) system equipped with a linear filter, a linear feedback controller and a $\chi^2$ failure detector. An attacker wishes to induce perturbation in the control loop by compromising a subset of the sensors and injecting an exogenous control input, without incurring detection from an anomaly detector. We show how the problem can be modeled, from the attacker's standpoint, as a constrained control problem and that the characterization of the maximum perturbation can be posed as reachable set computation, which we solve using ellipsoidal calculus. 
 
 ** Simulation Code
+
+The [[../../../public/code/tac-12-integrity/][code]] is written in Matlab R2009b (7.9.0.529).
