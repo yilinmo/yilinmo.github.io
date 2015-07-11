@@ -5,15 +5,15 @@
       <h1>
         <a href="{{ site.baseurl }}">
           {{ site.title }}
-        </a>
+        </a>     
       </h1>
-      {% if site.title_cn != null %}
-      <h1 style="font-family:{{ site.cn_font_family }}">
+      <h1>
+	{% if site.title_cn != null %}
         <a href="{{ site.baseurl }}">
 	  {{ site.title_cn }}
         </a>
+      	{% endif %}
       </h1>
-      {% endif %}
       <p class="lead">{{ site.description }}</p>
     </div>
 

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+    src: url('/font/lato-regular-webfont.eot');
+    src: url('/font/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/lato-regular-webfont.woff2') format('woff2'),
+         url('/font/lato-regular-webfont.woff') format('woff'),
+         url('/font/lato-regular-webfont.ttf') format('truetype'),
+         url('/font/lato-regular-webfont.svg#latoregular') format('svg');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+    src: url('/font/lato-bold-webfont.eot');
+    src: url('/font/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/lato-bold-webfont.woff2') format('woff2'),
+         url('/font/lato-bold-webfont.woff') format('woff'),
+         url('/font/lato-bold-webfont.ttf') format('truetype'),
+         url('/font/lato-bold-webfont.svg#latobold') format('svg');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+    src: url('/font/lato-italic-webfont.eot');
+    src: url('/font/lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/lato-italic-webfont.woff2') format('woff2'),
+         url('/font/lato-italic-webfont.woff') format('woff'),
+         url('/font/lato-italic-webfont.ttf') format('truetype'),
+         url('/font/lato-italic-webfont.svg#latoitalic') format('svg');
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+    src: url('/font/RobotoSlab-Bold-webfont.eot');
+    src: url('/font/RobotoSlab-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/RobotoSlab-Bold-webfont.woff') format('woff'),
+         url('/font/RobotoSlab-Bold-webfont.ttf') format('truetype'),
+         url('/font/RobotoSlab-Bold-webfont.svg#roboto_slabbold') format('svg');
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+    src: url('/font/sourcecodepro-webfont.eot');
+    src: url('/font/sourcecodepro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/sourcecodepro-webfont.woff2') format('woff2'),
+         url('/font/sourcecodepro-webfont.woff') format('woff'),
+         url('/font/sourcecodepro-webfont.ttf') format('truetype'),
+         url('/font/sourcecodepro-webfont.svg#source_code_proregular') format('svg');
+}
+
