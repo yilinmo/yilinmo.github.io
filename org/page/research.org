@@ -17,6 +17,49 @@ title: Research
 ** Intrusion Detection and Isolation
 
 ** Resilient Control in Adversarial Environment
+#+begin_src python :results file :exports results
+import numpy as np
+from numpy import sort, sum, exp, zeros
+from numpy.random import randn 
+
+import matplotlib
+import seaborn
+import matplotlib.pyplot as plt
+
+m = 9
+T = 50
+num = 1000
+L = 4
+
+Perr = zeros((L+1, T))
+for l in np.arange(L+1): 
+    for k in np.arange(T)+1:
+        for i in np.arange(num):
+            y = randn(m, k)
+            y[:l, :] = y[:l, :] + 1
+            y[m-l:, :] = y[m-l:, :] - 1
+            ysum = sum(y, axis=1)
+            p = exp(-sum(ysum[l:m-l])-(m-2*l)*k/2)
+            ysum = sort(ysum)
+            if sum(ysum[l:m-l]) > 0:
+                Perr[l, k-1] = Perr[l, k-1] + p
+ 
+Perr = Perr/num
+
+for l in range(0, L+1):
+    plt.plot(np.arange(T)+1, Perr[l,:], label=str(l) + ' compromised sensor')
+
+plt.yscale('log')
+plt.ylabel('Probability of Error', fontsize = 14)
+plt.xlabel('Time(T)', fontsize = 14)
+plt.legend(loc = 0, fontsize = 14)
+plt.savefig('../../public/research-00.png')
+return '../../public/research-00.png' # return the filename to org-mode
+#+end_src
+
+#+RESULTS:
+[[file:../../public/research-00.png]]
+
    
 ** Privacy in Distributed Multi-Agent Systems
 
