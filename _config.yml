@@ -34,7 +34,7 @@ pages_list:
 # To select font, go to: http://www.youziku.com/Home/FontSelect
 # or you can remove the title_cn attribute
 
-title_cn: (莫一林)
+#title_cn: (莫一林)
 cn_font_family: minijianxixingkai351678
 cn_css: http://www.youziku.com/webfont/CSS/15f8f8252e25142e32cc295517e8a5f0
 
