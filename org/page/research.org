@@ -16,7 +16,8 @@ title: Research
 
 ** Intrusion Detection and Isolation
 
-** Resilient Control in Adversarial Environment
+** Resilient Algorithm Design in Adversarial Environment
+
 #+begin_src python :results file :exports results
 import numpy as np
 from numpy import sort, sum, exp, zeros
@@ -57,6 +58,7 @@ plt.savefig('../../public/research-00.png')
 return '../../public/research-00.png' # return the filename to org-mode
 #+end_src
 
+#+CAPTION: We assume a total of 9 sensors, whose measurements follow $y_i(t) = x + w_i(t)$, where $w_i(t)$ are i.i.d. standard normal distributed and the state $x$ is either $1$ or $-1$. This figure shows the probability of error when the optimal detector and the optimal attacking strategy are employed. It can be seen that the probability of error converges exponentially fast with rate $(9-2l)/2$, where $l$ is the total number of compromised sensors.
 #+RESULTS:
 [[file:../../public/research-00.png]]
 
