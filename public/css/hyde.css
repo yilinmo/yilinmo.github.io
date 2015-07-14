@@ -265,10 +265,4 @@ a.sidebar-nav-item:focus {
   color: #8f5536;
 }
 
-/* Adding Border to Theorem */
-div.theorem {
-    border-style: solid;
-    margin:30px;
-    padding:10px;
-    border-width: 1px;
-}	
+

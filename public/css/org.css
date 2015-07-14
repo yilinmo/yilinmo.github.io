@@ -1,0 +1,12 @@
+/* Adding Border to Theorem */
+div.theorem {
+    border-style: solid;
+    margin:30px;
+    padding:10px;
+    border-width: 1px;
+}	
+
+/* script size caption for figure */
+div.figure p{
+  font-size: 0.75rem;
+}
