@@ -68,7 +68,7 @@ permalink: properties-of-dare
   
   Since $\{X_k\}$ is an increasing sequence with an upper bound, $\{X_k\}$ has a limit, which we can denote as $X_\infty$. Now by the fact that $g$ is continuous, $X_\infty = g(X_\infty)$. Finally, be the fact that $X_*$ is the unique fixed point, we have that $X_\infty  = X_*$.
   
-  Similar trick can be applied to the case where we can find an $X_1 = g(X) \leq X_0$. In that case, we know that $X_*$ must be no greater than $X_0$.
+  Similar trick can be applied to the case where we can find an $X_1 = g(X_0) \leq X_0$. In that case, we know that $X_*$ must be no greater than $X_0$.
   
   Therefore, we can establish the equivalency of the following statements:
   
