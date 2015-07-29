@@ -1,0 +1,16 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: ! 'Security in Cyber-Physical Systems: Controller Design Against Known-Plaintext Attack'
+---
+#+END_HTML
+--------------------------------
+*Ye Yuan and Yilin Mo*
+
+/IEEE Conference on Decision and Control/, 2015
+
+Link to the [[../../../public/papers/cdc15-1.pdf][paper]]
+
+** Abstract
+A substantial amount of research on the security of cyber-physical systems assumes that the physical system model is available to the adversary. In this paper, we argue that such an assumption can be relaxed, since even if the physical system model is unknown, the adversary might still be able to identify it by observing the control input and sensory data from the system. In such a setup, the attack with the goal of identifying the system model using the knowledge of input-output data can be categorized as a Known-Plaintext Attack (KPA) in the information security literature. We first prove a necessary condition and a sufficient condition, under which the adversary can successfully identify the transfer function of the physical system. Furthermore, we design an algorithm, which is based on spectral factorization, for the adversary to numerically compute the physical system model. We then provide a low-rank controller design which renders the system unidentifiable to the adversary, while trading off the LQG performance. Finally, a numerical example is provided to illustrate the effectiveness of the proposed controller design. 
