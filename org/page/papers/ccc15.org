@@ -12,6 +12,8 @@ title: Multi-dimensional state estimation in adversarial environment
 
 Link to the [[../../../public/papers/ccc-15.pdf][paper]]
 
+Link to the [[../../../public/papers/ccc-15-slides.pdf][presentation]]
+
 ** Abstract
 We consider the estimation of a vector state based on $m$ measurements that can be potentially manipulated by an adversary. The attacker is assumed to have limited resources and can only manipulate up to $l$ of the $m$ measurements. However, it can the compromise measurements arbitrarily. The problem is formulated as a minimax optimization, where one seeks to construct an optimal estimator that minimizes the "worst-case" error against all possible manipulations by the attacker and all possible sensor noises. We show that if the system is not observable after removing $2l$ sensors, then the worst-case error is infinite, regardless of the estimation strategy. If the system remains observable after removing arbitrary set of $2l$ sensor, we prove that the optimal state estimation can be computed by solving a semidefinite programming problem. A numerical example is provided to illustrate the effectiveness of the proposed state estimator.
 
