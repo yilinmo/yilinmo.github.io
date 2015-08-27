@@ -1,0 +1,208 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Secure Estimation in the Presence of Integrity Attacks
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo and Bruno Sinopoli*
+
+/IEEE Transactions on Automatic Control/, Apr 2015, Volume 60, Issue 4, Pages 1145-1151
+
+We consider the estimation of a scalar state based on m measurements that can be potentially manipulated by an adversary. The attacker is assumed to have full knowledge about the true value of the state to be estimated and about the value of all the measurements. However, the attacker has limited resources and can only manipulate up to $l$ of the $m$ measurements. The problem is formulated as a minimax optimization, where one seeks to construct an optimal estimator that minimizes the "worst-case" expected cost against all possible manipulations by the attacker. We show that if the attacker can manipulate at least half the measurements ($l \geq m/2$), then the optimal worst-case estimator should ignore all measurements and be based solely on the a-priori information. We provide the explicit form of the optimal estimator when the attacker can manipulate less than half the measurements ($l < m/2$), which is based on $m\choose{2l}$ local estimators. We further prove that such an estimator can be reduced into simpler forms for two special cases, i.e., either the estimator is symmetric and monotone or $m = 2l + 1$. Finally we apply the proposed methodology in the case of Gaussian measurements.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: ! 'Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs'
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Sean Weerakkody and Bruno Sinopoli*
+
+/IEEE Control Systems Magazine/, Feb 2015, Volume 35, Issue 1, Pages 93-109
+
+Cyberphysical systems (CPSs) refer to the embedding of widespread sensing, networking, computation, and control into physical spaces with the goal of making them safer, more efficient, and reliable. Driven by the miniaturization and integration of sensing, communication, and computation in cost-efficient devices, CPSs are bound to transform industries such as aerospace, transportation, built environments, energy, health care, and manufacturing, to name a few. This great opportunity, unfortunately, is matched by even greater challenges. Taming the complexity of design and analysis of these systems poses a fundamental problem as a new paradigm is needed to bridge various scientific domains, which, through the years, have developed significantly different formalisms and methodologies. In addition, while the use of dedicated communication networks has so far sheltered systems from the outside world, use of off-the-shelf networking and computing, combined with the unattended operation of a plethora of devices, provides several opportunities for malicious entities to inject attacks on CPSs. A wide variety of motivations exists for launching an attack on CPSs, ranging from economic reasons, such as obtaining a financial gain, all the way to terrorism, for instance, threatening an entire population by manipulating life-critical resources. Any attack on safety-critical CPSs may significantly hamper the economy and lead to the loss of human lives.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Detecting Integrity Attacks on SCADA Systems 
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Rohan Chabukswar and Bruno Sinopoli*
+
+/IEEE Transactions on Control System Technology/, Jul 2014, Volume 22, Issue 4, 1396-1407
+
+Ensuring security of systems based on supervisory control and data acquisition is a major challenge. The goal of this paper is to develop the model-based techniques capable of detecting integrity attacks on the sensors of a control system. In this paper, the effect of integrity attacks on the control systems is analyzed and countermeasures capable of exposing such attacks are proposed. The main contributions of this paper, beyond the novelty of the problem formulation, lies in enumerating the conditions of the feasibility of the replay attack, and suggesting countermeasures that optimize the probability of detection by conceding control performance. The methodologies are shown and the theoretical results are validated using several sets of simulations.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Detection in Adversarial Environments
+---
+#+END_HTML
+--------------------------------
+
+*Kyriakos Vamvoudakis, Jo\atilde{}o Hespanha, Bruno Sinopoli and Yilin Mo*
+
+/IEEE Transactions on Automatic Control, Special Issue on Control of Cyber-Physical Systems/, Dec 2014, Volume 59, Issue 12, Special Issue S1, Pages 3209-3223
+
+We propose new game theoretic approaches to estimate a binary random variable based on sensor measurements that may have been corrupted by a cyber-attacker. The estimation problem is formulated as a zero-sum partial information game in which a detector attempts to minimize the probability of an estimation error and an attacker attempts to maximize this probability. While this problem can be solved exactly by reducing it to the computation of the value of a matrix, this approach is computationally feasible only for a small number of sensors. The two key results of this paper provide complementary computationally efficient solutions to the construction of the optimal detector. The first result provides an explicit formula for the optimal detector but it is only valid when the number of sensors is roughly smaller than two over the probability of sensor errors. In contrast, the detector provided by the second result is valid for an arbitrary number of sensor. While it may result in a probability of estimation error that is above the minimum achievable, we show that this error is small when the number of sensors is large, which is precisely the case for which the first result does not apply.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: On Infinite-Horizon Sensor Scheduling
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Emanuele Garone and Bruno Sinopoli*
+
+/System & Control Letters/, May 2014, Volume 67, Pages 65-70,
+
+In this paper we consider the problem of infinite-horizon sensor scheduling for estimation in linear Gaussian systems. Due to possible channel capacity, energy budget or topological constraints, it is assumed that at each time step only a subset of the available sensors can be selected to send their observations to the fusion center, where the state of the system is estimated by means of a Kalman filter. Several important properties of the infinite-horizon schedules will be presented in this paper. In particular, we prove that the infinite-horizon average estimation error and the boundedness of a schedule are independent of the initial covariance matrix. We further provide a constructive proof that any feasible schedule with finite average estimation error can be arbitrarily approximated by a bounded periodic schedule. We later generalized our result to lossy networks. These theoretical results provide valuable insights and guidelines for the design of computationally efficient sensor scheduling policies.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Resilient Detection in the Presence of Integrity Attacks
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli*
+
+/IEEE Transactions on Signal Processing/, Jan 2014, Volume 62, Issue 1, Pages 31-43
+
+We consider the detection of a binary random state based on  m measurements that can be manipulated by an attacker. The attacker is assumed to have full information about the true value of the state to be estimated as well as the values of all the measurements. However, the attacker can only manipulate  n of the  m measurements. The detection problem is formulated as a minimax optimization, where one seeks to construct an optimal detector that minimizes the ¡°worst-case¡± probability of error against all possible manipulations by the attacker. We show that if the attacker can manipulate at least half the measurements  (n\geq m/2) then the optimal worst-case detector should ignore all  m measurements and be based solely on the a-priori information. When the attacker can manipulate less than half of the measurements  (n< m/2) , we show that the optimal detector is a threshold rule based on a Hamming-like distance between the (manipulated) measurement vector and two appropriately defined sets. For the special case where  n=(m-1)/2 , our results provide a constructive procedure to derive the optimal detector. We also design a heuristic detector for the case where  n\ll m , and prove the asymptotic optimality of the detector when  m\rightarrow\infty  . Finally we apply the proposed methodology in the case of i.i.d. Gaussian measurements.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: On Optimal Partial Broadcasting of Wireless Sensor Networks for Kalman Filtering
+---
+#+END_HTML
+--------------------------------
+
+*Qing-Shan Jia, Ling Shi, Yilin Mo and Bruno Sinopoli*
+ 
+/IEEE Transactions on Automatic Control/, Mar 2012, Volum 57, Issue 3, Pages 715-721
+
+State estimation using wireless sensor networks (WSNs) is an important technique in many commercial and military applications, in which a group of (nonidentical) sensors take noisy observations of system state and send back to a fusion center through wireless broadcasting for state estimation. In order to minimize the terminal estimation error covariance at the fusion center, a partial broadcasting policy should tell which sensors to broadcast at each stage. The limited battery allows each sensor to broadcast only a few times. The limited wireless communication bandwidth allows only a few sensors to broadcast at the same time. Due to these couplings, the optimal partial broadcasting policy is not clear in general. Despite the abundant applications of partial broadcasting policies, theoretical analysis is rare. In this technical note, we provide a first study on the properties of optimal partial broadcasting policies. When there is no packet drop, a good-sensor-late-broadcast (GSLB) rule is shown to perform optimally for both the scalar system and the vector system. When packet drops with positive probability, situations in which the GSLB rule may or may not perform optimally are analyzed. Under different dropping rates, the GSLB rule is compared with several other policies through simulations.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: ! 'Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value'
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo and Bruno Sinopoli*
+ 
+/IEEE Transactions on Automatic Control/, Mar 2012, Volume 57, Issue 3, Pages 677-689
+
+In this paper, we analyze the performance of Kalman filtering for discrete-time linear Gaussian systems, where packets containing observations are dropped according to a Markov process modeling a Gilbert-Elliot channel. To address the challenges incurred by the loss of packets, we give a new definition of non-degeneracy, which is essentially stronger than the classical definition of observability, but much weaker than one-step observability, which is usually used in the study of Kalman filtering with intermittent observations. We show that the trace of the Kalman estimation error covariance under intermittent observations follows a power decay law. Moreover, we are able to compute the exact decay rate for non-degenerate systems. Finally, we derive the critical value for non-degenerate systems based on the decay rate, improving upon the state of the art.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Cyber-Physical Security of a Smart Grid Infrastructure
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Tiffany Hyun-Jin Kim, Kenneth Brancik, Dona Dickinson, Heejo Lee, Adrian Perrig and Bruno Sinopoli*
+
+/Proceedings of the IEEE, Special Issue on Cyber-Physical Systems/, Jan 2012, Volume 100, Issue 1, Pages 195-209
+
+It is often appealing to assume that existing solutions can be directly applied to emerging engineering domains. Unfortunately, careful investigation of the unique challenges presented by new domains exposes its idiosyncrasies, thus often requiring new approaches and solutions. In this paper, we argue that the smart grid, replacing its incredibly successful and reliable predecessor, poses a series of new security challenges, among others, that require novel approaches to the field of cyber security. We will call this new field cyber-physical security. The tight coupling between information and communication technologies and physical systems introduces new security concerns, requiring a rethinking of the commonly used objectives and methods. Existing security approaches are either inapplicable, not viable, insufficiently scalable, incompatible, or simply inadequate to address the challenges posed by highly complex environments such as the smart grid. A concerted effort by the entire industry, the research community, and the policy makers is required to achieve the vision of a secure smart grid infrastructure.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Integrity Data Attacks in Power Market Operations
+---
+#+END_HTML
+--------------------------------
+
+*Le Xie, Yilin Mo and Bruno Sinopoli*
+
+/IEEE Transactions on Smart Grid/, Dec 2011, Volume 2, Issue 4, Pages 659-666
+
+We study the economic impact of a potential class of integrity cyber attacks, named false data injection attacks, on electric power market operations. In particular, we show that with the knowledge of the transmission system topology, attackers may circumvent the bad data detection algorithms equipped in today's state estimator. This, in turn, may be leveraged by attackers for consistent financial arbitrage such as virtual bidding at selected pairs of nodes. This paper is a first attempt to formalize the economic impact of malicious data attacks on real-time market operations. We show how an attack could systematically construct a profitable attacking strategy, in the meantime being undetected by the system operator. Such a result is also valuable for the system operators to examine the potential economic loss due to such cyber attack. The potential impact of the false data injection attacks is illustrated on real-time market operations of the IEEE 14-bus system.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Penalized Fisher Discriminant Analysis and Its Application to Image-based Morphometry
+---
+#+END_HTML
+--------------------------------
+
+*Wei Wang, Yilin Mo, John A. Ozolek, Gustavo K. Rohde*
+
+/Pattern Recognition Letters/, Nov 2011, Volume 32, Issue 15, Pages 2128-2135
+
+Image-based morphometry is an important area of pattern recognition research, with numerous applications in science and technology (including biology and medicine). Fisher linear discriminant analysis (FLDA) techniques are often employed to elucidate and visualize important information that discriminates between two or more populations. We demonstrate that the direct application of FLDA can lead to undesirable errors in characterizing such information and that the reason for such errors is not necessarily the ill conditioning in the resulting generalized eigenvalue problem, as usually assumed. We show that the regularized eigenvalue decomposition often used is related to solving a modified FLDA criterion that includes a least-squares-type representation penalty, and derive the relationship explicitly. We demonstrate the concepts by applying this modified technique to several problems in image-based morphometry, and build discriminant representative models for different data sets.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Stochastic Sensor Scheduling for Energy Constrained Estimation in Multi-Hop Wireless Sensor Networks
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli*
+
+/IEEE Transactions on Automatic Control/, Oct 2011, Volume 56, Issue 10, Pages 2489-2495
+
+Wireless Sensor Networks (WSNs) enable a wealth of new applications where remote estimation is essential. Individual sensors simultaneously sense a dynamic process and transmit measured information over a shared channel to a central fusion center. The fusion center computes an estimate of the process state by means of a Kalman filter. In this technical note we assume that the WSN admits a tree topology with one fusion center at the root. At each time step only a subset of sensors can be selected to transmit observations to the fusion center due to a limited energy budget. We propose a stochastic sensor selection algorithm that randomly selects a subset of sensors according to a certain probability distribution, which is opportunely designed to minimize the asymptotic expected covariance matrix of the estimation error. We show that the optimal stochastic sensor selection problem can be relaxed into a convex optimization problem and thus efficiently solved. We also provide a possible implementation of our algorithm which does not introduce any communication overhead. The technical note ends with some numerical examples that show the effectiveness of the proposed approach.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Sensor Selection Strategies for State Estimation in Energy Constrained Wireless Sensor Networks
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Roberto Ambrosino and Bruno Sinopoli*
+
+/Automatica/, July 2011, Volume 47, Issue 7, Pages 1330-1338
+
+Wireless Sensor Networks (WSNs) enable a wealth of new applications where remote estimation is essential. Individual sensors simultaneously sense a dynamic process and transmit measured information over a shared channel to a central base station. The base station computes an estimate of the process state by means of a Kalman filter. In this paper we assume that, at each time step, only a subset of all sensors are selected to send their observations to the fusion center due to channel capacity constraints or limited energy budget. We propose a multi-step sensor selection strategy to schedule sensors to transmit for the next $T$ steps of time with the goal of minimizing an objective function related to the Kalman filter error covariance matrix. This formulation, in a relaxed convex form, defines an unified framework to solve a large class of optimization problems over energy constrained WSNs. We offer some numerical examples to further illustrate the efficiency of the algorithm.
+==========
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Sensor Scheduling over a Packet-Delaying Network
+---
+#+END_HTML
+--------------------------------
+
+*Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli*
+/Automatica/, May 2011, Volume 47, Issue 5, Pages 1089-1092
+
+We consider sensor scheduling for state estimation of a scalar system over a packet-delaying network. The current measurement data can be sent over a delay-free channel if the sensor uses larger communication energy; the data will be delayed for one time step if the sensor uses less communication energy. We consider a cost function consisting of a weighted average estimation error and a weighted terminal estimation error and explicitly construct optimal power schedules to minimize this cost function subject to communication energy constraint. Simulations are provided to demonstrate the key ideas of the paper.
