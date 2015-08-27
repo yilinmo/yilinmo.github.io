@@ -1,0 +1,20 @@
+#+OPTIONS: H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: ! 'Kalman Filtering with Intermittent Observations: Tail Distribution and Critical Value'
+---
+#+END_HTML
+--------------------------------
+*Yilin Mo and Bruno Sinopoli*
+
+/IEEE Transactions on Automatic Control/, Mar 2012, Volume 57, Issue 3, Pages 677-689
+
+Link to the [[http://ieeexplore.ieee.org/xpl/login.jsp?tp%3D&arnumber%3D6004816][paper]]
+
+** Abstract
+
+In this paper, we analyze the performance of Kalman filtering for discrete-time linear Gaussian systems, where packets containing observations are dropped according to a Markov process modeling a Gilbert-Elliot channel. To address the challenges incurred by the loss of packets, we give a new definition of non-degeneracy, which is essentially stronger than the classical definition of observability, but much weaker than one-step observability, which is usually used in the study of Kalman filtering with intermittent observations. We show that the trace of the Kalman estimation error covariance under intermittent observations follows a power decay law. Moreover, we are able to compute the exact decay rate for non-degenerate systems. Finally, we derive the critical value for non-degenerate systems based on the decay rate, improving upon the state of the art.
+
+** Corrections
+   The Theorem 4 is flawed due to the fact that in (39), $\text{det}(U)$ could be zero. However, the main results (Theorem 5-8) still hold. To fix the problem in (39), one can check the proof of Theorem 7 in the [[http://arxiv.org/abs/1005.2442][arxiv paper]]. 

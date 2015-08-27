@@ -6,12 +6,6 @@ title: Research
 ---
 #+END_HTML
 
-* Networked Control System
-
-** Imperfect Communication and its Effect on the Control
-
-** Design the Information Structure
-
 * Security in Control System
 
 ** Intrusion Detection and Isolation
@@ -64,4 +58,24 @@ return '../../public/research-00.png' # return the filename to org-mode
 
    
 ** Privacy in Distributed Multi-Agent Systems
+
+* Networked Control System
+
+** TODO Imperfect Communication and its Effect on the Control
+
+
+First execute the second code block, to define the convenience macro and to set the required new variables in ob-latex.el.  Then export to HTML and to pdf to see the tree exported as an SVG image and as embedded tikz respectively.
+
+#+header: :imagemagick yes 
+#+begin_src latex :file fsa.png :packages '(("" "tikz")) :border 1em 
+  \usetikzlibrary{shapes,arrows}
+
+#+end_src
+
+#+RESULTS:
+#+BEGIN_LaTeX
+[[file:fsa.png]]
+#+END_LaTeX
+
+** Design the Information Structure
 
