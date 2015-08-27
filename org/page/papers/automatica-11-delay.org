@@ -1,0 +1,13 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Sensor Scheduling over a Packet-Delaying Network
+---
+#+END_HTML
+--------------------------------
+
+*Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli*
+/Automatica/, May 2011, Volume 47, Issue 5, Pages 1089-1092
+
+We consider sensor scheduling for state estimation of a scalar system over a packet-delaying network. The current measurement data can be sent over a delay-free channel if the sensor uses larger communication energy; the data will be delayed for one time step if the sensor uses less communication energy. We consider a cost function consisting of a weighted average estimation error and a weighted terminal estimation error and explicitly construct optimal power schedules to minimize this cost function subject to communication energy constraint. Simulations are provided to demonstrate the key ideas of the paper.

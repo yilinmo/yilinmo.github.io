@@ -10,7 +10,7 @@ title: ! 'Kalman Filtering with Intermittent Observations: Tail Distribution and
 
 /IEEE Transactions on Automatic Control/, Mar 2012, Volume 57, Issue 3, Pages 677-689
 
-Link to the [[http://ieeexplore.ieee.org/xpl/login.jsp?tp%3D&arnumber%3D6004816][paper]]
+Link to the [[../../../public/papers/journal2009kalman.pdf][paper]]
 
 ** Abstract
 

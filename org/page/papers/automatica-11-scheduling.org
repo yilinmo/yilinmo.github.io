@@ -1,0 +1,16 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Sensor Selection Strategies for State Estimation in Energy Constrained Wireless Sensor Networks
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Roberto Ambrosino and Bruno Sinopoli*
+
+/Automatica/, July 2011, Volume 47, Issue 7, Pages 1330-1338
+
+Link to the [[../../../public/papers/journal09sensor.pdf][paper]]
+
+Wireless Sensor Networks (WSNs) enable a wealth of new applications where remote estimation is essential. Individual sensors simultaneously sense a dynamic process and transmit measured information over a shared channel to a central base station. The base station computes an estimate of the process state by means of a Kalman filter. In this paper we assume that, at each time step, only a subset of all sensors are selected to send their observations to the fusion center due to channel capacity constraints or limited energy budget. We propose a multi-step sensor selection strategy to schedule sensors to transmit for the next $T$ steps of time with the goal of minimizing an objective function related to the Kalman filter error covariance matrix. This formulation, in a relaxed convex form, defines an unified framework to solve a large class of optimization problems over energy constrained WSNs. We offer some numerical examples to further illustrate the efficiency of the algorithm.

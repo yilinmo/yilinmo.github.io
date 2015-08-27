@@ -1,0 +1,16 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Resilient Detection in the Presence of Integrity Attacks
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli*
+
+/IEEE Transactions on Signal Processing/, Jan 2014, Volume 62, Issue 1, Pages 31-43
+
+Link to the [[../../../public/papers/j2011securedetection.pdf][paper]]
+
+We consider the detection of a binary random state based on  m measurements that can be manipulated by an attacker. The attacker is assumed to have full information about the true value of the state to be estimated as well as the values of all the measurements. However, the attacker can only manipulate  n of the  m measurements. The detection problem is formulated as a minimax optimization, where one seeks to construct an optimal detector that minimizes the ¡°worst-case¡± probability of error against all possible manipulations by the attacker. We show that if the attacker can manipulate at least half the measurements  (n\geq m/2) then the optimal worst-case detector should ignore all  m measurements and be based solely on the a-priori information. When the attacker can manipulate less than half of the measurements  (n< m/2) , we show that the optimal detector is a threshold rule based on a Hamming-like distance between the (manipulated) measurement vector and two appropriately defined sets. For the special case where  n=(m-1)/2 , our results provide a constructive procedure to derive the optimal detector. We also design a heuristic detector for the case where  n\ll m , and prove the asymptotic optimality of the detector when  m\rightarrow\infty  . Finally we apply the proposed methodology in the case of i.i.d. Gaussian measurements.

@@ -1,0 +1,16 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: ! 'Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs'
+---
+#+END_HTML
+--------------------------------
+
+*Yilin Mo, Sean Weerakkody and Bruno Sinopoli*
+
+/IEEE Control Systems Magazine/, Feb 2015, Volume 35, Issue 1, Pages 93-109
+
+Link to the [[../../../public/papers/j13authentication.pdf][paper]]
+
+Cyberphysical systems (CPSs) refer to the embedding of widespread sensing, networking, computation, and control into physical spaces with the goal of making them safer, more efficient, and reliable. Driven by the miniaturization and integration of sensing, communication, and computation in cost-efficient devices, CPSs are bound to transform industries such as aerospace, transportation, built environments, energy, health care, and manufacturing, to name a few. This great opportunity, unfortunately, is matched by even greater challenges. Taming the complexity of design and analysis of these systems poses a fundamental problem as a new paradigm is needed to bridge various scientific domains, which, through the years, have developed significantly different formalisms and methodologies. In addition, while the use of dedicated communication networks has so far sheltered systems from the outside world, use of off-the-shelf networking and computing, combined with the unattended operation of a plethora of devices, provides several opportunities for malicious entities to inject attacks on CPSs. A wide variety of motivations exists for launching an attack on CPSs, ranging from economic reasons, such as obtaining a financial gain, all the way to terrorism, for instance, threatening an entire population by manipulating life-critical resources. Any attack on safety-critical CPSs may significantly hamper the economy and lead to the loss of human lives.

@@ -1,0 +1,16 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
+---
+layout: page
+title: Integrity Data Attacks in Power Market Operations
+---
+#+END_HTML
+--------------------------------
+
+*Le Xie, Yilin Mo and Bruno Sinopoli*
+
+/IEEE Transactions on Smart Grid/, Dec 2011, Volume 2, Issue 4, Pages 659-666
+
+Link to the [[../../../public/papers/j11smartgridestimation.pdf][paper]]
+
+We study the economic impact of a potential class of integrity cyber attacks, named false data injection attacks, on electric power market operations. In particular, we show that with the knowledge of the transmission system topology, attackers may circumvent the bad data detection algorithms equipped in today's state estimator. This, in turn, may be leveraged by attackers for consistent financial arbitrage such as virtual bidding at selected pairs of nodes. This paper is a first attempt to formalize the economic impact of malicious data attacks on real-time market operations. We show how an attack could systematically construct a profitable attacking strategy, in the meantime being undetected by the system operator. Such a result is also valuable for the system operators to examine the potential economic loss due to such cyber attack. The potential impact of the false data injection attacks is illustrated on real-time market operations of the IEEE 14-bus system.
