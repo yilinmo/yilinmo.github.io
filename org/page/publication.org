@@ -42,7 +42,7 @@ My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]]
 11. Xiaofei Liu, Sergio Pequito, Soummya Kar, Yilin Mo, Bruno Sinopoli and A. Pedro Aguiar, /Minimum Robust Sensor Placement for Large Scale Linear Time-Invariant Systems: A Structured Systems Approach/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2013
 12. Duo Han, Yilin Mo, Junfeng Wu, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Scheduling for Remote State Estimation/, *IEEE Conference on Decision and Control*, 2013
 13. Yilin Mo and Bruno Sinopoli, /Robust Estimation in the Presence of Integrity Attacks/, *IEEE Conference on Decision and Control*, 2013
-14. Yilin Mo and Emanuele Garone and Bruno Sinopoli,/LQG control with Markovian Packet Loss/, *European Control Conference*, 2013 
+14. Yilin Mo and Emanuele Garone and Bruno Sinopoli, /LQG control with Markovian Packet Loss/, *European Control Conference*, 2013 
 15. Yilin Mo, Emanuele Garone, Ling Shi and Bruno Sinopoli, /Infinite-Horizon Sensor Scheduling for Estimation over Lossy Networks/, *IEEE Conference on Decision and Control*, 2012
 16. Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli, /Stochastic Sensor Scheduling in Wireless Sensor Networks with General Graph Topology/, *American Control Conference*, 2012
 17. Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli, /Robust Detection in the Presence of Integrity Attacks/, *American Control Conference*, 2012
