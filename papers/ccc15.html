@@ -61,54 +61,55 @@ The code is written in Python 3.4 with the following dependencies:
 </li>
 </ul>
 
-{% highlight python %}
-import numpy as np
-from numpy.random import rand
-from numpy import cos, sin, sqrt, matrix, eye, zeros
-from numpy.linalg import inv, svd
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns #for the sake of appearance
-from matplotlib.patches import Ellipse
-from itertools import combinations
-import cvxpy as cvx
+<div class="org-src-container">
 
-# returns the boundary of an ellipse: (x-c)'Q(x-c) == 1
-def convert2Ellipse(c, Q): 
-    if c.shape == (2,1) and Q.shape == (2,2):
-	Q = (Q + Q.T)/2
-	U, s, V = svd(Q)
-	theta = np.linspace(0, 2 * np.pi, 360)
-	x = U[0,0] * cos(theta) / sqrt(s[0]) + U[0,1] * sin(theta) / sqrt(s[1]) + c[0,0]
-	y = U[1,0] * cos(theta) / sqrt(s[0]) + U[1,1] * sin(theta) / sqrt(s[1]) + c[1,0]
-	return x, y
-    else:
-	return None
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">import</span> numpy <span style="color: #859900; font-weight: bold;">as</span> np
+<span style="color: #859900; font-weight: bold;">from</span> numpy.random <span style="color: #859900; font-weight: bold;">import</span> rand
+<span style="color: #859900; font-weight: bold;">from</span> numpy <span style="color: #859900; font-weight: bold;">import</span> cos, sin, sqrt, matrix, eye, zeros
+<span style="color: #859900; font-weight: bold;">from</span> numpy.linalg <span style="color: #859900; font-weight: bold;">import</span> inv, svd
+<span style="color: #859900; font-weight: bold;">import</span> matplotlib
+<span style="color: #859900; font-weight: bold;">import</span> matplotlib.pyplot <span style="color: #859900; font-weight: bold;">as</span> plt
+<span style="color: #859900; font-weight: bold;">import</span> seaborn <span style="color: #859900; font-weight: bold;">as</span> sns <span style="color: #586e75;">#</span><span style="color: #586e75;">for the sake of appearance</span>
+<span style="color: #859900; font-weight: bold;">from</span> matplotlib.patches <span style="color: #859900; font-weight: bold;">import</span> Ellipse
+<span style="color: #859900; font-weight: bold;">from</span> itertools <span style="color: #859900; font-weight: bold;">import</span> combinations
+<span style="color: #859900; font-weight: bold;">import</span> cvxpy <span style="color: #859900; font-weight: bold;">as</span> cvx
 
-#static parameters
+<span style="color: #586e75;"># </span><span style="color: #586e75;">returns the boundary of an ellipse: (x-c)'Q(x-c) == 1</span>
+<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">convert2Ellipse</span>(c, Q): 
+    <span style="color: #859900; font-weight: bold;">if</span> c.shape == (2,1) <span style="color: #859900; font-weight: bold;">and</span> Q.shape == (2,2):
+        Q = (Q + Q.T)/2
+        <span style="color: #268bd2;">U</span>, <span style="color: #268bd2;">s</span>, V = svd(Q)
+        theta = np.linspace(0, 2 * np.pi, 360)
+        x = U[0,0] * cos(theta) / sqrt(s[0]) + U[0,1] * sin(theta) / sqrt(s[1]) + c[0,0]
+        y = U[1,0] * cos(theta) / sqrt(s[0]) + U[1,1] * sin(theta) / sqrt(s[1]) + c[1,0]
+        <span style="color: #859900; font-weight: bold;">return</span> x, y
+    <span style="color: #859900; font-weight: bold;">else</span>:
+        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #268bd2; font-weight: bold;">None</span>
+
+<span style="color: #586e75;">#</span><span style="color: #586e75;">static parameters</span>
 n = 2
 m = 4
 l = 1
 delta = 1.
 H = matrix([[1, 0],
-	   [0, 1],
-	   [1, 1],
-	   [1, -1]],'f')
+           [0, 1],
+           [1, 1],
+           [1, -1]],<span style="color: #2aa198;">'f'</span>)
 G = matrix(eye(m))
-#generate x, w, a, y randomly
+<span style="color: #586e75;">#</span><span style="color: #586e75;">generate x, w, a, y randomly</span>
 x = matrix(rand(n, 1))
 w = matrix(rand(m, 1))
-while np.linalg.norm(w) >= 1:
+<span style="color: #859900; font-weight: bold;">while</span> np.linalg.norm(w) &gt;= 1:
     w = rand(m, 1)
 
 a = matrix([0, 0, 0, 1.5]).T
 y = H * x + G * w + a
 
-# Or in this simulation we will use the worst-case y
-y = matrix('-0.851;2.753;0.5257;0')
+<span style="color: #586e75;"># </span><span style="color: #586e75;">Or in this simulation we will use the worst-case y</span>
+y = matrix(<span style="color: #2aa198;">'-0.851;2.753;0.5257;0'</span>)
 
 OmegaList = []
-for indexset in combinations(range(m), m - l): 
+<span style="color: #859900; font-weight: bold;">for</span> indexset <span style="color: #859900; font-weight: bold;">in</span> combinations(<span style="color: #839496; font-weight: bold;">range</span>(m), m - l): 
     HI = H[indexset, :]
     GI = G[indexset, :]
     yI = y[indexset, :]
@@ -120,78 +121,78 @@ for indexset in combinations(range(m), m - l):
     UI = tmp.T * invXiI * tmp
     hatxI = KI * yI
     epsilonI = yI.T * UI * yI
-    if delta**2 >= epsilonI: #if the ellipsoid exists
-	# Generate the Omega of Theorem 4
-	Omega = np.bmat([[inv(PI), -1 * inv(PI) * hatxI, zeros((n,n))],
-		      [-1 * hatxI.T * inv(PI), hatxI.T * inv(PI) * hatxI + epsilonI-delta**2, zeros((1,n))],
-		      [zeros((n, 2 * n + 1))]])
-	OmegaList.append(Omega)
-	#Draw the corresponding ellipse
-	Q = inv(PI)/(delta ** 2 - epsilonI)
-	ex, ey = convert2Ellipse(hatxI, Q)
-	plt.fill(ex, ey)
-	plt.plot(ex, ey)
+    <span style="color: #859900; font-weight: bold;">if</span> delta**2 &gt;= epsilonI: <span style="color: #586e75;">#</span><span style="color: #586e75;">if the ellipsoid exists</span>
+        <span style="color: #586e75;"># </span><span style="color: #586e75;">Generate the Omega of Theorem 4</span>
+        Omega = np.bmat([[inv(PI), -1 * inv(PI) * hatxI, zeros((n,n))],
+                      [-1 * hatxI.T * inv(PI), hatxI.T * inv(PI) * hatxI + epsilonI-delta**2, zeros((1,n))],
+                      [zeros((n, 2 * n + 1))]])
+        OmegaList.append(Omega)
+        <span style="color: #586e75;">#</span><span style="color: #586e75;">Draw the corresponding ellipse</span>
+        Q = inv(PI)/(delta ** 2 - epsilonI)
+        <span style="color: #268bd2;">ex</span>, ey = convert2Ellipse(hatxI, Q)
+        plt.fill(ex, ey)
+        plt.plot(ex, ey)
 
-# convex optimization problem described in (20)
-tau = cvx.Variable(len(OmegaList))
+<span style="color: #586e75;"># </span><span style="color: #586e75;">convex optimization problem described in (20)</span>
+tau = cvx.Variable(<span style="color: #839496; font-weight: bold;">len</span>(OmegaList))
 varphi = cvx.Variable()
 hatx = cvx.Variable(n)
-# X corresponds to the the matrix 
-# |  I      -hatx     0  |
-# |-hatx'  -varphi  hatx'|
-# |  0       hatx    -I  |
+<span style="color: #586e75;"># </span><span style="color: #586e75;">X corresponds to the the matrix </span>
+<span style="color: #586e75;"># </span><span style="color: #586e75;">|  I      -hatx     0  |</span>
+<span style="color: #586e75;"># </span><span style="color: #586e75;">|-hatx'  -varphi  hatx'|</span>
+<span style="color: #586e75;"># </span><span style="color: #586e75;">|  0       hatx    -I  |</span>
 X = cvx.Symmetric(2*n+1) 
-constraints = [varphi >= 0,
-	       tau >= 0,
-	       X[:n,:n] == eye(n),
-	       X[:n,n+1:] == zeros((n, n)),
-	       X[:n, n] == -hatx,
-	       X[n,n] == -varphi,
-	       X[n+1:, n] == hatx,
-	       X[n+1:, n+1:] == -1 * eye(n),]
+constraints = [varphi &gt;= 0,
+               tau &gt;= 0,
+               X[:n,:n] == eye(n),
+               X[:n,n+1:] == zeros((n, n)),
+               X[:n, n] == -hatx,
+               X[n,n] == -varphi,
+               X[n+1:, n] == hatx,
+               X[n+1:, n+1:] == -1 * eye(n),]
 obj = cvx.Minimize(varphi)
-for i in range(len(OmegaList)):
-    constraints.append(tau[i] * OmegaList[i] - X >> 0)
+<span style="color: #859900; font-weight: bold;">for</span> i <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(<span style="color: #839496; font-weight: bold;">len</span>(OmegaList)):
+    constraints.append(tau[i] * OmegaList[i] - X &gt;&gt; 0)
 prob = cvx.Problem(obj, constraints)
 prob.solve()
 
-#plot the corresponding ellipse and its center
-ex, ey = convert2Ellipse(hatx.value, eye(n)/varphi.value)
-plt.plot(ex, ey, 'r--')
-plt.plot(hatx.value[0], hatx.value[1], 'ro')
+<span style="color: #586e75;">#</span><span style="color: #586e75;">plot the corresponding ellipse and its center</span>
+<span style="color: #268bd2;">ex</span>, ey = convert2Ellipse(hatx.value, eye(n)/varphi.value)
+plt.plot(ex, ey, <span style="color: #2aa198;">'r--'</span>)
+plt.plot(hatx.value[0], hatx.value[1], <span style="color: #2aa198;">'ro'</span>)
 
-# Compute the state estimation given by (21)
+<span style="color: #586e75;"># </span><span style="color: #586e75;">Compute the state estimation given by (21)</span>
 hatx = inv(H.T * inv(G*G.T) * H) * H.T * inv(G*G.T) * y
 
-# Find the maximum error, i.e., the minimum radius circle
-tau = cvx.Variable(len(OmegaList))
+<span style="color: #586e75;"># </span><span style="color: #586e75;">Find the maximum error, i.e., the minimum radius circle</span>
+tau = cvx.Variable(<span style="color: #839496; font-weight: bold;">len</span>(OmegaList))
 varphi = cvx.Variable()
 X = cvx.Symmetric(2*n+1)
-constraints = [varphi >= 0,
-	       tau >= 0,
-	       X[:n,:n] == eye(n),
-	       X[:n,n+1:] == zeros((n, n)),
-	       X[:n, n] == -hatx,
-	       X[n,n] == -varphi,
-	       X[n+1:, n] == hatx,
-	       X[n+1:, n+1:] == -1 * eye(n),]
+constraints = [varphi &gt;= 0,
+               tau &gt;= 0,
+               X[:n,:n] == eye(n),
+               X[:n,n+1:] == zeros((n, n)),
+               X[:n, n] == -hatx,
+               X[n,n] == -varphi,
+               X[n+1:, n] == hatx,
+               X[n+1:, n+1:] == -1 * eye(n),]
 obj = cvx.Minimize(varphi)
-for i in range(len(OmegaList)):
-    constraints.append(tau[i] * OmegaList[i] - X >> 0)
+<span style="color: #859900; font-weight: bold;">for</span> i <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(<span style="color: #839496; font-weight: bold;">len</span>(OmegaList)):
+    constraints.append(tau[i] * OmegaList[i] - X &gt;&gt; 0)
 prob = cvx.Problem(obj, constraints)
 prob.solve()
 
-#plot the corresponding ellipse and its center
-ex, ey = convert2Ellipse(hatx, eye(n)/varphi.value)
-plt.plot(ex, ey, 'k--')
-plt.plot(hatx[0], hatx[1], 'ks')
+<span style="color: #586e75;">#</span><span style="color: #586e75;">plot the corresponding ellipse and its center</span>
+<span style="color: #268bd2;">ex</span>, ey = convert2Ellipse(hatx, eye(n)/varphi.value)
+plt.plot(ex, ey, <span style="color: #2aa198;">'k--'</span>)
+plt.plot(hatx[0], hatx[1], <span style="color: #2aa198;">'ks'</span>)
 
-plt.axis('equal')
+plt.axis(<span style="color: #2aa198;">'equal'</span>)
 plt.tight_layout()
-plt.savefig('../../../public/ccc-15.png')
-return '../../../public/ccc-15.png' # return the filename to org-mode
-
-{% endhighlight %}
+plt.savefig(<span style="color: #2aa198;">'../../../public/ccc-15.png'</span>)
+<span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'../../../public/ccc-15.png'</span> <span style="color: #586e75;"># </span><span style="color: #586e75;">return the filename to org-mode</span>
+</pre>
+</div>
 
 
 <div class="figure">

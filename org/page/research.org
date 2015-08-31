@@ -6,13 +6,73 @@ title: Research
 ---
 #+END_HTML
 
-* Security in Control System
 
-** Intrusion Detection and Isolation
 
-** Resilient Algorithm Design in Adversarial Environment
+* Security of Cyber-Physical System
 
-#+begin_src python :results file :exports results
+[[https://en.wikipedia.org/wiki/Cyber-physical_system][Cyber-Physical Systems]] (CPS) refer to the embedding of widespread sensing, networking, computation, and control into physical spaces with the goal of making them safer, more efficient, and reliable. Driven by the miniaturization and integration of sensing, communication, and computation in cost effective devices, CPSs are bound to transform several industries such as aerospace, transportation, built environments, energy, health-care, and manufacturing, to name a few. This great opportunity, unfortunately, is matched by even greater challenges. While the use of dedicated communication networks has so far sheltered systems from the outside world, use of off-the-shelf networking and computing, combined with unattended operation of a plethora of devices, provides several opportunities for malicious entities to inject attacks on CPSs. A wide variety of motivations exists for launching an attack on CPSs, ranging from economic reasons such as drawing a financial gain, all the way to terrorism, for instance, threatening an entire population by manipulating life-critical resources. Any attack on safety-critical CPSs may significantly hamper the economy and lead to the loss of human lives. While the threat of attacks on CPSs tends to be underplayed at times, the [[https://en.wikipedia.org/wiki/Stuxnet][Stuxnet]] worm provided a clear sample of the future to come.
+#+header: :imagemagick yes :iminoptions -density 600 :imoutoptions -geometry 800 -quality 100 
+#+begin_src latex :file ../../public/replaydiagram.png :packages '(("" "tikz")) :border 1em :exports results
+\usetikzlibrary{matrix,arrows,fit} 
+
+\begin{tikzpicture}[>=stealth',
+box/.style={rectangle, draw=blue!50,fill=blue!20,rounded corners, semithick},
+point/.style={coordinate},
+every node/.append style={font=\small}
+]
+\matrix[row sep = 10mm, column sep = 7mm]{
+%&
+&\node (p0) [point]{};&&\\
+%first row
+\node (p1) [point] {};&
+%\node (p2) [point] {};&
+\node (plant) [box] {Plant};&
+\node (sensor) [box] {Sensor};&
+\node (p3) [point] {};\\
+%second row
+\node (p5) [point] {};&
+%&
+\node (delay) [box] {$z^{-1}$};&
+\node (p6) [point] {};&
+\node (virtual) [box] {Time-Shifted System};\\
+%third row
+\node (p7) [circle,semithick,draw=blue!50,fill=blue!20] {};&
+\node (controller) [box] {LQG Controller};&
+%&
+\node (estimator) [box] {Estimator};&
+\node (p8) [point] {};\\
+%fourth row
+\node (auth)[rectangle,semithick]{Authentication Signal};&
+%&
+\node (detector) [box] {Failure Detector};&
+\node (p9) [point] {};&\\
+};
+\draw [semithick] (p7.east)--(p7.west);
+\draw [semithick] (p7.north)--(p7.south);
+\draw [semithick,->] (plant) -- (sensor);
+%\draw [semithick,->](sensor) -- (p3) -- node[midway,right]{$y_k$} (p8) -- (estimator);
+\draw [semithick,->](virtual) -- node[midway,right]{$y^v_k$} (p8) -- (estimator);
+\draw [semithick,->](estimator)-- node[midway,above]{$\hat x_k$}(controller);
+\draw [semithick,->] (auth) -- node[midway,right]{$\zeta_k$}(p7);
+\draw [semithick,->](controller)--  (p7);
+\draw [semithick,->](p7)--node[midway,left]{$u_k$}(p1)--(plant);
+\draw [semithick,->](p5)--(delay)-- node[midway,above]{$u_{k-1}$}(p6)--(estimator);
+\draw [semithick,->](estimator)--(p9) --node[midway,below]{$z_k$}(detector);
+\draw [semithick,->](p0)--node[midway,right]{$u^a_k$}(plant);
+\draw [semithick,->](auth)--node[midway,below]{$\zeta_k$}(detector);
+\end{tikzpicture}
+#+end_src
+
+#+CAPTION: Diagram of a CPS under replay attack (Stuxnet example). Here, the adversary performs a replay attack, providing replayed outputs $y_k^v$ to the system operator while injecting a potentially damaging input $u_k^a$ to the system. To detect the attack, we inject a random control signal $\zeta_k$ to the system. If the system is operating normally, then we will see the system response of $\zeta_k$ in $y_k$. However, during the replay, the response will be absent.
+[[file:../../public/replaydiagram.png]]
+
+I am interested in leveraging system theoretical tools, which is complementary to the traditional information security based-approach, to address the security problems in CPS. Below is a list of our recent publications on this topic:
+- Using randomized control signal to detect the presence of replay attack (Stuxnet): [[./papers/cms-15-replay.org][MoWeerakkodySinopoli2015]], [[./papers/tcst-14-replay.org][MoChabukswarSinpoli2014]]
+- Characterizing the performance of the CPS when under integrity attacks: [[./papers/tac-12-integrity.org][MoSinopoli2015]] 
+- Secure information fusion in the presence of compromised data: [[./papers/tsp-14-detection.org][MoHespanhaSinopoli2014]], [[./papers/tac-15-est.org][MoSinopoli2015b]]
+- Privacy in multi-agent system: [[file:papers/tac-15-privacy.org][MoMurray2015]]
+
+#+begin_src python :results file :exports none
 import numpy as np
 from numpy import sort, sum, exp, zeros
 from numpy.random import randn 
@@ -56,26 +116,8 @@ return '../../public/research-00.png' # return the filename to org-mode
 #+RESULTS:
 [[file:../../public/research-00.png]]
 
-   
-** Privacy in Distributed Multi-Agent Systems
-
 * Networked Control System
-
-** TODO Imperfect Communication and its Effect on the Control
-
-
-First execute the second code block, to define the convenience macro and to set the required new variables in ob-latex.el.  Then export to HTML and to pdf to see the tree exported as an SVG image and as embedded tikz respectively.
-
-#+header: :imagemagick yes 
-#+begin_src latex :file fsa.png :packages '(("" "tikz")) :border 1em 
-  \usetikzlibrary{shapes,arrows}
-
-#+end_src
-
-#+RESULTS:
-#+BEGIN_LaTeX
-[[file:fsa.png]]
-#+END_LaTeX
-
-** Design the Information Structure
-
+A [[https://en.wikipedia.org/wiki/Networked_control_system][Networked Control System]] (NCS) is a control system wherein the control loops are closed through a communication network. Advances in fabrication, modern sensor and communication technologies, and computer architecture have boosted the development of NCS which have a wide range of applications. One of the key challenges for NCS is the tight coupling between communication and control. Classical control theory typically assumes that the communication among sensors, controllers and actuators are perfect, without any delay or packet drop. However, for NCS, one needs to take into consideration the imperfect communication and design the estimation and control algorithms accordingly. On the other hand, for many NCS, communication is expensive since many NCS devices are battery powered. As a result, it is useful to schedule the communication so that only "important and informative" messages are transmitted. I am interested in understanding the interaction between communication and control and designing robust and efficient NCS. Below is a list of our recent publications on this topic
+- Understanding the impact of network effects on state estimation and control: [[./papers/tac12.org][MoSinopoli12]]
+- Offline sensor scheduling via convex optimization: [[./papers/tac-11-scheduling.org][MoGaroneCasavolaSinopoli11]], [[./papers/automatica-11-scheduling.org][MoAmbrosinoSinopoli11]]
+- Event-triggered sensor scheduling: [[./papers/tac-13-event.org][HanMoWuWeerakkodySinopoliShi15]]

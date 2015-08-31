@@ -38,32 +38,33 @@ The code is written in Matlab R2009b (7.9.0.529) with the following dependency
 <div id="outline-container-sec-2-1" class="outline-3">
 <h3 id="sec-2-1">Fig 2</h3>
 <div class="outline-text-3" id="text-2-1">
-{% highlight matlab %}
-%Compare the periodic schedule, the closed-loop schedule, the open loop
-%schedule and the random schedule.
+<div class="org-src-container">
+
+<pre class="src src-matlab"><span style="color: #586e75;">%Compare the periodic schedule, the closed-loop schedule, the open loop</span>
+<span style="color: #586e75;">%schedule and the random schedule.</span>
 
 close all;
 clear all;
 clc;
 
-%%%% Since there is no close-form relationship between rate and  Z.
-%%%% we need to find the empirical mapping from rate to Z.
+<span style="color: #586e75; font-weight: bold; text-decoration: overline;">%%%% Since there is no close-form relationship between rate and  Z.</span>
+<span style="color: #586e75; font-weight: bold; text-decoration: overline;">%%%% we need to find the empirical mapping from rate to Z.</span>
 
-% parameter setting
+<span style="color: #586e75;">% parameter setting</span>
 n = 1;
 m = 1;
-A = 0.8; % generate a stable A
+A = 0.8; <span style="color: #586e75;">% generate a stable A</span>
 C = 1;
-Q = 1*eye(n);
+Q = 1<span style="color: #b58900;">*</span>eye(n);
 sqrtQ = sqrtm(Q);
-R = 1*eye(m);
+R = 1<span style="color: #b58900;">*</span>eye(m);
 sqrtR = sqrtm(R);
 
 N = 40000;
-sample = 20; % x-axis data points
+sample = 20; <span style="color: #586e75;">% x-axis data points</span>
 
-Px = dlyap(A,Q);      %asymptotic covariance of x
-Py = C * Px * C' + R; %asymptotic covariance of y
+Px = dlyap(A,Q);      <span style="color: #586e75;">%asymptotic covariance of x</span>
+Py = C <span style="color: #b58900;">*</span> Px <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">+</span> R; <span style="color: #586e75;">%asymptotic covariance of y</span>
 
 
 Z_data = zeros(1,sample);
@@ -71,13 +72,13 @@ Z_data(1)=0.01;
 Z_data(2)=0.04;
 Z_data(3)=0.09;
 
-for i=1:sample
-    Z_data(i)=exp(0.1*i)-1; %generates uniform Z data points
-end
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">i</span>=<span style="color: #268bd2; font-weight: bold;">1:sample</span>
+    Z_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=exp(0.1<span style="color: #b58900;">*</span><span style="color: #268bd2; font-weight: bold;">i</span>)<span style="color: #b58900;">-</span>1; <span style="color: #586e75;">%generates uniform Z data points</span>
+<span style="color: #859900; font-weight: bold;">end</span>
 
 
-j=0;
-h = waitbar(0,'please wait...');
+<span style="color: #268bd2; font-weight: bold;">j</span>=0;
+h = waitbar(0,<span style="color: #2aa198;">'please wait...'</span>);
 
 rate=zeros(1,sample);
 close_empiricalrate_data = zeros(1,n);
@@ -92,25 +93,25 @@ random_empiricalmse_data = zeros(1,n);
 jf_empiricalrate_data = zeros(1,n);
 jf_empiricalmse_data = zeros(1,n);
 
-for i=1:sample
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">i</span>=<span style="color: #268bd2; font-weight: bold;">1:sample</span>
 
-    %timer update
-    j=j+1;
-    waitbar(j/sample,h);
+    <span style="color: #586e75;">%timer update</span>
+    <span style="color: #268bd2; font-weight: bold;">j</span>=<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">+</span>1;
+    waitbar(<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">/</span>sample,h);
 
 
-    x=zeros(1,N+1);
+    x=zeros(1,N<span style="color: #b58900;">+</span>1);
     Sigma = eye(n);
-    x(1) = sqrtm(Sigma)*randn(1,n);
+    x(1) = sqrtm(Sigma)<span style="color: #b58900;">*</span>randn(1,n);
 
-    y=zeros(1,N+1);
+    y=zeros(1,N<span style="color: #b58900;">+</span>1);
 
-    Z = Z_data(i); 
-    invZ = 1/Z;
+    Z = Z_data(<span style="color: #268bd2; font-weight: bold;">i</span>); 
+    invZ = 1<span style="color: #b58900;">/</span>Z;
 
 
-    close_empiricalmse = zeros(n); %average error*error'
-    close_mse = zeros(n); %average P_k
+    close_empiricalmse = zeros(n); <span style="color: #586e75;">%average error*error'</span>
+    close_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
     close_empiricalrate = 0; 
 
     open_empiricalmse = zeros(n); 
@@ -123,176 +124,176 @@ for i=1:sample
     random_empiricalmse = zeros(n); 
     random_mse = zeros(n); 
 
-    for k=1:N  %linear dynamic system
-	x(k+1) = A * x(k) + sqrtQ * randn(1,n);
-	y(k) = C * x(k) + sqrtR * randn(1,m);
-    end
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span>=<span style="color: #268bd2; font-weight: bold;">1:N  </span><span style="color: #586e75;">%linear dynamic system</span>
+        x(k<span style="color: #b58900;">+</span>1) = A <span style="color: #b58900;">*</span> x(k) <span style="color: #b58900;">+</span> sqrtQ <span style="color: #b58900;">*</span> randn(1,n);
+        y(k) = C <span style="color: #b58900;">*</span> x(k) <span style="color: #b58900;">+</span> sqrtR <span style="color: #b58900;">*</span> randn(1,m);
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    %% closed-loop event-based MMSE under different rate
+    <span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% closed-loop event-based MMSE under different rate</span>
     hatx = zeros(1,n);
     P = Sigma;
 
-    for k = 1:N
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
 
-	%generate a uniform random variable
-	zeta = rand();
-	threshold = exp(-0.5*(y(k)-C*hatx)'*(Z)*(y(k)-C*hatx));
-	if zeta < threshold % not send y
-	    F = P * C' / ( C*P*C' + R + invZ);
-	    hatx = hatx;
-	    P = P - F*C*P;
-	else % send y
-	    L = P * C' / ( C*P*C' + R);
-	    hatx = (eye(n) - L*C)*hatx + L*y(k);
-	    P = P - L*C*P;
-	    close_empiricalrate = close_empiricalrate + 1;
-	end
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
-	close_mse = close_mse + P;
-	close_error = x(k) - hatx;
-	close_empiricalmse = close_empiricalmse + close_error * close_error';
-    end
+        <span style="color: #586e75;">%generate a uniform random variable</span>
+        zeta = rand();
+        threshold = exp(<span style="color: #b58900;">-</span>0.5<span style="color: #b58900;">*</span>(y(k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx)'<span style="color: #b58900;">*</span>(Z)<span style="color: #b58900;">*</span>(y(k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx));
+        <span style="color: #859900; font-weight: bold;">if</span> zeta <span style="color: #b58900;">&lt;</span> threshold <span style="color: #586e75;">% not send y</span>
+            F = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span> invZ);
+            hatx = hatx;
+            P = P <span style="color: #b58900;">-</span> F<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(k);
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            close_empiricalrate = close_empiricalrate <span style="color: #b58900;">+</span> 1;
+        <span style="color: #859900; font-weight: bold;">end</span>
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
+        close_mse = close_mse <span style="color: #b58900;">+</span> P;
+        close_error = x(k) <span style="color: #b58900;">-</span> hatx;
+        close_empiricalmse = close_empiricalmse <span style="color: #b58900;">+</span> close_error <span style="color: #b58900;">*</span> close_error';
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    close_mse_data(i)=close_mse / N;
-    close_empiricalmse_data(i) = close_empiricalmse / N;
-    close_empiricalrate_data(i) = close_empiricalrate / N;
+    close_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=close_mse <span style="color: #b58900;">/</span> N;
+    close_empiricalmse_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = close_empiricalmse <span style="color: #b58900;">/</span> N;
+    close_empiricalrate_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = close_empiricalrate <span style="color: #b58900;">/</span> N;
 
-    %% open-loop event-based MMSE under different rate
+    <span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% open-loop event-based MMSE under different rate</span>
 
-    Y = ((1/(1-close_empiricalrate_data(i)))^2-1)/Py; % compute Y according to the empirical rate in the closed-loop case
+    Y = ((1<span style="color: #b58900;">/</span>(1<span style="color: #b58900;">-</span>close_empiricalrate_data(<span style="color: #268bd2; font-weight: bold;">i</span>)))<span style="color: #b58900;">^</span>2<span style="color: #b58900;">-</span>1)<span style="color: #b58900;">/</span>Py; <span style="color: #586e75;">% compute Y according to the empirical rate in the closed-loop case</span>
 
     hatx = zeros(1,n);
     P = Sigma;
 
-    for k = 1:N
-	%prediction step
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
+        <span style="color: #586e75;">%prediction step</span>
 
-	%uniform random variable
-	zeta = rand();
-	threshold = exp(-0.5*y(k)'*Y*y(k));
-	if zeta < threshold % not send y
-	    L = P * C' / ( C*P*C' + R + 1/Y);
-	    hatx = (eye(n) - L*C)*hatx;
-	    P = P - L*C*P;
-	else % send y
-	    L = P * C' / ( C*P*C' + R);
-	    hatx = (eye(n) - L*C)*hatx + L*y(k);
-	    P = P - L*C*P;
-	end
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
-	open_mse = open_mse + P;
-	open_error = x(k) - hatx;
-	open_empiricalmse = open_empiricalmse + open_error * open_error';
-    end
+        <span style="color: #586e75;">%uniform random variable</span>
+        zeta = rand();
+        threshold = exp(<span style="color: #b58900;">-</span>0.5<span style="color: #b58900;">*</span>y(k)'<span style="color: #b58900;">*</span>Y<span style="color: #b58900;">*</span>y(k));
+        <span style="color: #859900; font-weight: bold;">if</span> zeta <span style="color: #b58900;">&lt;</span> threshold <span style="color: #586e75;">% not send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span> 1<span style="color: #b58900;">/</span>Y);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx;
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(k);
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #859900; font-weight: bold;">end</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
+        open_mse = open_mse <span style="color: #b58900;">+</span> P;
+        open_error = x(k) <span style="color: #b58900;">-</span> hatx;
+        open_empiricalmse = open_empiricalmse <span style="color: #b58900;">+</span> open_error <span style="color: #b58900;">*</span> open_error';
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    open_mse_data(i)=open_mse / N;
-    open_empiricalmse_data(i) = open_empiricalmse / N;
+    open_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=open_mse <span style="color: #b58900;">/</span> N;
+    open_empiricalmse_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = open_empiricalmse <span style="color: #b58900;">/</span> N;
 
-    %% periodic offline MMSE under different rate   
+    <span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% periodic offline MMSE under different rate   </span>
     hatx = zeros(1,n);
     P = Sigma;
 
-    if i<sample/2
-	for a=1:N
-	    if mod(a,i+1)==1 % send y
-		L = P * C' / ( C*P*C' + R);
-		hatx = (1 - L*C)*hatx + L*y(a);
-		P = P - L*C*P;
-	    else % not send y
-		hatx = hatx;
-		P = P;
-	    end
-	    hatx = A * hatx; 
-	    P = A * P * A' + Q;
-	    periodic_mse = periodic_mse + P;
-	end
-    else
-	for a=1:N
+    <span style="color: #859900; font-weight: bold;">if</span> <span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">&lt;</span>sample<span style="color: #b58900;">/</span>2
+        <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">a</span>=<span style="color: #268bd2; font-weight: bold;">1:N</span>
+            <span style="color: #859900; font-weight: bold;">if</span> mod(a,<span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">+</span>1)<span style="color: #b58900;">==</span>1 <span style="color: #586e75;">% send y</span>
+                L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+                hatx = (1 <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(a);
+                P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% not send y</span>
+                hatx = hatx;
+                P = P;
+            <span style="color: #859900; font-weight: bold;">end</span>
+            hatx = A <span style="color: #b58900;">*</span> hatx; 
+            P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
+            periodic_mse = periodic_mse <span style="color: #b58900;">+</span> P;
+        <span style="color: #859900; font-weight: bold;">end</span>
+    <span style="color: #859900; font-weight: bold;">else</span>
+        <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">a</span>=<span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	    if mod(a,i-sample/2+3)==1 % not send y
-		hatx = hatx;
-		P = P;  
-	    else % send y
-		L = P * C' / ( C*P*C' + R);
-		hatx = (1 - L*C)*hatx + L*y(a);
-		P = P - L*C*P;
-	    end
-	    hatx = A * hatx; 
-	    P = A * P * A' + Q;
-	    periodic_mse = periodic_mse + P;
-	end 
-    end
-    if i<sample/2
-	periodic_rate(sample/2-i)=1/(i+1); 
-	periodic_mse_data(sample/2-i)=periodic_mse / N;
-    else
-	periodic_rate(i)=1-1/(i-sample/2+3);
-	periodic_mse_data(i)=periodic_mse / N;
-    end
-end
+            <span style="color: #859900; font-weight: bold;">if</span> mod(a,<span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">-</span>sample<span style="color: #b58900;">/</span>2<span style="color: #b58900;">+</span>3)<span style="color: #b58900;">==</span>1 <span style="color: #586e75;">% not send y</span>
+                hatx = hatx;
+                P = P;  
+            <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+                L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+                hatx = (1 <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(a);
+                P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            <span style="color: #859900; font-weight: bold;">end</span>
+            hatx = A <span style="color: #b58900;">*</span> hatx; 
+            P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
+            periodic_mse = periodic_mse <span style="color: #b58900;">+</span> P;
+        <span style="color: #859900; font-weight: bold;">end</span> 
+    <span style="color: #859900; font-weight: bold;">end</span>
+    <span style="color: #859900; font-weight: bold;">if</span> <span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">&lt;</span>sample<span style="color: #b58900;">/</span>2
+        periodic_rate(sample<span style="color: #b58900;">/</span>2<span style="color: #b58900;">-</span><span style="color: #268bd2; font-weight: bold;">i</span>)=1<span style="color: #b58900;">/</span>(<span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">+</span>1); 
+        periodic_mse_data(sample<span style="color: #b58900;">/</span>2<span style="color: #b58900;">-</span><span style="color: #268bd2; font-weight: bold;">i</span>)=periodic_mse <span style="color: #b58900;">/</span> N;
+    <span style="color: #859900; font-weight: bold;">else</span>
+        periodic_rate(<span style="color: #268bd2; font-weight: bold;">i</span>)=1<span style="color: #b58900;">-</span>1<span style="color: #b58900;">/</span>(<span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">-</span>sample<span style="color: #b58900;">/</span>2<span style="color: #b58900;">+</span>3);
+        periodic_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=periodic_mse <span style="color: #b58900;">/</span> N;
+    <span style="color: #859900; font-weight: bold;">end</span>
+<span style="color: #859900; font-weight: bold;">end</span>
 
 rate_rand=zeros(1,sample);
-rate_rand=[close_empiricalrate_data(1):(close_empiricalrate_data(sample)-close_empiricalrate_data(1))/19:close_empiricalrate_data(sample)];
+rate_rand=[close_empiricalrate_data(1)<span style="color: #b58900;">:</span>(close_empiricalrate_data(sample)<span style="color: #b58900;">-</span>close_empiricalrate_data(1))<span style="color: #b58900;">/</span>19<span style="color: #b58900;">:</span>close_empiricalrate_data(sample)];
 
 
-for i=1:sample
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">i</span>=<span style="color: #268bd2; font-weight: bold;">1:sample</span>
     random_empiricalmse = zeros(n); 
     random_mse = zeros(n); 
-    %% random offline MMSE under different rate   
+    <span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% random offline MMSE under different rate   </span>
     hatx = zeros(1,n);
     P = Sigma;
 
-    for k = 1:N
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	if zeta < 1-rate_rand(i) % not send y
-	    hatx = hatx;
-	    P = P;
-	else % send y
-	    L = P * C' / ( C*P*C' + R);
-	    hatx = (eye(n) - L*C)*hatx + L*y(k);
-	    P = P - L*C*P;
-	end
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
-	zeta = rand();
-	random_mse = random_mse + P;
-	random_error = x(k) - hatx;
-	random_empiricalmse = random_empiricalmse + random_error * random_error';
-    end
+        <span style="color: #859900; font-weight: bold;">if</span> zeta <span style="color: #b58900;">&lt;</span> 1<span style="color: #b58900;">-</span>rate_rand(<span style="color: #268bd2; font-weight: bold;">i</span>) <span style="color: #586e75;">% not send y</span>
+            hatx = hatx;
+            P = P;
+        <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(k);
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #859900; font-weight: bold;">end</span>
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
+        zeta = rand();
+        random_mse = random_mse <span style="color: #b58900;">+</span> P;
+        random_error = x(k) <span style="color: #b58900;">-</span> hatx;
+        random_empiricalmse = random_empiricalmse <span style="color: #b58900;">+</span> random_error <span style="color: #b58900;">*</span> random_error';
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    random_mse_data(i)=random_mse / N;
-    random_empiricalmse_data(i) = random_empiricalmse / N;
+    random_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=random_mse <span style="color: #b58900;">/</span> N;
+    random_empiricalmse_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = random_empiricalmse <span style="color: #b58900;">/</span> N;
 
-end
+<span style="color: #859900; font-weight: bold;">end</span>
 
-%%% plot the figures
+<span style="color: #586e75; font-weight: bold; text-decoration: overline;">%%% plot the figures</span>
 close(h);
-figure;
-plot(close_empiricalrate_data,close_mse_data,'LineWidth',2);
+<span style="color: #b58900;">figure</span>;
+plot(close_empiricalrate_data,close_mse_data,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(close_empiricalrate_data,open_mse_data, 'r--','LineWidth',2);
+plot(close_empiricalrate_data,open_mse_data, <span style="color: #2aa198;">'r--'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(rate_rand,random_mse_data,'k-o','LineWidth',2);
+plot(rate_rand,random_mse_data,<span style="color: #2aa198;">'k-o'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(periodic_rate(3:sample-9),periodic_mse_data(3:sample-9),'g-+','LineWidth',2);
-% hold on;
-% plot(close_empiricalrate_data,jf_mse_data,'m-*','LineWidth',2);
-legend('Closed-loop event-based schedule','Open-loop event-based schedule','Random offline schedule','Periodic offline schedule');
-xlabel('\gamma');
-ylabel('$\lim_{k\rightarrow\infty}\rm E[P_k^-]$','Interpreter','LaTex');
-%ylabel('lim_{k\rightarrow \infty} E[P_k^-]');
+plot(periodic_rate(3<span style="color: #b58900;">:</span>sample<span style="color: #b58900;">-</span>9),periodic_mse_data(3<span style="color: #b58900;">:</span>sample<span style="color: #b58900;">-</span>9),<span style="color: #2aa198;">'g-+'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
+<span style="color: #586e75;">% hold on;</span>
+<span style="color: #586e75;">% plot(close_empiricalrate_data,jf_mse_data,'m-*','LineWidth',2);</span>
+legend(<span style="color: #2aa198;">'Closed-loop event-based schedule'</span>,<span style="color: #2aa198;">'Open-loop event-based schedule'</span>,<span style="color: #2aa198;">'Random offline schedule'</span>,<span style="color: #2aa198;">'Periodic offline schedule'</span>);
+xlabel(<span style="color: #2aa198;">'\gamma'</span>);
+ylabel(<span style="color: #2aa198;">'$\lim_{k\rightarrow\infty}\rm E[P_k^-]$'</span>,<span style="color: #2aa198;">'Interpreter'</span>,<span style="color: #2aa198;">'LaTex'</span>);
+<span style="color: #586e75;">%ylabel('lim_{k\rightarrow \infty} E[P_k^-]');</span>
 grid on;
 
-filename = '../../../public/tac-13-2.png';
-print('-dpng', filename, '-r100');
-ans = filename % return the filename to org-mode
-
-{% endhighlight %}
+filename = <span style="color: #2aa198;">'../../../public/tac-13-2.png'</span>;
+print(<span style="color: #2aa198;">'-dpng'</span>, filename, <span style="color: #2aa198;">'-r100'</span>);
+<span style="color: #268bd2; font-weight: bold;">ans</span> = filename <span style="color: #586e75;">% return the filename to org-mode</span>
+</pre>
+</div>
 
 
 <div class="figure">
@@ -304,15 +305,16 @@ ans = filename % return the filename to org-mode
 <div id="outline-container-sec-2-2" class="outline-3">
 <h3 id="sec-2-2">Fig 3</h3>
 <div class="outline-text-3" id="text-2-2">
-{% highlight matlab %}
-% plot the upper bound, the lower bound and the empirical expected error of
-% covariance of the open loop schedule
+<div class="org-src-container">
+
+<pre class="src src-matlab"><span style="color: #586e75;">% plot the upper bound, the lower bound and the empirical expected error of</span>
+<span style="color: #586e75;">% covariance of the open loop schedule</span>
 close all;
 clear all;
 
 n = 2;
 m = 1;
-A = [0.8 1;0 0.95]; % generate a stable A
+A = [0.8 1;0 0.95]; <span style="color: #586e75;">% generate a stable A</span>
 C = [1 1];
 Q = eye(n);
 sqrtQ = sqrtm(Q);
@@ -320,13 +322,13 @@ R = eye(m);
 sqrtR = sqrtm(R);
 
 N = 50000;
-sample = 30; % x-axis data points
+sample = 30; <span style="color: #586e75;">% x-axis data points</span>
 
-Px = dlyap(A,Q);      %asymptotic covariance of x
-Py = C * Px * C' + R; %asymptotic covariance of y
+Px = dlyap(A,Q);      <span style="color: #586e75;">%asymptotic covariance of x</span>
+Py = C <span style="color: #b58900;">*</span> Px <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">+</span> R; <span style="color: #586e75;">%asymptotic covariance of y</span>
 
-j=0;
-h = waitbar(0,'please wait...');
+<span style="color: #268bd2; font-weight: bold;">j</span>=0;
+h = waitbar(0,<span style="color: #2aa198;">'please wait...'</span>);
 
 rate=zeros(1,sample);
 open_empiricalrate_data = zeros(1,sample);
@@ -334,115 +336,115 @@ open_empiricalmse_data = zeros(1,sample);
 test_mse_data = zeros(1,sample);
 seq = zeros(1,N);
 
-%% open-loop event-based MMSE under different rate
-for i=1:sample
-    j=j+1;
-    waitbar(j/sample,h);
+<span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% open-loop event-based MMSE under different rate</span>
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">i</span>=<span style="color: #268bd2; font-weight: bold;">1:sample</span>
+    <span style="color: #268bd2; font-weight: bold;">j</span>=<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">+</span>1;
+    waitbar(<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">/</span>sample,h);
 
-    rate(i)=0.001+i/sample*0.9;
+    rate(<span style="color: #268bd2; font-weight: bold;">i</span>)=0.001<span style="color: #b58900;">+</span><span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">/</span>sample<span style="color: #b58900;">*</span>0.9;
 
-    Y = ((1/(1-rate(i)))^2-1)/Py; % compute Y according to the  rate
+    Y = ((1<span style="color: #b58900;">/</span>(1<span style="color: #b58900;">-</span>rate(<span style="color: #268bd2; font-weight: bold;">i</span>)))<span style="color: #b58900;">^</span>2<span style="color: #b58900;">-</span>1)<span style="color: #b58900;">/</span>Py; <span style="color: #586e75;">% compute Y according to the  rate</span>
 
-    x=zeros(n,N+1);
+    x=zeros(n,N<span style="color: #b58900;">+</span>1);
     Sigma = eye(n);
-    x(:,1) = sqrtm(Sigma)*randn(n,1);
+    x(<span style="color: #b58900;">:</span>,1) = sqrtm(Sigma)<span style="color: #b58900;">*</span>randn(n,1);
 
-    y=zeros(m,N+1);
+    y=zeros(m,N<span style="color: #b58900;">+</span>1);
 
 
-    open_empiricalmse = zeros(n); %average error*error'
-    open_mse = zeros(n); %average P_k
+    open_empiricalmse = zeros(n); <span style="color: #586e75;">%average error*error'</span>
+    open_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
     open_empiricalrate = 0; 
-    upper_mse = zeros(n); %average P_k
-    lower_mse = zeros(n); %average P_k
+    upper_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
+    lower_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
 
     hatx = zeros(n,1);
     P = Sigma;   
 
-       for k = 1:N
-	L = P * C' / ( C*P*C' + R +1/Y);
-	hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-	P = P - L*C*P;
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;        
-	upper_mse = upper_mse + P;
-       end
+       <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
+        L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span>1<span style="color: #b58900;">/</span>Y);
+        hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+        P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;        
+        upper_mse = upper_mse <span style="color: #b58900;">+</span> P;
+       <span style="color: #859900; font-weight: bold;">end</span>
 
-    upper_mse_data(i)=trace(upper_mse) / N;
+    upper_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=trace(upper_mse) <span style="color: #b58900;">/</span> N;
 
     hatx = zeros(n,1);
     P = Sigma;   
 
-       for k = 1:N
-	L = P * C' / ( C*P*C' + 1/(rate(i)/R + (1-rate(i))/(R+1/Y)) );
-	hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-	P = P - L*C*P;
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;        
-	lower_mse =lower_mse + P;
-       end
+       <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
+        L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> 1<span style="color: #b58900;">/</span>(rate(<span style="color: #268bd2; font-weight: bold;">i</span>)<span style="color: #b58900;">/</span>R <span style="color: #b58900;">+</span> (1<span style="color: #b58900;">-</span>rate(<span style="color: #268bd2; font-weight: bold;">i</span>))<span style="color: #b58900;">/</span>(R<span style="color: #b58900;">+</span>1<span style="color: #b58900;">/</span>Y)) );
+        hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+        P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;        
+        lower_mse =lower_mse <span style="color: #b58900;">+</span> P;
+       <span style="color: #859900; font-weight: bold;">end</span>
 
-    lower_mse_data(i)=trace(lower_mse) / N;
+    lower_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=trace(lower_mse) <span style="color: #b58900;">/</span> N;
 
 
 
     hatx = zeros(n,1);
     P = Sigma;
 
-    for k=1:N  %linear dynamic system
-	x(:,k+1) = A * x(:,k) + sqrtQ * randn(n,1);
-	y(:,k) = C * x(:,k) + sqrtR * randn(m,1);
-    end
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span>=<span style="color: #268bd2; font-weight: bold;">1:N  </span><span style="color: #586e75;">%linear dynamic system</span>
+        x(<span style="color: #b58900;">:</span>,k<span style="color: #b58900;">+</span>1) = A <span style="color: #b58900;">*</span> x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> sqrtQ <span style="color: #b58900;">*</span> randn(n,1);
+        y(<span style="color: #b58900;">:</span>,k) = C <span style="color: #b58900;">*</span> x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> sqrtR <span style="color: #b58900;">*</span> randn(m,1);
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    for k = 1:N
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	%uniform random variable
-	zeta = rand();
-	threshold = exp(-0.5*y(:,k)'*Y*y(:,k));
-	if zeta < threshold % not send y
-	    L = P * C' / ( C*P*C' + R + 1/Y);
-	    hatx = (eye(n) - L*C)*hatx;
-	    P = P - L*C*P;
-	    seq(k) = 0;
-	else % send y
-	    L = P * C' / ( C*P*C' + R);
-	    hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-	    P = P - L*C*P;
-	    seq(k) = 1;
-	end
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
-	open_mse = open_mse + P;
-	open_error = x(:,k) - hatx;
-	open_empiricalmse = open_empiricalmse + open_error * open_error';
-    end
+        <span style="color: #586e75;">%uniform random variable</span>
+        zeta = rand();
+        threshold = exp(<span style="color: #b58900;">-</span>0.5<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k)'<span style="color: #b58900;">*</span>Y<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k));
+        <span style="color: #859900; font-weight: bold;">if</span> zeta <span style="color: #b58900;">&lt;</span> threshold <span style="color: #586e75;">% not send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span> 1<span style="color: #b58900;">/</span>Y);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx;
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            seq(k) = 0;
+        <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            seq(k) = 1;
+        <span style="color: #859900; font-weight: bold;">end</span>
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
+        open_mse = open_mse <span style="color: #b58900;">+</span> P;
+        open_error = x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">-</span> hatx;
+        open_empiricalmse = open_empiricalmse <span style="color: #b58900;">+</span> open_error <span style="color: #b58900;">*</span> open_error';
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    open_mse_data(i)=trace(open_mse) / N;
-    open_empiricalmse_data(i) = trace(open_empiricalmse) / N;
-end
+    open_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=trace(open_mse) <span style="color: #b58900;">/</span> N;
+    open_empiricalmse_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = trace(open_empiricalmse) <span style="color: #b58900;">/</span> N;
+<span style="color: #859900; font-weight: bold;">end</span>
 
 close(h);
-figure;
-plot(rate,upper_mse_data, 'b-o','LineWidth',2);
+<span style="color: #b58900;">figure</span>;
+plot(rate,upper_mse_data, <span style="color: #2aa198;">'b-o'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(rate,open_mse_data, 'k-','LineWidth',2);
+plot(rate,open_mse_data, <span style="color: #2aa198;">'k-'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(rate,lower_mse_data, 'r-*','LineWidth',2);
+plot(rate,lower_mse_data, <span style="color: #2aa198;">'r-*'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-legend('Upper bound','Open-loop event-based schedule','Lower bound');
-ylabel('$\lim_{k\rightarrow\infty}trace(\rm E[P_k^-])$','Interpreter','LaTex');
-xlabel('\gamma');
-%h = legend;
-%set(h, 'interpreter', 'latex');
+legend(<span style="color: #2aa198;">'Upper bound'</span>,<span style="color: #2aa198;">'Open-loop event-based schedule'</span>,<span style="color: #2aa198;">'Lower bound'</span>);
+ylabel(<span style="color: #2aa198;">'$\lim_{k\rightarrow\infty}trace(\rm E[P_k^-])$'</span>,<span style="color: #2aa198;">'Interpreter'</span>,<span style="color: #2aa198;">'LaTex'</span>);
+xlabel(<span style="color: #2aa198;">'\gamma'</span>);
+<span style="color: #586e75;">%h = legend;</span>
+<span style="color: #586e75;">%set(h, 'interpreter', 'latex');</span>
 grid on;
-filename = '../../../public/tac-13-3.png';
-print('-dpng', filename, '-r100');
-ans = filename % return the filename to org-mode
-
-{% endhighlight %}
+filename = <span style="color: #2aa198;">'../../../public/tac-13-3.png'</span>;
+print(<span style="color: #2aa198;">'-dpng'</span>, filename, <span style="color: #2aa198;">'-r100'</span>);
+<span style="color: #268bd2; font-weight: bold;">ans</span> = filename <span style="color: #586e75;">% return the filename to org-mode</span>
+</pre>
+</div>
 
 
 <div class="figure">
@@ -455,16 +457,17 @@ ans = filename % return the filename to org-mode
 <div id="outline-container-sec-2-3" class="outline-3">
 <h3 id="sec-2-3">Fig 4</h3>
 <div class="outline-text-3" id="text-2-3">
-{% highlight matlab %}
-% plot the upper bound, the lower bound and the empirical expected error of
-% covariance of the closed loop schedule
+<div class="org-src-container">
+
+<pre class="src src-matlab"><span style="color: #586e75;">% plot the upper bound, the lower bound and the empirical expected error of</span>
+<span style="color: #586e75;">% covariance of the closed loop schedule</span>
 close all;
 clear all;
 
-% parameter setting
+<span style="color: #586e75;">% parameter setting</span>
 n = 2;
 m = 1;
-A = [1.001 1;0 0.95]; % generate an unstable A
+A = [1.001 1;0 0.95]; <span style="color: #586e75;">% generate an unstable A</span>
 C = [1 1];
 Q = eye(n);
 sqrtQ = sqrtm(Q);
@@ -475,15 +478,15 @@ N = 5000;
 sample2=20;
 
 
-j=0;
-h = waitbar(0,'please wait...');
+<span style="color: #268bd2; font-weight: bold;">j</span>=0;
+h = waitbar(0,<span style="color: #2aa198;">'please wait...'</span>);
 
 Z_data = zeros(1,sample2);
 
-% for i=1:sample2
-%     Z_data(i)=0.1+9.9*(i-1)/sample2; %generates uniform Z data points
-% end
-Z_data = 0.1*[0.1 0.15 0.2 0.3 0.5 0.8 1.3 1.8 2.9 3.5 4.3 5.2 6.3 7.4 8.5 9.6 10.7 11.8 12.9 150];
+<span style="color: #586e75;">% for </span><span style="color: #586e75;">i</span><span style="color: #586e75;">=</span><span style="color: #586e75; font-weight: bold;">1:sample2</span>
+<span style="color: #586e75;">%     Z_data(i)=0.1+9.9*(i-1)/sample2; %generates uniform Z data points</span>
+<span style="color: #586e75;">% end</span>
+Z_data = 0.1<span style="color: #b58900;">*</span>[0.1 0.15 0.2 0.3 0.5 0.8 1.3 1.8 2.9 3.5 4.3 5.2 6.3 7.4 8.5 9.6 10.7 11.8 12.9 150];
 rate=zeros(1,sample2);
 close_empiricalrate_data = zeros(1,sample2);
 close_empiricalmse_data = zeros(1,sample2);
@@ -491,124 +494,124 @@ close_mse_data=zeros(1,sample2);
 upper_mse_data=zeros(1,sample2);
 lower_mse_data=zeros(1,sample2);
 
-%% close-loop event-based MMSE under different rate
-for i=1:sample2
+<span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% close-loop event-based MMSE under different rate</span>
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">i</span>=<span style="color: #268bd2; font-weight: bold;">1:sample2</span>
 
-    %timer update
-    j=j+1;
-    waitbar(j/sample2,h);
+    <span style="color: #586e75;">%timer update</span>
+    <span style="color: #268bd2; font-weight: bold;">j</span>=<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">+</span>1;
+    waitbar(<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">/</span>sample2,h);
 
-    x=zeros(n,N+1);
+    x=zeros(n,N<span style="color: #b58900;">+</span>1);
     Sigma = eye(n);
-    x(:,1) = sqrtm(Sigma)*randn(n,1);
+    x(<span style="color: #b58900;">:</span>,1) = sqrtm(Sigma)<span style="color: #b58900;">*</span>randn(n,1);
 
-    y=zeros(m,N+1);
+    y=zeros(m,N<span style="color: #b58900;">+</span>1);
 
 
-    close_empiricalmse = zeros(n); %average error*error'
-    close_mse = zeros(n); %average P_k
+    close_empiricalmse = zeros(n); <span style="color: #586e75;">%average error*error'</span>
+    close_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
     close_empiricalrate = 0; 
 
 
     hatx = zeros(n,1);
     P = Sigma;
 
-    for k=1:N  %linear dynamic system
-	x(:,k+1) = A * x(:,k) + sqrtQ * randn(n,1);
-	y(:,k) = C * x(:,k) + sqrtR * randn(m,1);
-    end
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span>=<span style="color: #268bd2; font-weight: bold;">1:N  </span><span style="color: #586e75;">%linear dynamic system</span>
+        x(<span style="color: #b58900;">:</span>,k<span style="color: #b58900;">+</span>1) = A <span style="color: #b58900;">*</span> x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> sqrtQ <span style="color: #b58900;">*</span> randn(n,1);
+        y(<span style="color: #b58900;">:</span>,k) = C <span style="color: #b58900;">*</span> x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> sqrtR <span style="color: #b58900;">*</span> randn(m,1);
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    Z = Z_data(i); 
-    invZ = 1/Z;
-    for k = 1:N
+    Z = Z_data(<span style="color: #268bd2; font-weight: bold;">i</span>); 
+    invZ = 1<span style="color: #b58900;">/</span>Z;
+    <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	%uniform random variable
-	zeta = rand();
-	threshold = exp(-0.5*(y(:,k)-C*hatx)'*(Z)*(y(:,k)-C*hatx));
-	if zeta < threshold % not send y
-	    F = P * C' / ( C*P*C' + R + invZ);
-	    hatx = hatx;
-	    P = P - F*C*P;
-	else % send y
-	    L = P * C' / ( C*P*C' + R);
-	    hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-	    P = P - L*C*P;
-	    close_empiricalrate = close_empiricalrate + 1;
-	end
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
+        <span style="color: #586e75;">%uniform random variable</span>
+        zeta = rand();
+        threshold = exp(<span style="color: #b58900;">-</span>0.5<span style="color: #b58900;">*</span>(y(<span style="color: #b58900;">:</span>,k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx)'<span style="color: #b58900;">*</span>(Z)<span style="color: #b58900;">*</span>(y(<span style="color: #b58900;">:</span>,k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx));
+        <span style="color: #859900; font-weight: bold;">if</span> zeta <span style="color: #b58900;">&lt;</span> threshold <span style="color: #586e75;">% not send y</span>
+            F = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span> invZ);
+            hatx = hatx;
+            P = P <span style="color: #b58900;">-</span> F<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+        <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+            L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+            hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+            P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            close_empiricalrate = close_empiricalrate <span style="color: #b58900;">+</span> 1;
+        <span style="color: #859900; font-weight: bold;">end</span>
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
 
-	close_mse = close_mse + P;
-	close_error = x(:,k) - hatx;
-	close_empiricalmse = close_empiricalmse + close_error * close_error';
-    end
+        close_mse = close_mse <span style="color: #b58900;">+</span> P;
+        close_error = x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">-</span> hatx;
+        close_empiricalmse = close_empiricalmse <span style="color: #b58900;">+</span> close_error <span style="color: #b58900;">*</span> close_error';
+    <span style="color: #859900; font-weight: bold;">end</span>
 
-    close_mse_data(i) = trace(close_mse) / N;
-    close_empiricalmse_data(i) = trace(close_empiricalmse) / N;
-    close_empiricalrate_data(i) = trace(close_empiricalrate) / N;
+    close_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = trace(close_mse) <span style="color: #b58900;">/</span> N;
+    close_empiricalmse_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = trace(close_empiricalmse) <span style="color: #b58900;">/</span> N;
+    close_empiricalrate_data(<span style="color: #268bd2; font-weight: bold;">i</span>) = trace(close_empiricalrate) <span style="color: #b58900;">/</span> N;
 
-    upper_mse = zeros(n); %average P_k    
+    upper_mse = zeros(n); <span style="color: #586e75;">%average P_k    </span>
     hatx = zeros(n,1);
     P = Sigma;   
-       for k = 1:N
+       <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
 
-	L = P * C' / ( C*P*C' + R +1/Z);
-	hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-	P = P - L*C*P;
+        L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span>1<span style="color: #b58900;">/</span>Z);
+        hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+        P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
 
-       %prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
+       <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
 
-	upper_mse = upper_mse + P;
-       end
+        upper_mse = upper_mse <span style="color: #b58900;">+</span> P;
+       <span style="color: #859900; font-weight: bold;">end</span>
 
-    upper_mse_data(i)=trace(upper_mse) / N;
+    upper_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=trace(upper_mse) <span style="color: #b58900;">/</span> N;
 
-    upper_gamma= 1-1/sqrt(1+(C*upper_mse*C'/N+R)*Z);
-    %upper_gamma= 1-1/sqrt(1+(C*C*0.5781+R)*Z);
-    lower_mse = zeros(n); %average P_k
+    upper_gamma= 1<span style="color: #b58900;">-</span>1<span style="color: #b58900;">/</span>sqrt(1<span style="color: #b58900;">+</span>(C<span style="color: #b58900;">*</span>upper_mse<span style="color: #b58900;">*</span>C'<span style="color: #b58900;">/</span>N<span style="color: #b58900;">+</span>R)<span style="color: #b58900;">*</span>Z);
+    <span style="color: #586e75;">%upper_gamma= 1-1/sqrt(1+(C*C*0.5781+R)*Z);</span>
+    lower_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
     Sigma = eye(n);
 
     hatx = zeros(n,1);
     P = Sigma;   
-       for k = 1:N
+       <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	L = P * C' / ( C*P*C' + 1/(upper_gamma/R + (1-upper_gamma)/(R+1/Z)) );
-	%L = P * C' / ( C*P*C' + R );
-	hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-	P = P - L*C*P;
+        L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> 1<span style="color: #b58900;">/</span>(upper_gamma<span style="color: #b58900;">/</span>R <span style="color: #b58900;">+</span> (1<span style="color: #b58900;">-</span>upper_gamma)<span style="color: #b58900;">/</span>(R<span style="color: #b58900;">+</span>1<span style="color: #b58900;">/</span>Z)) );
+        <span style="color: #586e75;">%L = P * C' / ( C*P*C' + R );</span>
+        hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+        P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
 
-	%prediction step
-	hatx = A * hatx; 
-	P = A * P * A' + Q;
+        <span style="color: #586e75;">%prediction step</span>
+        hatx = A <span style="color: #b58900;">*</span> hatx; 
+        P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
 
-	lower_mse =lower_mse + P;
-       end
-    lower_mse_data(i)=trace(lower_mse) / N;
-end
+        lower_mse =lower_mse <span style="color: #b58900;">+</span> P;
+       <span style="color: #859900; font-weight: bold;">end</span>
+    lower_mse_data(<span style="color: #268bd2; font-weight: bold;">i</span>)=trace(lower_mse) <span style="color: #b58900;">/</span> N;
+<span style="color: #859900; font-weight: bold;">end</span>
 
 close(h);
-figure;
-plot(close_empiricalrate_data,upper_mse_data, 'b-o','LineWidth',2);
+<span style="color: #b58900;">figure</span>;
+plot(close_empiricalrate_data,upper_mse_data, <span style="color: #2aa198;">'b-o'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(close_empiricalrate_data,close_mse_data, 'k-','LineWidth',2);
+plot(close_empiricalrate_data,close_mse_data, <span style="color: #2aa198;">'k-'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(close_empiricalrate_data,lower_mse_data, 'r-*','LineWidth',2);
+plot(close_empiricalrate_data,lower_mse_data, <span style="color: #2aa198;">'r-*'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 
-legend('Upper bound','Closed-loop event-based schedule','Lower bound');
-ylabel('$\lim_{k\rightarrow\infty}trace(\rm E[P_k^-])$','Interpreter','LaTex');
-xlabel('\gamma');
-%h = legend;
-%set(h, 'interpreter', 'latex');
+legend(<span style="color: #2aa198;">'Upper bound'</span>,<span style="color: #2aa198;">'Closed-loop event-based schedule'</span>,<span style="color: #2aa198;">'Lower bound'</span>);
+ylabel(<span style="color: #2aa198;">'$\lim_{k\rightarrow\infty}trace(\rm E[P_k^-])$'</span>,<span style="color: #2aa198;">'Interpreter'</span>,<span style="color: #2aa198;">'LaTex'</span>);
+xlabel(<span style="color: #2aa198;">'\gamma'</span>);
+<span style="color: #586e75;">%h = legend;</span>
+<span style="color: #586e75;">%set(h, 'interpreter', 'latex');</span>
 grid on;
-filename = '../../../public/tac-13-4.png';
-print('-dpng', filename, '-r100');
-ans = filename % return the filename to org-mode
-
-{% endhighlight %}
+filename = <span style="color: #2aa198;">'../../../public/tac-13-4.png'</span>;
+print(<span style="color: #2aa198;">'-dpng'</span>, filename, <span style="color: #2aa198;">'-r100'</span>);
+<span style="color: #268bd2; font-weight: bold;">ans</span> = filename <span style="color: #586e75;">% return the filename to org-mode</span>
+</pre>
+</div>
 
 
 <div class="figure">
@@ -621,8 +624,9 @@ ans = filename % return the filename to org-mode
 <div id="outline-container-sec-2-4" class="outline-3">
 <h3 id="sec-2-4">Fig 5</h3>
 <div class="outline-text-3" id="text-2-4">
-{% highlight matlab %}
-m = 2; n = 2;
+<div class="org-src-container">
+
+<pre class="src src-matlab">m = 2; n = 2;
 A=[0.8 1;0 0.95];
 C=[0.5 0.3; 0 1.4];
 Q = eye(n);
@@ -638,50 +642,50 @@ lbound=zeros(1,50);
 
 [XX,YY,ZZ]=dare(A',C',Q,R,zeros(n),eye(n));
 
-for i=3:50
-    Delta=XX+0.02*i*eye(n);
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">i</span>=<span style="color: #268bd2; font-weight: bold;">3:50</span>
+    Delta=XX<span style="color: #b58900;">+</span>0.02<span style="color: #b58900;">*</span><span style="color: #268bd2; font-weight: bold;">i</span><span style="color: #b58900;">*</span>eye(n);
     invDelta=inv(Delta);
 
-    Px = dlyap(A,Q);      %asymptotic covariance of x
-    Pi = C * Px * C' + R; %asymptotic covariance of y
+    Px = dlyap(A,Q);      <span style="color: #586e75;">%asymptotic covariance of x</span>
+    Pi = C <span style="color: #b58900;">*</span> Px <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">+</span> R; <span style="color: #586e75;">%asymptotic covariance of y</span>
 
     PU = chol(Pi);
     lgPi = log(det(Pi));
     lginvR = log(det(inv(R)));
     invPi = inv(Pi);
 
-    %constant = log((1-rate)^(-2))-lginvR-lginvR;
+    <span style="color: #586e75;">%constant = log((1-rate)^(-2))-lginvR-lginvR;</span>
     cvx_begin sdp
     variable Y(n,n) symmetric
     variable M1(n,n) symmetric
     variable M2(n,n) symmetric
     variable S(n,n) symmetric
-    minimize( trace(Pi*Y) )
+    minimize( trace(Pi<span style="color: #b58900;">*</span>Y) )
     subject to
-	[A'*inQ*A+C'*inR*C+S A'*inQ C'*inR;
-	    inQ*A inQ-S zeros(n,m);
-	    inR*C zeros(m,n) Y+inR]>=0
-	[S eye(n);
-	    eye(n) Delta]>=0
-	Y>=0
-	-S >= -inQ
+        [A'<span style="color: #b58900;">*</span>inQ<span style="color: #b58900;">*</span>A<span style="color: #b58900;">+</span>C'<span style="color: #b58900;">*</span>inR<span style="color: #b58900;">*</span>C<span style="color: #b58900;">+</span>S A'<span style="color: #b58900;">*</span>inQ C'<span style="color: #b58900;">*</span>inR;
+            inQ<span style="color: #b58900;">*</span>A inQ<span style="color: #b58900;">-</span>S zeros(n,m);
+            inR<span style="color: #b58900;">*</span>C zeros(m,n) Y<span style="color: #b58900;">+</span>inR]<span style="color: #b58900;">&gt;=</span>0
+        [S eye(n);
+            eye(n) Delta]<span style="color: #b58900;">&gt;=</span>0
+        Y<span style="color: #b58900;">&gt;=</span>0
+        <span style="color: #b58900;">-</span>S <span style="color: #b58900;">&gt;=</span> <span style="color: #b58900;">-</span>inQ
     cvx_end
-    kappa(i)=1/sqrt(1+trace(Pi*Y))-1/sqrt(det(eye(n)+Pi*Y));
-    lbound(i)=1-1/sqrt(1+trace(Pi*Y));
-    subrate(i)=1-1/sqrt(det(eye(n)+Pi*Y));
-end
+    kappa(<span style="color: #268bd2; font-weight: bold;">i</span>)=1<span style="color: #b58900;">/</span>sqrt(1<span style="color: #b58900;">+</span>trace(Pi<span style="color: #b58900;">*</span>Y))<span style="color: #b58900;">-</span>1<span style="color: #b58900;">/</span>sqrt(det(eye(n)<span style="color: #b58900;">+</span>Pi<span style="color: #b58900;">*</span>Y));
+    lbound(<span style="color: #268bd2; font-weight: bold;">i</span>)=1<span style="color: #b58900;">-</span>1<span style="color: #b58900;">/</span>sqrt(1<span style="color: #b58900;">+</span>trace(Pi<span style="color: #b58900;">*</span>Y));
+    subrate(<span style="color: #268bd2; font-weight: bold;">i</span>)=1<span style="color: #b58900;">-</span>1<span style="color: #b58900;">/</span>sqrt(det(eye(n)<span style="color: #b58900;">+</span>Pi<span style="color: #b58900;">*</span>Y));
+<span style="color: #859900; font-weight: bold;">end</span>
 
-plot(0.02*(3:2:50),subrate(1,3:2:50),'b-O','linewidth',1.5);
+plot(0.02<span style="color: #b58900;">*</span>(3<span style="color: #b58900;">:</span>2<span style="color: #b58900;">:</span>50),subrate(1,3<span style="color: #b58900;">:</span>2<span style="color: #b58900;">:</span>50),<span style="color: #2aa198;">'b-O'</span>,<span style="color: #2aa198;">'linewidth'</span>,1.5);
 hold on
-plot(0.02*(3:50),lbound(1,3:50),'r-','linewidth',1.5)
-xlabel('\varpi');
-legend('Suboptimal \gamma^{Y^*}','Lower bound of \gamma^{opt}')
+plot(0.02<span style="color: #b58900;">*</span>(3<span style="color: #b58900;">:</span>50),lbound(1,3<span style="color: #b58900;">:</span>50),<span style="color: #2aa198;">'r-'</span>,<span style="color: #2aa198;">'linewidth'</span>,1.5)
+xlabel(<span style="color: #2aa198;">'\varpi'</span>);
+legend(<span style="color: #2aa198;">'Suboptimal \gamma^{Y^*}'</span>,<span style="color: #2aa198;">'Lower bound of \gamma^{opt}'</span>)
 
-filename = '../../../public/tac-13-5.png';
-print('-dpng', filename, '-r100');
-ans = filename % return the filename to org-mode
-
-{% endhighlight %}
+filename = <span style="color: #2aa198;">'../../../public/tac-13-5.png'</span>;
+print(<span style="color: #2aa198;">'-dpng'</span>, filename, <span style="color: #2aa198;">'-r100'</span>);
+<span style="color: #268bd2; font-weight: bold;">ans</span> = filename <span style="color: #586e75;">% return the filename to org-mode</span>
+</pre>
+</div>
 
 
 <div class="figure">
@@ -694,212 +698,213 @@ ans = filename % return the filename to org-mode
 <div id="outline-container-sec-2-5" class="outline-3">
 <h3 id="sec-2-5">Fig 6 and 7</h3>
 <div class="outline-text-3" id="text-2-5">
-{% highlight matlab %}
-% Compare the closed-loop event-based schedule with the deterministic schedule proposed by Keyou You and Lihua Xie in [26]
+<div class="org-src-container">
 
-% parameter setting
+<pre class="src src-matlab"><span style="color: #586e75;">% Compare the closed-loop event-based schedule with the deterministic schedule proposed by Keyou You and Lihua Xie in [26]</span>
+
+<span style="color: #586e75;">% parameter setting</span>
 T = 1;
 alpha = 0.01;
 var_acceleration = 5;
 
 n = 3;
-A = [1 T T^2;0 1 T; 0 0 1]; % generate a stable A
+A = [1 T T<span style="color: #b58900;">^</span>2;0 1 T; 0 0 1]; <span style="color: #586e75;">% generate a stable A</span>
 m = 3;
 C = eye(m);
 
-Q = 2*alpha*var_acceleration*[(T^5)/20 (T^4)/8 (T^3)/6;(T^4)/8 (T^3)/3 (T^2)/2; (T^3)/6 (T^2)/2 T];
+Q = 2<span style="color: #b58900;">*</span>alpha<span style="color: #b58900;">*</span>var_acceleration<span style="color: #b58900;">*</span>[(T<span style="color: #b58900;">^</span>5)<span style="color: #b58900;">/</span>20 (T<span style="color: #b58900;">^</span>4)<span style="color: #b58900;">/</span>8 (T<span style="color: #b58900;">^</span>3)<span style="color: #b58900;">/</span>6;(T<span style="color: #b58900;">^</span>4)<span style="color: #b58900;">/</span>8 (T<span style="color: #b58900;">^</span>3)<span style="color: #b58900;">/</span>3 (T<span style="color: #b58900;">^</span>2)<span style="color: #b58900;">/</span>2; (T<span style="color: #b58900;">^</span>3)<span style="color: #b58900;">/</span>6 (T<span style="color: #b58900;">^</span>2)<span style="color: #b58900;">/</span>2 T];
 sqrtQ = sqrtm(Q);
-R = 1*eye(m);
+R = 1<span style="color: #b58900;">*</span>eye(m);
 sqrtR = sqrtm(R);
 
-%Z_data = 0.047*eye(m); %smaller Z, smaller rate ///for C = eye(3)
-%delta_data = [4.30]; %smaller delta, larger rate///for C = eye(3)
-Z_data = 0.52*eye(m); %smaller Z, smaller rate ///for C = eye(3)
-delta_data = [1.6]; %smaller delta, larger rate///for C = eye(3)
+<span style="color: #586e75;">%Z_data = 0.047*eye(m); %smaller Z, smaller rate ///for </span><span style="color: #586e75;">C</span><span style="color: #586e75;"> = </span><span style="color: #586e75; font-weight: bold;">eye(3)</span>
+<span style="color: #586e75;">%delta_data = [4.30]; %smaller delta, larger rate///for </span><span style="color: #586e75;">C</span><span style="color: #586e75;"> = </span><span style="color: #586e75; font-weight: bold;">eye(3)</span>
+Z_data = 0.52<span style="color: #b58900;">*</span>eye(m); <span style="color: #586e75;">%smaller Z, smaller rate ///for </span><span style="color: #586e75;">C</span><span style="color: #586e75;"> = </span><span style="color: #586e75; font-weight: bold;">eye(3)</span>
+delta_data = [1.6]; <span style="color: #586e75;">%smaller delta, larger rate///for </span><span style="color: #586e75;">C</span><span style="color: #586e75;"> = </span><span style="color: #586e75; font-weight: bold;">eye(3)</span>
 
 N = 100;
 sample2=1;
 countermax=5000;
 
 
-j=0;
-h = waitbar(0,'please wait...');
+<span style="color: #268bd2; font-weight: bold;">j</span>=0;
+h = waitbar(0,<span style="color: #2aa198;">'please wait...'</span>);
 
 
-% for i=1:sample2
-%     Z_data(i)=0.1+9.9*(i-1)/sample2; %generates uniform Z data points
-% end
+<span style="color: #586e75;">% for </span><span style="color: #586e75;">i</span><span style="color: #586e75;">=</span><span style="color: #586e75; font-weight: bold;">1:sample2</span>
+<span style="color: #586e75;">%     Z_data(i)=0.1+9.9*(i-1)/sample2; %generates uniform Z data points</span>
+<span style="color: #586e75;">% end</span>
 
 rate=zeros(1,sample2);
 close_empiricalrate_data = zeros(1,sample2);
 close_empiricalmse_data = zeros(1,sample2);
 close_mse_data=zeros(1,sample2);
-close_hatx_data=zeros(n,N+1);
+close_hatx_data=zeros(n,N<span style="color: #b58900;">+</span>1);
 close_P_data=zeros(1,N);
 close_empiricalP_data=zeros(1,N);
 
 keyou_empiricalrate_data = zeros(1,sample2);
 keyou_empiricalmse_data = zeros(1,sample2);
 keyou_mse_data=zeros(1,sample2);
-keyou_hatx_data=zeros(n,N+1);
+keyou_hatx_data=zeros(n,N<span style="color: #b58900;">+</span>1);
 keyou_P_data=zeros(1,N);
 keyou_empiricalP_data=zeros(1,N);
 
-Sigma = 0.1*[1 1/T 0;1/T 2/(T^2) 0; 0 0 0.00001];
+Sigma = 0.1<span style="color: #b58900;">*</span>[1 1<span style="color: #b58900;">/</span>T 0;1<span style="color: #b58900;">/</span>T 2<span style="color: #b58900;">/</span>(T<span style="color: #b58900;">^</span>2) 0; 0 0 0.00001];
 
-%% close-loop event-based MMSE under different rate
-for counter=1:countermax
-	% timer update
-	j=j+1;
-	waitbar(j/countermax,h);
+<span style="color: #586e75; font-weight: bold; text-decoration: overline;">%% close-loop event-based MMSE under different rate</span>
+<span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">counter</span>=<span style="color: #268bd2; font-weight: bold;">1:countermax</span>
+        <span style="color: #586e75;">% timer update</span>
+        <span style="color: #268bd2; font-weight: bold;">j</span>=<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">+</span>1;
+        waitbar(<span style="color: #268bd2; font-weight: bold;">j</span><span style="color: #b58900;">/</span>countermax,h);
 
-	x(:,1) = sqrtm(Sigma)*randn(n,1);
+        x(<span style="color: #b58900;">:</span>,1) = sqrtm(Sigma)<span style="color: #b58900;">*</span>randn(n,1);
 
-	% generate linear dynamic system
-	x=zeros(n,N+1);
-	y=zeros(m,N+1);
+        <span style="color: #586e75;">% generate linear dynamic system</span>
+        x=zeros(n,N<span style="color: #b58900;">+</span>1);
+        y=zeros(m,N<span style="color: #b58900;">+</span>1);
 
-	for k=1:N 
-	    x(:,k+1) = A * x(:,k) + sqrtQ * randn(n,1);
-	    y(:,k) = C * x(:,k) + sqrtR * randn(m,1);
-	end
+        <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span>=<span style="color: #268bd2; font-weight: bold;">1:N </span>
+            x(<span style="color: #b58900;">:</span>,k<span style="color: #b58900;">+</span>1) = A <span style="color: #b58900;">*</span> x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> sqrtQ <span style="color: #b58900;">*</span> randn(n,1);
+            y(<span style="color: #b58900;">:</span>,k) = C <span style="color: #b58900;">*</span> x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> sqrtR <span style="color: #b58900;">*</span> randn(m,1);
+        <span style="color: #859900; font-weight: bold;">end</span>
 
-	hatx = zeros(n,1);
-	P = Sigma;
+        hatx = zeros(n,1);
+        P = Sigma;
 
-	close_empiricalmse = zeros(n); %average error*error'
-	close_mse = zeros(n); %average P_k
-	close_empiricalrate = 0; 
+        close_empiricalmse = zeros(n); <span style="color: #586e75;">%average error*error'</span>
+        close_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
+        close_empiricalrate = 0; 
 
-      %%%%%%%%%%% proposed closed loop scheduler    %%%%%%%%%%%%%%%%%%%%%%%%%
-	Z = Z_data; 
-	invZ = inv(Z);
+      <span style="color: #586e75; font-weight: bold; text-decoration: overline;">%%%%%%%%%%% proposed closed loop scheduler    %%%%%%%%%%%%%%%%%%%%%%%%%</span>
+        Z = Z_data; 
+        invZ = inv(Z);
 
-	for k = 1:N
+        <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	    %prediction step
-	    hatx = A * hatx; 
-	    P = A * P * A' + Q;
+            <span style="color: #586e75;">%prediction step</span>
+            hatx = A <span style="color: #b58900;">*</span> hatx; 
+            P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
 
-	    %generate a uniform random variable
-	    zeta = rand();
-	    threshold = exp(-0.5*(y(:,k)-C*hatx)'*(Z)*(y(:,k)-C*hatx));
-	    if zeta < threshold % not send y
-		F = P * C' / ( C*P*C' + R + invZ);
-		hatx = hatx;
-		P = P - F*C*P;
-	    else % send y
-		L = P * C' / ( C*P*C' + R);
-		hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-		P = P - L*C*P;
-		close_empiricalrate = close_empiricalrate + 1;
-	    end
+            <span style="color: #586e75;">%generate a uniform random variable</span>
+            zeta = rand();
+            threshold = exp(<span style="color: #b58900;">-</span>0.5<span style="color: #b58900;">*</span>(y(<span style="color: #b58900;">:</span>,k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx)'<span style="color: #b58900;">*</span>(Z)<span style="color: #b58900;">*</span>(y(<span style="color: #b58900;">:</span>,k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx));
+            <span style="color: #859900; font-weight: bold;">if</span> zeta <span style="color: #b58900;">&lt;</span> threshold <span style="color: #586e75;">% not send y</span>
+                F = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R <span style="color: #b58900;">+</span> invZ);
+                hatx = hatx;
+                P = P <span style="color: #b58900;">-</span> F<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+                L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+                hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+                P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+                close_empiricalrate = close_empiricalrate <span style="color: #b58900;">+</span> 1;
+            <span style="color: #859900; font-weight: bold;">end</span>
 
-	    close_mse = close_mse + P;
-	    close_error = x(:,k) - hatx; 
-		%close_P_data(:,k) = close_P_data(:,k) + trace(P);
-	    close_P_data(:,k) = close_P_data(:,k) + P(1,1);
-	    temp1 = close_error * close_error';
-	    close_empiricalP_data(:,k) = close_empiricalP_data(:,k) + temp1(1,1);
-		%close_empiricalP_data(:,k) = close_empiricalP_data(:,k) + trace(temp1);
+            close_mse = close_mse <span style="color: #b58900;">+</span> P;
+            close_error = x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">-</span> hatx; 
+                <span style="color: #586e75;">%close_P_data(:,k) = close_P_data(:,k) + trace(P);</span>
+            close_P_data(<span style="color: #b58900;">:</span>,k) = close_P_data(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> P(1,1);
+            temp1 = close_error <span style="color: #b58900;">*</span> close_error';
+            close_empiricalP_data(<span style="color: #b58900;">:</span>,k) = close_empiricalP_data(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> temp1(1,1);
+                <span style="color: #586e75;">%close_empiricalP_data(:,k) = close_empiricalP_data(:,k) + trace(temp1);</span>
 
-	end
+        <span style="color: #859900; font-weight: bold;">end</span>
 
-	%close_mse_data = close_mse(1,1) / N;
-	close_mse_data = trace(close_mse) / N;
-	%close_empiricalmse_data = close_empiricalmse_data(i)+close_empiricalmse(1,1) / N;
-	close_empiricalmse_data = close_empiricalmse_data+trace(close_empiricalmse) / N;
-	%close_empiricalrate_data = close_empiricalrate_data + close_empiricalrate(1,1) / N;
-	close_empiricalrate_data = close_empiricalrate_data + trace(close_empiricalrate) / N;
+        <span style="color: #586e75;">%close_mse_data = close_mse(1,1) / N;</span>
+        close_mse_data = trace(close_mse) <span style="color: #b58900;">/</span> N;
+        <span style="color: #586e75;">%close_empiricalmse_data = close_empiricalmse_data(i)+close_empiricalmse(1,1) / N;</span>
+        close_empiricalmse_data = close_empiricalmse_data<span style="color: #b58900;">+</span>trace(close_empiricalmse) <span style="color: #b58900;">/</span> N;
+        <span style="color: #586e75;">%close_empiricalrate_data = close_empiricalrate_data + close_empiricalrate(1,1) / N;</span>
+        close_empiricalrate_data = close_empiricalrate_data <span style="color: #b58900;">+</span> trace(close_empiricalrate) <span style="color: #b58900;">/</span> N;
 
-	%%%%%%%%% keyou's scheduler %%%%%%%%%%%%%%%%%%%%%
-	hatx = zeros(n,1);
-	P = Sigma;
+        <span style="color: #586e75; font-weight: bold; text-decoration: overline;">%%%%%%%%% keyou's scheduler %%%%%%%%%%%%%%%%%%%%%</span>
+        hatx = zeros(n,1);
+        P = Sigma;
 
-	keyou_empiricalmse = zeros(n); %average error*error'
-	keyou_mse = zeros(n); %average P_k
-	keyou_empiricalrate = 0; 
+        keyou_empiricalmse = zeros(n); <span style="color: #586e75;">%average error*error'</span>
+        keyou_mse = zeros(n); <span style="color: #586e75;">%average P_k</span>
+        keyou_empiricalrate = 0; 
 
-	delta = delta_data; 
+        delta = delta_data; 
 
-	for k = 1:N
+        <span style="color: #859900; font-weight: bold;">for</span> <span style="color: #268bd2;">k</span> = <span style="color: #268bd2; font-weight: bold;">1:N</span>
 
-	    %prediction step
-	    hatx = A * hatx; 
-	    P = A * P * A' + Q;
+            <span style="color: #586e75;">%prediction step</span>
+            hatx = A <span style="color: #b58900;">*</span> hatx; 
+            P = A <span style="color: #b58900;">*</span> P <span style="color: #b58900;">*</span> A' <span style="color: #b58900;">+</span> Q;
 
-	    zk = inv(sqrt(C*P*C'+R))*(y(:,k)-C*hatx);
-	    if abs(zk) < delta % not send y
-		L = P * C' / ( C*P*C' + R);
-		hatx = hatx;
-		hx = sqrt(2/pi)*delta*exp(-(delta^2)/2)/(1-erfc(delta/sqrt(2)));
-		P = P - hx*L*C*P;
-	    else % send y
-		L = P * C' / ( C*P*C' + R);
-		hatx = (eye(n) - L*C)*hatx + L*y(:,k);
-		P = P - L*C*P;
-		keyou_empiricalrate = keyou_empiricalrate + 1;
-	    end
+            zk = inv(sqrt(C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C'<span style="color: #b58900;">+</span>R))<span style="color: #b58900;">*</span>(y(<span style="color: #b58900;">:</span>,k)<span style="color: #b58900;">-</span>C<span style="color: #b58900;">*</span>hatx);
+            <span style="color: #859900; font-weight: bold;">if</span> abs(zk) <span style="color: #b58900;">&lt;</span> delta <span style="color: #586e75;">% not send y</span>
+                L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+                hatx = hatx;
+                hx = sqrt(2<span style="color: #b58900;">/</span><span style="color: #268bd2; font-weight: bold;">pi</span>)<span style="color: #b58900;">*</span>delta<span style="color: #b58900;">*</span>exp(<span style="color: #b58900;">-</span>(delta<span style="color: #b58900;">^</span>2)<span style="color: #b58900;">/</span>2)<span style="color: #b58900;">/</span>(1<span style="color: #b58900;">-</span>erfc(delta<span style="color: #b58900;">/</span>sqrt(2)));
+                P = P <span style="color: #b58900;">-</span> hx<span style="color: #b58900;">*</span>L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+            <span style="color: #859900; font-weight: bold;">else</span> <span style="color: #586e75;">% send y</span>
+                L = P <span style="color: #b58900;">*</span> C' <span style="color: #b58900;">/</span> ( C<span style="color: #b58900;">*</span>P<span style="color: #b58900;">*</span>C' <span style="color: #b58900;">+</span> R);
+                hatx = (eye(n) <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C)<span style="color: #b58900;">*</span>hatx <span style="color: #b58900;">+</span> L<span style="color: #b58900;">*</span>y(<span style="color: #b58900;">:</span>,k);
+                P = P <span style="color: #b58900;">-</span> L<span style="color: #b58900;">*</span>C<span style="color: #b58900;">*</span>P;
+                keyou_empiricalrate = keyou_empiricalrate <span style="color: #b58900;">+</span> 1;
+            <span style="color: #859900; font-weight: bold;">end</span>
 
-	    keyou_mse = keyou_mse + P;
-	    keyou_error = x(:,k) - hatx;
-	    keyou_empiricalmse = keyou_empiricalmse + keyou_error * keyou_error';
+            keyou_mse = keyou_mse <span style="color: #b58900;">+</span> P;
+            keyou_error = x(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">-</span> hatx;
+            keyou_empiricalmse = keyou_empiricalmse <span style="color: #b58900;">+</span> keyou_error <span style="color: #b58900;">*</span> keyou_error';
 
-	    keyou_hatx_data(:,k) = hatx;
-	    keyou_P_data(:,k) = keyou_P_data(:,k) + P(1,1);
-	       %keyou_P_data(:,k) = keyou_P_data(:,k) + trace(P);
-	    temp2 = keyou_error * keyou_error';
-	    keyou_empiricalP_data(:,k) = keyou_empiricalP_data(:,k) + temp2(1,1);  
-		%keyou_empiricalP_data(:,k) = keyou_empiricalP_data(:,k) + trace(temp2);
+            keyou_hatx_data(<span style="color: #b58900;">:</span>,k) = hatx;
+            keyou_P_data(<span style="color: #b58900;">:</span>,k) = keyou_P_data(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> P(1,1);
+               <span style="color: #586e75;">%keyou_P_data(:,k) = keyou_P_data(:,k) + trace(P);</span>
+            temp2 = keyou_error <span style="color: #b58900;">*</span> keyou_error';
+            keyou_empiricalP_data(<span style="color: #b58900;">:</span>,k) = keyou_empiricalP_data(<span style="color: #b58900;">:</span>,k) <span style="color: #b58900;">+</span> temp2(1,1);  
+                <span style="color: #586e75;">%keyou_empiricalP_data(:,k) = keyou_empiricalP_data(:,k) + trace(temp2);</span>
 
-	end
+        <span style="color: #859900; font-weight: bold;">end</span>
 
-	%keyou_mse_data(i) = keyou_mse(1,1) / N;
-	keyou_mse_data = trace(keyou_mse) / N;
-	%keyou_empiricalmse_data(i) = keyou_empiricalmse_data(i)+ keyou_empiricalmse(1,1) / N;
-	keyou_empiricalmse_data = keyou_empiricalmse_data+ trace(keyou_empiricalmse) / N;
-	%keyou_empiricalrate_data = keyou_empiricalrate_data + keyou_empiricalrate(1,1)/ N;
-	keyou_empiricalrate_data = keyou_empiricalrate_data + trace(keyou_empiricalrate)/ N;
-end
+        <span style="color: #586e75;">%keyou_mse_data(i) = keyou_mse(1,1) / N;</span>
+        keyou_mse_data = trace(keyou_mse) <span style="color: #b58900;">/</span> N;
+        <span style="color: #586e75;">%keyou_empiricalmse_data(i) = keyou_empiricalmse_data(i)+ keyou_empiricalmse(1,1) / N;</span>
+        keyou_empiricalmse_data = keyou_empiricalmse_data<span style="color: #b58900;">+</span> trace(keyou_empiricalmse) <span style="color: #b58900;">/</span> N;
+        <span style="color: #586e75;">%keyou_empiricalrate_data = keyou_empiricalrate_data + keyou_empiricalrate(1,1)/ N;</span>
+        keyou_empiricalrate_data = keyou_empiricalrate_data <span style="color: #b58900;">+</span> trace(keyou_empiricalrate)<span style="color: #b58900;">/</span> N;
+<span style="color: #859900; font-weight: bold;">end</span>
 
-close_P_data = close_P_data/countermax;
-close_empiricalP_data = close_empiricalP_data/countermax;
-close_empiricalrate_data= close_empiricalrate_data/countermax;
-keyou_P_data = keyou_P_data/countermax;
-keyou_empiricalP_data = keyou_empiricalP_data/countermax;
-keyou_empiricalrate_data = keyou_empiricalrate_data/countermax;
+close_P_data = close_P_data<span style="color: #b58900;">/</span>countermax;
+close_empiricalP_data = close_empiricalP_data<span style="color: #b58900;">/</span>countermax;
+close_empiricalrate_data= close_empiricalrate_data<span style="color: #b58900;">/</span>countermax;
+keyou_P_data = keyou_P_data<span style="color: #b58900;">/</span>countermax;
+keyou_empiricalP_data = keyou_empiricalP_data<span style="color: #b58900;">/</span>countermax;
+keyou_empiricalrate_data = keyou_empiricalrate_data<span style="color: #b58900;">/</span>countermax;
 
 
 Keyou_rate=keyou_empiricalrate_data
 Mine_rate=close_empiricalrate_data
 close(h);
-figure;
+<span style="color: #b58900;">figure</span>;
 subplot(1,2,1);
-plot(1:N,close_empiricalP_data, 'b-.','LineWidth',2);
+plot(1<span style="color: #b58900;">:</span>N,close_empiricalP_data, <span style="color: #2aa198;">'b-.'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(1:N,close_P_data, 'k-','LineWidth',2);
-title('CLSET-KF');
-legend('Empirical P_{11}','Theoretical P_{11}');
-xlabel('Time');
-axis([0 N 0 1.5]); % for high rate
-%axis([0 N 0 30]); % for low rate
+plot(1<span style="color: #b58900;">:</span>N,close_P_data, <span style="color: #2aa198;">'k-'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
+title(<span style="color: #2aa198;">'CLSET-KF'</span>);
+legend(<span style="color: #2aa198;">'Empirical P_{11}'</span>,<span style="color: #2aa198;">'Theoretical P_{11}'</span>);
+xlabel(<span style="color: #2aa198;">'Time'</span>);
+<span style="color: #b58900;">axis</span>([0 N 0 1.5]); <span style="color: #586e75;">% for high rate</span>
+<span style="color: #586e75;">%axis([0 N 0 30]); % for low rate</span>
 grid on;
 subplot(1,2,2);
-plot(1:N,keyou_empiricalP_data, 'b-.','LineWidth',2);
+plot(1<span style="color: #b58900;">:</span>N,keyou_empiricalP_data, <span style="color: #2aa198;">'b-.'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
 hold on;
-plot(1:N,keyou_P_data, 'k-','LineWidth',2);
-title('DET-KF');
-legend('Empirical P_{11}','Theoretical P_{11}');
-xlabel('Time');
-axis([0 N 0 1.5]);% for high rate
-%axis([0 N 0 30]);% for low rate
+plot(1<span style="color: #b58900;">:</span>N,keyou_P_data, <span style="color: #2aa198;">'k-'</span>,<span style="color: #2aa198;">'LineWidth'</span>,2);
+title(<span style="color: #2aa198;">'DET-KF'</span>);
+legend(<span style="color: #2aa198;">'Empirical P_{11}'</span>,<span style="color: #2aa198;">'Theoretical P_{11}'</span>);
+xlabel(<span style="color: #2aa198;">'Time'</span>);
+<span style="color: #b58900;">axis</span>([0 N 0 1.5]);<span style="color: #586e75;">% for high rate</span>
+<span style="color: #586e75;">%axis([0 N 0 30]);% for low rate</span>
 grid on;
 
-filename = '../../../public/tac-13-6.png';
-print('-dpng', filename, '-r100');
-ans = filename % return the filename to org-mode
-
-{% endhighlight %}
+filename = <span style="color: #2aa198;">'../../../public/tac-13-6.png'</span>;
+print(<span style="color: #2aa198;">'-dpng'</span>, filename, <span style="color: #2aa198;">'-r100'</span>);
+<span style="color: #268bd2; font-weight: bold;">ans</span> = filename <span style="color: #586e75;">% return the filename to org-mode</span>
+</pre>
+</div>
 
 
 <div class="figure">
