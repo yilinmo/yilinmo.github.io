@@ -10,5 +10,7 @@ title: Dynamic State Estimation in the Presence of Compromised Sensors Data
 
 /IEEE Conference on Decision and Control/, 2015
 
+Link to the [[../../../public/papers/cdc15-2.pdf][paper]]
+
 ** Abstract
   In this article, we consider the state estimation problem of a linear time invariant system in adversarial environment. We assume that the process noise and measurement noise of the system are $l_\infty$ functions. The adversary compromises at most $\gamma$ sensors, the set of which is unknown to the estimation algorithm, and can change their measurements arbitrarily. We first prove that if after removing a set of $2\gamma$ sensors, the system is undetectable, then there exists a destabilizing noise process and attacker's input to render the estimation error unbounded. For the case that the system remains detectable after removing an arbitrary set of $2\gamma$ sensors, we construct a resilient estimator and provide an upper bound on the $l_\infty$ norm of the estimation error. Finally, a numerical example is provided to illustrate the effectiveness of the proposed estimator design.
