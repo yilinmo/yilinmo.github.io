@@ -17,9 +17,12 @@ Interesting Mathematics, control theory and other scientific notes that I collec
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
+    {{ post.content | split:'<!--break-->' | first }}
+    {% if post.content contains '<!--break-->' %}
+      <a href="{{ post.url }}">read more</a>
+    {% endif %}
   </div>
+  <hr>
   {% endfor %}
 </div>
 

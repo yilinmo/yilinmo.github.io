@@ -17,6 +17,10 @@ Consider we have a biased coin, such that the probability of getting a head is $
 
 Our goal is to generate a "fair" binary random variable $X$, with distribution $P(X = 0) = P(X=1) = 0.5$. 
 
+#+BEGIN_HTML
+<!--break-->
+#+END_HTML
+
 * [[https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf][Von Neumann's Solution]]
 One way to generate such a random variable is to:
 1. Toss the coin twice. 

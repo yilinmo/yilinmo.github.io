@@ -18,7 +18,11 @@ permalink: properties-of-dare
   \label{eq:riccati1}
   g(X) \triangleq \left[\left(A X A' + Q\right)^{-1} + C'R^{-1}C\right]^{-1}.
   \end{equation}
-  
+
+#+BEGIN_HTML
+<!--break-->
+#+END_HTML
+
   From Equation \eqref{eq:riccati1}, we can see that $g$ is monotonically increasing with respect to $X$. 
   
   Using the matrix inversion lemma, we can write $g$ as

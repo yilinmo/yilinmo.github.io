@@ -22,6 +22,10 @@ Suppose that we want the linear system \eqref{eq:truesystem} to track the follow
 \end{equation}
 where $a_m < 0$ and $b_m$ are known and $r(t)$ is a known reference signal.
 
+#+BEGIN_HTML
+<!--break-->
+#+END_HTML
+
 Suppose we use the following control law:
 \begin{equation}
 u = \hat k_x x  + \hat k_r r.
