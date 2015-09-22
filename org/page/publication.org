@@ -8,6 +8,8 @@ title: Publication
 
 My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
 
+I am trying to using [[https://www.authorea.com/][Authorea]] to host my publications (After Sept 2015). Please leave a comment[fn:1] in Authorea if you like.
+
 * Journal Paper
 1. Yilin Mo and Richard M. Murray, [[file:papers/tac-15-privacy.org][/Privacy Preserving Average Consensus/]], *IEEE Transactions on Automatic Control*, Submitted
 2. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Conditionally Accepted
@@ -62,3 +64,4 @@ My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]]
 31. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /Network Energy Minimization via Sensor Selection and Topology Control/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2009
 32. Yilin Mo and Ling Shi and Roberto Ambrosino and Bruno Sinopoli, /Network Lifetime Maximization via Sensor Selection/, *7th Asian Control Conference*, 2009
 33. Yilin Mo and Bruno Sinopoli, /A Characterization Of The Critical Value For Kalman Filtering With Intermittent Observations/, *IEEE Conference on Decision and Control*, 2008
+[fn:1] You can leave a comment by selecting the text that you want to comment on. Moreover, you can write LaTeX in the comment!
