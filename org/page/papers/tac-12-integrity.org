@@ -1,6 +1,7 @@
 #+OPTIONS: H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
 #+BEGIN_HTML
 ---
+comments: true
 layout: page
 title: On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks
 ---
@@ -11,6 +12,8 @@ title: On the Performance Degradation of Cyber-Physical Systems under Stealthy I
 /IEEE Transactions on Automatic Control/, Accepted
 
 Link to the [[../../../public/papers/tac-12-integrity.pdf][paper]]
+
+If you want to leave any comments, you can annotate the [[../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Ftac-12-integrity.pdf][pdf]]. I will try to be responsive. You can also annotate this page or leave comments below. 
 
 ** Abstract
 

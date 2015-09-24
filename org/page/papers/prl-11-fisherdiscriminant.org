@@ -11,4 +11,6 @@ title: Penalized Fisher Discriminant Analysis and Its Application to Image-based
 
 /Pattern Recognition Letters/, Nov 2011, Volume 32, Issue 15, Pages 2128-2135
 
+** Abstract
+
 Image-based morphometry is an important area of pattern recognition research, with numerous applications in science and technology (including biology and medicine). Fisher linear discriminant analysis (FLDA) techniques are often employed to elucidate and visualize important information that discriminates between two or more populations. We demonstrate that the direct application of FLDA can lead to undesirable errors in characterizing such information and that the reason for such errors is not necessarily the ill conditioning in the resulting generalized eigenvalue problem, as usually assumed. We show that the regularized eigenvalue decomposition often used is related to solving a modified FLDA criterion that includes a least-squares-type representation penalty, and derive the relationship explicitly. We demonstrate the concepts by applying this modified technique to several problems in image-based morphometry, and build discriminant representative models for different data sets.
