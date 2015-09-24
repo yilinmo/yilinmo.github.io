@@ -13,7 +13,7 @@ comments: true
 
 Link to the [[../../../public/papers/acc16-1.pdf][paper]]
 
-Link to a [[https://www.authorea.com/users/62980/articles/76613][preprint on Authorea]]. Please leave your comments or suggestions if you like. I will try to be responsive.
+Link to a [[https://www.overleaf.com/read/tycrtffqccpt][preprint on Overleaf]]. 
 
 ** Abstract
 We consider the problem of robust estimation in presence of integrity attacks. There are $m$ sensors monitoring the state and $p$ of them are under attack. The malicious measurements collected by the compromised sensors can be manipulated arbitrarily by the attacker. The classical estimators such as the least squares estimator may not provide a reliable estimate under the so-called $(p,m)$-sparse attack. In this work, we are not restricting our efforts in studying whether any specific estimator is resilient to the attack or not, but instead we aim to present some generic sufficient and necessary conditions for robustness by considering a general class of convex optimization estimators. The sufficient and necessary conditions are shown to be tight, with a trivial gap. We further specialize our result to scalar sensor measurements case.
