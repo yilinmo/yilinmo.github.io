@@ -1,10 +1,31 @@
 /* Adding Border to Theorem */
 div.theorem {
-    border-style: solid;
-    margin:30px;
-    padding:10px;
-    border-width: 1px;
+    border-bottom: 3px solid #eee; 
+    border-top: 3px solid #eee; 
+    padding:10px 0px;
+    margin:10px 0px;
 }	
+
+div.lemma {
+    border-bottom: 3px solid #eee; 
+    border-top: 3px solid #eee; 
+    padding:10px 0px;
+    margin:10px 0px;
+}
+
+div.remark {
+    border-bottom: 3px solid #eee; 
+    border-top: 3px solid #eee; 
+    padding:10px 0px;
+    margin:10px 0px;
+}
+
+div.proposition {
+    border-bottom: 3px solid #eee; 
+    border-top: 3px solid #eee; 
+    padding:10px 0px;
+    margin:10px 0px;
+}
 
 /* script size caption for figure */
 div.figure p{
