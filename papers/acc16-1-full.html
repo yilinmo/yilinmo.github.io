@@ -8,7 +8,11 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Introduction</a></li>
+<li><a href="#sec-1">1. Introduction</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Related Work</a></li>
+</ul>
+</li>
 <li><a href="#sec-2">2. Problem Setup</a>
 <ul>
 <li><a href="#sec-2-1">2.1. System Model</a></li>
@@ -39,9 +43,13 @@ The concept of networks has been increasingly prevailing for decades, e.g., comp
 <p>
 In this article, we focus on the problem of robust estimation against compromised sensory data in order to mitigate the damage caused by the integrity attack. Robustness for an estimator is urgently needed since quite a number of the commonly used estimators under attack fail to give a reliable estimate and thus lead to poor system performance. For instance, a linear estimator is not robust since one bad measurement is enough to ruin the final estimate. A better estimator may be the geometric median of all measurements~\cite{Lopuhaa1991}. To be concrete, we consider the problem of estimating a vector state \(x\in\mathbb R^n\) from measurements collected by \(m\) sensors, where the measurements are subject to any random noise. For practical reasons, the spatially distributed sensors cannot be fully guaranteed to be secure. Some of them may be controlled by the attacker and due to the resource limitation the attacker can only attack up to \( p  \) sensors. Without posing any restrictions on the attacker, we assume that the compromised sensory data can be arbitrarily changed.
 </p>
+</div>
 
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Related Work</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-\emph{Related Work}: A quite similar problem in the context of power systems is bad data detection, which has been studied over the past decades~\cite{Handschin1975,Mili1985}. The method of checking the magnitude of residue is useful for identifying random bad data or outliers but may not work for intentional integrity attacks \cite{henrik2010,Xie2011}. For example, Liu et al.~\cite{liu2009} successfully showed that a stealthy attack changing the state while not being detected is possible. Kim et al.~\cite{Kim2014} studied a so-called framing attack. Under such a attack, the bad data detector is misled to delete those critical measurements, without which the network is unobservable and a convert attack may be launched.
+A quite similar problem in the context of power systems is bad data detection, which has been studied over the past decades~\cite{Handschin1975,Mili1985}. The method of checking the magnitude of residue is useful for identifying random bad data or outliers but may not work for intentional integrity attacks \cite{henrik2010,Xie2011}. For example, Liu et al.~\cite{liu2009} successfully showed that a stealthy attack changing the state while not being detected is possible. Kim et al.~\cite{Kim2014} studied a so-called framing attack. Under such a attack, the bad data detector is misled to delete those critical measurements, without which the network is unobservable and a convert attack may be launched.
 </p>
 
 <p>
@@ -61,6 +69,7 @@ Motivated by different behaviors of various estimators under the integrity attac
 <p>
 The rest of the paper is organized as follows. In Section <a href="#section:problemsetup">2</a> we formulate the robust estimation problem. Our main results on the robustness of a general convex optimization based estimator is presented in Section <a href="#section:main">3</a>. We specialize our results for scalar sensor case in Section <a href="#section:moreanalysis">4</a>. The concluding remarks are given in Section <a href="#section:conlusion">5</a>.
 </p>
+</div>
 </div>
 </div>
 

@@ -2,7 +2,7 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
-var thmenvs = ["theorem", "lemma", "remark", "proposition"];
+var thmenvs = ["theorem", "lemma", "remark", "proposition", "definition"];
 for ( var i in thmenvs ){
     env = thmenvs[i];
     $( "div." + env ).each(function( index ){
