@@ -1,10 +1,33 @@
-/* Adding Border to Theorem */
+/* Change the background of theorem to gray */
 div.theorem {
-    border-style: solid;
-    margin:30px;
-    padding:10px;
-    border-width: 1px;
+    padding:5px 0px;
+    margin:5px 0px;
+    background-color: #eee;
 }	
+
+div.lemma {
+    padding:5px 0px;
+    margin:5px 0px;
+    background-color: #eee;
+}
+
+div.remark {
+    padding:5px 0px;
+    margin:5px 0px;
+    background-color: #eee;
+}
+
+div.definition {
+    padding:5px 0px;
+    margin:5px 0px;
+    background-color: #eee;
+}
+
+div.proposition {
+    padding:5px 0px;
+    margin:5px 0px;
+    background-color: #eee;
+}
 
 /* script size caption for figure */
 div.figure p{

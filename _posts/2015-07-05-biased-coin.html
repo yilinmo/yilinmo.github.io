@@ -75,35 +75,34 @@ The expected number of coin tosses needed to generate \(X\) is
 Below is a python script for the coin toss algorithm:
 </p>
 
-<div class="org-src-container">
+{% highlight python %}
+import random
 
-<pre class="src src-python"><span style="color: #859900; font-weight: bold;">import</span> random
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+	return 'H'
+    else:
+	return 'T'
 
-<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">flipcoin</span>(p):
-    <span style="color: #859900; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
-        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'H'</span>
-    <span style="color: #859900; font-weight: bold;">else</span>:
-        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'T'</span>
+def check(toss): #return s, where n = 2^s*(2t+1)
+    if toss == 'HT':
+	return 0
+    elif toss == 'TH':
+	return 1
+    else:
+	return None
 
-<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">check</span>(toss): <span style="color: #586e75;">#</span><span style="color: #586e75;">return s, where n = 2^s*(2t+1)</span>
-    <span style="color: #859900; font-weight: bold;">if</span> toss == <span style="color: #2aa198;">'HT'</span>:
-        <span style="color: #859900; font-weight: bold;">return</span> 0
-    <span style="color: #859900; font-weight: bold;">elif</span> toss == <span style="color: #2aa198;">'TH'</span>:
-        <span style="color: #859900; font-weight: bold;">return</span> 1
-    <span style="color: #859900; font-weight: bold;">else</span>:
-        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #268bd2; font-weight: bold;">None</span>
-
-X = <span style="color: #268bd2; font-weight: bold;">None</span>
+X = None
 p = 0.5
-<span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Coin Toss Sequence: "</span>, end = <span style="color: #2aa198;">""</span>)
-<span style="color: #859900; font-weight: bold;">while</span> X <span style="color: #859900; font-weight: bold;">is</span> <span style="color: #268bd2; font-weight: bold;">None</span>:
+print("Coin Toss Sequence: ", end = "")
+while X is None:
     toss = flipcoin(p) + flipcoin(p)
-    <span style="color: #859900; font-weight: bold;">print</span>(toss, end = <span style="color: #2aa198;">""</span>)
+    print(toss, end = "")
     X = check(toss)
 
-<span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"\nX = "</span> + <span style="color: #839496; font-weight: bold;">str</span>(X))
-</pre>
-</div>
+print("\nX = " + str(X))
+
+{% endhighlight %}
 </div>
 </div>
 
@@ -132,7 +131,7 @@ We will call a \((n,m)\) sequence of to be valid if it does not terminate before
 
 <div class="theorem">
 <p>
-<b>Theorem 1</b>: \(f(n,m)\) is either \(0\), \(1\) or \(2\). Moreover, \(f(n,m)\) satisfies<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>:
+\(f(n,m)\) is either \(0\), \(1\) or \(2\). Moreover, \(f(n,m)\) satisfies<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>:
 </p>
 <ol class="org-ol">
 <li>If \(f(n-1,m-1) = 1\) and \(f(n-1,m) = 1\), then \(f(n,m) = 2\).
@@ -158,25 +157,24 @@ The proof follows from the following facts:
 <p>
 We can us the following code to generate a table of \(f(n,m)\). 
 </p>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">table</span>(N):
-    <span style="color: #268bd2;">fold</span> = [1,] <span style="color: #586e75;">#</span><span style="color: #586e75;">f(0,0) = 1</span>
-    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>)
-    <span style="color: #859900; font-weight: bold;">for</span> n <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, N+1):
-        <span style="color: #268bd2;">fnew</span> = [1,] <span style="color: #586e75;">#</span><span style="color: #586e75;">f(n,0) is always 1</span>
-        <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>, end=<span style="color: #2aa198;">' '</span>)
-        <span style="color: #859900; font-weight: bold;">for</span> m <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, n):
-            <span style="color: #268bd2;">f</span> = fold[m-1] % 2 + fold[m] % 2 <span style="color: #586e75;">#</span><span style="color: #586e75;">Apply Thm 1</span>
-            fnew.append(f)
-            <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #839496; font-weight: bold;">str</span>(f), end=<span style="color: #2aa198;">' '</span>)
-        fnew.append(1) <span style="color: #586e75;">#</span><span style="color: #586e75;">f(n,n) is always 1</span>
-        <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">'1'</span>)
-        <span style="color: #268bd2;">fold</span> = fnew
+{% highlight python %}
+def table(N):
+    fold = [1,] #f(0,0) = 1
+    print('1')
+    for n in range(1, N+1):
+	fnew = [1,] #f(n,0) is always 1
+	print('1', end=' ')
+	for m in range(1, n):
+	    f = fold[m-1] % 2 + fold[m] % 2 #Apply Thm 1
+	    fnew.append(f)
+	    print(str(f), end=' ')
+	fnew.append(1) #f(n,n) is always 1
+	print('1')
+	fold = fnew
 
 table(10)
-</pre>
-</div>
+
+{% endhighlight %}
 
 <pre class="example">
 1
@@ -205,44 +203,43 @@ By Theorem 1, we know that if \(f(n,m) = 2\), then the last toss of the one vali
 <p>
 The algorithm can be implemented in the following code:
 </p>
-<div class="org-src-container">
+{% highlight python %}
+import random
 
-<pre class="src src-python"><span style="color: #859900; font-weight: bold;">import</span> random
+def flipcoin(p):
+    if random.uniform(0,1) <= p:
+	return 'H'
+    else:
+	return 'T'
 
-<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">flipcoin</span>(p):
-    <span style="color: #859900; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
-        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'H'</span>
-    <span style="color: #859900; font-weight: bold;">else</span>:
-        <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'T'</span>
-
-<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">factor2</span>(n): <span style="color: #586e75;">#</span><span style="color: #586e75;">return s, where n = 2^s*(2t+1)</span>
-    <span style="color: #859900; font-weight: bold;">if</span> n == 0: <span style="color: #859900; font-weight: bold;">return</span> 0
+def factor2(n): #return s, where n = 2^s*(2t+1)
+    if n == 0: return 0
     s = 0;
-    <span style="color: #859900; font-weight: bold;">while</span> n % 2 == 0:
-        s = s + 1
-        n = n / 2
-    <span style="color: #859900; font-weight: bold;">return</span> s
+    while n % 2 == 0:
+	s = s + 1
+	n = n / 2
+    return s
 
 p = 0.5
 k = 0
 m = 0
-even = <span style="color: #268bd2; font-weight: bold;">False</span>
-<span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Coin Toss Sequence: "</span>, end = <span style="color: #2aa198;">""</span>)
-<span style="color: #859900; font-weight: bold;">while</span> even <span style="color: #859900; font-weight: bold;">is</span> <span style="color: #268bd2; font-weight: bold;">False</span>:
+even = False
+print("Coin Toss Sequence: ", end = "")
+while even is False:
     toss = flipcoin(p)
-    <span style="color: #859900; font-weight: bold;">print</span>(toss, end = <span style="color: #2aa198;">""</span>)
+    print(toss, end = "")
     k = k + 1
-    <span style="color: #859900; font-weight: bold;">if</span> toss == <span style="color: #2aa198;">'H'</span>:
-        m = m + 1
-        X = 1
-        <span style="color: #859900; font-weight: bold;">if</span> factor2(k) - factor2(m) &gt; 0: even = <span style="color: #268bd2; font-weight: bold;">True</span>
-    <span style="color: #859900; font-weight: bold;">else</span>:
-        X = 0
-        <span style="color: #859900; font-weight: bold;">if</span> factor2(k) - factor2(k-m) &gt; 0: even = <span style="color: #268bd2; font-weight: bold;">True</span>
+    if toss == 'H':
+	m = m + 1
+	X = 1
+	if factor2(k) - factor2(m) > 0: even = True
+    else:
+	X = 0
+	if factor2(k) - factor2(k-m) > 0: even = True
 
-<span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"\nX = "</span> + <span style="color: #839496; font-weight: bold;">str</span>(X))
-</pre>
-</div>
+print("\nX = " + str(X))
+
+{% endhighlight %}
 
 <p>
 In the above code, we use the fact that
@@ -330,35 +327,34 @@ Now take the limit on both sides, we get the expected number of coin tosses:
 <p>
 The following python code compute the expect number of coin tosses for the Von Neumann's method (blue line) and our more efficient method (green line)
 </p>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #859900; font-weight: bold;">import</span> matplotlib
-<span style="color: #859900; font-weight: bold;">import</span> matplotlib.pyplot <span style="color: #859900; font-weight: bold;">as</span> plt
-<span style="color: #859900; font-weight: bold;">import</span> seaborn <span style="color: #859900; font-weight: bold;">as</span> sns <span style="color: #586e75;"># </span><span style="color: #586e75;">for the sake of appreances</span>
-<span style="color: #859900; font-weight: bold;">import</span> numpy <span style="color: #859900; font-weight: bold;">as</span> np
-<span style="color: #268bd2;">p</span> = np.linspace(0.1, 0.9)
-<span style="color: #268bd2;">q</span> = 1 - p
-<span style="color: #586e75;"># </span><span style="color: #586e75;">expected number of tosses for Von Neumann's algorithm</span>
-<span style="color: #268bd2;">l1</span> = 1/(p*q) 
-<span style="color: #268bd2;">i</span> = 0
-<span style="color: #268bd2;">p2i</span> = p <span style="color: #586e75;">#</span><span style="color: #586e75;">p^{2^i}</span>
-<span style="color: #268bd2;">q2i</span> = q <span style="color: #586e75;">#</span><span style="color: #586e75;">q^{2^i}</span>
-<span style="color: #268bd2;">l2</span> = 1 + p2i + q2i
-<span style="color: #859900; font-weight: bold;">for</span> i <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #839496; font-weight: bold;">range</span>(1, 10):
-    <span style="color: #268bd2;">p2i</span> = p2i ** 2
-    <span style="color: #268bd2;">q2i</span> = q2i ** 2
-    <span style="color: #268bd2;">l2</span> = l2 * (1 + p2i + q2i)
-<span style="color: #268bd2;">fig</span>=plt.figure(figsize=(6,4))
+{% highlight python %}
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns # for the sake of appreances
+import numpy as np
+p = np.linspace(0.1, 0.9)
+q = 1 - p
+# expected number of tosses for Von Neumann's algorithm
+l1 = 1/(p*q) 
+i = 0
+p2i = p #p^{2^i}
+q2i = q #q^{2^i}
+l2 = 1 + p2i + q2i
+for i in range(1, 10):
+    p2i = p2i ** 2
+    q2i = q2i ** 2
+    l2 = l2 * (1 + p2i + q2i)
+fig=plt.figure(figsize=(6,4))
 plt.axis([0, 1, 0, 12])
 plt.plot(p, l1)
 plt.plot(p, l2)
-plt.xlabel(<span style="color: #2aa198;">'p'</span>)
-plt.ylabel(<span style="color: #2aa198;">'Expected Number of Tosses'</span>)
+plt.xlabel('p')
+plt.ylabel('Expected Number of Tosses')
 fig.tight_layout()
-plt.savefig(<span style="color: #2aa198;">'../../public/expected-toss.png'</span>)
-<span style="color: #859900; font-weight: bold;">return</span> <span style="color: #2aa198;">'../../public/expected-toss.png'</span> <span style="color: #586e75;"># </span><span style="color: #586e75;">return the filename to org-mode</span>
-</pre>
-</div>
+plt.savefig('../../public/expected-toss.png')
+return '../../public/expected-toss.png' # return the filename to org-mode
+
+{% endhighlight %}
 
 
 <div class="figure">
