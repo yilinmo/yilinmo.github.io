@@ -9,7 +9,7 @@ comments: true
 --------------------------------
 *Duo Han, Yilin Mo and Lihua Xie*
 
-/American Control Conference/, 2016, Submitted
+/American Control Conference/, 2016 
 
 Link to the [[../../../public/papers/acc16-1.pdf][paper]]
 
