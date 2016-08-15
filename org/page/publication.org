@@ -11,7 +11,7 @@ My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]]
 * Journal Paper
 1. Duo Han, Yilin Mo and Lihua Xie, [[file:papers/automatica-16-secureest.org][/Convex Optimization Based State Estimation against Sparse Integrity Attacks/]], *Automatica*, Submitted
 2. Liang Xu, Yilin Mo and Lihua Xie, /Mean Square Stabilization of Linear Discrete-time Systems over Power Constrained Fading Channels/, *Automatica*, Submitted
-3. Yilin Mo and Richard M. Murray, [[file:papers/tac-15-privacy.org][/Privacy Preserving Average Consensus/]], *IEEE Transactions on Automatic Control*, Conditionally Accepted
+3. Yilin Mo and Richard M. Murray, [[file:papers/tac-15-privacy.org][/Privacy Preserving Average Consensus/]], *IEEE Transactions on Automatic Control*, Accepted
 4. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han, Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based Stochastic Triggers/, *IEEE Transactions on Automatic Control*, Accepted
 5. Yilin Mo and Bruno Sinopoli, [[./papers/tac-12-integrity.org][/On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks/]], *IEEE Transactions on Automatic Control*, Accepted
 6. Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi, [[./papers/tac-13-event.org][/Stochastic Event-triggered Sensor Schedule for Remote State Estimation/]], *IEEE Transactions on Automatic Control*, Oct 2015, Volume 60, Issue 10, Pages 2661-2675
