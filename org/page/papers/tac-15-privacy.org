@@ -9,7 +9,7 @@ title: Privacy Preserving Average Consensus
 --------------------------------
 *Yilin Mo and Richard M. Murray*
 
-/IEEE Transactions on Automatic Control/, In Review
+/IEEE Transactions on Automatic Control/, Accepted
 
 Link to the [[../../../public/papers/tac2014privacy.pdf][paper]]
 
