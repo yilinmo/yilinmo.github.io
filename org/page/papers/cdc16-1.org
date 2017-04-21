@@ -9,7 +9,7 @@ comments: true
 --------------------------------
 *Yilin Mo and Emanuele Garone*
 
-/IEEE Conference on Decision and Control/, 2016, Submitted
+/IEEE Conference on Decision and Control/, 2016
 
 Link to the [[../../../public/papers/cdc16-1.pdf][paper]]
 

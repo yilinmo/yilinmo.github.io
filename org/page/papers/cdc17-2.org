@@ -1,0 +1,19 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_EXPORT HTML
+---
+layout: page
+title: ! 'Secure and Privacy Preserving Average Consensus'
+comments: true
+---
+#+END_EXPORT
+--------------------------------
+*Qipeng Liu, Xiaoqiang Ren and Yilin Mo*
+
+/IEEE Conference on Decision and Control/, 2017, Submitted
+
+Link to the [[../../../public/papers/cdc17-2.pdf][paper]]
+
+If you want to leave any comments, you can annotate the [[../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Fcdc17-2.pdf][pdf]]. I will try to be responsive. You can also annotate this page or leave comments below. 
+
+** Abstract
+Due to the wide application of consensus algorithms, its privacy and security problems have attracted significant attention. In this paper, we consider the average consensus scheme threatened by a set of cooperating malicious and curious attackers, who intend to not only estimate the initial states of other benign agents but also disturb the consensus (perturb the final consensus value or prevent consensus) via injecting malicious signal to the consensus process. A privacy-preserving average consensus algorithm equipped with an attack detector is designed for each benign agent. We show that the privacy of initial states of all benign agents are guaranteed under mild conditions. The false alarm rate of the detector can be arbitrarily low by choosing proper thresholds for the detector. To  characterize the maximum disturbance the adversaries can introduce to the system, we calculate the reachable set of all possible system states under stealthy attacks, i.e., attacks the do not trigger an alarm. Numerical examples are given to validate the theoretical results.

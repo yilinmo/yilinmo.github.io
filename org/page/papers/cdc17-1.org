@@ -1,0 +1,19 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_EXPORT HTML
+---
+layout: page
+title: ! 'Sequential Detection in Adversarial Environment'
+comments: true
+---
+#+END_EXPORT
+--------------------------------
+*Jiaqi Yan, Xiaoqiang Ren and Yilin Mo*
+
+/IEEE Conference on Decision and Control/, 2017, Submitted
+
+Link to the [[../../../public/papers/cdc17-1.pdf][paper]]
+
+If you want to leave any comments, you can annotate the [[../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Fcdc17-1.pdf][pdf]]. I will try to be responsive. You can also annotate this page or leave comments below. 
+
+** Abstract
+In this paper, we consider the problem of sequential detection with $m$ sensors in adversarial environment. An attacker intends to increase the detection error by modifying $n$ out of $m$ sensors’ measurements. On the other hand, the detector needs to be designed to achieve the optimal performance during the attack. The problem is formulated as a game between detector and adversary in this paper. We study both cases where $m > 2n$ and $m \leq 2n$, and obtain an equilibrium strategy pair of detection rule and attack scheme for both cases. Furthermore, we investigate the efficiency of our proposed detection strategy in the absence of attacker.
