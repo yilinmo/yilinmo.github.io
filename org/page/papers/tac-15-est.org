@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: Secure Estimation in the Presence of Integrity Attacks
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Yilin Mo and Bruno Sinopoli*

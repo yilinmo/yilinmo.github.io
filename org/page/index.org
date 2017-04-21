@@ -1,10 +1,10 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: default
 title: Home
 ---
-#+END_HTML
+#+END_EXPORT
 
 * Biography
 

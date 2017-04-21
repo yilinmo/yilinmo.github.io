@@ -1,12 +1,12 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: post
 title: Properties of Discrete-time Algebraic Riccati Equation (DARE)
 comments: true
 permalink: properties-of-dare
 ---
-#+END_HTML
+#+END_EXPORT
 -----
 /This post serves as a test of emacs [[http://orgmode.org/][org-mode]] and [[http://jekyllrb.com/][jekyll]] static site generator./
 
@@ -19,9 +19,9 @@ permalink: properties-of-dare
   g(X) \triangleq \left[\left(A X A' + Q\right)^{-1} + C'R^{-1}C\right]^{-1}.
   \end{equation}
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 <!--break-->
-#+END_HTML
+#+END_EXPORT
 
   From Equation \eqref{eq:riccati1}, we can see that $g$ is monotonically increasing with respect to $X$. 
   

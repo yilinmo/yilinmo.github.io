@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: Dynamic State Estimation in the Presence of Compromised Sensors Data
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 *Yorie Nakahira and Yilin Mo*
 

@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: page
 title: Sensor Selection Strategies for State Estimation in Energy Constrained Wireless Sensor Networks
 comments: true
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Yilin Mo, Roberto Ambrosino and Bruno Sinopoli*

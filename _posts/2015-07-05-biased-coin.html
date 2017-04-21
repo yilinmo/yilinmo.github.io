@@ -11,9 +11,9 @@ permalink: fair-results-from-a-biased-coin
 <i>This is a test of <a href="http://orgmode.org/worg/org-contrib/babel/">org-babel</a>.</i>
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Problem Formulation</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org1930b38" class="outline-2">
+<h2 id="org1930b38">Problem Formulation</h2>
+<div class="outline-text-2" id="text-org1930b38">
 <p>
 Consider we have a biased coin, such that the probability of getting a head is \(P(H) = p\in(0,1)\) and the probability of getting a tail is \(P(T) = q = 1-p\), where \(p\) is unknown by us. However, different coin tosses are independent from each other. 
 </p>
@@ -26,19 +26,16 @@ Our goal is to generate a "fair" binary random variable \(X\), with distribution
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org18ff0d6" class="outline-2">
+<h2 id="org18ff0d6"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
+<div class="outline-text-2" id="text-org18ff0d6">
 <p>
 One way to generate such a random variable is to:
 </p>
 <ol class="org-ol">
-<li>Toss the coin twice. 
-</li>
-<li>If the result is <b>HT</b>, assign \(X = 0\). If the result is <b>TH</b>, assign \(X = 1\).
-</li>
-<li>If the result is either <b>HH</b> or <b>TT</b>, then discard the two coin tosses and go to step 1.
-</li>
+<li>Toss the coin twice.</li>
+<li>If the result is <b>HT</b>, assign \(X = 0\). If the result is <b>TH</b>, assign \(X = 1\).</li>
+<li>If the result is either <b>HH</b> or <b>TT</b>, then discard the two coin tosses and go to step 1.</li>
 </ol>
 
 <p>
@@ -50,7 +47,7 @@ P(HH) + P(TT) = p^2 + q^2.
 \end{align} 
 
 <p>
-Therefore, the probability of finally getting <b>HT</b> (and thus setting \(X = 0\)) is<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>
+Therefore, the probability of finally getting <b>HT</b> (and thus setting \(X = 0\)) is<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 </p>
 \begin{align}
 &P(HT) + \left(P(HH) + P(TT) \right)P(HT)\nonumber \\
@@ -75,11 +72,11 @@ The expected number of coin tosses needed to generate \(X\) is
 Below is a python script for the coin toss algorithm:
 </p>
 
-{% highlight python %}
-import random
+<div class="org-src-container">
+<pre class="src src-python">import random
 
 def flipcoin(p):
-    if random.uniform(0,1) <= p:
+    if random.uniform(0,1) &lt;= p:
 	return 'H'
     else:
 	return 'T'
@@ -101,14 +98,14 @@ while X is None:
     X = check(toss)
 
 print("\nX = " + str(X))
-
-{% endhighlight %}
+</pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">A More Efficient Algorithm</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org8182be9" class="outline-2">
+<h2 id="org8182be9">A More Efficient Algorithm</h2>
+<div class="outline-text-2" id="text-org8182be9">
 <p>
 The above algorithm is not every efficient in the sense that it wastes some coin tosses. To see this, consider the sequence <b>HHTT</b> and <b>TTHH</b>. Notice that they both occur with probability \(p^2q^2\) and thus we can map <b>HHTT</b> to \(X = 0\) and <b>TTHH</b> to \(X = 1\). However, in the above algorithm, both of the sequences will be discarded.
 </p>
@@ -122,24 +119,21 @@ However, some sequences may terminate early. For example, there are \(6\) possib
 </p>
 
 <p>
-In order to take this early termination into account, let us define \(m(k)\) as the number of heads after \(k\)-th coin toss. Then the coin toss sequence of length \(n\) can be uniquely determined by \(m(1),\,m(2),\,\dots,\,m(n)\). Indeed, the \(k\)-th coin toss is <b>H</b> if \(m(k) - m(k-1) = 1\). It is <b>T</b> if \(m(k) -m(k-1) = 0\). <sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+In order to take this early termination into account, let us define \(m(k)\) as the number of heads after $k$-th coin toss. Then the coin toss sequence of length \(n\) can be uniquely determined by \(m(1),\,m(2),\,\dots,\,m(n)\). Indeed, the $k$-th coin toss is <b>H</b> if \(m(k) - m(k-1) = 1\). It is <b>T</b> if \(m(k) -m(k-1) = 0\). <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 </p>
 
 <p>
-We will call a \((n,m)\) sequence of to be valid if it does not terminate before the \(n\)-th toss<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>. In other words, for all \(k < n\), \(k\choose{m(k)}\) is odd. Let us define \(f(n,m)\) to be the number of valid \((n,m)\) sequences. 
+We will call a \((n,m)\) sequence of to be valid if it does not terminate before the $n$-th toss<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>. In other words, for all \(k < n\), \(k\choose{m(k)}\) is odd. Let us define \(f(n,m)\) to be the number of valid \((n,m)\) sequences. 
 </p>
 
-<div class="theorem">
+<div class="THEOREM">
 <p>
-\(f(n,m)\) is either \(0\), \(1\) or \(2\). Moreover, \(f(n,m)\) satisfies<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>:
+\(f(n,m)\) is either \(0\), \(1\) or \(2\). Moreover, \(f(n,m)\) satisfies<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>:
 </p>
 <ol class="org-ol">
-<li>If \(f(n-1,m-1) = 1\) and \(f(n-1,m) = 1\), then \(f(n,m) = 2\).
-</li>
-<li>If \(f(n-1,m-1) + f(n-1,m)\) is odd, then \(f(n,m) = 1\).
-</li>
-<li>Otherwise \(f(n,m) = 0\).
-</li>
+<li>If \(f(n-1,m-1) = 1\) and \(f(n-1,m) = 1\), then \(f(n,m) = 2\).</li>
+<li>If \(f(n-1,m-1) + f(n-1,m)\) is odd, then \(f(n,m) = 1\).</li>
+<li>Otherwise \(f(n,m) = 0\).</li>
 </ol>
 
 </div>
@@ -148,17 +142,15 @@ We will call a \((n,m)\) sequence of to be valid if it does not terminate before
 The proof follows from the following facts:
 </p>
 <ul class="org-ul">
-<li>If a \((n,m)\) sequence is valid, then the first \(n-1\) tosses must be either a valid \((n-1,m-1)\) or a valid \((n-1,m)\) sequence.
-</li>
-<li>We will terminate our toss whenever \(f(n,m)\) is even.
-</li>
+<li>If a \((n,m)\) sequence is valid, then the first \(n-1\) tosses must be either a valid \((n-1,m-1)\) or a valid \((n-1,m)\) sequence.</li>
+<li>We will terminate our toss whenever \(f(n,m)\) is even.</li>
 </ul>
 
 <p>
 We can us the following code to generate a table of \(f(n,m)\). 
 </p>
-{% highlight python %}
-def table(N):
+<div class="org-src-container">
+<pre class="src src-python">def table(N):
     fold = [1,] #f(0,0) = 1
     print('1')
     for n in range(1, N+1):
@@ -173,8 +165,8 @@ def table(N):
 	fold = fnew
 
 table(10)
-
-{% endhighlight %}
+</pre>
+</div>
 
 <pre class="example">
 1
@@ -194,20 +186,18 @@ table(10)
 By Theorem 1, we know that if \(f(n,m) = 2\), then the last toss of the one valid \((n,m)\) sequence is <b>H</b> and the last toss of the other is <b>T</b>. Hence, our more efficient algorithm can be described as follows:
 </p>
 <ol class="org-ol">
-<li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the last toss is <b>T</b>. Assign \(X = 1\) if the last toss is <b>H</b>.
-</li>
-<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\). 
-</li>
+<li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the last toss is <b>T</b>. Assign \(X = 1\) if the last toss is <b>H</b>.</li>
+<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\).</li>
 </ol>
 
 <p>
 The algorithm can be implemented in the following code:
 </p>
-{% highlight python %}
-import random
+<div class="org-src-container">
+<pre class="src src-python">import random
 
 def flipcoin(p):
-    if random.uniform(0,1) <= p:
+    if random.uniform(0,1) &lt;= p:
 	return 'H'
     else:
 	return 'T'
@@ -232,14 +222,14 @@ while even is False:
     if toss == 'H':
 	m = m + 1
 	X = 1
-	if factor2(k) - factor2(m) > 0: even = True
+	if factor2(k) - factor2(m) &gt; 0: even = True
     else:
 	X = 0
-	if factor2(k) - factor2(k-m) > 0: even = True
+	if factor2(k) - factor2(k-m) &gt; 0: even = True
 
 print("\nX = " + str(X))
-
-{% endhighlight %}
+</pre>
+</div>
 
 <p>
 In the above code, we use the fact that
@@ -250,9 +240,9 @@ In the above code, we use the fact that
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">How Efficient is Our Approach</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgeffe498" class="outline-2">
+<h2 id="orgeffe498">How Efficient is Our Approach</h2>
+<div class="outline-text-2" id="text-orgeffe498">
 <p>
 We now compute the expected number of tosses needed for the algorithm to terminate. To this end, let us define a random variable \(L\) to be number of coin tosses when the algorithm terminates.
 </p>
@@ -327,8 +317,8 @@ Now take the limit on both sides, we get the expected number of coin tosses:
 <p>
 The following python code compute the expect number of coin tosses for the Von Neumann's method (blue line) and our more efficient method (green line)
 </p>
-{% highlight python %}
-import matplotlib
+<div class="org-src-container">
+<pre class="src src-python">import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns # for the sake of appreances
 import numpy as np
@@ -353,28 +343,24 @@ plt.ylabel('Expected Number of Tosses')
 fig.tight_layout()
 plt.savefig('../../public/expected-toss.png')
 return '../../public/expected-toss.png' # return the filename to org-mode
+</pre>
+</div>
 
-{% endhighlight %}
-
-
-<div class="figure">
-<p><img src="../../public/expected-toss.png" alt="expected-toss.png" />
+<p>
+<a href=""></a>
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Can we be more efficient?</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org849221b" class="outline-2">
+<h2 id="org849221b">Can we be more efficient?</h2>
+<div class="outline-text-2" id="text-org849221b">
 <p>
 The answer is yes. Let us slightly change our algorithm to:
 </p>
 <ol class="org-ol">
-<li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the \(m(k-1)\) is odd. Assign \(X = 1\) if \(m(k-1)\) is even.
-</li>
-<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\).
-</li>
+<li>If \(k\choose{m(k)}\) is even, then assign \(X = 0\) if the \(m(k-1)\) is odd. Assign \(X = 1\) if \(m(k-1)\) is even.</li>
+<li>If \(k\choose{m(k)}\) is odd, then toss another coin and update \(k\) and \(m(k)\).</li>
 </ol>
 
 <p>
@@ -384,47 +370,47 @@ The assignment table for the slightly modified algorithm is
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 
-<col  class="right" />
+<col  class="org-right" />
 </colgroup>
 <tbody>
 <tr>
-<td class="left">Toss</td>
-<td class="right"><b>HT</b></td>
-<td class="right"><b>TH</b></td>
-<td class="right"><b>HHHT</b></td>
-<td class="right"><b>HHTH</b></td>
-<td class="right"><b>HHTT</b></td>
-<td class="right"><b>TTHH</b></td>
-<td class="right"><b>TTHT</b></td>
-<td class="right"><b>TTTH</b></td>
+<td class="org-left">Toss</td>
+<td class="org-right"><b>HT</b></td>
+<td class="org-right"><b>TH</b></td>
+<td class="org-right"><b>HHHT</b></td>
+<td class="org-right"><b>HHTH</b></td>
+<td class="org-right"><b>HHTT</b></td>
+<td class="org-right"><b>TTHH</b></td>
+<td class="org-right"><b>TTHT</b></td>
+<td class="org-right"><b>TTTH</b></td>
 </tr>
 
 <tr>
-<td class="left">X</td>
-<td class="right">0</td>
-<td class="right">1</td>
-<td class="right">0</td>
-<td class="right">1</td>
-<td class="right">1</td>
-<td class="right">0</td>
-<td class="right">0</td>
-<td class="right">1</td>
+<td class="org-left">X</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
 </tr>
 </tbody>
 </table>
@@ -442,21 +428,21 @@ This <a href="https://projecteuclid.org/euclid.aop/1176993384">paper</a> is for 
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
 Notice that \(p^2+q^2 = 1-2pq\).
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
 We will define \(m(0) = 0\).
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
-However, it can terminate at the \(n\)-th toss.
-</p></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+However, it can terminate at the $n$-th toss.
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
 We assume \(f(n,-1) = 0\) and \(f(n,n+1) = 0\).
-</p></div>
+</p></div></div>
 
 
 </div>

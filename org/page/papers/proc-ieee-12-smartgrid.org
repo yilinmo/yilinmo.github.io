@@ -1,10 +1,10 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: page
 title: Cyber-Physical Security of a Smart Grid Infrastructure
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Yilin Mo, Tiffany Hyun-Jin Kim, Kenneth Brancik, Dona Dickinson, Heejo Lee, Adrian Perrig and Bruno Sinopoli*

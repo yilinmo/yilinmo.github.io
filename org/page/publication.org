@@ -1,10 +1,10 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: page
 title: Publication
 ---
-#+END_HTML
+#+END_EXPORT
 
 My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]] and [[https://www.researchgate.net/profile/Yilin_Mo][Research Gate]] Page.
 

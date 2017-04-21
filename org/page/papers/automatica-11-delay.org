@@ -1,10 +1,10 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: page
 title: Sensor Scheduling over a Packet-Delaying Network
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli*

@@ -1,12 +1,12 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: post
 title: Model Reference Adaptive Control
 comments: true
 permalink: mrac
 ---
-#+END_HTML
+#+END_EXPORT
 -----
 Consider the following first-order linear system:
 \begin{equation}
@@ -22,9 +22,9 @@ Suppose that we want the linear system \eqref{eq:truesystem} to track the follow
 \end{equation}
 where $a_m < 0$ and $b_m$ are known and $r(t)$ is a known reference signal.
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 <!--break-->
-#+END_HTML
+#+END_EXPORT
 
 Suppose we use the following control law:
 \begin{equation}

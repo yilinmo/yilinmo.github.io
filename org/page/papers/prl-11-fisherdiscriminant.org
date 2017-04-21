@@ -1,10 +1,10 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: page
 title: Penalized Fisher Discriminant Analysis and Its Application to Image-based Morphometry
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Wei Wang, Yilin Mo, John A. Ozolek, Gustavo K. Rohde*

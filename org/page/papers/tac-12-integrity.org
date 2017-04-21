@@ -1,11 +1,11 @@
 #+OPTIONS: H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: On the Performance Degradation of Cyber-Physical Systems under Stealthy Integrity Attacks
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 *Yilin Mo and Bruno Sinopoli*
 

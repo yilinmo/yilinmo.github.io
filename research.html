@@ -7,9 +7,9 @@ title: Research
 I am currently looking for Postdoc and Ph.D. student for the research in CPS security. Please send me an email if you are interested.
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Security of Cyber-Physical System</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org63aef87" class="outline-2">
+<h2 id="org63aef87">Security of Cyber-Physical System</h2>
+<div class="outline-text-2" id="text-org63aef87">
 <p>
 <a href="https://en.wikipedia.org/wiki/Cyber-physical_system">Cyber-Physical Systems</a> (CPS) refer to the embedding of widespread sensing, networking, computation, and control into physical spaces with the goal of making them safer, more efficient, and reliable. Driven by the miniaturization and integration of sensing, communication, and computation in cost effective devices, CPSs are bound to transform several industries such as aerospace, transportation, built environments, energy, health-care, and manufacturing, to name a few. This great opportunity, unfortunately, is matched by even greater challenges. While the use of dedicated communication networks has so far sheltered systems from the outside world, use of off-the-shelf networking and computing, combined with unattended operation of a plethora of devices, provides several opportunities for malicious entities to inject attacks on CPSs. A wide variety of motivations exists for launching an attack on CPSs, ranging from economic reasons such as drawing a financial gain, all the way to terrorism, for instance, threatening an entire population by manipulating life-critical resources. Any attack on safety-critical CPSs may significantly hamper the economy and lead to the loss of human lives. While the threat of attacks on CPSs tends to be underplayed at times, the <a href="https://en.wikipedia.org/wiki/Stuxnet">Stuxnet</a> worm provided a clear sample of the future to come.
 </p>
@@ -17,37 +17,30 @@ I am currently looking for Postdoc and Ph.D. student for the research in CPS sec
 <div class="figure">
 <p><img src="../../public/replaydiagram.png" alt="replaydiagram.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> Diagram of a CPS under replay attack (Stuxnet example). Here, the adversary performs a replay attack, providing replayed outputs \(y_k^v\) to the system operator while injecting a potentially damaging input \(u_k^a\) to the system. To detect the attack, we inject a random control signal \(\zeta_k\) to the system. If the system is operating normally, then we will see the system response of \(\zeta_k\) in \(y_k\). However, during the replay, the response will be absent.</p>
+<p><span class="figure-number">Figure 1: </span>Diagram of a CPS under replay attack (Stuxnet example). Here, the adversary performs a replay attack, providing replayed outputs \(y_k^v\) to the system operator while injecting a potentially damaging input \(u_k^a\) to the system. To detect the attack, we inject a random control signal \(\zeta_k\) to the system. If the system is operating normally, then we will see the system response of \(\zeta_k\) in \(y_k\). However, during the replay, the response will be absent.</p>
 </div>
 
 <p>
 I am interested in leveraging system theoretical tools, which is complementary to the traditional information security based-approach, to address the security problems in CPS. Below is a list of our recent publications on this topic:
 </p>
 <ul class="org-ul">
-<li>Using randomized control signal to detect the presence of replay attack (Stuxnet): <a href="./papers/cms-15-replay.html">MoWeerakkodySinopoli2015</a>, <a href="./papers/tcst-14-replay.html">MoChabukswarSinpoli2014</a>
-</li>
-<li>Characterizing the performance of the CPS when under integrity attacks: <a href="./papers/tac-12-integrity.html">MoSinopoli2015</a> 
-</li>
-<li>Secure information fusion in the presence of compromised data: <a href="./papers/tsp-14-detection.html">MoHespanhaSinopoli2014</a>, <a href="./papers/tac-15-est.html">MoSinopoli2015b</a>
-</li>
-<li>Privacy in multi-agent system: <a href="papers/tac-15-privacy.html">MoMurray2015</a>
-</li>
+<li>Using randomized control signal to detect the presence of replay attack (Stuxnet): <a href="./papers/cms-15-replay.html">MoWeerakkodySinopoli2015</a>, <a href="./papers/tcst-14-replay.html">MoChabukswarSinpoli2014</a></li>
+<li>Characterizing the performance of the CPS when under integrity attacks: <a href="./papers/tac-12-integrity.html">MoSinopoli2015</a></li>
+<li>Secure information fusion in the presence of compromised data: <a href="./papers/tsp-14-detection.html">MoHespanhaSinopoli2014</a>, <a href="./papers/tac-15-est.html">MoSinopoli2015b</a></li>
+<li>Privacy in multi-agent system: <a href="papers/tac-15-privacy.html">MoMurray2015</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Networked Control System</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgfc1995a" class="outline-2">
+<h2 id="orgfc1995a">Networked Control System</h2>
+<div class="outline-text-2" id="text-orgfc1995a">
 <p>
 A <a href="https://en.wikipedia.org/wiki/Networked_control_system">Networked Control System</a> (NCS) is a control system wherein the control loops are closed through a communication network. Advances in fabrication, modern sensor and communication technologies, and computer architecture have boosted the development of NCS which have a wide range of applications. One of the key challenges for NCS is the tight coupling between communication and control. Classical control theory typically assumes that the communication among sensors, controllers and actuators are perfect, without any delay or packet drop. However, for NCS, one needs to take into consideration the imperfect communication and design the estimation and control algorithms accordingly. On the other hand, for many NCS, communication is expensive since many NCS devices are battery powered. As a result, it is useful to schedule the communication so that only "important and informative" messages are transmitted. I am interested in understanding the interaction between communication and control and designing robust and efficient NCS. Below is a list of our recent publications on this topic
 </p>
 <ul class="org-ul">
-<li>Understanding the impact of network effects on state estimation and control: <a href="./papers/tac12.html">MoSinopoli12</a>
-</li>
-<li>Offline sensor scheduling via convex optimization: <a href="./papers/tac-11-scheduling.html">MoGaroneCasavolaSinopoli11</a>, <a href="./papers/automatica-11-scheduling.html">MoAmbrosinoSinopoli11</a>
-</li>
-<li>Event-triggered sensor scheduling: <a href="./papers/tac-13-event.html">HanMoWuWeerakkodySinopoliShi15</a>
-</li>
+<li>Understanding the impact of network effects on state estimation and control: <a href="./papers/tac12.html">MoSinopoli12</a></li>
+<li>Offline sensor scheduling via convex optimization: <a href="./papers/tac-11-scheduling.html">MoGaroneCasavolaSinopoli11</a>, <a href="./papers/automatica-11-scheduling.html">MoAmbrosinoSinopoli11</a></li>
+<li>Event-triggered sensor scheduling: <a href="./papers/tac-13-event.html">HanMoWuWeerakkodySinopoliShi15</a></li>
 </ul>
 </div>
 </div>

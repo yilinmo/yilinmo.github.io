@@ -1,5 +1,5 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: post
 title: How to Get Fair Results from a Biased Coin
@@ -7,7 +7,7 @@ comments: true
 categories: math
 permalink: fair-results-from-a-biased-coin
 ---
-#+END_HTML
+#+END_EXPORT
 -----
 
 /This is a test of [[http://orgmode.org/worg/org-contrib/babel/][org-babel]]./
@@ -17,9 +17,9 @@ Consider we have a biased coin, such that the probability of getting a head is $
 
 Our goal is to generate a "fair" binary random variable $X$, with distribution $P(X = 0) = P(X=1) = 0.5$. 
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 <!--break-->
-#+END_HTML
+#+END_EXPORT
 
 * [[https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf][Von Neumann's Solution]]
 One way to generate such a random variable is to:

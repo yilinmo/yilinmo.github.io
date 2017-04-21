@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 layout: page
 title: Multi-dimensional state estimation in adversarial environment
 comments: true
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 *Yilin Mo and Richard M. Murray*
 

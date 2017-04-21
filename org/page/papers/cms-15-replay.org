@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: ! 'Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs'
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Yilin Mo, Sean Weerakkody and Bruno Sinopoli*

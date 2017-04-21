@@ -1,22 +1,45 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 ---
 layout: page
 title: Teaching
 ---
-#+END_HTML
-* Fall 2014: CDS 270 --- Networked Control Systems
+#+END_EXPORT
+* Spring 2017: EE 3011 -- Modelling and Control (Part II - Frequency Domain Analysis)
+** Course Description
+Control Engineering plays a fundamental role in modern technological systems. The aim of this course is to serve as an introduction to control system analysis and design. The objectives include equipping students with:
+1) Basic understanding of issues related to control systems such as modeling, time and frequency responses of dynamical systems, performance specifications and controller design and
+2) Skills and techniques for tackling practical control system design problems.
+
+** Handouts and Slides
+
+| Lecture | Topic                                       | Handouts                                                    | Slides                                                        |
+|---------+---------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------|
+|       1 | Frequency Response                          | [[https://yilinmo.github.io/EE3011/Lec1.html][Handouts1]]   | [[https://yilinmo.github.io/EE3011/Lec1Slides.html][Slides1]] |
+|       2 | Bode Plots for Simple Factors               | [[https://yilinmo.github.io/EE3011/Lec2.html][Handouts2]]   | [[https://yilinmo.github.io/EE3011/Lec2Slides.html][Slides2]] |
+|       3 | Bode Plots of Complex Transfer Function     | [[https://yilinmo.github.io/EE3011/Lec3.html][Handouts3]]   | [[https://yilinmo.github.io/EE3011/Lec3Slides.html][Slides3]] |
+|       4 | Frequency Domain Modelling                  | [[https://yilinmo.github.io/EE3011/Lec4.html][Handouts4]]   | [[https://yilinmo.github.io/EE3011/Lec4Slides.html][Slides4]] |
+|     5&6 | Nyquist Stability Criterion & Nyquist Plots | [[https://yilinmo.github.io/EE3011/Lec5.html][Handouts5]]   | [[https://yilinmo.github.io/EE3011/Lec5Slides.html][Slides5]] |
+|       7 | Relative Stability Analysis                 | [[https://yilinmo.github.io/EE3011/Lec6.html][Handouts6]]   | [[https://yilinmo.github.io/EE3011/Lec6Slides.html][Slides6]] |
+|       8 | Loop Shaping, Lead Compensator              | [[https://yilinmo.github.io/EE3011/Lec7.html][Handouts7]]   | [[https://yilinmo.github.io/EE3011/Lec7Slides.html][Slides7]] |
+|       9 | Lag Compensator                             | [[https://yilinmo.github.io/EE3011/Lec8.html][Handouts8]]   | [[https://yilinmo.github.io/EE3011/Lec8Slides.html][Slides8]] |
+|      10 | PID Tuning                                  | [[https://yilinmo.github.io/EE3011/Lec9.html][Handouts9]]   | [[https://yilinmo.github.io/EE3011/Lec9Slides.html][Slides9]] |
+|      11 | Examples on Controller Design               | [[https://yilinmo.github.io/EE3011/Lec10.html][Handouts10]] | [[https://yilinmo.github.io/EE3011/Lec10Slides.html][Slides10]] |
+|      12 | Review                                      | [[https://yilinmo.github.io/EE3011/Lec11.html][Handouts11]] | [[https://yilinmo.github.io/EE3011/Lec11Slides.html][Slides11]] |
+
 ------
-* Course Description
+* Fall 2014: CDS 270 --- Networked Control Systems
+
+** Course Description
 
 Networked control systems are spatially distributed systems for which the communication between sensors, actuators and controllers is supported by communication networks. Recent advances in sensing, communication technologies and computer architecture have led to the rapid growth of cost effective and low power devices, which dramatically increases the adaptability, efficiency and functionality of the control systems. However, networked control systems also introduce new challenges, as the information becomes local to each node and the information sharing between nodes may subject to network effects such as packet drop or delay.
 
 In this course, we will review several recent advancements in networked control theory.  We first consider a centralized control scheme, where the communication between the sensor, the controller and the actuator is unreliable. We then move to distributed control schemes and analyze the consensus algorithm, as it is key for many distributed control applications. Next, we study the performance of a consensus-based distributed inference algorithm. Finally, we discuss the consensus algorithm in adversarial environment.
 
-* Pre-requisites
+** Pre-requisites
   Undergraduate linear algebra, probability and signal processing, understanding of modern (state space) control theory
 
-* Handouts and Reference Materials
+** Handouts and Reference Materials
 
 | Course | Topic                                                      | Reading                                                                                                                |
 |--------+------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------|

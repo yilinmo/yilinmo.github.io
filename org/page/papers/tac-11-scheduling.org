@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: Stochastic Sensor Scheduling for Energy Constrained Estimation in Multi-Hop Wireless Sensor Networks
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli*

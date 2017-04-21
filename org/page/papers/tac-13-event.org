@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: Stochastic Event-triggered Sensor Schedule for Remote State Estimation
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 *Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi*
 

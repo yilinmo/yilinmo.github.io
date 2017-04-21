@@ -8,33 +8,33 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Introduction</a>
+<li><a href="#orge6eaf9e">1. Introduction</a>
 <ul>
-<li><a href="#sec-1-1">1.1. Related Work</a></li>
+<li><a href="#org77d7cc1">1.1. Related Work</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. Problem Setup</a>
+<li><a href="#org8d30c13">2. Problem Setup</a>
 <ul>
-<li><a href="#sec-2-1">2.1. System Model</a></li>
-<li><a href="#sec-2-2">2.2. A General Estimator</a></li>
+<li><a href="#orgca5af02">2.1. System Model</a></li>
+<li><a href="#org2a4216a">2.2. A General Estimator</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. Robust Analysis for a General Estimator</a></li>
-<li><a href="#sec-4">4. Scalar Measurement Case: More Analysis</a></li>
-<li><a href="#sec-5">5. Concluding Remarks</a></li>
-<li><a href="#sec-6">6. Appendix</a>
+<li><a href="#org6293454">3. Robust Analysis for a General Estimator</a></li>
+<li><a href="#org91431b3">4. Scalar Measurement Case: More Analysis</a></li>
+<li><a href="#orga2b2c66">5. Concluding Remarks</a></li>
+<li><a href="#org514cd9e">6. Appendix</a>
 <ul>
-<li><a href="#sec-6-1">6.1. Proof of Lemma </a></li>
-<li><a href="#sec-6-2">6.2. Proof of Lemma </a></li>
-<li><a href="#sec-6-3">6.3. Proof of Lemma </a></li>
+<li><a href="#org3510cb2">6.1. Proof of Lemma </a></li>
+<li><a href="#org357533d">6.2. Proof of Lemma </a></li>
+<li><a href="#org18b885b">6.3. Proof of Lemma </a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orge6eaf9e" class="outline-2">
+<h2 id="orge6eaf9e"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The concept of networks has been increasingly prevailing for decades, e.g., computer networks, sensor networks or social networks. Regardless of numerous benefits introduced by bridging machines or humans through networks, the interconnect and distributed nature renders networks vulnerable to various kinds of attacks, ranging from physical attacks to internet viruses to groundless rumors through online social networks. This article is concerned with the integrity attacks in sensor networks which are widely embedded in various industrial systems such as smart grid~\cite{MassoudAmin2005} or Supervisory Control And Data Acquisition (SCADA) systems~\cite{boyer2002scada}. During the integrity attack, the adversary can take full control of a subset of sensors and arbitrarily manipulate their measurements. The motivations for launching such an attack in industrial systems may include creating arbitrage opportunities in electricity market, stealing gas or oil without being noticed, posing potential threat to national defense, etc. Since the first SCADA system malware (called Stuxnet) was discovered and extensively investigated~\cite{Chen2010,Fidler2011}, increasing research attention has been paid to resolve the security issues in estimation and control systems~\cite{challengessecurity}.
@@ -45,8 +45,8 @@ In this article, we focus on the problem of robust estimation against compromise
 </p>
 </div>
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Related Work</h3>
+<div id="outline-container-org77d7cc1" class="outline-3">
+<h3 id="org77d7cc1"><span class="section-number-3">1.1</span> Related Work</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 A quite similar problem in the context of power systems is bad data detection, which has been studied over the past decades~\cite{Handschin1975,Mili1985}. The method of checking the magnitude of residue is useful for identifying random bad data or outliers but may not work for intentional integrity attacks \cite{henrik2010,Xie2011}. For example, Liu et al.~\cite{liu2009} successfully showed that a stealthy attack changing the state while not being detected is possible. Kim et al.~\cite{Kim2014} studied a so-called framing attack. Under such a attack, the bad data detector is misled to delete those critical measurements, without which the network is unobservable and a convert attack may be launched.
@@ -67,22 +67,22 @@ Motivated by different behaviors of various estimators under the integrity attac
 
 
 <p>
-The rest of the paper is organized as follows. In Section <a href="#section:problemsetup">2</a> we formulate the robust estimation problem. Our main results on the robustness of a general convex optimization based estimator is presented in Section <a href="#section:main">3</a>. We specialize our results for scalar sensor case in Section <a href="#section:moreanalysis">4</a>. The concluding remarks are given in Section <a href="#section:conlusion">5</a>.
+The rest of the paper is organized as follows. In Section <a href="#org6be9dea">2</a> we formulate the robust estimation problem. Our main results on the robustness of a general convex optimization based estimator is presented in Section <a href="#org074d85d">3</a>. We specialize our results for scalar sensor case in Section <a href="#orgeaf309a">4</a>. The concluding remarks are given in Section <a href="#org4f2e28b">5</a>.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Problem Setup</h2>
+<div id="outline-container-org8d30c13" class="outline-2">
+<h2 id="org8d30c13"><span class="section-number-2">2</span> Problem Setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a id="section:problemsetup" name="section:problemsetup"></a>
+<a id="org6be9dea"></a>
 </p>
 </div>
 
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> System Model</h3>
+<div id="outline-container-orgca5af02" class="outline-3">
+<h3 id="orgca5af02"><span class="section-number-3">2.1</span> System Model</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Assume that \(m\) sensors are measuring the state \(x\) and the measurement equation for the \(i\)th sensor is given by
@@ -114,16 +114,14 @@ a&\triangleq[a_1^T,a_2^T,\ldots,a_m^T]^T.\nonumber
 Denote the index set of all sensors as \(\mathcal S\triangleq\{1,2,\ldots,m\}\). For any index set \(\mathcal I\subseteq \mathcal S\), define the complement set to be \(\mathcal I^c\triangleq \mathcal S\backslash\mathcal I\). In our attack model, we assume that the attacker can only compromise at most \(p\) sensors but can arbitrarily choose \(a_i\). Formally, a \((p,m)\)-sparse attack can be defined as
 </p>
 
-<div class="definition">
+<div class="DEFINITION">
 <p>
 <b>\((p,m)\)-sparse attack</b>: A vector \(a\) is called a \((p,m)\)-sparse attack if there exists an index set \(\mathcal I\subset \mathcal S\), such that:
 </p>
 
 <ol class="org-ol">
-<li>\(\left\|a_i\right\| = 0,~\forall i\in \mathcal I^c ;\)
-</li>
-<li>\(\left|\mathcal I\right| \leq p.\)
-</li>
+<li>\(\left\|a_i\right\| = 0,~\forall i\in \mathcal I^c ;\)</li>
+<li>\(\left|\mathcal I\right| \leq p.\)</li>
 </ol>
 
 </div>
@@ -143,7 +141,7 @@ The set of all possible \((p,m)\)-sparse attacks is denoted as
 The main task of this work is to investigate the generic sufficient and necessary conditions for an estimator to be robust to \((p,m)\)-sparse attacks. To this end, we first formally define the robustness of an estimator.
 </p>
 
-<div class="definition">
+<div class="DEFINITION">
 <p>
 <b>Robustness</b>: An estimator \(g:\mathbb R^{(\sum_i m_i)\times n}\mapsto \mathbb R^n\) which maps the measurements \(y\) to a state estimate \(\hat x\) is said to be robust to the \((p,m)\)-sparse attack if it satisfies the following condition:
 </p>
@@ -160,14 +158,14 @@ where \(\mu:\mathbb R^{(\sum_i m_i)\times n}\mapsto \mathbb R\) is a real-valued
 The robustness implies that the disturbance on the state estimate caused by an arbitrary attack is bounded. A trivial robust estimator is \(g(y)=0\) which provides very poor estimate. Therefore, another desirable property for an estimator is translation invariance, which is defined as follows:
 </p>
 
-<div class="definition">
+<div class="DEFINITION">
 <p>
 <b>Translation invariance</b>: An estimator \(g\) is translation invariant if \(g(z+Hu)=u+g(z),~\forall u\in\mathbb R^n\).
 </p>
 
 </div>
 
-<div class="remark">
+<div class="REMARK">
 <p>
 Notice that if an estimator is robust and translation invariant, then
 </p>
@@ -186,8 +184,8 @@ In the next subsection, we propose a general convex optimization based estimator
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> A General Estimator</h3>
+<div id="outline-container-org2a4216a" class="outline-3">
+<h3 id="org2a4216a"><span class="section-number-3">2.2</span> A General Estimator</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A large variety of estimators are developed by the research community to solve the state estimation problem. In order to achieve greater generality, we first propose a general convex optimization based estimator. We then show that many estimators can be rewritten in this general framework.
@@ -205,15 +203,12 @@ where the following properties of function \(f_i:\mathbb R^{m_i}\mapsto \mathbb 
 </p>
 
 <ol class="org-ol">
-<li>\(f_i\) is convex.
-</li>
-<li>\(f_i\) is symmetric, i.e., \(f_i(u) = f_i(-u)\).
-</li>
-<li>\(f_i\) is non-negative and \(f_i(0) = 0\).
-</li>
+<li>\(f_i\) is convex.</li>
+<li>\(f_i\) is symmetric, i.e., \(f_i(u) = f_i(-u)\).</li>
+<li>\(f_i\) is non-negative and \(f_i(0) = 0\).</li>
 </ol>
 
-<div id="remark:1" class="remark">
+<div id="remark:1" class="REMARK">
 <p>
 It is easy to check that the estimator \(g\) is translation invariant. One can view \(y_i-H_i\hat x\) as the residue for the \(i\)th sensor and \(f_i\) as a cost function. The convex constraints on \(f_i\) ensures that the minimization problem can be solved in an efficient (possibly also distributed) way. The symmetric assumption on \(f_i\) is typically true for many practically used estimator and can actually be relaxed. The last assumption implies that the cost achieves minimum value when the residue is \(0\).
 </p>
@@ -225,8 +220,7 @@ We now investigate several commonly used estimator and show that they can be wri
 </p>
 
 <ul class="org-ul">
-<li>Least Square Estimator:
-</li>
+<li>Least Square Estimator:</li>
 </ul>
 \begin{align}
 \hat x &=  \mathop{argmin}_{\hat x} \left\|y-H\hat x\right\|_2^2=  \mathop{argmin}_{\hat x} \sum_{i\in\mathcal S}\left\|y_i-H_i\hat x\right\|_2^2\nonumber\\
@@ -234,8 +228,7 @@ We now investigate several commonly used estimator and show that they can be wri
 \label{eq:lsestimator}
 \end{align}
 <ul class="org-ul">
-<li>Another example is an estimator which minimizes the sum of the \(l_1\) norm of the residue, i.e.,
-</li>
+<li>Another example is an estimator which minimizes the sum of the \(l_1\) norm of the residue, i.e.,</li>
 </ul>
 \begin{align}
 \hat x = \mathop{argmin}_{\hat x} \sum_{i\in\mathcal S}\left\|y_i-H_i\hat x\right\|_1.  \label{eq:medianestimator}
@@ -245,8 +238,7 @@ In the case that \(m_i=n\) and \(H_i=I_n,~\forall i\), the estimate is a vector 
 </p>
 
 <ul class="org-ul">
-<li>The following is designed to minimize the sum of the \(l_2\) norm of the residue:
-</li>
+<li>The following is designed to minimize the sum of the \(l_2\) norm of the residue:</li>
 </ul>
 \begin{align}
 \hat x = \mathop{argmin}_{\hat x} \sum_{i\in\mathcal S}\left\|y_i-H_i\hat x\right\|_2.  
@@ -256,8 +248,7 @@ In the case that \(m_i=n\) and \(H_i=I_n,~\forall i\), the estimate is a vector 
 The optimal estimate in the case that \(m_i=n\) and \(H_i=I_n,~\forall i\) is the geometric median of all \(y_i\)'s, which is called an \(L_1\) estimator in \cite{Lopuhaa1991}. In other words, \(\hat x\) is the point in \(\mathbb R^n\) that minimizes the sum of Euclidean distances from \(y_i\) to that point.
 </p>
 <ul class="org-ul">
-<li>Pajic et al.~\cite{Pajic2014} proposed the following robust estimator in the presence of integrity attack:
-</li>
+<li>Pajic et al.~\cite{Pajic2014} proposed the following robust estimator in the presence of integrity attack:</li>
 </ul>
 \begin{align*}
 & \mathop{\textit{minimize}}\limits_{\hat x,a,w}&
@@ -296,11 +287,11 @@ In the next section, we shall present sufficient and necessary conditions for th
 </div>
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Robust Analysis for a General Estimator</h2>
+<div id="outline-container-org6293454" class="outline-2">
+<h2 id="org6293454"><span class="section-number-2">3</span> Robust Analysis for a General Estimator</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a id="section:main" name="section:main"></a>
+<a id="org074d85d"></a>
 This section is devoted to the derivation of necessary and sufficient conditions for the robustness of the general estimator.
 </p>
 
@@ -308,7 +299,7 @@ This section is devoted to the derivation of necessary and sufficient conditions
 Denote the compact set \(\mathcal U\triangleq\{u\in \mathbb R^n:\left\|u\right\|= 1\}\). Before proceeding to the main results, we need the following lemma.
 </p>
 
-<div id="lemma:convex" class="lemma">
+<div id="lemma:convex" class="LEMMA">
 <p>
 Let \(q:\mathbb R\rightarrow \mathbb R\) be a convex function and \(q(0) = 0\), then \(q(t)/t\) is monotonically non-decreasing on \(t\in \mathbb R^+\). Moreover,
 </p>
@@ -319,7 +310,7 @@ q(t+1)-q(t)\geq q(t)/t.
 
 </div>
 
-<div class="proof">
+<div class="PROOF">
 <p>
 For any \(0 < \alpha < 1\), we have
 </p>
@@ -332,21 +323,19 @@ Divide both side by \(\alpha t\), we can prove that \(q(t)/t\) is monotonically 
 
 </div>
 <p>
-As a consequence of Lemma <a href="#lemma:convex">1</a>, we know that \(f_i(tH_iu)/t\) is monotonically non-decreasing. As a result, there are only two possibilities:
+As a consequence of Lemma <a href="#org88ebd27">1</a>, we know that \(f_i(tH_iu)/t\) is monotonically non-decreasing. As a result, there are only two possibilities:
 </p>
 
 <ol class="org-ol">
-<li>\(f_i(tH_iu)/t\) is bounded for all \(i\) and for all \(u\), which implies that the limit \(\lim_{t\rightarrow\infty}f_i(tH_iu)/t\) exists.
-</li>
-<li>\(f_i(tH_iu)/t\) is unbounded for some \(i\) and \(u\).
-</li>
+<li>\(f_i(tH_iu)/t\) is bounded for all \(i\) and for all \(u\), which implies that the limit \(\lim_{t\rightarrow\infty}f_i(tH_iu)/t\) exists.</li>
+<li>\(f_i(tH_iu)/t\) is unbounded for some \(i\) and \(u\).</li>
 </ol>
 
 <p>
 The next lemma provides several important properties for the case where \(\lim_{t\rightarrow\infty}f_i(tH_iu)/t\) exists, whose proof is reported in the appendix:
 </p>
 
-<div id="lemma:1" class="lemma">
+<div id="lemma:1" class="LEMMA">
 <p>
 If the following limit is well defined, i.e., finite, for all \(u\in \mathbb R^{n}\):
 </p>
@@ -359,10 +348,8 @@ then the following statements are true:
 </p>
 
 <ul class="org-ul">
-<li>\(C_i(\alpha u)=\left|\alpha\right| C_i(u)\) and \(C_i(u_1+u_2)\leq C_i(u_1)+C_i(u_2)\).
-</li>
-<li>Define the function \(h_i(u,v,t):\mathbb R^n\times\mathbb R^{m_i}\times \mathbb R\mapsto\mathbb R\),
-</li>
+<li>\(C_i(\alpha u)=\left|\alpha\right| C_i(u)\) and \(C_i(u_1+u_2)\leq C_i(u_1)+C_i(u_2)\).</li>
+<li>Define the function \(h_i(u,v,t):\mathbb R^n\times\mathbb R^{m_i}\times \mathbb R\mapsto\mathbb R\),</li>
 </ul>
 \begin{align}
 h_i(u,v,t) \triangleq \frac{1}{t}\left[f_i(v+tH_iu)-f_i(v)\right].\label{eq:defhfunction}
@@ -378,8 +365,7 @@ Then the following pointwise limit holds:
 Moreover, the convergence is uniform on any compact set of \((u,v)\).
 </p>
 <ul class="org-ul">
-<li>For any \(v\) and \(u\), we have that
-</li>
+<li>For any \(v\) and \(u\), we have that</li>
 </ul>
 \begin{align}
 f_i(v+H_iu) - f_i(v) \leq C_i(u).
@@ -388,7 +374,7 @@ f_i(v+H_iu) - f_i(v) \leq C_i(u).
 
 </div>
 
-<div id="remark:force" class="remark">
+<div id="remark:force" class="REMARK">
 <p>
 Intuitively speaking, one can interpret \(f_i\) as a potential field and the derivative of \(f_i\) as the force generated by sensor \(i\) (if it is differentiable). By \eqref{eq:deltaw}, we know that the force from the potential field \(f_i\) along the \(u\) direction cannot exceed \(C_i(u)\) (or \(C_i(u)/\|u\|\) to normalize). On the other hand, Equation \eqref{eq:deltalimit} implies that this bound is achievable.
 </p>
@@ -399,16 +385,14 @@ Intuitively speaking, one can interpret \(f_i\) as a potential field and the der
 We now give the sufficient condition for the robustness of the estimator.
 </p>
 
-<div id="theorem:sufficient" class="theorem">
+<div id="theorem:sufficient" class="THEOREM">
 <p>
 If the following conditions hold:
 </p>
 
 <ul class="org-ul">
-<li>\(C_i(u)\) is well defined for all \(u\in \mathbb R^{n}\) and all \(i\in\mathcal S\);
-</li>
-<li>the following inequality holds for all non-zero \(u\):
-</li>
+<li>\(C_i(u)\) is well defined for all \(u\in \mathbb R^{n}\) and all \(i\in\mathcal S\);</li>
+<li>the following inequality holds for all non-zero \(u\):</li>
 </ul>
 \begin{align}
 \sum_{i\in\mathcal I}C_i(u)<\sum_{i\in\mathcal I^c}C_i(u),~\forall \mathcal I \in\mathbb C,\label{eq:sufficiency}
@@ -420,7 +404,7 @@ then the estimator \(g\) is robust.
 
 </div>
 
-<div class="proof">
+<div class="PROOF">
 <p>
 Our goal is to prove that there exists a \(\beta(z)\), such that for any \(t\geq \beta(z)\), \(\|u\| = 1\), \(a\in\mathcal A\), the following inequality holds:
 </p>
@@ -433,7 +417,7 @@ As a result, any point \(\|\hat x\| \geq \beta(z)+1\) cannot be the solution of 
 </p>
 
 <p>
-Suppose the set of malicious sensors is \(\mathcal I\), to prove \eqref{eq:sufficientdiff}, we will first look at benign sensors. Due to the uniform convergence of \(h_i(u,v,t)\) to \(C_i(u)\) on \(\mathcal U\times\{-z_i\}\) shown in Lemma <a href="#lemma:1">1</a>, given any \(\delta>0\) we can always find a finite constant \(N_i\) depending on \(\delta\) and \(z_i\) such that for all \(t \geq N_i(\delta,z_i)\), the following inequality holds:
+Suppose the set of malicious sensors is \(\mathcal I\), to prove \eqref{eq:sufficientdiff}, we will first look at benign sensors. Due to the uniform convergence of \(h_i(u,v,t)\) to \(C_i(u)\) on \(\mathcal U\times\{-z_i\}\) shown in Lemma <a href="#org3b44904">1</a>, given any \(\delta>0\) we can always find a finite constant \(N_i\) depending on \(\delta\) and \(z_i\) such that for all \(t \geq N_i(\delta,z_i)\), the following inequality holds:
 </p>
 \begin{align}
 h_i(-z_i,u,t) = \frac{1}{t}\left[f_i(tH_iu-z_i)-f_i(-z_i)\right]\geq C_i(u) - \delta,
@@ -467,7 +451,7 @@ Since for good sensors, \(z_i = y_i\), we know that
 \label{eq:suff2}
 \end{align}
 <p>
-We now consider malicious sensors. By Lemma <a href="#lemma:1">1</a> (iii), we know that for \(i\in\mathcal I\), and any \(u\)
+We now consider malicious sensors. By Lemma <a href="#org3b44904">1</a> (iii), we know that for \(i\in\mathcal I\), and any \(u\)
 </p>
 \begin{align}
 \sum_{i\in\mathcal I} f_i(y_i - t H_i u)  - \sum_{i\in\mathcal I} f_i(y_i- (t +1)H_i u)\leq \sum_{i\in\mathcal I}C_i(-u).\label{eq:suff1}
@@ -485,7 +469,7 @@ which proves \eqref{eq:sufficientdiff}.
 
 </div>
 
-<div class="remark">
+<div class="REMARK">
 <p>
 Assuming that \(y_i\) is a scalar and \(w=0\), Fawzi et al.~\cite{Fawzi2012} prove that the state can be exactly recovered under the integrity attack if and only if for all \(u\neq 0\), there are at least \(2p+1\) non-zero \(H_iu\). Notice that if for some \(u\neq 0\), there are less than \(2p+1\) non-zero \(H_iu\), then we can choose \(\mathcal I\) to contain the largest \(p\) \(H_iu\) and thus violate \eqref{eq:sufficiency}. As a result, our sufficient condition is stronger than the ones proposed in \cite{Fawzi2012}. The main reason is that we seek to use convex optimization to solve the state estimation problem, while in \cite{Fawzi2012}, a combinatorial optimization problem is needed to recover the state.
 </p>
@@ -496,7 +480,7 @@ Assuming that \(y_i\) is a scalar and \(w=0\), Fawzi et al.~\cite{Fawzi2012} pro
 We next give necessary conditions for the robustness of the estimator.
 </p>
 
-<div id="theorem:necessity1" class="theorem">
+<div id="theorem:necessity1" class="THEOREM">
 <p>
 <b>Necessary Condition I</b>: If \( C_i(u)\) is well defined for all \(u\in \mathbb R^{n}\) and all \(i\in\mathcal S\) but there exist some \(\|u_0\|=1,~\mathcal I_0\in\mathbb C\) such that
 </p>
@@ -509,7 +493,7 @@ then the estimator is not robust to the attack.
 
 </div>
 
-<div class="proof">
+<div class="PROOF">
 <p>
 The robustness of the estimator is equivalent to that the optimal estimate \(\hat x\) satisfies \(\left\|\hat x\right\|\leq \mu(z)\) for all \(a\in \mathcal A\), where \(\mu\) is a real-valued function. To this end, we will prove that for any \(r > 0\), there exists a \(y\) such that all \(\hat x\) that satisfies \(\left\|\hat x\right\|\leq r\) cannot be the optimal solution of \eqref{eq:general}.
 </p>
@@ -537,7 +521,7 @@ and \(t = \max_{i\in\mathcal I_0} N_i(\delta)\) and \(y_i = tH_iu_0\) for all \(
 \[
 \sum_{i\in\mathcal I_0}\left[f_i(y_i-H_i\hat x)-f_i(y_i - H_i(\hat x+u_0))\right]  \geq \sum_{i\in \mathcal I_0} C_i(u_0)-p\delta.
 \]
-Now let us look at the benign sensors. By Lemma <a href="#lemma:1">1</a> (iii) we have
+Now let us look at the benign sensors. By Lemma <a href="#org3b44904">1</a> (iii) we have
 </p>
 \begin{equation}
 f_i(z_i-H_i(\hat x+u_0))-f_i(z_i-H_i\hat x)  \leq  C_i(u_0),~\forall i\in \mathcal I\backslash \mathcal I_{m_0}.\label{eq:nece2}
@@ -565,7 +549,7 @@ tH_iu_0, & \hbox{if } i\in\mathcal I_{0},
 
 </div>
 
-<div id="theorem:necessity2" class="theorem">
+<div id="theorem:necessity2" class="THEOREM">
 <p>
 <b>Necessary Condition II</b>: If there exists \(u_0 \in \mathbb R^{n}\) and \(j\in \mathcal I\) such that
 </p>
@@ -579,10 +563,10 @@ then the estimator is not robust to the attack.
 
 </div>
 <p>
-Before proving Theorem <a href="#theorem:necessity2">1</a>, we need the following lemma whose proof is reported in appendix.
+Before proving Theorem <a href="#orgf79ae4d">1</a>, we need the following lemma whose proof is reported in appendix.
 </p>
 
-<div id="lemma:divergence" class="lemma">
+<div id="lemma:divergence" class="LEMMA">
 <p>
 If the condition \eqref{eq:sublinear2} holds, for any \(M>0\) and for all \(v\) in a compact set \(\mathcal V\subset \mathbb R^{m_i}\), there exists \(N\) (depending on \(M\) and the set \(\mathcal V\)) such that the following inequality holds:
 </p>
@@ -596,9 +580,9 @@ h_j(u_0,v,t)>M,\,\forall v\in \mathcal V\label{eq:divergence}
 Now we are ready to prove the theorem.
 </p>
 
-<div class="proof">
+<div class="PROOF">
 <p>
-Similar to Theorem <a href="#theorem:necessity1">1</a>, we will prove that for any \(r > 0\), there exists a \(y\) such that all \(\hat x\) that satisfies \(\left\|\hat x\right\|\leq r\) cannot be the optimal solution of \eqref{eq:general}.
+Similar to Theorem <a href="#org226fa5e">1</a>, we will prove that for any \(r > 0\), there exists a \(y\) such that all \(\hat x\) that satisfies \(\left\|\hat x\right\|\leq r\) cannot be the optimal solution of \eqref{eq:general}.
 </p>
 
 <p>
@@ -616,14 +600,14 @@ which implies that for all \(\|\hat x\|\leq r\), we can find \(M > 0\), such tha
 \end{align}
 
 <p>
-Now let us consider sensor \(j\). Due to Lemma <a href="#lemma:divergence">1</a>, we can find a \(t\), such that for all \(\|\hat x\|\leq r\), the following inequality holds:
+Now let us consider sensor \(j\). Due to Lemma <a href="#org8df2b0e">1</a>, we can find a \(t\), such that for all \(\|\hat x\|\leq r\), the following inequality holds:
 </p>
 \begin{align*}
 h_j(u_0,-H_j(\hat x + u_0),t) > M.
 \end{align*}
 
 <p>
-Using Lemma <a href="#lemma:convex">1</a>, we have
+Using Lemma <a href="#org88ebd27">1</a>, we have
 </p>
 \begin{align}
 &f((t+1)H_ju_0 - H_j(\hat x + u_0)) - f(t H_ju_0 - H_j(\hat x + u_0))\nonumber\\
@@ -654,11 +638,11 @@ which implies that the optimal solution of \eqref{eq:general} cannot be inside t
 
 </div>
 <p>
-Before continuing on, we would like to provide some remarks on the main result. First, it is worth noticing that the existence of a well defined limit of \(f_i(tH_iu)/t\) is crucial for the robustness of \(g\) as Theorem <a href="#theorem:necessity2">1</a> suggested. For example, the least square estimator cannot be robust since \(f_i\) is in quadratic form. Using the potential field and force analogies in Remark <a href="#remark:force">1</a>, one can interpret the results presented in this section as: the estimator \(g\) is robust if the force generated by any sensor is bounded and if the combined force of any collection of \(p\) sensors is no greater than the combined force of the remaining \(m-p\) sensors.
+Before continuing on, we would like to provide some remarks on the main result. First, it is worth noticing that the existence of a well defined limit of \(f_i(tH_iu)/t\) is crucial for the robustness of \(g\) as Theorem <a href="#orgf79ae4d">1</a> suggested. For example, the least square estimator cannot be robust since \(f_i\) is in quadratic form. Using the potential field and force analogies in Remark <a href="#org2a55556">1</a>, one can interpret the results presented in this section as: the estimator \(g\) is robust if the force generated by any sensor is bounded and if the combined force of any collection of \(p\) sensors is no greater than the combined force of the remaining \(m-p\) sensors.
 </p>
 
 <p>
-Secondly, one can see that the conditions proved in Theorem <a href="#theorem:sufficient">1</a>, <a href="#theorem:necessity1">1</a> and <a href="#theorem:necessity2">1</a> are very tight, with only a trivial gap where the LHS of \eqref{eq:necessity} equals the RHS.
+Secondly, one can see that the conditions proved in Theorem <a href="#orgd6799af">1</a>, <a href="#org226fa5e">1</a> and <a href="#orgf79ae4d">1</a> are very tight, with only a trivial gap where the LHS of \eqref{eq:necessity} equals the RHS.
 </p>
 
 <p>
@@ -667,11 +651,11 @@ Finally, we want to point out that the condition \eqref{eq:sufficiency} is non-t
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Scalar Measurement Case: More Analysis</h2>
+<div id="outline-container-org91431b3" class="outline-2">
+<h2 id="org91431b3"><span class="section-number-2">4</span> Scalar Measurement Case: More Analysis</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a id="section:moreanalysis" name="section:moreanalysis"></a>
+<a id="orgeaf309a"></a>
 In this section, we specialize our results to the scalar measurement case, i.e., \(m_i=1,~\forall i\in \mathcal S\). Throughout this section, we assume that the following limit is well-defined:
 </p>
 \begin{align}
@@ -689,13 +673,12 @@ C_{i_l}
 \end{align}
 
 <p>
-From Theorem <a href="#theorem:sufficient">1</a> and Theorem <a href="#theorem:necessity1">1</a>, we have the following sufficient and necessary conditions for robustness of \(g\).
+From Theorem <a href="#orgd6799af">1</a> and Theorem <a href="#org226fa5e">1</a>, we have the following sufficient and necessary conditions for robustness of \(g\).
 </p>
 
-<div id="prop:scalarsuffandnece" class="proposition">
+<div id="prop:scalarsuffandnece" class="PROPOSITION">
 <ul class="org-ul">
-<li>If for all possible index set \(\mathcal I\) and all non-zero \(u\in\mathbb R^n\) the following inequality holds: 
-</li>
+<li>If for all possible index set \(\mathcal I\) and all non-zero \(u\in\mathbb R^n\) the following inequality holds:</li>
 </ul>
 \begin{align}
 \|C_{\mathcal I}u\|_1= \sum_{i\in\mathcal I}|C_{i} u |<  \sum_{i\in\mathcal I^c}|C_{i} u| = \|C_{\mathcal I^c}u\|_1, \label{eq:suff3}
@@ -704,8 +687,7 @@ From Theorem <a href="#theorem:sufficient">1</a> and Theorem <a href="#theorem:n
 then the estimator \(g\) is robust.
 </p>
 <ul class="org-ul">
-<li>If there exists an index set \(\mathcal I\) and a \(u\in\mathbb R^n\) such that the following inequality holds: 
-</li>
+<li>If there exists an index set \(\mathcal I\) and a \(u\in\mathbb R^n\) such that the following inequality holds:</li>
 </ul>
 \begin{align}
 \|C_{\mathcal I}u\|_1 > \|C_{\mathcal I^c}u\|_1, \label{eq:suff4}
@@ -720,7 +702,7 @@ then the estimator \(g\) is not robust.
 The main difficulty here is to validate \eqref{eq:suff3} for all non-zero \(u\). In the next theorem, we can find a more conservative but more practically useful sufficient condition for the robustness, by eliminating \(u\) from \eqref{eq:suff3}.
 </p>
 
-<div id="theorem:scalarsuff" class="theorem">
+<div id="theorem:scalarsuff" class="THEOREM">
 <p>
 If for any index set \(\mathcal I\subset \mathcal S\) with cardinality \(p\), the optimal value of the following optimization problem is strictly less than \(1\):
 </p>
@@ -736,7 +718,7 @@ then the estimator \(g\) is robust.
 
 </div>
 
-<div class="proof">
+<div class="PROOF">
 <p>
 Let \(K\in\mathbb R^{n\times (m-p)}\) such that \(K C_{\mathcal I^c} = I_n\). Denote \(\xi=C_{\mathcal I^c} u\). We have \(C_{\mathcal I} u = C_{\mathcal I} K \xi\). Therefore, if for all \(\xi\neq 0\), \(\left\|C_{\mathcal I}\right\| K \xi_1 < \left\|\xi\right\|_1\), i.e., \(\left\|C_{\mathcal I}\right\|K_1 < 1\), then
 </p>
@@ -754,10 +736,10 @@ Notice that \eqref{eq:scalarsufficient} is not necessary. Since \(\xi\) is in th
 </p>
 
 <p>
-Similarly, we can find a more practically useful version for the necessary condition implied by Theorem <a href="#theorem:necessity1">1</a>. By enumerating all \((C_{\mathcal I},C_{\mathcal I^c})\) and utilizing the following result, we can identify whether \(g\) is robust for a given \(H\) or not.
+Similarly, we can find a more practically useful version for the necessary condition implied by Theorem <a href="#org226fa5e">1</a>. By enumerating all \((C_{\mathcal I},C_{\mathcal I^c})\) and utilizing the following result, we can identify whether \(g\) is robust for a given \(H\) or not.
 </p>
 
-<div id="theorem:scalarnecessity" class="theorem">
+<div id="theorem:scalarnecessity" class="THEOREM">
 <p>
 If there exists an index set \(\mathcal I\) such that the following inequality holds:
 </p>
@@ -770,10 +752,10 @@ where \(C_{\mathcal I^c}^+\) is the Moore-Penrose pseudo inverse of \(C_{\mathca
 
 </div>
 <p>
-The following lemma, whose proof is given in the appendix, is needed for the proof of Theorem <a href="#theorem:scalarnecessity">1</a>:
+The following lemma, whose proof is given in the appendix, is needed for the proof of Theorem <a href="#orga2fc0fa">1</a>:
 </p>
 
-<div id="lemma:l1decompose" class="lemma">
+<div id="lemma:l1decompose" class="LEMMA">
 <p>
 Let \(\xi\in\mathbb R^m\) such that \(\xi = \xi_{\parallel} + \xi_{\perp}\), where \(\xi_{\|}\) and \(\xi_\perp\) are perpendicular to each other. Then the following inequality holds:
 </p>
@@ -807,11 +789,11 @@ m^{-1/2}
 
 
 <p>
-We are now ready to prove Theorem <a href="#theorem:scalarnecessity">1</a>:
+We are now ready to prove Theorem <a href="#orga2fc0fa">1</a>:
 </p>
-<div class="proof">
+<div class="PROOF">
 <p>
-To prove \(g\) is not robust, from Proposition <a href="#prop:scalarsuffandnece">1</a> we only need to show there exists a \(u\) such that \(\|C_{\mathcal I}u\|_1 > \|C_{\mathcal I^c} u\|_1\) if \eqref{eq:nece3} holds.
+To prove \(g\) is not robust, from Proposition <a href="#orgc973664">1</a> we only need to show there exists a \(u\) such that \(\|C_{\mathcal I}u\|_1 > \|C_{\mathcal I^c} u\|_1\) if \eqref{eq:nece3} holds.
 Since \(\left\|C_{\mathcal I}C_{\mathcal I^c}^+\right\|_1>(\sqrt{m-p}+1)/2\), we can find \(\xi\in \mathbb R^{m-p}\), such that
 </p>
 \begin{align*}
@@ -825,7 +807,7 @@ Now we can decompose \(\xi = \xi_\|+\xi_\perp\), where \(\xi_\|\) belongs to the
 \left\|C_{\mathcal I}C_{\mathcal I^c}^+\xi\right\|_1 = \left\|C_{\mathcal I}C_{\mathcal I^c}^+\xi_\|\right\|_1.
 \end{align*}
 <p>
-On the other hand, since \(\xi\in \mathbb R^{m-p}\), by Lemma <a href="#lemma:l1decompose">1</a>, we have
+On the other hand, since \(\xi\in \mathbb R^{m-p}\), by Lemma <a href="#orgb4ec3a5">1</a>, we have
 </p>
 \begin{align*}
 \frac{\sqrt{m-p}+1}{2}\left\|\xi\right\|_1\geq \left\|\xi_\|\right\|_1,
@@ -850,24 +832,23 @@ which completes the proof.
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Concluding Remarks</h2>
+<div id="outline-container-orga2b2c66" class="outline-2">
+<h2 id="orga2b2c66"><span class="section-number-2">5</span> Concluding Remarks</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<a id="section:conlusion" name="section:conlusion"></a>
+<a id="org4f2e28b"></a>
 We have studied the robust estimation problem where \(p\) out of \(m\) sensors are under attack. The malicious measurements can be arbitrarily manipulated and thus a robust estimator which can give a reliable estimate is needed. Our interest is not to study any concrete estimator in presence of attacks. Instead, we have considered a general class of estimators which integrate a large number of important estimators as special cases and given sufficient and necessary conditions for the robustness of the estimator. Moreover, we have presented more analytical results in the scalar measurement case to render the sufficient and necessary conditions more ready to use. Future works include the robustness analysis for the dynamical state estimation problem.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Appendix</h2>
+<div id="outline-container-org514cd9e" class="outline-2">
+<h2 id="org514cd9e"><span class="section-number-2">6</span> Appendix</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Proof of Lemma <a href="#lemma:1">1</a></h3>
+</div><div id="outline-container-org3510cb2" class="outline-3">
+<h3 id="org3510cb2"><span class="section-number-3">6.1</span> Proof of Lemma <a href="#org3b44904">1</a></h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
-<li>If \(\alpha = 0\), then clearly \(C_i(0)= 0\). On the other hand, if \(\alpha\neq 0\), from the definition in \eqref{eq:sublinear}, we have
-</li>
+<li>If \(\alpha = 0\), then clearly \(C_i(0)= 0\). On the other hand, if \(\alpha\neq 0\), from the definition in \eqref{eq:sublinear}, we have</li>
 </ul>
 \begin{align*}
 C_i(\alpha u) &= \lim_{t\rightarrow\infty} \frac{1}{t}f_i(|\alpha|t H_i u)\\
@@ -883,8 +864,7 @@ C_i(u_1+u_2)= 2C_i\left(\frac{u_1+u_2}{2}\right)\leq C_i(u_1) + C_i(u_2).
 Therefore, we know that \(C_i\) is actually a semi-norm on \(\mathbb R^n\)
 </p>
 <ul class="org-ul">
-<li>Based on the convexity of \(f_i\), we obtain
-</li>
+<li>Based on the convexity of \(f_i\), we obtain</li>
 </ul>
 \begin{align}
 2f_i(\frac{tH_iu}{2})&\leq f_i(v+tH_iu) + f_i(-v),\label{eq:temp1}\\
@@ -904,11 +884,10 @@ Since \(\lim_{t\rightarrow\infty}f_i(-v)/t=\lim_{t\rightarrow\infty}f_i(2v)/t=0\
 \lim_{t\rightarrow\infty}h_i(u,v,t) = C_i(u).
 \end{align*}
 <p>
-Notice that for a fixed \((u,v)\), by Lemma <a href="#lemma:convex">1</a>, \(h(u,v,t)\) is monotonically non-decreasing with respect to \(t\). Furthermore, \(C_i(u)\) is continuous since it is a semi-norm. Therefore, by Dini's theorem~\cite{rudin1964principles}, \(h(u,v,t)\) converges uniformly to \(C_i(u)\) on a compact set of \((u,v)\).
+Notice that for a fixed \((u,v)\), by Lemma <a href="#org88ebd27">1</a>, \(h(u,v,t)\) is monotonically non-decreasing with respect to \(t\). Furthermore, \(C_i(u)\) is continuous since it is a semi-norm. Therefore, by Dini's theorem~\cite{rudin1964principles}, \(h(u,v,t)\) converges uniformly to \(C_i(u)\) on a compact set of \((u,v)\).
 </p>
 <ul class="org-ul">
-<li>By Lemma <a href="#lemma:convex">1</a>, we have
-</li>
+<li>By Lemma <a href="#org88ebd27">1</a>, we have</li>
 </ul>
 <p>
 \[
@@ -918,8 +897,8 @@ Notice that for a fixed \((u,v)\), by Lemma <a href="#lemma:convex">1</a>, \(h(u
 </div>
 </div>
 
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Proof of Lemma <a href="#lemma:divergence">1</a></h3>
+<div id="outline-container-org357533d" class="outline-3">
+<h3 id="org357533d"><span class="section-number-3">6.2</span> Proof of Lemma <a href="#org8df2b0e">1</a></h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 From \eqref{eq:sublinear2} and \eqref{eq:temp1}, it is easy to see that \(h_j(u_0,v,t)\) diverges to infinity for all \(v\), i.e.,
@@ -928,7 +907,7 @@ From \eqref{eq:sublinear2} and \eqref{eq:temp1}, it is easy to see that \(h_j(u_
   h_j(u_0,v,t)\rightarrow +\infty.\label{eq:temp3}
 \end{align}
 <p>
-Next we will show this divergence is also uniform. Denote \(\mathcal W_t\triangleq\{v:h_j(u_0,v,t)>M\}\). Since \(h_j(u_0,v,t)\) is continuous (\(f_i\) is continuous due to convexity), each \(\mathcal W_t\) is open. By Lemma <a href="#lemma:convex">1</a>, \(h_j(u_0,v,t)\) is monotonically non-decreasing in \(t\). Therefore, \(\mathcal W_t\subseteq \mathcal W_{t'}\) if \(t\leq t'\) . Since for each \(v\) there exists \(t\) such that \(h_j(u_0,v,t)>M\) from \eqref{eq:temp3},
+Next we will show this divergence is also uniform. Denote \(\mathcal W_t\triangleq\{v:h_j(u_0,v,t)>M\}\). Since \(h_j(u_0,v,t)\) is continuous (\(f_i\) is continuous due to convexity), each \(\mathcal W_t\) is open. By Lemma <a href="#org88ebd27">1</a>, \(h_j(u_0,v,t)\) is monotonically non-decreasing in \(t\). Therefore, \(\mathcal W_t\subseteq \mathcal W_{t'}\) if \(t\leq t'\) . Since for each \(v\) there exists \(t\) such that \(h_j(u_0,v,t)>M\) from \eqref{eq:temp3},
 </p>
 \begin{align*}
   \bigcup_{t\geq 0}\mathcal W_t = \mathbb R^{m_i}.
@@ -952,8 +931,8 @@ which combined with the definition of \(\mathcal W_t\) finishes the proof.
 </div>
 </div>
 
-<div id="outline-container-sec-6-3" class="outline-3">
-<h3 id="sec-6-3"><span class="section-number-3">6.3</span> Proof of Lemma <a href="#lemma:l1decompose">1</a></h3>
+<div id="outline-container-org18b885b" class="outline-3">
+<h3 id="org18b885b"><span class="section-number-3">6.3</span> Proof of Lemma <a href="#orgb4ec3a5">1</a></h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Geometrically, \(\xi_{\|}\) can be written as \(\xi_{\|}=\xi/2 + r\), where \(r\in\{r:\|r\|_2 = \|\xi\|_2 /2\}\). As a result, we have

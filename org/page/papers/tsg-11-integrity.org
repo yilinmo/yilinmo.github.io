@@ -1,11 +1,11 @@
 #+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 ---
 comments: true
 layout: page
 title: Integrity Data Attacks in Power Market Operations
 ---
-#+END_HTML
+#+END_EXPORT
 --------------------------------
 
 *Le Xie, Yilin Mo and Bruno Sinopoli*
