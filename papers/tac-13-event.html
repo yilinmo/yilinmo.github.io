@@ -20,18 +20,18 @@ Link to the <a href="../../../public/papers/tac-13-event.pdf">paper</a>
 If you want to leave any comments, you can annotate the <a href="../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Ftac-13-event.pdf">pdf</a>. I will try to be responsive. You can also annotate this page or leave comments below. 
 </p>
 
-<div id="outline-container-org922bc1f" class="outline-2">
-<h2 id="org922bc1f">Abstract</h2>
-<div class="outline-text-2" id="text-org922bc1f">
+<div id="outline-container-orga3ef243" class="outline-2">
+<h2 id="orga3ef243">Abstract</h2>
+<div class="outline-text-2" id="text-orga3ef243">
 <p>
 We propose an open-loop and a closed-loop stochastic event-triggered sensor schedule for remote state estimation. Both schedules overcome the essential difficulties of existing schedules in recent literature works where, through introducing a deterministic event-triggering mechanism, the Gaussian property of the innovation process is destroyed which produces a challenging nonlinear filtering problem that cannot be solved unless approximation techniques are adopted. The proposed stochastic event-triggered sensor schedules eliminate such approximations. Under these two schedules, the minimum mean squared error (MMSE) estimator and its estimation error covariance matrix at the remote estimator are given in a closed-form. The stability in terms of the expected error covariance and the sample path of the error covariance for both schedules is studied. We also formulate and solve an optimization problem to obtain the minimum communication rate under some estimation quality constraint using the open-loop sensor schedule. A numerical comparison between the closed-loop MMSE estimator and a typical approximate MMSE estimator with deterministic event-triggered sensor schedule, in a problem setting of target tracking, shows the superiority of the proposed sensor schedule.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org047827b" class="outline-2">
-<h2 id="org047827b">Simulation Code</h2>
-<div class="outline-text-2" id="text-org047827b">
+<div id="outline-container-orge5ef632" class="outline-2">
+<h2 id="orge5ef632">Simulation Code</h2>
+<div class="outline-text-2" id="text-orge5ef632">
 <p>
 The code is written in Matlab R2009b (7.9.0.529) with the following dependency
 </p>
@@ -39,9 +39,9 @@ The code is written in Matlab R2009b (7.9.0.529) with the following dependency
 <li>CVX Version 2.1, Build 1085 (9a166a6)</li>
 </ul>
 </div>
-<div id="outline-container-org48210a4" class="outline-3">
-<h3 id="org48210a4">Fig 2</h3>
-<div class="outline-text-3" id="text-org48210a4">
+<div id="outline-container-org3d7305b" class="outline-3">
+<h3 id="org3d7305b">Fig 2</h3>
+<div class="outline-text-3" id="text-org3d7305b">
 <div class="org-src-container">
 <pre class="src src-matlab">%Compare the periodic schedule, the closed-loop schedule, the open loop
 %schedule and the random schedule.
@@ -305,9 +305,9 @@ ans = filename % return the filename to org-mode
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2c61d0" class="outline-3">
-<h3 id="orgb2c61d0">Fig 3</h3>
-<div class="outline-text-3" id="text-orgb2c61d0">
+<div id="outline-container-orge294179" class="outline-3">
+<h3 id="orge294179">Fig 3</h3>
+<div class="outline-text-3" id="text-orge294179">
 <div class="org-src-container">
 <pre class="src src-matlab">% plot the upper bound, the lower bound and the empirical expected error of
 % covariance of the open loop schedule
@@ -456,9 +456,9 @@ ans = filename % return the filename to org-mode
 </div>
 </div>
 
-<div id="outline-container-org4e3945c" class="outline-3">
-<h3 id="org4e3945c">Fig 4</h3>
-<div class="outline-text-3" id="text-org4e3945c">
+<div id="outline-container-orgf025d92" class="outline-3">
+<h3 id="orgf025d92">Fig 4</h3>
+<div class="outline-text-3" id="text-orgf025d92">
 <div class="org-src-container">
 <pre class="src src-matlab">% plot the upper bound, the lower bound and the empirical expected error of
 % covariance of the closed loop schedule
@@ -622,9 +622,9 @@ ans = filename % return the filename to org-mode
 </div>
 </div>
 
-<div id="outline-container-org9b61065" class="outline-3">
-<h3 id="org9b61065">Fig 5</h3>
-<div class="outline-text-3" id="text-org9b61065">
+<div id="outline-container-org94d9394" class="outline-3">
+<h3 id="org94d9394">Fig 5</h3>
+<div class="outline-text-3" id="text-org94d9394">
 <div class="org-src-container">
 <pre class="src src-matlab">m = 2; n = 2;
 A=[0.8 1;0 0.95];
@@ -695,9 +695,9 @@ ans = filename % return the filename to org-mode
 </div>
 </div>
 
-<div id="outline-container-org3b89ff4" class="outline-3">
-<h3 id="org3b89ff4">Fig 6 and 7</h3>
-<div class="outline-text-3" id="text-org3b89ff4">
+<div id="outline-container-org7a5a331" class="outline-3">
+<h3 id="org7a5a331">Fig 6 and 7</h3>
+<div class="outline-text-3" id="text-org7a5a331">
 <div class="org-src-container">
 <pre class="src src-matlab">% Compare the closed-loop event-based schedule with the deterministic schedule proposed by Keyou You and Lihua Xie in [26]
 

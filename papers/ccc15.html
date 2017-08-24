@@ -24,18 +24,18 @@ Link to the <a href="../../../public/papers/ccc-15-slides.pdf">presentation</a>
 If you want to leave any comments, you can annotate the <a href="../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Fccc-15.pdf">pdf</a>. I will try to be responsive. You can also annotate this page or leave comments below. 
 </p>
 
-<div id="outline-container-org416604d" class="outline-2">
-<h2 id="org416604d">Abstract</h2>
-<div class="outline-text-2" id="text-org416604d">
+<div id="outline-container-orgf3678ef" class="outline-2">
+<h2 id="orgf3678ef">Abstract</h2>
+<div class="outline-text-2" id="text-orgf3678ef">
 <p>
 We consider the estimation of a vector state based on \(m\) measurements that can be potentially manipulated by an adversary. The attacker is assumed to have limited resources and can only manipulate up to \(l\) of the \(m\) measurements. However, it can the compromise measurements arbitrarily. The problem is formulated as a minimax optimization, where one seeks to construct an optimal estimator that minimizes the "worst-case" error against all possible manipulations by the attacker and all possible sensor noises. We show that if the system is not observable after removing \(2l\) sensors, then the worst-case error is infinite, regardless of the estimation strategy. If the system remains observable after removing arbitrary set of \(2l\) sensor, we prove that the optimal state estimation can be computed by solving a semidefinite programming problem. A numerical example is provided to illustrate the effectiveness of the proposed state estimator.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4d4cf9d" class="outline-2">
-<h2 id="org4d4cf9d">Corrections<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h2>
-<div class="outline-text-2" id="text-org4d4cf9d">
+<div id="outline-container-orgf956584" class="outline-2">
+<h2 id="orgf956584">Corrections<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h2>
+<div class="outline-text-2" id="text-orgf956584">
 <ul class="org-ul">
 <li>The \(r^2\) in (19) should be \(-r^2\).</li>
 <li>The \(\varphi\) in (20) should be \(-\varphi\).</li>
@@ -43,9 +43,9 @@ We consider the estimation of a vector state based on \(m\) measurements that ca
 </div>
 </div>
 
-<div id="outline-container-org00989a2" class="outline-2">
-<h2 id="org00989a2">Simulation Code</h2>
-<div class="outline-text-2" id="text-org00989a2">
+<div id="outline-container-orgc9ef71d" class="outline-2">
+<h2 id="orgc9ef71d">Simulation Code</h2>
+<div class="outline-text-2" id="text-orgc9ef71d">
 <p>
 The code is written in Python 3.4 with the following dependencies:
 </p>

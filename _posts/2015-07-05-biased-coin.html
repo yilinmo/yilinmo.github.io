@@ -11,9 +11,9 @@ permalink: fair-results-from-a-biased-coin
 <i>This is a test of <a href="http://orgmode.org/worg/org-contrib/babel/">org-babel</a>.</i>
 </p>
 
-<div id="outline-container-org1930b38" class="outline-2">
-<h2 id="org1930b38">Problem Formulation</h2>
-<div class="outline-text-2" id="text-org1930b38">
+<div id="outline-container-orgbfa67dd" class="outline-2">
+<h2 id="orgbfa67dd">Problem Formulation</h2>
+<div class="outline-text-2" id="text-orgbfa67dd">
 <p>
 Consider we have a biased coin, such that the probability of getting a head is \(P(H) = p\in(0,1)\) and the probability of getting a tail is \(P(T) = q = 1-p\), where \(p\) is unknown by us. However, different coin tosses are independent from each other. 
 </p>
@@ -26,9 +26,9 @@ Our goal is to generate a "fair" binary random variable \(X\), with distribution
 </div>
 </div>
 
-<div id="outline-container-org18ff0d6" class="outline-2">
-<h2 id="org18ff0d6"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
-<div class="outline-text-2" id="text-org18ff0d6">
+<div id="outline-container-orgbed21cf" class="outline-2">
+<h2 id="orgbed21cf"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
+<div class="outline-text-2" id="text-orgbed21cf">
 <p>
 One way to generate such a random variable is to:
 </p>
@@ -103,9 +103,9 @@ print("\nX = " + str(X))
 </div>
 </div>
 
-<div id="outline-container-org8182be9" class="outline-2">
-<h2 id="org8182be9">A More Efficient Algorithm</h2>
-<div class="outline-text-2" id="text-org8182be9">
+<div id="outline-container-org2d12c27" class="outline-2">
+<h2 id="org2d12c27">A More Efficient Algorithm</h2>
+<div class="outline-text-2" id="text-org2d12c27">
 <p>
 The above algorithm is not every efficient in the sense that it wastes some coin tosses. To see this, consider the sequence <b>HHTT</b> and <b>TTHH</b>. Notice that they both occur with probability \(p^2q^2\) and thus we can map <b>HHTT</b> to \(X = 0\) and <b>TTHH</b> to \(X = 1\). However, in the above algorithm, both of the sequences will be discarded.
 </p>
@@ -240,9 +240,9 @@ In the above code, we use the fact that
 </div>
 </div>
 
-<div id="outline-container-orgeffe498" class="outline-2">
-<h2 id="orgeffe498">How Efficient is Our Approach</h2>
-<div class="outline-text-2" id="text-orgeffe498">
+<div id="outline-container-org8eff236" class="outline-2">
+<h2 id="org8eff236">How Efficient is Our Approach</h2>
+<div class="outline-text-2" id="text-org8eff236">
 <p>
 We now compute the expected number of tosses needed for the algorithm to terminate. To this end, let us define a random variable \(L\) to be number of coin tosses when the algorithm terminates.
 </p>
@@ -352,9 +352,9 @@ return '../../public/expected-toss.png' # return the filename to org-mode
 </div>
 </div>
 
-<div id="outline-container-org849221b" class="outline-2">
-<h2 id="org849221b">Can we be more efficient?</h2>
-<div class="outline-text-2" id="text-org849221b">
+<div id="outline-container-org5cc7fb8" class="outline-2">
+<h2 id="org5cc7fb8">Can we be more efficient?</h2>
+<div class="outline-text-2" id="text-org5cc7fb8">
 <p>
 The answer is yes. Let us slightly change our algorithm to:
 </p>
