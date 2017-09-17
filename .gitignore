@@ -6,3 +6,6 @@
 /org/post/*.pdf
 /org/post/*.tex
 /papers/acc16-1-full.html
+*.aux
+*.log
+*.gz

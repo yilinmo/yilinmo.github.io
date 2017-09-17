@@ -67,7 +67,7 @@ My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]]
 29. Yilin Mo, Emanuele Garone, Alessandro Casavola, and Bruno Sinopoli, /False Data Injection Attacks against State Estimation in Wireless Sensor Networks/, *IEEE Conference on Decision and Control*, 2010
 30. Yilin Mo and Bruno Sinopoli, /Communication Complexity and Energy Efficient Consensus Algorithm/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2010
 31. Le Xie, Yilin Mo, and Bruno Sinopoli, /False Data Injection Attacks in Electricity Markets/, *IEEE International Conference on Smart Grid Communications*, 2010
-32. Yilin Mo and Bruno Sinopoli, /False Data Injection Attacks in Control Systems/, *First Workshop on Secure Control Systems, CPS Week*, 2010
+32. Yilin Mo and Bruno Sinopoli, [[./papers/scs2010.org][/False Data Injection Attacks in Control Systems/]], *First Workshop on Secure Control Systems, CPS Week*, 2010
 33. Yilin Mo and Bruno Sinopoli, /Secure Control Against Replay Attacks/, *Allerton Conference on Communication, Control, and Computing*, 2009
 34. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /A Convex Optimization Approach of Multi-Step Sensor Selection under Correlated Noise/, *Allerton Conference on Communication, Control, and Computing*, 2009
 35. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /Network Energy Minimization via Sensor Selection and Topology Control/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2009

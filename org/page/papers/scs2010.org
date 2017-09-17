@@ -1,0 +1,22 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_EXPORT HTML
+---
+layout: page
+title: ! 'False data injection attacks in control systems'
+comments: true
+---
+#+END_EXPORT
+--------------------------------
+*Yilin Mo and Bruno Sinopoli*
+
+/First Workshop on Secure Control Systems, CPS Week/, 2010 
+
+Link to the [[../../../public/papers/scs2010.pdf][paper]]
+
+** Abstract
+
+This paper analyzes the effects of false data injec-tion attacks on Control System. We assume that the system, equipped with a Kalman filter and LQG con-troller, is used to monitor and control a discrete linear time invariant Gaussian system. We further assume that the system is equipped with a failure detector. An at-tacker wishes to destabilize the system by compromising a subset of sensors and sending corrupted readings to the state estimator. In order to inject fake sensor mea-surements without being detected the attacker needs to carefully design its inputs to fool the failure detector, since abnormal sensor measurements usually trigger an alarm from the failure detector. We will provide a nec-essary and sufficient condition under which the attacker could destabilize the system while successfully bypass-ing the failure detector. A design method for the de-fender to improve the resilience of the CPS against such kind of false data injection attacks is also provided.
+
+** Errata
+
+The proof of Theorem 2 is not correct. However, the statement is correct. The sketched proof can be found [[../../../public/papers/scs2010-errata.pdf][here]].
