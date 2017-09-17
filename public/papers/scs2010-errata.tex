@@ -33,15 +33,16 @@
 \author{Yilin Mo}
 
 \begin{document} \maketitle
-The proof can be divided into the following steps:
-\begin{enumerate}
-\item $A$ matrix must be unstable. Suppose otherwise. Then we know there exists an $l$, such that $\|A^l\| = \alpha < 1$. As a result
-  \begin{align*}
-   \|\Delta e_{k+l}\| = \|A^l\Delta e_k - A^{l-1}K\Delta z_{k+1} -\cdots - K \Delta z_{k+l}\| \leq \alpha \|\Delta e_k\| + \|A^{l-1}K\| + \cdots + \|K\|.
-  \end{align*}
-  As a result, $\|\Delta e_k\|$ will be bounded, which contradicts with the fact that $\|\Delta e_k\|  \rightarrow \infty$.
-\item Given an unstable $A$, there exists an $l > n-1$, such that if $\|A^lp\| \geq \|p\|$, then $\lim_{k\rightarrow\infty} A^kp \neq 0$.
+Let $X$ be a strictly positive definite matrix of proper dimension. Define the $X$-norm of a vector $v$ to be
+\begin{align*}
+  \|v\|_X = \sqrt{v^TXv}.
+\end{align*}
 
+The following lemma is needed to prove Theorem~2.
+\begin{lemma}
+Given any matrix $A$, there exists a positive semidefinite $X$ matrix (depending on $A$), such that if $\|Ap\|_X \geq \|p\|_X$, then $\lim_{k\rightarrow \infty}A^k p \neq 0$.
+\end{lemma}
+\begin{proof}
   Let us decompose $A$ as
   \begin{align*}
     V \begin{bmatrix}
@@ -56,7 +57,10 @@ The proof can be divided into the following steps:
       0&A_s
     \end{bmatrix}V^{-1}.
   \end{align*}
-Since $\tilde A$ is stable, there exists an $l > n-1$, such that $\|\tilde A^l\|  <1$. 
+Since $\tilde A$ is stable, there exists an positive semidefinite $X$, 
+\begin{align*}
+  X > \tilde A^T X\tilde A.
+\end{align*}
 
 Now suppose that 
 \begin{align*}
@@ -67,33 +71,39 @@ Now suppose that
 \end{align*}
 If $p_u = 0$, then
 \begin{align*}
-  A^lp = V \begin{bmatrix}
-    A_u^lp_u\\
-    A_s^lp_s
+  Ap = V \begin{bmatrix}
+    A_up_u\\
+    A_sp_s
   \end{bmatrix} = V \begin{bmatrix}
     0\\
-    A_s^lp_s
-  \end{bmatrix}  = \tilde A^l p.
+    A_sp_s
+  \end{bmatrix}  = \tilde A p.
 \end{align*}
+
 As a result,
 \begin{align*}
-  \|A^lp \| = \|\tilde A^l p\| \leq \|\tilde A^l\|\times \|p\| < \|p\|,
+  \|Ap\|_X^2 =  \|\tilde Ap\|_X^2 = p^T\tilde A^TX\tilde Ap < p^T X p = \|p\|_X^T.
 \end{align*}
-Thus, if $\|A^lp\| \geq \|p\|$, we can conclude that $p_u$ cannot be zero, which further implies that
-\begin{align*}
- \lim_{k\rightarrow\infty} A^k p = V \begin{bmatrix}
-    A_u^lp_u\\
-    0
-  \end{bmatrix}\neq 0.
-\end{align*}
-\item We can now conclude, using Lemma 2, that if $\|A^lp\| \geq \|p\|$, then there exists an unstable eigenvector $v$, such that
-  \begin{align*}
-    v \in \vecspan\left\{p,Ap,\cdots,A^lp\right\}
-  \end{align*}
-\item The proof of Theorem 2 will remain almost the same. The difference is that  we need to ensure $\{p_{j_k}\}$, ..., $\{p_{j_k-l}\}$ all converge, instead of $\{p_{j_k}\}$, ..., $\{p_{j_k-n+1}\}$ all converge (in the paragraph after Equation~(31)).
 
-  The next difference is the first paragraph of page 7. Instead of $\|Aq_1\| \geq \|q_1\|$, we have $\|A^l{q_l}\| \geq \|q_l\|$.
-\end{enumerate}
+Thus, if $\|Ap\|_X \geq \|p\|_X$, we can conclude that $p_u$ cannot be zero. For any $k$, 
+\begin{align*}
+A^k p = V \begin{bmatrix}
+    A_u^kp_u\\
+   A_l^kp_s 
+  \end{bmatrix}.
+\end{align*}
+
+Notice that
+\begin{align*}
+ \| A_u^k p_u \|   \geq \frac{\|p_u\|}{\|A_u^{-k}\|},
+\end{align*}
+by the fact that $\|A_u^{-k}\| \rightarrow 0$, we can prove that
+\begin{align*}
+ \lim A^k p \neq 0.
+\end{align*}
+\end{proof}
+
+The proof of Theorem~2 will remain mostly the same, except the norm need to be changed into $X$-norm. Notice that by the equivalence of norms, $\limsup_{k\rightarrow\infty}\|\Delta e(k)\|= \infty$ implies that $\limsup_{k\rightarrow\infty}\|\Delta e(k)\|_X= \infty$.
 \end{document}
 
 %%% Local Variables:
