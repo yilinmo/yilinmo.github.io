@@ -6,7 +6,7 @@ title:            Yilin Mo
 tagline:          'Research and Stuff'
 description:      'I am an Assistant Professor at Nanyang Technological University, Singapore.'
 url:              http://yilinmo.github.io
-baseurl:          /
+baseurl:          ''
 cover_image: /public/zion.png
 
 author:
