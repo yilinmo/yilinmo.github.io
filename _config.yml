@@ -44,4 +44,5 @@ google_font_server: fonts.useso.com # 360 server for mainland China readers.
 # In case you do not care about Chinese readers, use the default google server
 # google_font_server: fonts.googleapis.com
 
-gems: [jekyll-paginate]
+plugins: 
+        - jekyll-paginate
