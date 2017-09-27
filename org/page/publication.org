@@ -36,40 +36,40 @@ My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]]
 25. Ling Shi, Qing-Shan Jia, Yilin Mo and Bruno Sinopoli, /[[./papers/automatica-11-delay.org][Sensor Scheduling over a Packet-Delaying Network]]/, *Automatica*, May 2011, Volume 47, Issue 5, Pages 1089-1092 
 
 * Selected Conference Paper
-1. Jiaqi Yan, Xiaoqiang Ren and Yilin Mo, [[./papers/cdc17-1.org][/Sequential Detection in Adversarial Environment/]], *IEEE Conference on Decision and Control*, 2017
-2. Xinghua Liu, Yilin Mo and Emanuele Garone, /Secure Dynamic State Estimation by Decomposing Kalman Filter/, *IFAC World Congress*, 2017
-3. Yilin Mo and Emanuele Garone, [[./papers/cdc16-1.org][/Secure Dynamic State Estimation via Local Estimators/]], *IEEE Conference on Decision and Control*, 2016
-4. Duo Han, Yilin Mo and Lihua Xie, [[./papers/acc16-1.org][/Convex Optimization Based State Estimation against Sparse Integrity Attacks/]], *Chinese Control Conference*, 2016
-5. Liang Xu, Yilin Mo and Lihua Xie, /Mean Square Stabilization of Vector LTI Systems over Power Constrained Lossy Channels/, *American Control Conference*, 2016
-6. Ye Yuan and Yilin Mo, /[[./papers/cdc15-1.org][Security in Cyber-Physical Systems: Controller Design Against Known-Plaintext Attack]]/, *IEEE Conference on Decision and Control*, 2015
-7. Yorie Nakahira and Yilin Mo, /[[./papers/cdc15-2.org][Dyanmic State Estimation in the Presence of Compromised Sensory Data]]/, *IEEE Conference on Decision and Control*, 2015
-8. Robert Mattila, Yilin Mo and Richard M. Murray, /An Iterative Abstraction Algorithm for Reactive Correct-by-Construction Controller Synthesis/, *IEEE Conference on Decision and Control*, 2015
-9. Xiaoming Duan, Jianping He, Peng Cheng, Yilin Mo and Jiming Chen, /Privacy Preserving Maximum Consensus/, *IEEE Conference on Decision and Control*, 2015
-10. Yilin Mo and Richard M. Murray, [[./papers/ccc15.org][/Multi-dimensional state estimation in adversarial environment/]], *Chinese Control Conference*, 2015
-11. Yilin Mo and Richard M. Murray, /Privacy Preserving Average Consensus/, *IEEE Conference on Decision and Control*, 2014
-12. Sean Weerakkody, Yilin Mo and Bruno Sinopoli, /Detecting Integrity Attacks on Control Systems Using Robust Physical Watermarking/, *IEEE Conference on Decision and Control*, 2014
-13. Xiaoqiang Ren, Yilin Mo and Ling Shi, /Optimal DoS Attack on Bayesian Quickest Change Detection/, *IEEE Conference on Decision and Control*, 2014
-14. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han and Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based, Stochastic Triggers/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2013
-15. Rohan Chabukswar, Yilin Mo and Bruno Sinopoli, /Secure Detection Using Binary Sensors/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2013
-16. Xiaofei Liu, Sergio Pequito, Soummya Kar, Yilin Mo, Bruno Sinopoli and A. Pedro Aguiar, /Minimum Robust Sensor Placement for Large Scale Linear Time-Invariant Systems: A Structured Systems Approach/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2013
-17. Duo Han, Yilin Mo, Junfeng Wu, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Scheduling for Remote State Estimation/, *IEEE Conference on Decision and Control*, 2013
-18. Yilin Mo and Bruno Sinopoli, /Robust Estimation in the Presence of Integrity Attacks/, *IEEE Conference on Decision and Control*, 2013
-19. Yilin Mo and Emanuele Garone and Bruno Sinopoli, /LQG control with Markovian Packet Loss/, *European Control Conference*, 2013 
-20. Yilin Mo, Emanuele Garone, Ling Shi and Bruno Sinopoli, /Infinite-Horizon Sensor Scheduling for Estimation over Lossy Networks/, *IEEE Conference on Decision and Control*, 2012
-21. Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli, /Stochastic Sensor Scheduling in Wireless Sensor Networks with General Graph Topology/, *American Control Conference*, 2012
-22. Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli, /Robust Detection in the Presence of Integrity Attacks/, *American Control Conference*, 2012
-23. Yilin Mo and Bruno Sinopoli, /Integrity Attacks on Cyber-Physical Systems/, *Conference on High Confidence Networked Systems, CPS Week*, 2012
-24. Yilin Mo and Bruno Sinopoli, /Kalman Filtering with Intermittent Observations: Critical Value for Second Order System/, *IFAC World Congress*, 2011
-25. Rohan Chabukswar, Yilin Mo, and Bruno Sinopoli, /Detecting Integrity Attacks on SCADA Systems/, *IFAC World Congress*, 2011
-26. Yilin Mo and Bruno Sinopoli, /Secure Data Transmission Protocol in Multi-Hop Sensor Networks/, *Workshop on Foundations of Dependable and Secure Cyber-Physical Systems, CPS Week*, 2011
-27. Wei Wang and Yilin Mo and John A. Ozolek and Gustavo K. Rohde, /CHARACTERIZING MORPHOLOGY DIFFERENCES FROM IMAGE DATA USING A MODIFIED FISHER CRITERION/, *8th Ieee International Symposium on Biomedical Imaging: From Nano To Macro*, 2011
-28. Yilin Mo, Emanuele Garone, Alessandro Casavola, and Bruno Sinopoli, /Sensor Scheduling for Energy Constrained Estimation in Multi-Hop Wireless Sensor Networks/, *IEEE Conference on Decision and Control*, 2010
-29. Yilin Mo, Emanuele Garone, Alessandro Casavola, and Bruno Sinopoli, /False Data Injection Attacks against State Estimation in Wireless Sensor Networks/, *IEEE Conference on Decision and Control*, 2010
-30. Yilin Mo and Bruno Sinopoli, /Communication Complexity and Energy Efficient Consensus Algorithm/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2010
-31. Le Xie, Yilin Mo, and Bruno Sinopoli, /False Data Injection Attacks in Electricity Markets/, *IEEE International Conference on Smart Grid Communications*, 2010
-32. Yilin Mo and Bruno Sinopoli, [[./papers/scs2010.org][/False Data Injection Attacks in Control Systems/]], *First Workshop on Secure Control Systems, CPS Week*, 2010
-33. Yilin Mo and Bruno Sinopoli, /Secure Control Against Replay Attacks/, *Allerton Conference on Communication, Control, and Computing*, 2009
-34. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /A Convex Optimization Approach of Multi-Step Sensor Selection under Correlated Noise/, *Allerton Conference on Communication, Control, and Computing*, 2009
-35. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /Network Energy Minimization via Sensor Selection and Topology Control/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, 2009
-36. Yilin Mo and Ling Shi and Roberto Ambrosino and Bruno Sinopoli, /Network Lifetime Maximization via Sensor Selection/, *7th Asian Control Conference*, 2009
-37. Yilin Mo and Bruno Sinopoli, /A Characterization Of The Critical Value For Kalman Filtering With Intermittent Observations/, *IEEE Conference on Decision and Control*, 2008
+1. Jiaqi Yan, Xiaoqiang Ren and Yilin Mo, [[./papers/cdc17-1.org][/Sequential Detection in Adversarial Environment/]], *IEEE Conference on Decision and Control*, Melbourne, Australia, Dec 12-15, 2017
+2. Xinghua Liu, Yilin Mo and Emanuele Garone, /Secure Dynamic State Estimation by Decomposing Kalman Filter/, *IFAC World Congress*, Toulouse, France, Jul 9-14, 2017
+3. Yilin Mo and Emanuele Garone, [[./papers/cdc16-1.org][/Secure Dynamic State Estimation via Local Estimators/]], *IEEE Conference on Decision and Control*, Las Vegas, USA, Dec 12-14, 2016
+4. Duo Han, Yilin Mo and Lihua Xie, [[./papers/acc16-1.org][/Convex Optimization Based State Estimation against Sparse Integrity Attacks/]], *Chinese Control Conference*, Chengdu, China, Jul 27-29, 2016
+5. Liang Xu, Yilin Mo and Lihua Xie, /Mean Square Stabilization of Vector LTI Systems over Power Constrained Lossy Channels/, *American Control Conference*, Boston, USA, Jul 6-8, 2016
+6. Ye Yuan and Yilin Mo, /[[./papers/cdc15-1.org][Security in Cyber-Physical Systems: Controller Design Against Known-Plaintext Attack]]/, *IEEE Conference on Decision and Control*, Osaka, Dec 15-18, 2015
+7. Yorie Nakahira and Yilin Mo, /[[./papers/cdc15-2.org][Dyanmic State Estimation in the Presence of Compromised Sensory Data]]/, *IEEE Conference on Decision and Control*, Osaka, Dec 15-18, 2015
+8. Robert Mattila, Yilin Mo and Richard M. Murray, /An Iterative Abstraction Algorithm for Reactive Correct-by-Construction Controller Synthesis/, *IEEE Conference on Decision and Control*, Osaka, Dec 15-18, 2015
+9. Xiaoming Duan, Jianping He, Peng Cheng, Yilin Mo and Jiming Chen, /Privacy Preserving Maximum Consensus/, *IEEE Conference on Decision and Control*, Osaka, Dec 15-18, 2015
+10. Yilin Mo and Richard M. Murray, [[./papers/ccc15.org][/Multi-dimensional state estimation in adversarial environment/]], *Chinese Control Conference*, Hangzhou, China, Jul 28-30, 2015
+11. Yilin Mo and Richard M. Murray, /Privacy Preserving Average Consensus/, *IEEE Conference on Decision and Control*, Los Angeles, Dec 15-17, 2014
+12. Sean Weerakkody, Yilin Mo and Bruno Sinopoli, /Detecting Integrity Attacks on Control Systems Using Robust Physical Watermarking/, *IEEE Conference on Decision and Control*, Los Angeles, Dec 15-17, 2014
+13. Xiaoqiang Ren, Yilin Mo and Ling Shi, /Optimal DoS Attack on Bayesian Quickest Change Detection/, *IEEE Conference on Decision and Control*, Los Angeles, Dec 15-17, 2014
+14. Sean Weerakkody, Yilin Mo, Bruno Sinopoli, Duo Han and Ling Shi, /Multi-Sensor Scheduling for State Estimation with Event-Based, Stochastic Triggers/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, Koblenz, Germany, Sep 25-26, 2013
+15. Rohan Chabukswar, Yilin Mo and Bruno Sinopoli, /Secure Detection Using Binary Sensors/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, Koblenz, Germany, Sep 25-26, 2013
+16. Xiaofei Liu, Sergio Pequito, Soummya Kar, Yilin Mo, Bruno Sinopoli and A. Pedro Aguiar, /Minimum Robust Sensor Placement for Large Scale Linear Time-Invariant Systems: A Structured Systems Approach/, *4th IFAC Workshop on Distributed Estimation and Control in Networked Systems*, Koblenz, Germany, Sep 25-26, 2013
+17. Duo Han, Yilin Mo, Junfeng Wu, Bruno Sinopoli and Ling Shi, /Stochastic Event-triggered Sensor Scheduling for Remote State Estimation/, *IEEE Conference on Decision and Control*, Florence, Italy, Dec 10-13, 2013
+18. Yilin Mo and Bruno Sinopoli, /Robust Estimation in the Presence of Integrity Attacks/, *IEEE Conference on Decision and Control*, Florence, Italy, Dec 10-13, 2013
+19. Yilin Mo and Emanuele Garone and Bruno Sinopoli, /LQG control with Markovian Packet Loss/, *European Control Conference*, Zurich, Switzerland, Jul 17-19, 2013 
+20. Yilin Mo, Emanuele Garone, Ling Shi and Bruno Sinopoli, /Infinite-Horizon Sensor Scheduling for Estimation over Lossy Networks/, *IEEE Conference on Decision and Control*, Maui, USA, Dec 10-13, 2012
+21. Yilin Mo, Emanuele Garone, Alessandro Casavola and Bruno Sinopoli, /Stochastic Sensor Scheduling in Wireless Sensor Networks with General Graph Topology/, *American Control Conference*, Maui, USA, Dec 10-13, 2012
+22. Yilin Mo, Jo\atilde{}o Hespanha and Bruno Sinopoli, /Robust Detection in the Presence of Integrity Attacks/, *American Control Conference*, Montreal, Canada, Jun 27-29, 2012
+23. Yilin Mo and Bruno Sinopoli, /Integrity Attacks on Cyber-Physical Systems/, *Conference on High Confidence Networked Systems, CPS Week*, Beijing, China, Apr 17-19, 2012
+24. Yilin Mo and Bruno Sinopoli, /Kalman Filtering with Intermittent Observations: Critical Value for Second Order System/, *IFAC World Congress*, Milan, Italy, Aug 28-Sep 2, 2011
+25. Rohan Chabukswar, Yilin Mo, and Bruno Sinopoli, /Detecting Integrity Attacks on SCADA Systems/, *IFAC World Congress*, Milan, Italy, Aug 28-Sep 2, 2011
+26. Yilin Mo and Bruno Sinopoli, /Secure Data Transmission Protocol in Multi-Hop Sensor Networks/, *Workshop on Foundations of Dependable and Secure Cyber-Physical Systems, CPS Week*, Chicago, USA, Apr 11-14, 2011
+27. Wei Wang and Yilin Mo and John A. Ozolek and Gustavo K. Rohde, /CHARACTERIZING MORPHOLOGY DIFFERENCES FROM IMAGE DATA USING A MODIFIED FISHER CRITERION/, *8th Ieee International Symposium on Biomedical Imaging*, Chicago, USA, Mar 30-Apr 2, 2011
+28. Yilin Mo, Emanuele Garone, Alessandro Casavola, and Bruno Sinopoli, /Sensor Scheduling for Energy Constrained Estimation in Multi-Hop Wireless Sensor Networks/, *IEEE Conference on Decision and Control*, Atlanta, USA, Dec 15-17, 2010
+29. Yilin Mo, Emanuele Garone, Alessandro Casavola, and Bruno Sinopoli, /False Data Injection Attacks against State Estimation in Wireless Sensor Networks/, *IEEE Conference on Decision and Control*, Atlanta, USA, Dec 15-17, 2010
+30. Yilin Mo and Bruno Sinopoli, /Communication Complexity and Energy Efficient Consensus Algorithm/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, Annecy, France, Sep 13-14, 2010
+31. Le Xie, Yilin Mo, and Bruno Sinopoli, /False Data Injection Attacks in Electricity Markets/, *IEEE International Conference on Smart Grid Communications*, Gaithersburgh, USA, Oct 4-6, 2010
+32. Yilin Mo and Bruno Sinopoli, [[./papers/scs2010.org][/False Data Injection Attacks in Control Systems/]], *First Workshop on Secure Control Systems, CPS Week*, Stockholm, Sweden, Apr 13-14, 2010
+33. Yilin Mo and Bruno Sinopoli, /Secure Control Against Replay Attacks/, *Allerton Conference on Communication, Control, and Computing*, Monticello, USA, Sep 30-Oct 2 2009
+34. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /A Convex Optimization Approach of Multi-Step Sensor Selection under Correlated Noise/, *Allerton Conference on Communication, Control, and Computing*, Monticello, USA, Sep 30-Oct 2009
+35. Yilin Mo, Roberto Ambrosino, and Bruno Sinopoli, /Network Energy Minimization via Sensor Selection and Topology Control/, *IFAC Workshop on Distributed Estimation and Control in Networked Systems*, Venice, Italy, Sep 24-26, 2009
+36. Yilin Mo and Ling Shi and Roberto Ambrosino and Bruno Sinopoli, /Network Lifetime Maximization via Sensor Selection/, *7th Asian Control Conference*, Hong Kong, China, Aug 27-29, 2009
+37. Yilin Mo and Bruno Sinopoli, /A Characterization Of The Critical Value For Kalman Filtering With Intermittent Observations/, *IEEE Conference on Decision and Control*, Cancun, Mexico, Dec 9-11, 2008
