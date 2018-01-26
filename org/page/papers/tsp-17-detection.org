@@ -3,7 +3,7 @@
 ---
 comments: true
 layout: page
-title: Binary Hypothesis Testing with Byzantine Sensors: Fundamental Trade-off Between Security and Efficiency
+title: ! 'Binary Hypothesis Testing with Byzantine Sensors: Fundamental Trade-off Between Security and Efficiency'
 ---
 #+END_EXPORT
 --------------------------------
