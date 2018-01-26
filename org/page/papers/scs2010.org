@@ -20,3 +20,7 @@ This paper analyzes the effects of false data injec-tion attacks on Control Syst
 ** Errata
 
 The proof of Theorem 2 is not correct. However, the statement is correct. The sketched proof can be found [[../../../public/papers/scs2010-errata.pdf][here]].
+
+** Code
+
+The [[../../../public/code/scs2010/simulation.m][code]] is written in Matlab R2009b (7.9.0.529).
