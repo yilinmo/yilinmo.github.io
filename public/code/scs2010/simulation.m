@@ -11,36 +11,51 @@ n = 2;
 m = 2;
 P = 0;
 S = 0;
-for i = 1:100
-    P = A*P*A'+Q-A*P*C'*inv(C*P*C'+R)*C*P*A';
-    S = A'*S*A +W - A'*S*B*inv(B'*S*B+U)*B'*S*A;
-end
+
+[P,~,~] = dare(A',C',Q,R);
+[S,~,L] = dare(A,B,W,U);
+L = -L;
 K = P*C'*inv(C*P*C'+R);
-L = -inv(B'*S*B+U)*B'*S*A;
 
 cP = C*P*C' + R;
 invcP = inv(cP);
 
+
 Gamma = [0;1];
-grammian = -[K*Gamma (A-K*C*A)*K*Gamma];
-tmp = inv(grammian)*[0;1];
-ya(1) = tmp(2);
-ya(2) = tmp(1);
+
+% v is an unstable eigenvector for A
+% the corresponding eigenvalue is 1
+% Cv is in the span of Gamma
+v = [0;1];
+lambda = 1;
+
+% calculate the attacker's input to reach v
+Co = -[(A-K*C*A)*K*Gamma K*Gamma];;
+ya = inv(Co)*v;
+
+e(:,1) = -K*Gamma*ya(1);
+z(:,1) = Gamma*ya(1);
+
+e(:,2) = (A-K*C*A)*e(:,1)-K*Gamma*ya(2);
+z(:,2) = C*A*e(:,1) + Gamma*ya(2);
+
+M = max(norm(z(:,1)),norm(z(:,2)));
+
+ya = ya/M;
+
+ystar = 1;
 for i = 3:31
-    ya(i) = ya(i-2) - 1;
+    ya(i) = ya(i-2) - lambda^(i-2)/M*ystar;
 end
 
 e(:,1) = -K*Gamma*ya(1);
-z(:,1) = -Gamma*ya(1);
+z(:,1) = Gamma*ya(1);
 for i=2:21
     e(:,i) = (A-K*C*A) * e(:,i-1) - K*Gamma * ya(i);
     z(:,i) = C*A * e(:,i-1) + Gamma * ya(i);
 end
 
-M = max(norm(z(:,1)),norm(z(:,2)));
-e = e/M;
-ya = ya/M;
-z = z/M;
+
 for i = 1:21
     normz(i) = norm(z(:,i));
 end
@@ -66,25 +81,14 @@ hold off
 
 
 thre = chi2inv(0.95,m);
-for index = 1:50000
-    x = sqrt(P) * randn(n,1);
-    hatx1 = zeros(n,1);
-    for i = 1:31
-        y(:,i) = x(:,i) + sqrt(R) * randn(m,1)+Gamma*ya(i);
-        residue = y(:,i) - C * hatx1(:,i);
-        normresidue(i,index) = residue'*invcP*residue;
-        hatx2(:,i) = hatx1(:,i) + K * residue;
-        u(:,i) = L*hatx2(:,i); 
-        hatx1(:,i+1) = A*hatx2(:,i) + B*u(:,i) ;
-        x(:,i+1) = A*x(:,i) + B*u(:,i)+sqrt(Q)*randn(n,1);
-    end
+for i = 1:21
+    %g_k follow a non-central chi^2 distribution
+    detectionprob(i) = 1 - ncx2cdf(thre, m, z(:,i)'*invcP*z(:,i));
 end
-normresidue = (normresidue > thre);
-detectionprob = sum(normresidue,2)/50000;
 
 figure(2)
 hold on
-plot(0:20,detectionprob(11:31),'k','Linewidth',2);
+plot(0:20,detectionprob,'k','Linewidth',2);
 
 xlabel('k','fontsize',12);
 ylabel('Probability of Detection','fontsize',12);
