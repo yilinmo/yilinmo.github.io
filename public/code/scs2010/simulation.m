@@ -21,7 +21,7 @@ cP = C*P*C' + R;
 invcP = inv(cP);
 
 
-Gamma = [0;1];
+Gamma = diag([0,1]);
 
 % v is an unstable eigenvector for A
 % the corresponding eigenvalue is 1
@@ -31,28 +31,34 @@ lambda = 1;
 
 % calculate the attacker's input to reach v
 Co = -[(A-K*C*A)*K*Gamma K*Gamma];;
-ya = inv(Co)*v;
 
-e(:,1) = -K*Gamma*ya(1);
-z(:,1) = Gamma*ya(1);
+ya = Co\v;
+% reshape ya from [ya(0);ya(1)] to [ya(0),ya(1)]
+ya = reshape(ya,m,[]);
 
-e(:,2) = (A-K*C*A)*e(:,1)-K*Gamma*ya(2);
-z(:,2) = C*A*e(:,1) + Gamma*ya(2);
+e(:,1) = -K*Gamma*ya(:,1);
+z(:,1) = Gamma*ya(:,1);
+
+e(:,2) = (A-K*C*A)*e(:,1)-K*Gamma*ya(:,2);
+z(:,2) = C*A*e(:,1) + Gamma*ya(:,2);
 
 M = max(norm(z(:,1)),norm(z(:,2)));
 
 ya = ya/M;
 
-ystar = 1;
+%easy to verify that Gamma ystar = Cv
+ystar = C*v;
+
+
 for i = 3:31
-    ya(i) = ya(i-2) - lambda^(i-2)/M*ystar;
+    ya(:,i) = ya(:,i-2) - lambda^(i-2)/M*ystar;
 end
 
-e(:,1) = -K*Gamma*ya(1);
-z(:,1) = Gamma*ya(1);
+e(:,1) = -K*Gamma*ya(:,1);
+z(:,1) = Gamma*ya(:,1);
 for i=2:21
-    e(:,i) = (A-K*C*A) * e(:,i-1) - K*Gamma * ya(i);
-    z(:,i) = C*A * e(:,i-1) + Gamma * ya(i);
+    e(:,i) = (A-K*C*A) * e(:,i-1) - K*Gamma * ya(:,i);
+    z(:,i) = C*A * e(:,i-1) + Gamma * ya(:,i);
 end
 
 
