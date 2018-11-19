@@ -4,14 +4,14 @@ highlighter:      rouge
 # Setup
 title:            Yilin Mo
 tagline:          'Research and Stuff'
-description:      'I am an Assistant Professor at Nanyang Technological University, Singapore.'
+description:      'I am an Associate Professor at Tsinghua University, China.'
 url:              http://yilinmo.github.io
 baseurl:          ''
 cover_image: /public/zion.png
 
 author:
 name:           'Yilin Mo'
-email:            ylmo@ntu.edu.sg
+email:            ylmo@tsinghua.edu.cn
 
 paginate:         5
 paginate_path:    "/notes/page:num"
