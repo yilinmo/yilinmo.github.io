@@ -1,0 +1,18 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_EXPORT HTML
+---
+layout: page
+title: Game Theoretical Approach to Sequential Hypothesis Test with Byzantine Sensors 
+---
+#+END_EXPORT
+--------------------------------
+
+*ZiShuo Li, Yilin Mo and Fei Hao*
+
+/IEEE Conference on Decision and Control/, Nice, France, Dec 11-13, 2019
+
+Link to the [[../../../public/papers/cdc19.pdf][paper]]
+
+** Abstract
+
+In this paper, we consider the problem of sequential binary hypothesis test in adversary environment based on observations from $s$ sensors, with the caveat that a subset of $c$ sensors is compromised by an adversary, whose observations can be manipulated arbitrarily. We choose the asymptotic Average Sample Number (ASN) required to reach a certain level of error probability as the performance metric of the system. The problem is cast as a game between the detector and the adversary, where the detector aims to optimize the system performance while the adversary tries to deteriorate it. We propose a pair of flip attack strategy and voting hypothesis testing rule and prove that they form an equilibrium strategy pair for the game. We further investigate the performance of our proposed detection scheme with unknown number of compromised sensors and corroborate our result with simulation.

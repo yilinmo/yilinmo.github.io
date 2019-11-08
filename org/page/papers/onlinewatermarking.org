@@ -1,0 +1,20 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_EXPORT HTML
+---
+layout: page
+title: An Online Approach to Physical Watermark Design
+---
+#+END_EXPORT
+--------------------------------
+
+*Hanxiao Liu, Yilin Mo, Jiaqi Yan, Lihua Xie and Karl H. Johansson*
+
+/IEEE Trans. on Automatic Control/, Submitted
+
+Link to the [[../../../public/papers/tac18watermark.pdf][paper]]
+
+If you want to leave any comments, you can annotate the [[../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Ftac18watermark.pdf][pdf]]. I will try to be responsive. You can also annotate this page or leave comments below. 
+
+** Abstract
+
+This paper considers the problem of designing physical watermark signals in order to optimally detect possible replay attack in a linear time-invariant system, under the assumption that the system parameters are unknown and need to be identified online. We first provide a replay attack model, where an adversary replays the previous sensor data in order to fool the system. A physical watermarking scheme, which leverages a random control input as a watermark to detect the replay attack, is then introduced. The optimal watermark signal design problem is cast as an optimization problem, which aims to achieve the optimal trade-off between control performance and intrusion detection. An online watermarking design and system identification algorithm is provided to deal with systems with unknown parameters. We prove that the proposed algorithm converges to the optimal one and characterize the almost sure convergence rate. A numerical example and an industrial process example are provided to illustrate the effectiveness of the proposed strategy.
