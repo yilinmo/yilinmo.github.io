@@ -82,9 +82,9 @@ Therefore, if we use the following update rule on \(\hat k_x\) and \(\hat k_r\):
 <p>
 then \(\dot{V} = a_m e^2 \leq 0\). One can then prove that \(\ddot{V} =2 a_m e \dot{e}\) is bounded and thus \(\lim_{t\rightarrow\infty} \dot{V}  = 0\) and hence \(e \rightarrow 0\).
 </p>
-<div id="outline-container-orgd5024ad" class="outline-2">
-<h2 id="orgd5024ad">Simulation</h2>
-<div class="outline-text-2" id="text-orgd5024ad">
+<div id="outline-container-org4090be6" class="outline-2">
+<h2 id="org4090be6">Simulation</h2>
+<div class="outline-text-2" id="text-org4090be6">
 <p>
 Assume that the system is given as
 </p>
@@ -99,65 +99,68 @@ while we want the system to tract the following system:
 \end{equation}
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #F0DFAF; font-weight: bold;">import</span> numpy <span style="color: #F0DFAF; font-weight: bold;">as</span> np
-<span style="color: #F0DFAF; font-weight: bold;">import</span> matplotlib
-<span style="color: #F0DFAF; font-weight: bold;">import</span> matplotlib.pyplot <span style="color: #F0DFAF; font-weight: bold;">as</span> plt
-<span style="color: #F0DFAF; font-weight: bold;">import</span> seaborn <span style="color: #F0DFAF; font-weight: bold;">as</span> sns <span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">for the sake of appreances</span>
-<span style="color: #F0DFAF; font-weight: bold;">from</span> scipy.integrate <span style="color: #F0DFAF; font-weight: bold;">import</span> odeint
+<pre class="src src-python">import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns # for the sake of appreances
+from scipy.integrate import odeint
 
-<span style="color: #DFAF8F;">a</span> = 1.
-<span style="color: #DFAF8F;">b</span> = 1.
-<span style="color: #DFAF8F;">am</span> = -1.
-<span style="color: #DFAF8F;">bm</span> = 1.
-<span style="color: #DFAF8F;">gammax</span> = 10.
-<span style="color: #DFAF8F;">gammar</span> = 10.
+a = 1.
+b = 1.
+am = -1.
+bm = 1.
+gammax = 10.
+gammar = 10.
 
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">y is a vector of [x ,x_m, \hat k_x, \hat k_r]</span>
-<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">f</span>(y, t):
-    <span style="color: #DFAF8F;">x</span> = y[0]
-    <span style="color: #DFAF8F;">xm</span> = y[1]
-    <span style="color: #DFAF8F;">hatkx</span> = y[2]
-    <span style="color: #DFAF8F;">hatkr</span> = y[3]
-    <span style="color: #DFAF8F;">r</span> = np.sin(t)
-    <span style="color: #DFAF8F;">e</span> = x - xm
-    <span style="color: #DFAF8F;">u</span> = hatkx * x + hatkr * r
-    <span style="color: #DFAF8F;">f0</span> = a * x + b * u
-    <span style="color: #DFAF8F;">f1</span> = am * xm + bm * r
-    <span style="color: #DFAF8F;">f2</span> = -1 * gammax * e * x
-    <span style="color: #DFAF8F;">f3</span> = -1 * gammar * e * r
-    <span style="color: #F0DFAF; font-weight: bold;">return</span> [f0, f1, f2, f3]
+# y is a vector of [x ,x_m, \hat k_x, \hat k_r]
+def f(y, t):
+    x = y[0]
+    xm = y[1]
+    hatkx = y[2]
+    hatkr = y[3]
+    r = np.sin(t)
+    e = x - xm
+    u = hatkx * x + hatkr * r
+    f0 = a * x + b * u
+    f1 = am * xm + bm * r
+    f2 = -1 * gammax * e * x
+    f3 = -1 * gammar * e * r
+    return [f0, f1, f2, f3]
 
-<span style="color: #DFAF8F;">t</span> = np.linspace(0, 20., 10000) 
-<span style="color: #DFAF8F;">x0</span> = 0.
-<span style="color: #DFAF8F;">xm0</span> = 0.
-<span style="color: #DFAF8F;">hatkx0</span> = 0.
-<span style="color: #DFAF8F;">hatkr0</span> = 0.
-<span style="color: #DFAF8F;">y0</span> = [x0, xm0, hatkx0, hatkr0]
+t = np.linspace(0, 20., 10000) 
+x0 = 0.
+xm0 = 0.
+hatkx0 = 0.
+hatkr0 = 0.
+y0 = [x0, xm0, hatkx0, hatkr0]
 
-<span style="color: #DFAF8F;">solution</span> = odeint(f, y0, t)
+solution = odeint(f, y0, t)
 
-<span style="color: #DFAF8F;">x</span> = solution[:, 0]
-<span style="color: #DFAF8F;">xm</span> = solution[:, 1]
-<span style="color: #DFAF8F;">hatkx</span> = solution[:, 2]
-<span style="color: #DFAF8F;">hatkr</span> = solution[:, 3]
+x = solution[:, 0]
+xm = solution[:, 1]
+hatkx = solution[:, 2]
+hatkr = solution[:, 3]
 
-<span style="color: #DFAF8F;">fig</span> = plt.figure()
-plt.rc(<span style="color: #CC9393;">'text'</span>, usetex=<span style="color: #BFEBBF;">True</span>)
-plt.plot(t, np.sin(t), label=r<span style="color: #CC9393;">'$r(t)$'</span>)
-plt.plot(t, x, label=r<span style="color: #CC9393;">'$x(t)$'</span>)
-plt.plot(t, xm, label=r<span style="color: #CC9393;">'$x_m(t)$'</span>)
-plt.plot(t, hatkx, label=r<span style="color: #CC9393;">'$\hat k_x(t)$'</span>)
-plt.plot(t, hatkr, label=r<span style="color: #CC9393;">'$\hat k_r(t)$'</span>)
-plt.xlabel(<span style="color: #CC9393;">'Time(t)'</span>)
+fig = plt.figure()
+plt.rc('text', usetex=True)
+plt.plot(t, np.sin(t), label=r'$r(t)$')
+plt.plot(t, x, label=r'$x(t)$')
+plt.plot(t, xm, label=r'$x_m(t)$')
+plt.plot(t, hatkx, label=r'$\hat k_x(t)$')
+plt.plot(t, hatkr, label=r'$\hat k_r(t)$')
+plt.xlabel('Time(t)')
 plt.legend(loc = 0)
 fig.tight_layout()
-plt.savefig(<span style="color: #CC9393;">'../../public/mrac.png'</span>)
-<span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #CC9393;">'../../public/mrac.png'</span> <span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">return the filename to org-mode</span>
+plt.savefig('../../public/mrac.png')
+return '../../public/mrac.png' # return the filename to org-mode
 </pre>
 </div>
 
-<p>
-<a href=""></a>
+
+<div class="figure">
+<p><img src="../../public/mrac.png" alt="mrac.png" />
 </p>
+<p><span class="figure-number">Figure 1: </span>The simulation result for model reference adaptive control. Notice that \(e(t) = x(t) - x_m(t)\) converges to 0 and \(\hat k_x \rightarrow -2\) and \(\hat k_r \rightarrow 1\).</p>
+</div>
 </div>
 </div>
