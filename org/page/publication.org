@@ -12,14 +12,14 @@ My [[https://scholar.google.com.sg/citations?user=UcpEexUAAAAJ][Google Scholar]]
 1. Sean Weerakkody, Omur Ozel, Yilin Mo and Bruno Sinopoli (2019), /[[http://dx.doi.org/10.1561/2600000018][Resilient Control in Cyber-Physical Systems: Countering Uncertainty, Constraints, and Adversarial Behavior]]/, *Foundations and Trends in Systems and Control*. 
  
 * Journal Paper
-1. Xiaoqiang Ren, Yilin Mo, Jie Chen and Karl H. Johansson, /Secure State Estimation with Byzantine Sensors: A Probabilistic Approach/, *IEEE Transactions on Automatic Control*, Second Round of Review
-2. Liang Xu, Yilin Mo and Lihua Xie, /Remote State Estimation with Stochastic Event-triggered Sensor Schedule and Packet Drops/, *IEEE Transactions on Automatic Control*, Accepted
-3. Hanxiao Liu, Yilin Mo, Jiaqi Yan, Lihua Xie and Karl H. Johansson, /[[file:papers/onlinewatermarking.org][An Online Approach to Physical Watermark Design]]/, *IEEE Transactions on Automatic Control*, Accepted
-4. Tianju Sui, Yilin Mo, Damian Marelli, XiMing Sun and Minyue Fu, /The Vulnerability of Cyber-Physical System under Stealthy Attacks/, *IEEE Transactions on Automatic Control*, Accepted
-5. Xinghua Liu, Yilin Mo and Emanuele Garone, /[[file:papers/localkalman.org][Local Decompostion of Kalman Filters and Its Application for Secure State Estimation]]/, *IEEE Transactions on Automatic Control*, Accepted
-6. Yuqing Ni, Ziyang Guo, Yilin Mo and Ling Shi, /On the Performance Analysis of Reset Attack in Cyber-Physical Systems/, *IEEE Transactions on Automatic Control*, Accepted
-7. Jiazheng Wang, Xiaoqiang Ren, Yilin Mo and Ling Shi, /Whittle's Index Policy for Dynamic Multi-channel Allocation for Remote State Estimation/, *IEEE Transactions on Automatic Control*, Accepted
-8. Liang Xu, Yilin Mo and Lihua Xie, /Distributed Consensus over Markovian Packet Loss Channels/, *IEEE Transactions on Automatic Control*, Accepted
+1. Xinghua Liu, Yilin Mo and Emanuele Garone, /[[file:papers/localkalman.org][Local Decompostion of Kalman Filters and Its Application for Secure State Estimation]]/, *IEEE Transactions on Automatic Control*, In Review
+2. Xiaoqiang Ren, Yilin Mo, Jie Chen and Karl H. Johansson, /Secure State Estimation with Byzantine Sensors: A Probabilistic Approach/, *IEEE Transactions on Automatic Control*, Accepted
+3. Liang Xu, Yilin Mo and Lihua Xie, /Remote State Estimation with Stochastic Event-triggered Sensor Schedule and Packet Drops/, *IEEE Transactions on Automatic Control*, Accepted
+4. Hanxiao Liu, Yilin Mo, Jiaqi Yan, Lihua Xie and Karl H. Johansson, /[[file:papers/onlinewatermarking.org][An Online Approach to Physical Watermark Design]]/, *IEEE Transactions on Automatic Control*, Accepted
+5. Tianju Sui, Yilin Mo, Damian Marelli, Ximing Sun and Minyue Fu, /The Vulnerability of Cyber-Physical System under Stealthy Attacks/, *IEEE Transactions on Automatic Control*, Accepted
+6. Jiazheng Wang, Xiaoqiang Ren, Yilin Mo and Ling Shi, /Whittle's Index Policy for Dynamic Multi-channel Allocation for Remote State Estimation/, *IEEE Transactions on Automatic Control*, Feb 2020, Volume 65, Issue 2, Pages 591-603
+7. Yuqing Ni, Ziyang Guo, Yilin Mo and Ling Shi, /On the Performance Analysis of Reset Attack in Cyber-Physical Systems/, *IEEE Transactions on Automatic Control*, Jan 2020, Volume 65, Issue 1, Pages 419-425
+8. Liang Xu, Yilin Mo and Lihua Xie, /Distributed Consensus over Markovian Packet Loss Channels/, *IEEE Transactions on Automatic Control*, Jan 2020, Volume 65, Issue 1, Pages 279-286
 9. Duo Han, Yilin Mo and Lihua Xie, [[file:papers/automatica-16-secureest.org][/Convex Optimization Based State Estimation against Sparse Integrity Attacks/]], *IEEE Transactions on Automatic Control*, June 2019, Volume 64, Issue 6, Pages 2383-2395
 10. Yorie Nakahira and Yilin Mo, /Attack-Resilient H2, H-infinity, and L1 State Estimator/, *IEEE Transactions on Automatic Control*, Dec 2018, Volume 63, Issue 12, Pages 4353-4360 
 11. Xiaoqiang Ren and Yilin Mo, /Secure Detection: Performance Metric and Sensor Deployment Strategy/, *IEEE Transactions on Signal Processing*, Sep 2018, Volume 66, Issue 17, Pages 4450-4460
