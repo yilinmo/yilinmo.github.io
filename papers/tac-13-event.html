@@ -3,7 +3,7 @@ comments: true
 layout: page
 title: Stochastic Event-triggered Sensor Schedule for Remote State Estimation
 ---
-<hr />
+<hr>
 <p>
 <b>Duo Han, Yilin Mo, Junfeng Wu, Sean Weerakkody, Bruno Sinopoli and Ling Shi</b>
 </p>
@@ -17,21 +17,21 @@ Link to the <a href="../../../public/papers/tac-13-event.pdf">paper</a>
 </p>
 
 <p>
-If you want to leave any comments, you can annotate the <a href="../../../pdfviewer/viewer/web/viewer.html?file=/public/papers/tac-13-event.pdf">pdf</a>. I will try to be responsive. You can also annotate this page or leave comments below. 
+If you want to leave any comments, you can annotate the <a href="../../../pdfviewer/viewer/web/viewer.html?file=%2Fpublic%2Fpapers%2Ftac-13-event.pdf">pdf</a>. I will try to be responsive. You can also annotate this page or leave comments below. 
 </p>
 
-<div id="outline-container-orga307dcd" class="outline-2">
-<h2 id="orga307dcd">Abstract</h2>
-<div class="outline-text-2" id="text-orga307dcd">
+<div id="outline-container-org5c248ec" class="outline-2">
+<h2 id="org5c248ec">Abstract</h2>
+<div class="outline-text-2" id="text-org5c248ec">
 <p>
 We propose an open-loop and a closed-loop stochastic event-triggered sensor schedule for remote state estimation. Both schedules overcome the essential difficulties of existing schedules in recent literature works where, through introducing a deterministic event-triggering mechanism, the Gaussian property of the innovation process is destroyed which produces a challenging nonlinear filtering problem that cannot be solved unless approximation techniques are adopted. The proposed stochastic event-triggered sensor schedules eliminate such approximations. Under these two schedules, the minimum mean squared error (MMSE) estimator and its estimation error covariance matrix at the remote estimator are given in a closed-form. The stability in terms of the expected error covariance and the sample path of the error covariance for both schedules is studied. We also formulate and solve an optimization problem to obtain the minimum communication rate under some estimation quality constraint using the open-loop sensor schedule. A numerical comparison between the closed-loop MMSE estimator and a typical approximate MMSE estimator with deterministic event-triggered sensor schedule, in a problem setting of target tracking, shows the superiority of the proposed sensor schedule.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5767b1f" class="outline-2">
-<h2 id="org5767b1f">Simulation Code</h2>
-<div class="outline-text-2" id="text-org5767b1f">
+<div id="outline-container-org535fdef" class="outline-2">
+<h2 id="org535fdef">Simulation Code</h2>
+<div class="outline-text-2" id="text-org535fdef">
 <p>
 The code is written in Matlab R2009b (7.9.0.529) with the following dependency
 </p>
@@ -39,9 +39,9 @@ The code is written in Matlab R2009b (7.9.0.529) with the following dependency
 <li>CVX Version 2.1, Build 1085 (9a166a6)</li>
 </ul>
 </div>
-<div id="outline-container-orgc9a2545" class="outline-3">
-<h3 id="orgc9a2545">Fig 2</h3>
-<div class="outline-text-3" id="text-orgc9a2545">
+<div id="outline-container-org35c850c" class="outline-3">
+<h3 id="org35c850c">Fig 2</h3>
+<div class="outline-text-3" id="text-org35c850c">
 <div class="org-src-container">
 <pre class="src src-matlab">%Compare the periodic schedule, the closed-loop schedule, the open loop
 %schedule and the random schedule.
@@ -300,14 +300,14 @@ ans = filename % return the filename to org-mode
 
 
 <div class="figure">
-<p><img src="../../../public/tac-13-2.png" alt="tac-13-2.png" />
+<p><img src="../../../public/tac-13-2.png" alt="tac-13-2.png">
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org375e574" class="outline-3">
-<h3 id="org375e574">Fig 3</h3>
-<div class="outline-text-3" id="text-org375e574">
+<div id="outline-container-org5cf3c8c" class="outline-3">
+<h3 id="org5cf3c8c">Fig 3</h3>
+<div class="outline-text-3" id="text-org5cf3c8c">
 <div class="org-src-container">
 <pre class="src src-matlab">% plot the upper bound, the lower bound and the empirical expected error of
 % covariance of the open loop schedule
@@ -450,15 +450,15 @@ ans = filename % return the filename to org-mode
 
 
 <div class="figure">
-<p><img src="../../../public/tac-13-3.png" alt="tac-13-3.png" />
+<p><img src="../../../public/tac-13-3.png" alt="tac-13-3.png">
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org863f63d" class="outline-3">
-<h3 id="org863f63d">Fig 4</h3>
-<div class="outline-text-3" id="text-org863f63d">
+<div id="outline-container-org643e394" class="outline-3">
+<h3 id="org643e394">Fig 4</h3>
+<div class="outline-text-3" id="text-org643e394">
 <div class="org-src-container">
 <pre class="src src-matlab">% plot the upper bound, the lower bound and the empirical expected error of
 % covariance of the closed loop schedule
@@ -616,15 +616,15 @@ ans = filename % return the filename to org-mode
 
 
 <div class="figure">
-<p><img src="../../../public/tac-13-4.png" alt="tac-13-4.png" />
+<p><img src="../../../public/tac-13-4.png" alt="tac-13-4.png">
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgcfebacb" class="outline-3">
-<h3 id="orgcfebacb">Fig 5</h3>
-<div class="outline-text-3" id="text-orgcfebacb">
+<div id="outline-container-orgf18efd1" class="outline-3">
+<h3 id="orgf18efd1">Fig 5</h3>
+<div class="outline-text-3" id="text-orgf18efd1">
 <div class="org-src-container">
 <pre class="src src-matlab">m = 2; n = 2;
 A=[0.8 1;0 0.95];
@@ -689,15 +689,15 @@ ans = filename % return the filename to org-mode
 
 
 <div class="figure">
-<p><img src="../../../public/tac-13-5.png" alt="tac-13-5.png" />
+<p><img src="../../../public/tac-13-5.png" alt="tac-13-5.png">
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org98607f6" class="outline-3">
-<h3 id="org98607f6">Fig 6 and 7</h3>
-<div class="outline-text-3" id="text-org98607f6">
+<div id="outline-container-org012dabf" class="outline-3">
+<h3 id="org012dabf">Fig 6 and 7</h3>
+<div class="outline-text-3" id="text-org012dabf">
 <div class="org-src-container">
 <pre class="src src-matlab">% Compare the closed-loop event-based schedule with the deterministic schedule proposed by Keyou You and Lihua Xie in [26]
 
@@ -907,7 +907,7 @@ ans = filename % return the filename to org-mode
 
 
 <div class="figure">
-<p><img src="../../../public/tac-13-6.png" alt="tac-13-6.png" />
+<p><img src="../../../public/tac-13-6.png" alt="tac-13-6.png">
 </p>
 </div>
 </div>

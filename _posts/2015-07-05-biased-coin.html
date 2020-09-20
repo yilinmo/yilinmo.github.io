@@ -5,15 +5,15 @@ comments: true
 categories: math
 permalink: fair-results-from-a-biased-coin
 ---
-<hr />
+<hr>
 
 <p>
 <i>This is a test of <a href="http://orgmode.org/worg/org-contrib/babel/">org-babel</a>.</i>
 </p>
 
-<div id="outline-container-orgbf548e0" class="outline-2">
-<h2 id="orgbf548e0">Problem Formulation</h2>
-<div class="outline-text-2" id="text-orgbf548e0">
+<div id="outline-container-orge7268cf" class="outline-2">
+<h2 id="orge7268cf">Problem Formulation</h2>
+<div class="outline-text-2" id="text-orge7268cf">
 <p>
 Consider we have a biased coin, such that the probability of getting a head is \(P(H) = p\in(0,1)\) and the probability of getting a tail is \(P(T) = q = 1-p\), where \(p\) is unknown by us. However, different coin tosses are independent from each other. 
 </p>
@@ -26,9 +26,9 @@ Our goal is to generate a "fair" binary random variable \(X\), with distribution
 </div>
 </div>
 
-<div id="outline-container-org4de5a15" class="outline-2">
-<h2 id="org4de5a15"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
-<div class="outline-text-2" id="text-org4de5a15">
+<div id="outline-container-orgc58dc14" class="outline-2">
+<h2 id="orgc58dc14"><a href="https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf">Von Neumann's Solution</a></h2>
+<div class="outline-text-2" id="text-orgc58dc14">
 <p>
 One way to generate such a random variable is to:
 </p>
@@ -73,39 +73,39 @@ Below is a python script for the coin toss algorithm:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">import random
+<pre class="src src-python"><span style="color: #F0DFAF; font-weight: bold;">import</span> random
 
-def flipcoin(p):
-    if random.uniform(0,1) &lt;= p:
-	return 'H'
-    else:
-	return 'T'
+<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">flipcoin</span>(p):
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #CC9393;">'H'</span>
+    <span style="color: #F0DFAF; font-weight: bold;">else</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #CC9393;">'T'</span>
 
-def check(toss): #return s, where n = 2^s*(2t+1)
-    if toss == 'HT':
-	return 0
-    elif toss == 'TH':
-	return 1
-    else:
-	return None
+<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">check</span>(toss): <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">return s, where n = 2^s*(2t+1)</span>
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> toss == <span style="color: #CC9393;">'HT'</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> 0
+    <span style="color: #F0DFAF; font-weight: bold;">elif</span> toss == <span style="color: #CC9393;">'TH'</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> 1
+    <span style="color: #F0DFAF; font-weight: bold;">else</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #BFEBBF;">None</span>
 
-X = None
-p = 0.5
-print("Coin Toss Sequence: ", end = "")
-while X is None:
-    toss = flipcoin(p) + flipcoin(p)
-    print(toss, end = "")
-    X = check(toss)
+<span style="color: #DFAF8F;">X</span> = <span style="color: #BFEBBF;">None</span>
+<span style="color: #DFAF8F;">p</span> = 0.5
+<span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">"Coin Toss Sequence: "</span>, end = <span style="color: #CC9393;">""</span>)
+<span style="color: #F0DFAF; font-weight: bold;">while</span> X <span style="color: #F0DFAF; font-weight: bold;">is</span> <span style="color: #BFEBBF;">None</span>:
+    <span style="color: #DFAF8F;">toss</span> = flipcoin(p) + flipcoin(p)
+    <span style="color: #F0DFAF; font-weight: bold;">print</span>(toss, end = <span style="color: #CC9393;">""</span>)
+    <span style="color: #DFAF8F;">X</span> = check(toss)
 
-print("\nX = " + str(X))
+<span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">"\nX = "</span> + <span style="color: #DCDCCC; font-weight: bold;">str</span>(X))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgda694da" class="outline-2">
-<h2 id="orgda694da">A More Efficient Algorithm</h2>
-<div class="outline-text-2" id="text-orgda694da">
+<div id="outline-container-org84f673d" class="outline-2">
+<h2 id="org84f673d">A More Efficient Algorithm</h2>
+<div class="outline-text-2" id="text-org84f673d">
 <p>
 The above algorithm is not every efficient in the sense that it wastes some coin tosses. To see this, consider the sequence <b>HHTT</b> and <b>TTHH</b>. Notice that they both occur with probability \(p^2q^2\) and thus we can map <b>HHTT</b> to \(X = 0\) and <b>TTHH</b> to \(X = 1\). However, in the above algorithm, both of the sequences will be discarded.
 </p>
@@ -150,19 +150,19 @@ The proof follows from the following facts:
 We can us the following code to generate a table of \(f(n,m)\). 
 </p>
 <div class="org-src-container">
-<pre class="src src-python">def table(N):
-    fold = [1,] #f(0,0) = 1
-    print('1')
-    for n in range(1, N+1):
-	fnew = [1,] #f(n,0) is always 1
-	print('1', end=' ')
-	for m in range(1, n):
-	    f = fold[m-1] % 2 + fold[m] % 2 #Apply Thm 1
-	    fnew.append(f)
-	    print(str(f), end=' ')
-	fnew.append(1) #f(n,n) is always 1
-	print('1')
-	fold = fnew
+<pre class="src src-python"><span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">table</span>(N):
+    <span style="color: #DFAF8F;">fold</span> = [1,] <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">f(0,0) = 1</span>
+    <span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">'1'</span>)
+    <span style="color: #F0DFAF; font-weight: bold;">for</span> n <span style="color: #F0DFAF; font-weight: bold;">in</span> <span style="color: #DCDCCC; font-weight: bold;">range</span>(1, N+1):
+        <span style="color: #DFAF8F;">fnew</span> = [1,] <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">f(n,0) is always 1</span>
+        <span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">'1'</span>, end=<span style="color: #CC9393;">' '</span>)
+        <span style="color: #F0DFAF; font-weight: bold;">for</span> m <span style="color: #F0DFAF; font-weight: bold;">in</span> <span style="color: #DCDCCC; font-weight: bold;">range</span>(1, n):
+            <span style="color: #DFAF8F;">f</span> = fold[m-1] % 2 + fold[m] % 2 <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">Apply Thm 1</span>
+            fnew.append(f)
+            <span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #DCDCCC; font-weight: bold;">str</span>(f), end=<span style="color: #CC9393;">' '</span>)
+        fnew.append(1) <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">f(n,n) is always 1</span>
+        <span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">'1'</span>)
+        <span style="color: #DFAF8F;">fold</span> = fnew
 
 table(10)
 </pre>
@@ -194,40 +194,40 @@ By Theorem 1, we know that if \(f(n,m) = 2\), then the last toss of the one vali
 The algorithm can be implemented in the following code:
 </p>
 <div class="org-src-container">
-<pre class="src src-python">import random
+<pre class="src src-python"><span style="color: #F0DFAF; font-weight: bold;">import</span> random
 
-def flipcoin(p):
-    if random.uniform(0,1) &lt;= p:
-	return 'H'
-    else:
-	return 'T'
+<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">flipcoin</span>(p):
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> random.uniform(0,1) &lt;= p:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #CC9393;">'H'</span>
+    <span style="color: #F0DFAF; font-weight: bold;">else</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #CC9393;">'T'</span>
 
-def factor2(n): #return s, where n = 2^s*(2t+1)
-    if n == 0: return 0
-    s = 0;
-    while n % 2 == 0:
-	s = s + 1
-	n = n / 2
-    return s
+<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">factor2</span>(n): <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">return s, where n = 2^s*(2t+1)</span>
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> n == 0: <span style="color: #F0DFAF; font-weight: bold;">return</span> 0
+    <span style="color: #DFAF8F;">s</span> = 0;
+    <span style="color: #F0DFAF; font-weight: bold;">while</span> n % 2 == 0:
+        <span style="color: #DFAF8F;">s</span> = s + 1
+        <span style="color: #DFAF8F;">n</span> = n / 2
+    <span style="color: #F0DFAF; font-weight: bold;">return</span> s
 
-p = 0.5
-k = 0
-m = 0
-even = False
-print("Coin Toss Sequence: ", end = "")
-while even is False:
-    toss = flipcoin(p)
-    print(toss, end = "")
-    k = k + 1
-    if toss == 'H':
-	m = m + 1
-	X = 1
-	if factor2(k) - factor2(m) &gt; 0: even = True
-    else:
-	X = 0
-	if factor2(k) - factor2(k-m) &gt; 0: even = True
+<span style="color: #DFAF8F;">p</span> = 0.5
+<span style="color: #DFAF8F;">k</span> = 0
+<span style="color: #DFAF8F;">m</span> = 0
+<span style="color: #DFAF8F;">even</span> = <span style="color: #BFEBBF;">False</span>
+<span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">"Coin Toss Sequence: "</span>, end = <span style="color: #CC9393;">""</span>)
+<span style="color: #F0DFAF; font-weight: bold;">while</span> even <span style="color: #F0DFAF; font-weight: bold;">is</span> <span style="color: #BFEBBF;">False</span>:
+    <span style="color: #DFAF8F;">toss</span> = flipcoin(p)
+    <span style="color: #F0DFAF; font-weight: bold;">print</span>(toss, end = <span style="color: #CC9393;">""</span>)
+    <span style="color: #DFAF8F;">k</span> = k + 1
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> toss == <span style="color: #CC9393;">'H'</span>:
+        <span style="color: #DFAF8F;">m</span> = m + 1
+        <span style="color: #DFAF8F;">X</span> = 1
+        <span style="color: #F0DFAF; font-weight: bold;">if</span> factor2(k) - factor2(m) &gt; 0: <span style="color: #DFAF8F;">even</span> = <span style="color: #BFEBBF;">True</span>
+    <span style="color: #F0DFAF; font-weight: bold;">else</span>:
+        <span style="color: #DFAF8F;">X</span> = 0
+        <span style="color: #F0DFAF; font-weight: bold;">if</span> factor2(k) - factor2(k-m) &gt; 0: <span style="color: #DFAF8F;">even</span> = <span style="color: #BFEBBF;">True</span>
 
-print("\nX = " + str(X))
+<span style="color: #F0DFAF; font-weight: bold;">print</span>(<span style="color: #CC9393;">"\nX = "</span> + <span style="color: #DCDCCC; font-weight: bold;">str</span>(X))
 </pre>
 </div>
 
@@ -240,9 +240,9 @@ In the above code, we use the fact that
 </div>
 </div>
 
-<div id="outline-container-org789bc81" class="outline-2">
-<h2 id="org789bc81">How Efficient is Our Approach</h2>
-<div class="outline-text-2" id="text-org789bc81">
+<div id="outline-container-org6d81b09" class="outline-2">
+<h2 id="org6d81b09">How Efficient is Our Approach</h2>
+<div class="outline-text-2" id="text-org6d81b09">
 <p>
 We now compute the expected number of tosses needed for the algorithm to terminate. To this end, let us define a random variable \(L\) to be number of coin tosses when the algorithm terminates.
 </p>
@@ -318,45 +318,45 @@ Now take the limit on both sides, we get the expected number of coin tosses:
 The following python code compute the expect number of coin tosses for the Von Neumann's method (blue line) and our more efficient method (green line)
 </p>
 <div class="org-src-container">
-<pre class="src src-python">import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns # for the sake of appreances
-import numpy as np
-p = np.linspace(0.1, 0.9)
-q = 1 - p
-# expected number of tosses for Von Neumann's algorithm
-l1 = 1/(p*q) 
-i = 0
-p2i = p #p^{2^i}
-q2i = q #q^{2^i}
-l2 = 1 + p2i + q2i
-for i in range(1, 10):
-    p2i = p2i ** 2
-    q2i = q2i ** 2
-    l2 = l2 * (1 + p2i + q2i)
-fig=plt.figure(figsize=(6,4))
+<pre class="src src-python"><span style="color: #F0DFAF; font-weight: bold;">import</span> matplotlib
+<span style="color: #F0DFAF; font-weight: bold;">import</span> matplotlib.pyplot <span style="color: #F0DFAF; font-weight: bold;">as</span> plt
+<span style="color: #F0DFAF; font-weight: bold;">import</span> seaborn <span style="color: #F0DFAF; font-weight: bold;">as</span> sns <span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">for the sake of appreances</span>
+<span style="color: #F0DFAF; font-weight: bold;">import</span> numpy <span style="color: #F0DFAF; font-weight: bold;">as</span> np
+<span style="color: #DFAF8F;">p</span> = np.linspace(0.1, 0.9)
+<span style="color: #DFAF8F;">q</span> = 1 - p
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">expected number of tosses for Von Neumann's algorithm</span>
+<span style="color: #DFAF8F;">l1</span> = 1/(p*q) 
+<span style="color: #DFAF8F;">i</span> = 0
+<span style="color: #DFAF8F;">p2i</span> = p <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">p^{2^i}</span>
+<span style="color: #DFAF8F;">q2i</span> = q <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">q^{2^i}</span>
+<span style="color: #DFAF8F;">l2</span> = 1 + p2i + q2i
+<span style="color: #F0DFAF; font-weight: bold;">for</span> i <span style="color: #F0DFAF; font-weight: bold;">in</span> <span style="color: #DCDCCC; font-weight: bold;">range</span>(1, 10):
+    <span style="color: #DFAF8F;">p2i</span> = p2i ** 2
+    <span style="color: #DFAF8F;">q2i</span> = q2i ** 2
+    <span style="color: #DFAF8F;">l2</span> = l2 * (1 + p2i + q2i)
+<span style="color: #DFAF8F;">fig</span>=plt.figure(figsize=(6,4))
 plt.axis([0, 1, 0, 12])
 plt.plot(p, l1)
 plt.plot(p, l2)
-plt.xlabel('p')
-plt.ylabel('Expected Number of Tosses')
+plt.xlabel(<span style="color: #CC9393;">'p'</span>)
+plt.ylabel(<span style="color: #CC9393;">'Expected Number of Tosses'</span>)
 fig.tight_layout()
-plt.savefig('../../public/expected-toss.png')
-return '../../public/expected-toss.png' # return the filename to org-mode
+plt.savefig(<span style="color: #CC9393;">'../../public/expected-toss.png'</span>)
+<span style="color: #F0DFAF; font-weight: bold;">return</span> <span style="color: #CC9393;">'../../public/expected-toss.png'</span> <span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">return the filename to org-mode</span>
 </pre>
 </div>
 
 
 <div class="figure">
-<p><img src="../../public/expected-toss.png" alt="expected-toss.png" />
+<p><img src="../../public/expected-toss.png" alt="expected-toss.png">
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2e53b35" class="outline-2">
-<h2 id="org2e53b35">Can we be more efficient?</h2>
-<div class="outline-text-2" id="text-org2e53b35">
+<div id="outline-container-orgb63b686" class="outline-2">
+<h2 id="orgb63b686">Can we be more efficient?</h2>
+<div class="outline-text-2" id="text-orgb63b686">
 <p>
 The answer is yes. Let us slightly change our algorithm to:
 </p>
@@ -368,27 +368,27 @@ The answer is yes. Let us slightly change our algorithm to:
 <p>
 The assignment table for the slightly modified algorithm is
 </p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table>
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
